@@ -7,6 +7,16 @@ public class Annotation {
 	private String fromTime;
 	private String toTime;
 	
+	// Format of the annotation (ID, Sender, Type, Scope, Focus, Content, Target)
+	private int ID;
+	private String sender;
+	private String type;
+	private String scope;
+	private String focus;
+	private String content;
+	private String target;
+	
+	
 	/**
 	 * A constructor for a simple annotation.
 	 */
