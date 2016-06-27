@@ -10,6 +10,8 @@ import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.DoubleProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -18,8 +20,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Slider;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaPlayer.Status;
@@ -42,6 +46,7 @@ public class MainViewController implements Initializable {
 	private MediaPlayer mediaPlayer;
 	private Media media;
 	private FileChooser fileChooser;
+	private ObservableList<Annotation> annotations;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -97,8 +102,35 @@ public class MainViewController implements Initializable {
 			}
 		});
 		
-		// Setting up the table view.
-		// TODO: add table view setup here
+		// Setting the table view.
+		// Label Column
+		TableColumn<Annotation, String> labelColumn = new TableColumn<>("Label");
+		labelColumn.setMinWidth(75);
+		labelColumn.setCellValueFactory(new PropertyValueFactory<>("label"));
+		
+		// From time column
+		TableColumn<Annotation, String> fromTimeColumn = new TableColumn<>("From Time");
+		fromTimeColumn.setMinWidth(75);
+		fromTimeColumn.setCellValueFactory(new PropertyValueFactory<>("fromTime"));
+		
+		// To time column
+		TableColumn<Annotation, String> toTimeColumn = new TableColumn<>("To Time");
+		toTimeColumn.setMinWidth(75);
+		toTimeColumn.setCellValueFactory(new PropertyValueFactory<>("toTime"));
+		
+		tableView.setItems(getAnnotations());
+		tableView.getColumns().addAll(labelColumn, fromTimeColumn, toTimeColumn);
+	}
+	
+	public ObservableList<Annotation> getAnnotations() {
+		annotations = FXCollections.observableArrayList();
+		
+		annotations.add(new Annotation());
+		annotations.add(new Annotation());
+		annotations.add(new Annotation());
+		annotations.add(new Annotation());
+
+		return annotations;
 	}
 	
 	/**
@@ -161,16 +193,19 @@ public class MainViewController implements Initializable {
 	 * A method that creates an annotation and adds it to the tree view.
 	 */
 	public void addAnnotation() {
-		Annotation anAnnotation = new Annotation(textField.getText());
+		Annotation anAnnotation = new Annotation();
+		anAnnotation.setLabel(textField.getText());
 		anAnnotation.setFromTime(fromTime.getText());
 		anAnnotation.setToTime(toTime.getText());
 		
+		// Adding the annotation to the list
+		annotations.add(anAnnotation);
+		tableView.refresh();
+		
+		// Clearing the view
 		textField.clear();
 		fromTime.clear();
 		toTime.clear();
-		
-		//TODO: to add the annotation to the table view
-		
 	}
 	
 	/**

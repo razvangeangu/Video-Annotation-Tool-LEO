@@ -27,15 +27,6 @@ public class Annotation {
 		fromTime = "0";
 		toTime = "0";
 	}
-	
-	/**
-	 * Overriding the toString method in order to show the label.
-	 */
-	@Override
-	public String toString() {
-		
-		return label;
-	}
 
 	public String getFromTime() {
 		return fromTime;
@@ -51,6 +42,14 @@ public class Annotation {
 
 	public void setToTime(String toTime) {
 		this.toTime = toTime;
+	}
+
+	public void setLabel(String label) {
+		this.label = label;
+	}
+	
+	public String getLabel() {
+		return label;
 	}
 
 }
