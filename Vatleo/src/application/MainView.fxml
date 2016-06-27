@@ -101,12 +101,6 @@
       </SplitPane>
    </center>
    <left>
-      <TableView fx:id="tableView" prefHeight="357.0" prefWidth="244.0" BorderPane.alignment="CENTER">
-        <columns>
-          <TableColumn prefWidth="75.0" text="Label" />
-          <TableColumn prefWidth="75.0" text="From" />
-            <TableColumn prefWidth="75.0" text="To" />
-        </columns>
-      </TableView>
+      <TableView fx:id="tableView" prefHeight="357.0" prefWidth="244.0" BorderPane.alignment="CENTER" />
    </left>
 </BorderPane>
