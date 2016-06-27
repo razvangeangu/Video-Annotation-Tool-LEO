@@ -42,6 +42,9 @@ public class MainViewController implements Initializable {
 	@FXML private TextField toTime;
 	@FXML private MenuItem openItem;
 	@FXML private TableView<Annotation> tableView;
+	@FXML private TableColumn<Annotation, String> labelColumn;
+	@FXML private TableColumn<Annotation, String> fromTimeColumn;
+	@FXML private TableColumn<Annotation, String> toTimeColumn;
 	
 	private MediaPlayer mediaPlayer;
 	private Media media;
@@ -61,7 +64,7 @@ public class MainViewController implements Initializable {
 		DoubleProperty width = mediaView.fitWidthProperty();
 		DoubleProperty height = mediaView.fitHeightProperty();
 		width.bind(Bindings.selectDouble(mediaView.sceneProperty(), "width"));
-//		height.bind(Bindings.selectDouble(mediaView.sceneProperty(), "height"));
+		height.bind(Bindings.selectDouble(mediaView.sceneProperty(), "height"));
 		
 		// Adding the possibility to seek the media player.
 		timeSlider.valueProperty().addListener(new InvalidationListener() {
@@ -103,25 +106,24 @@ public class MainViewController implements Initializable {
 		});
 		
 		// Setting the table view.
+		
 		// Label Column
-		TableColumn<Annotation, String> labelColumn = new TableColumn<>("Label");
 		labelColumn.setMinWidth(75);
 		labelColumn.setCellValueFactory(new PropertyValueFactory<>("label"));
 		
 		// From time column
-		TableColumn<Annotation, String> fromTimeColumn = new TableColumn<>("From Time");
 		fromTimeColumn.setMinWidth(75);
 		fromTimeColumn.setCellValueFactory(new PropertyValueFactory<>("fromTime"));
 		
 		// To time column
-		TableColumn<Annotation, String> toTimeColumn = new TableColumn<>("To Time");
 		toTimeColumn.setMinWidth(75);
 		toTimeColumn.setCellValueFactory(new PropertyValueFactory<>("toTime"));
 		
 		tableView.setItems(getAnnotations());
-		tableView.getColumns().addAll(labelColumn, fromTimeColumn, toTimeColumn);
+		// TODO: add listener when one of them is pressed
 	}
 	
+	// TODO: demo annotations; delete them in future;
 	public ObservableList<Annotation> getAnnotations() {
 		annotations = FXCollections.observableArrayList();
 		
