@@ -1,14 +1,12 @@
 package application;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.StringReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -44,7 +42,10 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import kcl.ac.uk.xtext.videoAnnotationsDSL.AnnotatedVideo;
 import kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation;
+import kcl.ac.uk.xtext.videoAnnotationsDSL.Time;
+import kcl.ac.uk.xtext.videoAnnotationsDSL.VideoAnnotationsDSLFactory;
 
 public class MainViewController implements Initializable {
 
@@ -66,15 +67,23 @@ public class MainViewController implements Initializable {
 	private Media media;
 	private FileChooser fileChooser;
 	private ObservableList<Annotation> annotations;
+	private XtextParser parser;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		
+		setupDSL();
 		
 		generateMediaPlayer();
 		
 		generateOpenButton();
 		
 		generateTableView();
+	}
+	
+	private void setupDSL() {
+		
+		parser = new XtextParser();
 	}
 
 	private void generateMediaPlayer() {
@@ -275,32 +284,47 @@ public class MainViewController implements Initializable {
 	 * A method that creates an annotation and adds it to the tree view.
 	 */
 	public void addAnnotation() {
-//		Annotation anAnnotation = new Annotation();
-//		anAnnotation.setLabel(textField.getText());
-//		anAnnotation.setFromTime(fromTime.getText());
-//		anAnnotation.setToTime(toTime.getText());
 		
-		FileWriter fw = null;
-		BufferedWriter bw = null;
-		PrintWriter out = null;
+		// ------------------------------------------------------------------------------
+		// ------------------------------------------------------------------------------
+		// Trying to create an annotation object with the content of the textField --------
+		// ------------------------------------------------------------------------------
+		// ------------------------------------------------------------------------------
+		// Adding a new annotation to the list and to the Xtext data set.
+		AnnotatedVideo anAnnotatedVideo = VideoAnnotationsDSLFactory.eINSTANCE.createAnnotatedVideo();
+		Annotation anAnnotation = VideoAnnotationsDSLFactory.eINSTANCE.createAnnotation();
+		Time time = VideoAnnotationsDSLFactory.eINSTANCE.createTime();
+		
+		anAnnotation.setContent(textField.getText());
+		
+		time.setSec(Integer.valueOf(fromTime.getText()));
+		anAnnotation.setFromTime(time);
+		
+		time.setSec(Integer.valueOf(toTime.getText()));
+		anAnnotation.setToTime(time);
+		
+		annotations.add(anAnnotation);
+		// ------------------------------------------------------------------------------
+		// ------------------------------------------------------------------------------
+		// ------------------------------------------------------------------------------
+
+		// Trying to parse the text from the textField to create an Annotation EObject
 		
 		try {
+			Annotation aParsedAnnotation = (Annotation) parser.parse(new StringReader(textField.getText()));
 			
-		    fw = new FileWriter("data.txt", true);
-		    bw = new BufferedWriter(fw);
-		    out = new PrintWriter(bw);
-//		    out.println(anAnnotation.getLabel());
-		    out.close();
-		    
+			time.setSec(Integer.valueOf(fromTime.getText()));
+			aParsedAnnotation.setFromTime(time);
+			time.setSec(Integer.valueOf(toTime.getText()));
+			aParsedAnnotation.setToTime(time);
+			
+			annotations.add(aParsedAnnotation);
 		} catch (IOException e) {
-		    e.printStackTrace();
+			e.printStackTrace();
 		}
 		
-		// Adding the annotation to the list
-//		annotations.add(anAnnotation);
+		// Clearing/Refreshing the view
 		tableView.refresh();
-		
-		// Clearing the view
 		textField.clear();
 		fromTime.clear();
 		toTime.clear();
