@@ -1,6 +1,14 @@
 package application;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,6 +24,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
@@ -24,11 +33,17 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaPlayer.Status;
 import javafx.scene.media.MediaView;
+import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 public class MainViewController implements Initializable {
 
@@ -59,6 +74,7 @@ public class MainViewController implements Initializable {
 		media = new Media(new File(path).toURI().toString());
 		mediaPlayer = new MediaPlayer(media);
 		mediaView.setMediaPlayer(mediaPlayer);
+		resetPlayer();
 		
 		// Preserve the ratio of the video
 		DoubleProperty width = mediaView.fitWidthProperty();
@@ -78,14 +94,6 @@ public class MainViewController implements Initializable {
 			}
 		});
 		
-		// Controlling the view to update the time slider and the time label.
-		mediaPlayer.currentTimeProperty().addListener(new InvalidationListener() {
-			public void invalidated(Observable observerable) {
-				updateTimeSlider();
-				updateTimeLabel();
-			}
-		});
-		
 		fileChooser = new FileChooser();
 		
 		openItem.setOnAction(new EventHandler<ActionEvent>() {
@@ -98,6 +106,8 @@ public class MainViewController implements Initializable {
 						media = new Media(file.toURI().toURL().toExternalForm());
 						mediaPlayer = new MediaPlayer(media);
 						mediaView.setMediaPlayer(mediaPlayer);
+						
+						resetPlayer();
 					} catch (MalformedURLException e1) {
 						e1.printStackTrace();
 					}
@@ -120,17 +130,62 @@ public class MainViewController implements Initializable {
 		toTimeColumn.setCellValueFactory(new PropertyValueFactory<>("toTime"));
 		
 		tableView.setItems(getAnnotations());
-		// TODO: add listener when one of them is pressed
+		tableView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                if (mouseEvent.getButton().equals(MouseButton.PRIMARY)) {
+                    if (mouseEvent.getClickCount() == 2) {
+                    	final Stage dialog = new Stage();
+                        dialog.initModality(Modality.APPLICATION_MODAL);
+                        VBox dialogVbox = new VBox(20);
+                        int index = tableView.getSelectionModel().getSelectedIndex();
+                        dialogVbox.getChildren().add(new Text(annotations.get(index).getDSL()));
+                        Scene dialogScene = new Scene(dialogVbox, 300, 200);
+                        dialog.setScene(dialogScene);
+                        dialog.show();
+                    }
+                }
+            }
+        });
 	}
 	
-	// TODO: demo annotations; delete them in future;
 	public ObservableList<Annotation> getAnnotations() {
 		annotations = FXCollections.observableArrayList();
 		
-		annotations.add(new Annotation());
-		annotations.add(new Annotation());
-		annotations.add(new Annotation());
-		annotations.add(new Annotation());
+		// open the file
+        // The name of the file to open.
+        String fileName = "data.txt";
+
+        // This will reference one line at a time
+        String line = null;
+        
+        try {
+			new FileOutputStream("data.txt", true).close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+        try {
+            // FileReader reads text files in the default encoding.
+            FileReader fileReader = new FileReader(fileName);
+
+            // Always wrap FileReader in BufferedReader.
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+            while((line = bufferedReader.readLine()) != null) {
+                annotations.add(new Annotation(line));
+            }   
+
+            // Always close files.
+            bufferedReader.close();
+        }
+        catch(FileNotFoundException ex) {
+            System.out.println("Unable to open file '" + fileName + "'");
+        }
+        catch(IOException ex) {
+            System.out.println("Error reading file '" + fileName + "'");
+        }
 
 		return annotations;
 	}
@@ -182,7 +237,19 @@ public class MainViewController implements Initializable {
 		
 		Platform.runLater(new Runnable() {
 			public void run() {
-				timeStamp.setText(minutes + ":" + seconds);
+				if (seconds - (minutes * 60) >= 10) {
+					if (minutes >= 10) {
+						timeStamp.setText(minutes + ":" + (seconds - (minutes * 60)));
+					} else {
+						timeStamp.setText("0" + minutes + ":" + (seconds - (minutes * 60)));
+					}
+				} else {
+					if (minutes >= 10) {
+						timeStamp.setText(minutes + ":0" + (seconds - (minutes * 60)));
+					} else {
+						timeStamp.setText("0" + minutes + ":0" + (seconds - (minutes * 60)));
+					}
+				}
 				
 				if (!fromTime.getText().equals("")) {
 					toTime.setText(Integer.toString(seconds));
@@ -200,6 +267,22 @@ public class MainViewController implements Initializable {
 		anAnnotation.setFromTime(fromTime.getText());
 		anAnnotation.setToTime(toTime.getText());
 		
+		FileWriter fw = null;
+		BufferedWriter bw = null;
+		PrintWriter out = null;
+		
+		try {
+			
+		    fw = new FileWriter("data.txt", true);
+		    bw = new BufferedWriter(fw);
+		    out = new PrintWriter(bw);
+		    out.println(anAnnotation.getLabel());
+		    out.close();
+		    
+		} catch (IOException e) {
+		    e.printStackTrace();
+		}
+		
 		// Adding the annotation to the list
 		annotations.add(anAnnotation);
 		tableView.refresh();
@@ -208,6 +291,25 @@ public class MainViewController implements Initializable {
 		textField.clear();
 		fromTime.clear();
 		toTime.clear();
+	}
+	
+	/**
+	 * A method to reset the view and add the listener for the new mediaPlayer.
+	 */
+	public void resetPlayer() {
+		
+		mediaPlayer.seek(mediaPlayer.getMedia().getDuration().multiply(0 / 100));
+		timeSlider.setValue(0);
+		timeStamp.setText("00:00");
+		playPauseButton.setText("Play");
+		
+		// Controlling the view to update the time slider and the time label.
+		mediaPlayer.currentTimeProperty().addListener(new InvalidationListener() {
+			public void invalidated(Observable observerable) {
+				updateTimeSlider();
+				updateTimeLabel();
+			}
+		});
 	}
 	
 	/**

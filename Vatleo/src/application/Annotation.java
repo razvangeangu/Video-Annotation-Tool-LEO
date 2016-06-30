@@ -61,5 +61,14 @@ public class Annotation {
 	public String getLabel() {
 		return label;
 	}
+	
+	/**
+	 * A method to get the DSL form of the annotation.
+	 * @return A string that represennts the DSL form of the annotation.
+	 */
+	public String getDSL() {
+		
+		return "from " + fromTime + " to " + toTime + " annotate(" + ID + "," + sender + "," + type + "," + scope + "," + focus + "," + content + "," + target + ")";
+	}
 
 }
