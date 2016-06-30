@@ -44,6 +44,7 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation;
 
 public class MainViewController implements Initializable {
 
@@ -69,6 +70,14 @@ public class MainViewController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
+		generateMediaPlayer();
+		
+		generateOpenButton();
+		
+		generateTableView();
+	}
+
+	private void generateMediaPlayer() {
 		// Init the media objects
 		String path = new File("src/media/video.mp4").getAbsolutePath();
 		media = new Media(new File(path).toURI().toString());
@@ -93,7 +102,9 @@ public class MainViewController implements Initializable {
 				}
 			}
 		});
-		
+	}
+
+	private void generateOpenButton() {
 		fileChooser = new FileChooser();
 		
 		openItem.setOnAction(new EventHandler<ActionEvent>() {
@@ -114,7 +125,9 @@ public class MainViewController implements Initializable {
 				}
 			}
 		});
-		
+	}
+
+	private void generateTableView() {
 		// Setting the table view.
 		
 		// Label Column
@@ -139,7 +152,7 @@ public class MainViewController implements Initializable {
                         dialog.initModality(Modality.APPLICATION_MODAL);
                         VBox dialogVbox = new VBox(20);
                         int index = tableView.getSelectionModel().getSelectedIndex();
-                        dialogVbox.getChildren().add(new Text(annotations.get(index).getDSL()));
+                        dialogVbox.getChildren().add(new Text(annotations.get(index).getContent()));
                         Scene dialogScene = new Scene(dialogVbox, 300, 200);
                         dialog.setScene(dialogScene);
                         dialog.show();
@@ -174,7 +187,7 @@ public class MainViewController implements Initializable {
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
             while((line = bufferedReader.readLine()) != null) {
-                annotations.add(new Annotation(line));
+//                annotations.add(new Annotation(line)); TODO: change to the parser and get the annotations from there
             }   
 
             // Always close files.
@@ -262,10 +275,10 @@ public class MainViewController implements Initializable {
 	 * A method that creates an annotation and adds it to the tree view.
 	 */
 	public void addAnnotation() {
-		Annotation anAnnotation = new Annotation();
-		anAnnotation.setLabel(textField.getText());
-		anAnnotation.setFromTime(fromTime.getText());
-		anAnnotation.setToTime(toTime.getText());
+//		Annotation anAnnotation = new Annotation();
+//		anAnnotation.setLabel(textField.getText());
+//		anAnnotation.setFromTime(fromTime.getText());
+//		anAnnotation.setToTime(toTime.getText());
 		
 		FileWriter fw = null;
 		BufferedWriter bw = null;
@@ -276,7 +289,7 @@ public class MainViewController implements Initializable {
 		    fw = new FileWriter("data.txt", true);
 		    bw = new BufferedWriter(fw);
 		    out = new PrintWriter(bw);
-		    out.println(anAnnotation.getLabel());
+//		    out.println(anAnnotation.getLabel());
 		    out.close();
 		    
 		} catch (IOException e) {
@@ -284,7 +297,7 @@ public class MainViewController implements Initializable {
 		}
 		
 		// Adding the annotation to the list
-		annotations.add(anAnnotation);
+//		annotations.add(anAnnotation);
 		tableView.refresh();
 		
 		// Clearing the view
