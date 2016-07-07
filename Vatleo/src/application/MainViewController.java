@@ -56,6 +56,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import kcl.ac.uk.xtext.videoAnnotationsDSL.AnnotatedVideo;
 import kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation;
+import kcl.ac.uk.xtext.videoAnnotationsDSL.VideoAnnotationsDSLFactory;
 
 public class MainViewController implements Initializable {
 
@@ -78,6 +79,7 @@ public class MainViewController implements Initializable {
 	private FileChooser fileChooser;
 	private ObservableList<Annotation> annotations;
 	private XtextParser parser;
+	private AnnotatedVideo anAnnotatedVideo;
 	
 	private int fromSecond;
 	private int toSecond;
@@ -187,7 +189,8 @@ public class MainViewController implements Initializable {
 	public ObservableList<Annotation> getAnnotations() {
 		annotations = FXCollections.observableArrayList();
 		
-		// open the file
+		anAnnotatedVideo = VideoAnnotationsDSLFactory.eINSTANCE.createAnnotatedVideo();		
+		
         // The name of the file to open.
         String fileName = "data.txt";
 
@@ -209,7 +212,9 @@ public class MainViewController implements Initializable {
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
             while((line = bufferedReader.readLine()) != null) {
-//                annotations.add(new Annotation(line));
+            	Reader stringReader = new StringReader(line);
+            	anAnnotatedVideo = (AnnotatedVideo) parser.parse(stringReader);
+            	annotations.add(anAnnotatedVideo.getAnnotations().get(0));
             }   
 
             // Always close files.
@@ -298,14 +303,13 @@ public class MainViewController implements Initializable {
 	 * A method that creates an annotation and adds it to the tree view.
 	 */
 	public void addAnnotation() {
-		AnnotatedVideo aParsedAnnotation = null;
 		String testString = "from " + fromSecond + " to " + toSecond + " " + textField.getText();
 		Reader test = new StringReader(testString);
 				
 		try {
 			
-			aParsedAnnotation = (AnnotatedVideo) parser.parse(test);
-			annotations.add(aParsedAnnotation.getAnnotations().get(aParsedAnnotation.getAnnotations().size() - 1));
+			anAnnotatedVideo = (AnnotatedVideo) parser.parse(test);
+			annotations.add(anAnnotatedVideo.getAnnotations().get(anAnnotatedVideo.getAnnotations().size() - 1));
 			
 			try (FileWriter fw = new FileWriter("data.txt", true) ;
 				    BufferedWriter bw = new BufferedWriter(fw);
@@ -316,7 +320,7 @@ public class MainViewController implements Initializable {
 					e.printStackTrace(); //TODO: add exception
 				}
 			
-			System.out.println(aParsedAnnotation.getAnnotations());
+			System.out.println(anAnnotatedVideo.getAnnotations());
 		} catch (ParseException e) {
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("Exception Dialog");
