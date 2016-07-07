@@ -1,7 +1,6 @@
 package application;
 
 
-import java.io.IOException;
 import java.io.Reader;
 
 import org.eclipse.emf.common.util.URI;
@@ -17,17 +16,18 @@ import com.google.inject.Injector;
 import kcl.ac.uk.xtext.VideoAnnotationsDSLStandaloneSetup;
 
 public class XtextParser {
-	 
+	
     private IParser parser;
  
     public XtextParser() {
     	
-    	addDependency();
+    	setupParser();
     }
  
     private void setupParser() {
     	
         Injector injector = new VideoAnnotationsDSLStandaloneSetup().createInjectorAndDoEMFRegistration();
+        parser = injector.getInstance(IParser.class);
         injector.injectMembers(this);
     }
     
@@ -39,7 +39,7 @@ public class XtextParser {
     	XtextResourceSet resourceSet = injector.getInstance(XtextResourceSet.class);
 
     	// load a resource by URI, in this case from the file system
-    	Resource resource = resourceSet.getResource(URI.createFileURI("./VideAnnotationsDSL.videannotationsdsl"), true);
+    	Resource resource = resourceSet.getResource(URI.createFileURI("./mymodel.mydsl"), true);
     }
  
     /**
@@ -48,7 +48,7 @@ public class XtextParser {
      * @return root object node
      * @throws IOException when errors occur during the parsing process
      */
-    public EObject parse(Reader reader) throws IOException {
+    public EObject parse(Reader reader) throws ParseException {
         IParseResult result = parser.parse(reader);
         
         if (result.hasSyntaxErrors()) {

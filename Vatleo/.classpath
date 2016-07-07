@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.fx.ide.jdt.core.JAVAFX_CONTAINER"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="/Users/razvan-gabrielgeangu/.p2/pool/plugins/org.eclipse.xtext_2.10.0.v201605250459.jar" sourcepath="/Users/razvan-gabrielgeangu/.p2/pool/plugins/org.eclipse.xtext.source_2.10.0.v201605250459.jar">
 		<accessrules>
 			<accessrule kind="accessible" pattern="org/eclipse/xtext/*"/>
@@ -121,8 +121,6 @@
 			<accessrule ignoreifbetter="true" kind="nonaccessible" pattern="**/*"/>
 		</accessrules>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/kcl.ac.uk.xtext.videoannotationsdsl"/>
 	<classpathentry kind="lib" path="/Users/razvan-gabrielgeangu/.p2/pool/plugins/org.eclipse.emf.common_2.12.0.v20160420-0247.jar" sourcepath="/Users/razvan-gabrielgeangu/.p2/pool/plugins/org.eclipse.emf.common.source_2.12.0.v20160420-0247.jar">
 		<accessrules>
 			<accessrule kind="accessible" pattern="org/eclipse/emf/common/*"/>
@@ -134,5 +132,6 @@
 			<accessrule ignoreifbetter="true" kind="nonaccessible" pattern="**/*"/>
 		</accessrules>
 	</classpathentry>
+	<classpathentry combineaccessrules="false" kind="src" path="/kcl.ac.uk.xtext.videoannotationsdsl"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
