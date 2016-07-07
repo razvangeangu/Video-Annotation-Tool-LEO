@@ -9,9 +9,14 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.Reader;
+import java.io.StringReader;
+import java.io.StringWriter;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import org.eclipse.xtext.parser.ParseException;
 
 import javafx.application.Platform;
 import javafx.beans.InvalidationListener;
@@ -25,16 +30,21 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -44,6 +54,8 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import kcl.ac.uk.xtext.videoAnnotationsDSL.AnnotatedVideo;
+import kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation;
 
 public class MainViewController implements Initializable {
 
@@ -65,10 +77,29 @@ public class MainViewController implements Initializable {
 	private Media media;
 	private FileChooser fileChooser;
 	private ObservableList<Annotation> annotations;
+	private XtextParser parser;
+	
+	private int fromSecond;
+	private int toSecond;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
+		setupDSL();
+		
+		generateMediaPlayer();
+		
+		generateOpenButton();
+		
+		generateTableView();
+	}
+	
+	private void setupDSL() {
+		
+		parser = new XtextParser();
+	}
+
+	private void generateMediaPlayer() {
 		// Init the media objects
 		String path = new File("src/media/video.mp4").getAbsolutePath();
 		media = new Media(new File(path).toURI().toString());
@@ -93,7 +124,9 @@ public class MainViewController implements Initializable {
 				}
 			}
 		});
-		
+	}
+
+	private void generateOpenButton() {
 		fileChooser = new FileChooser();
 		
 		openItem.setOnAction(new EventHandler<ActionEvent>() {
@@ -114,7 +147,9 @@ public class MainViewController implements Initializable {
 				}
 			}
 		});
-		
+	}
+
+	private void generateTableView() {
 		// Setting the table view.
 		
 		// Label Column
@@ -139,7 +174,7 @@ public class MainViewController implements Initializable {
                         dialog.initModality(Modality.APPLICATION_MODAL);
                         VBox dialogVbox = new VBox(20);
                         int index = tableView.getSelectionModel().getSelectedIndex();
-                        dialogVbox.getChildren().add(new Text(annotations.get(index).getDSL()));
+                        dialogVbox.getChildren().add(new Text(annotations.get(index).getContent()));
                         Scene dialogScene = new Scene(dialogVbox, 300, 200);
                         dialog.setScene(dialogScene);
                         dialog.show();
@@ -174,7 +209,7 @@ public class MainViewController implements Initializable {
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
             while((line = bufferedReader.readLine()) != null) {
-                annotations.add(new Annotation(line));
+//                annotations.add(new Annotation(line));
             }   
 
             // Always close files.
@@ -252,7 +287,8 @@ public class MainViewController implements Initializable {
 				}
 				
 				if (!fromTime.getText().equals("")) {
-					toTime.setText(Integer.toString(seconds));
+					toTime.setText(timeStamp.getText());
+					toSecond = seconds;
 				}
 			}
 		});
@@ -262,32 +298,63 @@ public class MainViewController implements Initializable {
 	 * A method that creates an annotation and adds it to the tree view.
 	 */
 	public void addAnnotation() {
-		Annotation anAnnotation = new Annotation();
-		anAnnotation.setLabel(textField.getText());
-		anAnnotation.setFromTime(fromTime.getText());
-		anAnnotation.setToTime(toTime.getText());
-		
-		FileWriter fw = null;
-		BufferedWriter bw = null;
-		PrintWriter out = null;
-		
+		AnnotatedVideo aParsedAnnotation = null;
+		String testString = "from " + fromSecond + " to " + toSecond + " " + textField.getText();
+		Reader test = new StringReader(testString);
+				
 		try {
 			
-		    fw = new FileWriter("data.txt", true);
-		    bw = new BufferedWriter(fw);
-		    out = new PrintWriter(bw);
-		    out.println(anAnnotation.getLabel());
-		    out.close();
-		    
-		} catch (IOException e) {
-		    e.printStackTrace();
+			aParsedAnnotation = (AnnotatedVideo) parser.parse(test);
+			annotations.add(aParsedAnnotation.getAnnotations().get(aParsedAnnotation.getAnnotations().size() - 1));
+			
+			try (FileWriter fw = new FileWriter("data.txt", true) ;
+				    BufferedWriter bw = new BufferedWriter(fw);
+				    PrintWriter out = new PrintWriter(bw))
+				{
+				    out.println(testString);
+				} catch (IOException e) {
+					e.printStackTrace(); //TODO: add exception
+				}
+			
+			System.out.println(aParsedAnnotation.getAnnotations());
+		} catch (ParseException e) {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("Exception Dialog");
+			alert.setHeaderText("Provided input contains syntax errors.");
+			alert.setContentText("Try to edit the input to match the DSL.");
+
+			Exception ex = new ParseException("Provided input contains syntax errors.");
+
+			// Create expandable Exception.
+			StringWriter sw = new StringWriter();
+			PrintWriter pw = new PrintWriter(sw);
+			ex.printStackTrace(pw);
+			String exceptionText = sw.toString();
+
+			Label label = new Label("The exception stacktrace was:");
+
+			TextArea textArea = new TextArea(exceptionText);
+			textArea.setEditable(false);
+			textArea.setWrapText(true);
+
+			textArea.setMaxWidth(Double.MAX_VALUE);
+			textArea.setMaxHeight(Double.MAX_VALUE);
+			GridPane.setVgrow(textArea, Priority.ALWAYS);
+			GridPane.setHgrow(textArea, Priority.ALWAYS);
+
+			GridPane expContent = new GridPane();
+			expContent.setMaxWidth(Double.MAX_VALUE);
+			expContent.add(label, 0, 0);
+			expContent.add(textArea, 0, 1);
+
+			// Set expandable Exception into the dialog pane.
+			alert.getDialogPane().setExpandableContent(expContent);
+
+			alert.showAndWait();
 		}
 		
-		// Adding the annotation to the list
-		annotations.add(anAnnotation);
+		// Clearing/Refreshing the view
 		tableView.refresh();
-		
-		// Clearing the view
 		textField.clear();
 		fromTime.clear();
 		toTime.clear();
@@ -317,8 +384,9 @@ public class MainViewController implements Initializable {
 	 */
 	public void annotate() {
 		
+		fromTime.setText(timeStamp.getText());
+		fromSecond = (int) mediaPlayer.getCurrentTime().toSeconds();
 		mediaPlayer.pause();
 		playPauseButton.setText("Play");
-		fromTime.setText(Double.toString(mediaPlayer.getCurrentTime().toSeconds()));
 	}
 }
