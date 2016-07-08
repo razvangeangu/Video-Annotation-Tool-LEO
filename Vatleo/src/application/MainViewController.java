@@ -35,6 +35,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Slider;
@@ -158,6 +159,32 @@ public class MainViewController implements Initializable {
 	private void generateTableView() {
 		// Setting the table view.
 		
+		// Setting a context menu for the rows 
+		ContextMenu contextMenu = new ContextMenu();
+        MenuItem openItem = new MenuItem("Open");
+        MenuItem deleteItem = new MenuItem("Remove");
+        
+        openItem.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent event) {
+				
+				showContentDialog();
+			}
+        	
+        });       	
+        deleteItem.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent event) {
+				removeAnnotationFromDataFile(getStringDSL(tableView.getSelectionModel().getSelectedItem()));
+				annotations.remove(tableView.getSelectionModel().getSelectedIndex());
+			}
+        });
+        
+        contextMenu.getItems().add(openItem);
+        contextMenu.getItems().add(deleteItem);
+		
 		// Label Column
 		labelColumn.setMinWidth(75);
 		labelColumn.setCellValueFactory(new PropertyValueFactory<>("content"));
@@ -185,16 +212,16 @@ public class MainViewController implements Initializable {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 if (mouseEvent.getButton().equals(MouseButton.PRIMARY)) {
+                	
                     if (mouseEvent.getClickCount() == 2) {
-                    	final Stage dialog = new Stage();
-                        dialog.initModality(Modality.APPLICATION_MODAL);
-                        VBox dialogVbox = new VBox(20);
-                        int index = tableView.getSelectionModel().getSelectedIndex();
-                        dialogVbox.getChildren().add(new Text(annotations.get(index).getContent()));
-                        Scene dialogScene = new Scene(dialogVbox, 300, 200);
-                        dialog.setScene(dialogScene);
-                        dialog.show();
+                    	
+                    	showContentDialog();
                     }
+                }
+                
+                if (mouseEvent.getButton().equals(MouseButton.SECONDARY)) {
+                    
+                    contextMenu.show(tableView, mouseEvent.getScreenX() , mouseEvent.getScreenY());
                 }
             }
         });
@@ -407,4 +434,67 @@ public class MainViewController implements Initializable {
 		
 		return time;
 	}
+	
+	public void showContentDialog() {
+    	final Stage dialog = new Stage();
+        VBox dialogVbox = new VBox(20);
+        int index = tableView.getSelectionModel().getSelectedIndex();
+        
+        dialog.initModality(Modality.APPLICATION_MODAL);
+        dialogVbox.getChildren().add(new Text(annotations.get(index).getContent()));
+        Scene dialogScene = new Scene(dialogVbox, 300, 200);
+        dialog.setScene(dialogScene);
+        dialog.show();
+	}
+
+	/**
+	 * A method that removes the Annotation from the data file.
+	 * @param anAnnotationToRemove An Annotation to be removed from the data file.
+	 * @throws IOException
+	 */
+	public void removeAnnotationFromDataFile(String anAnnotationToRemove) {
+		File inputFile = new File("data.txt");
+		File tempFile = new File("tempData.txt");
+
+		BufferedReader reader;
+		BufferedWriter writer;
+		
+		try {
+			reader = new BufferedReader(new FileReader(inputFile));
+			writer = new BufferedWriter(new FileWriter(tempFile));
+			
+			String currentLine;
+
+			while ((currentLine = reader.readLine()) != null) {
+			    String trimmedLine = currentLine.trim();
+			    
+			    if (trimmedLine.equals(anAnnotationToRemove)) continue;
+			    writer.write(currentLine + System.getProperty("line.separator"));
+			}
+			
+			writer.close();
+			reader.close();
+			tempFile.renameTo(inputFile);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * Get a String of the DSL of an Annotation.
+	 * @param anAnnotation An Annotation to be translated into a String in the DSL.
+	 * @return A String that represents the DSL of an Annotation.
+	 */
+	public String getStringDSL(Annotation anAnnotation) {
+		
+		return "from " + anAnnotation.getFromTime().getSec() + " to " + anAnnotation.getToTime().getSec() + 
+				" annotate(" + anAnnotation.getId() + "," + anAnnotation.getSender() + "," + anAnnotation.getType().getType() + "," + 
+				anAnnotation.getScope().getScope() + "," + anAnnotation.getFocus().getFocus() + ",\"" + anAnnotation.getContent() + "\"," + 
+				anAnnotation.getTarget() + ")";
+	}
+	
 }
