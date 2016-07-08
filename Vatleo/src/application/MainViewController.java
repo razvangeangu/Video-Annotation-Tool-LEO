@@ -23,6 +23,8 @@ import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.ReadOnlyObjectWrapper;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -37,6 +39,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -54,6 +57,7 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import kcl.ac.uk.xtext.videoAnnotationsDSL.AnnotatedVideo;
 import kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation;
 import kcl.ac.uk.xtext.videoAnnotationsDSL.VideoAnnotationsDSLFactory;
@@ -77,8 +81,8 @@ public class MainViewController implements Initializable {
 	private MediaPlayer mediaPlayer;
 	private Media media;
 	private FileChooser fileChooser;
-	private ObservableList<Annotation> annotations;
 	private XtextParser parser;
+	private ObservableList<Annotation> annotations;
 	private AnnotatedVideo anAnnotatedVideo;
 	
 	private int fromSecond;
@@ -156,15 +160,25 @@ public class MainViewController implements Initializable {
 		
 		// Label Column
 		labelColumn.setMinWidth(75);
-		labelColumn.setCellValueFactory(new PropertyValueFactory<>("label"));
+		labelColumn.setCellValueFactory(new PropertyValueFactory<>("content"));
 		
 		// From time column
 		fromTimeColumn.setMinWidth(75);
-		fromTimeColumn.setCellValueFactory(new PropertyValueFactory<>("fromTime"));
+		fromTimeColumn.setCellValueFactory(new Callback<CellDataFeatures<Annotation, String>, ObservableValue<String>>() {	
+			@SuppressWarnings({ "unchecked", "rawtypes" }) //TODO: fix the warnings
+			public ObservableValue<String> call(CellDataFeatures<Annotation, String> p) {
+				return new ReadOnlyObjectWrapper(convertSecToTime(p.getValue().getFromTime().getSec()));
+			}
+		});
 		
 		// To time column
 		toTimeColumn.setMinWidth(75);
-		toTimeColumn.setCellValueFactory(new PropertyValueFactory<>("toTime"));
+		toTimeColumn.setCellValueFactory(new Callback<CellDataFeatures<Annotation, String>, ObservableValue<String>>() {	
+			@SuppressWarnings({ "unchecked", "rawtypes" }) //TODO: fix the warnings
+			public ObservableValue<String> call(CellDataFeatures<Annotation, String> p) {
+				return new ReadOnlyObjectWrapper(convertSecToTime(p.getValue().getToTime().getSec()));
+			}
+		});
 		
 		tableView.setItems(getAnnotations());
 		tableView.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -270,30 +284,15 @@ public class MainViewController implements Initializable {
 	 * A method that updates the time label for the video.
 	 */
 	public void updateTimeLabel() {
-		int minutes, seconds;
-		
-		minutes = (int) mediaPlayer.getCurrentTime().toMinutes();
-		seconds = (int) mediaPlayer.getCurrentTime().toSeconds();
+		int currentTimeInSeconds = (int) mediaPlayer.getCurrentTime().toSeconds();
 		
 		Platform.runLater(new Runnable() {
 			public void run() {
-				if (seconds - (minutes * 60) >= 10) {
-					if (minutes >= 10) {
-						timeStamp.setText(minutes + ":" + (seconds - (minutes * 60)));
-					} else {
-						timeStamp.setText("0" + minutes + ":" + (seconds - (minutes * 60)));
-					}
-				} else {
-					if (minutes >= 10) {
-						timeStamp.setText(minutes + ":0" + (seconds - (minutes * 60)));
-					} else {
-						timeStamp.setText("0" + minutes + ":0" + (seconds - (minutes * 60)));
-					}
-				}
+				timeStamp.setText(convertSecToTime(currentTimeInSeconds));
 				
 				if (!fromTime.getText().equals("")) {
 					toTime.setText(timeStamp.getText());
-					toSecond = seconds;
+					toSecond = currentTimeInSeconds;
 				}
 			}
 		});
@@ -307,7 +306,6 @@ public class MainViewController implements Initializable {
 		Reader test = new StringReader(testString);
 				
 		try {
-			
 			anAnnotatedVideo = (AnnotatedVideo) parser.parse(test);
 			annotations.add(anAnnotatedVideo.getAnnotations().get(anAnnotatedVideo.getAnnotations().size() - 1));
 			
@@ -321,6 +319,12 @@ public class MainViewController implements Initializable {
 				}
 			
 			System.out.println(anAnnotatedVideo.getAnnotations());
+			
+			// Clearing the view
+			tableView.refresh();
+			textField.clear();
+			fromTime.clear();
+			toTime.clear();
 		} catch (ParseException e) {
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("Exception Dialog");
@@ -356,12 +360,6 @@ public class MainViewController implements Initializable {
 
 			alert.showAndWait();
 		}
-		
-		// Clearing/Refreshing the view
-		tableView.refresh();
-		textField.clear();
-		fromTime.clear();
-		toTime.clear();
 	}
 	
 	/**
@@ -392,5 +390,21 @@ public class MainViewController implements Initializable {
 		fromSecond = (int) mediaPlayer.getCurrentTime().toSeconds();
 		mediaPlayer.pause();
 		playPauseButton.setText("Play");
+	}
+	
+	/**
+	 * A method to convert the time from seconds to a String time stamp in the format mm:ss.
+	 * @param sec The amount of seconds to be converted to a String time stamp.
+	 * @return A String that represents the current time in the format mm:ss.
+	 */
+	public String convertSecToTime(int sec) {
+		String time = "";
+		
+		int minutes = (sec % 3600) / 60;
+		int seconds = sec % 60;
+
+		time = String.format("%02d:%02d", minutes, seconds);
+		
+		return time;
 	}
 }
