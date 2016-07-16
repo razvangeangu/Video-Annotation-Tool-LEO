@@ -48,8 +48,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
@@ -62,6 +60,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import javafx.util.Duration;
 import kcl.ac.uk.xtext.videoAnnotationsDSL.AnnotatedVideo;
 import kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation;
 import kcl.ac.uk.xtext.videoAnnotationsDSL.VideoAnnotationsDSLFactory;
@@ -83,10 +82,11 @@ public class MainViewController implements Initializable {
 	@FXML private MenuItem copyMenuItem;
 	@FXML private MenuItem pasteMenuItem;
 	@FXML private CheckMenuItem editAnnotationCheckMenuItem;
+	@FXML private CheckMenuItem	viewAnnotationCheckMenuItem;
 	@FXML private TableView<Annotation> tableView;
 	@FXML private TableColumn<Annotation, String> labelColumn;
 	@FXML private TableColumn<Annotation, String> fromTimeColumn;
-	@FXML private TableColumn<Annotation, String> toTimeColumn;
+	@FXML private TableColumn<Annotation, String> toTimeColumn;	
 	
 	private MediaPlayer mediaPlayer;
 	private Media media;
@@ -321,6 +321,11 @@ public class MainViewController implements Initializable {
                     	
                     	enableEditingForAnnotation(tableView.getSelectionModel().getSelectedIndex());
                     }
+                    
+                    if (mouseEvent.getClickCount() == 1 && viewAnnotationCheckMenuItem.isSelected()) {
+                    	
+                    	seekPlayerToAnnotation(tableView.getSelectionModel().getSelectedIndex());
+                    }
                 }
                 
                 if (mouseEvent.getButton().equals(MouseButton.SECONDARY)) {
@@ -329,7 +334,6 @@ public class MainViewController implements Initializable {
                 }
             }
         });
-		
 	}
 	
 	public ObservableList<Annotation> getAnnotations(String filePath) {
@@ -628,5 +632,12 @@ public class MainViewController implements Initializable {
 				annotations.get(index).getTarget() + ")");
 	}
 
-	
+	/**
+	 * A method that seeks the player to the start time of an annotation.
+	 * @param index The index of the annotation to be seeked to.
+	 */
+	public void seekPlayerToAnnotation(int index) {
+		
+		mediaPlayer.seek(new Duration(annotations.get(index).getFromTime().getSec() * 1000));
+	}
 }

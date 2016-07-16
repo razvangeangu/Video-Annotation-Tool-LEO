@@ -29,6 +29,7 @@
                         <MenuItem fx:id="pasteMenuItem" mnemonicParsing="false" text="Paste" />
                         <SeparatorMenuItem mnemonicParsing="false" />
                         <CheckMenuItem fx:id="editAnnotationCheckMenuItem" mnemonicParsing="false" text="Edit annotations" />
+                        <CheckMenuItem fx:id="viewAnnotationCheckMenuItem" mnemonicParsing="false" text="Click and view annotations from start time" />
                      </items>
                   </Menu>
                 <Menu mnemonicParsing="false" text="Help">
@@ -79,7 +80,7 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <center>
                         <MediaView fx:id="mediaView" fitHeight="250.0" fitWidth="460.0" BorderPane.alignment="CENTER" />
                      </center>
@@ -88,21 +89,21 @@
             </AnchorPane>
           <AnchorPane maxHeight="50.0" minHeight="50.0" minWidth="160.0" SplitPane.resizableWithParent="false">
                <children>
-                  <HBox alignment="BOTTOM_CENTER" layoutX="14.0" layoutY="11.0">
+                  <HBox alignment="CENTER" fillHeight="false" layoutX="14.0" layoutY="11.0" prefHeight="50.0" prefWidth="454.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <Button fx:id="playPauseButton" mnemonicParsing="false" onAction="#playPause" text="Play">
                            <HBox.margin>
-                              <Insets right="20.0" />
+                              <Insets left="5.0" right="20.0" />
                            </HBox.margin>
                         </Button>
-                        <Slider fx:id="timeSlider" prefHeight="20.0" prefWidth="300.0">
+                        <Slider fx:id="timeSlider" prefHeight="20.0" prefWidth="300.0" snapToTicks="true">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
                         </Slider>
                         <Label fx:id="timeStamp" text="00:00">
                            <HBox.margin>
-                              <Insets left="20.0" />
+                              <Insets left="15.0" right="5.0" />
                            </HBox.margin>
                         </Label>
                      </children>
@@ -118,9 +119,9 @@
    <left>
       <TableView fx:id="tableView" editable="true" prefHeight="357.0" prefWidth="244.0" BorderPane.alignment="CENTER">
          <columns>
-            <TableColumn fx:id="labelColumn" prefWidth="75.0" text="Label" />
-            <TableColumn fx:id="fromTimeColumn" prefWidth="75.0" text="From" />
-            <TableColumn fx:id="toTimeColumn" prefWidth="75.0" text="To" />
+            <TableColumn fx:id="labelColumn" minWidth="85.0" prefWidth="-1.0" text="Label" />
+            <TableColumn fx:id="fromTimeColumn" minWidth="80.0" prefWidth="-1.0" text="From" />
+            <TableColumn fx:id="toTimeColumn" minWidth="80.0" prefWidth="-1.0" text="To" />
          </columns></TableView>
    </left>
 </BorderPane>
