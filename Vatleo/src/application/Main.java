@@ -17,6 +17,8 @@ public class Main extends Application {
 			primaryStage.setTitle("Java Video Annotation Tool");
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
+			primaryStage.setMinWidth(700);
+			primaryStage.setMinHeight(480);
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();

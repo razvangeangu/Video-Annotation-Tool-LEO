@@ -139,12 +139,12 @@ public class MainViewController implements Initializable {
 		loadAnnotationMenuItem.setDisable(true);
 
 		// Preserve the ratio of the video
-//		DoubleProperty width = mediaView.fitWidthProperty();
-//		DoubleProperty height = mediaView.fitHeightProperty();
-//		width.bind(Bindings.selectDouble(mediaView.sceneProperty(), "width"));
-//		height.bind(Bindings.selectDouble(mediaView.sceneProperty(), "height"));
-//		mediaView.setPreserveRatio(true);
-	    
+		DoubleProperty width = mediaView.fitWidthProperty();
+		DoubleProperty height = mediaView.fitHeightProperty();
+		width.bind(Bindings.selectDouble(mediaView.parentProperty(), "width"));
+		height.bind(Bindings.selectDouble(mediaView.parentProperty(), "height"));
+		
+		mediaView.setPreserveRatio(true);
 		
 		// Adding the possibility to seek the media player.
 		timeSlider.valueProperty().addListener(new InvalidationListener() {
