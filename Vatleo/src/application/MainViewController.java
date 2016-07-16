@@ -35,6 +35,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
@@ -47,6 +48,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
@@ -74,6 +77,12 @@ public class MainViewController implements Initializable {
 	@FXML private TextField fromTime;
 	@FXML private TextField toTime;
 	@FXML private MenuItem openItem;
+	@FXML private MenuItem loadAnnotationMenuItem;
+	@FXML private MenuItem saveAnnotationsMenuItem;
+	@FXML private MenuItem cutMenuItem;
+	@FXML private MenuItem copyMenuItem;
+	@FXML private MenuItem pasteMenuItem;
+	@FXML private CheckMenuItem editAnnotationCheckMenuItem;
 	@FXML private TableView<Annotation> tableView;
 	@FXML private TableColumn<Annotation, String> labelColumn;
 	@FXML private TableColumn<Annotation, String> fromTimeColumn;
@@ -81,7 +90,9 @@ public class MainViewController implements Initializable {
 	
 	private MediaPlayer mediaPlayer;
 	private Media media;
+	private Media demoMedia;
 	private FileChooser fileChooser;
+	private File dataFile;
 	private XtextParser parser;
 	private ObservableList<Annotation> annotations;
 	private AnnotatedVideo anAnnotatedVideo;
@@ -96,7 +107,7 @@ public class MainViewController implements Initializable {
 		
 		generateMediaPlayer();
 		
-		generateOpenButton();
+		generateMenuItems();
 		
 		generateTableView();
 	}
@@ -108,17 +119,32 @@ public class MainViewController implements Initializable {
 
 	private void generateMediaPlayer() {
 		// Init the media objects
-		String path = new File("src/media/video.mp4").getAbsolutePath();
-		media = new Media(new File(path).toURI().toString());
-		mediaPlayer = new MediaPlayer(media);
+		demoMedia = new Media(new File(new File("src/media/kcl.ac.uk.vat.demo.mp4").getAbsolutePath()).toURI().toString());
+		mediaPlayer = new MediaPlayer(demoMedia);
 		mediaView.setMediaPlayer(mediaPlayer);
 		resetPlayer();
 		
+		playPauseButton.setDisable(true);
+		timeSlider.setDisable(true);
+		textField.setDisable(true);
+		fromTime.setDisable(true);
+		toTime.setDisable(true);
+		addAnnotationButton.setDisable(true);
+		tableView.setDisable(true);
+		editAnnotationCheckMenuItem.setDisable(true);
+		saveAnnotationsMenuItem.setDisable(true);
+		cutMenuItem.setDisable(true);
+		copyMenuItem.setDisable(true);
+		pasteMenuItem.setDisable(true);
+		loadAnnotationMenuItem.setDisable(true);
+
 		// Preserve the ratio of the video
-		DoubleProperty width = mediaView.fitWidthProperty();
-		DoubleProperty height = mediaView.fitHeightProperty();
-		width.bind(Bindings.selectDouble(mediaView.sceneProperty(), "width"));
-		height.bind(Bindings.selectDouble(mediaView.sceneProperty(), "height"));
+//		DoubleProperty width = mediaView.fitWidthProperty();
+//		DoubleProperty height = mediaView.fitHeightProperty();
+//		width.bind(Bindings.selectDouble(mediaView.sceneProperty(), "width"));
+//		height.bind(Bindings.selectDouble(mediaView.sceneProperty(), "height"));
+//		mediaView.setPreserveRatio(true);
+	    
 		
 		// Adding the possibility to seek the media player.
 		timeSlider.valueProperty().addListener(new InvalidationListener() {
@@ -131,12 +157,16 @@ public class MainViewController implements Initializable {
 				}
 			}
 		});
+		
+		// TODO: add demoVideo listener to see if there is another video playing or not - disable everything
 	}
 
-	private void generateOpenButton() {
+	private void generateMenuItems() {
 		fileChooser = new FileChooser();
 		
 		openItem.setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
 			public void handle(ActionEvent e) {
 				mediaPlayer.pause();
 				File file = fileChooser.showOpenDialog(null);
@@ -148,9 +178,79 @@ public class MainViewController implements Initializable {
 						mediaView.setMediaPlayer(mediaPlayer);
 						
 						resetPlayer();
+						
+						playPauseButton.setDisable(false);
+						timeSlider.setDisable(false);
+						textField.setDisable(false);
+						fromTime.setDisable(false);
+						toTime.setDisable(false);
+						addAnnotationButton.setDisable(false);
+						tableView.setDisable(false);
+						editAnnotationCheckMenuItem.setDisable(false);
+						loadAnnotationMenuItem.setDisable(false);
 					} catch (MalformedURLException e1) {
 						e1.printStackTrace();
 					}
+				}
+			}
+		});
+		
+		loadAnnotationMenuItem.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent event) {
+				mediaPlayer.pause();
+				File file = fileChooser.showOpenDialog(null);
+				
+				if (file != null) {
+					dataFile = file;
+					getAnnotations(dataFile.getAbsolutePath());
+					tableView.setItems(annotations);
+					saveAnnotationsMenuItem.setDisable(false);
+				}
+			}
+		});
+		
+		saveAnnotationsMenuItem.setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
+			public void handle(ActionEvent event) {
+				
+				mediaPlayer.pause();
+				saveAnnotationsToFile();
+			}
+		});
+		
+		editAnnotationCheckMenuItem.setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
+			public void handle(ActionEvent event) {
+				
+				if (editAnnotationCheckMenuItem.isSelected()) {
+					
+					addAnnotationButton.setText("Edit");
+					addAnnotationButton.setOnAction(new EventHandler<ActionEvent>() {
+
+						@Override
+						public void handle(ActionEvent event) {
+							Annotation annotationToBeRemoved = tableView.getSelectionModel().getSelectedItem();
+							
+							annotations.remove(annotationToBeRemoved);
+							anAnnotatedVideo.getAnnotations().remove(annotationToBeRemoved);
+							addAnnotation();
+						}
+					});
+				} else {
+					
+					addAnnotationButton.setText("Add annotation");
+					addAnnotationButton.setOnAction(new EventHandler<ActionEvent>() {
+
+						@Override
+						public void handle(ActionEvent event) {
+							
+							addAnnotation();
+						}
+					});
 				}
 			}
 		});
@@ -207,15 +307,19 @@ public class MainViewController implements Initializable {
 			}
 		});
 		
-		tableView.setItems(getAnnotations());
+		tableView.setItems(annotations);
 		tableView.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 if (mouseEvent.getButton().equals(MouseButton.PRIMARY)) {
-                	
                     if (mouseEvent.getClickCount() == 2) {
                     	
                     	showContentDialog();
+                    }
+                    
+                    if (mouseEvent.getClickCount() == 1 && editAnnotationCheckMenuItem.isSelected()) {
+                    	
+                    	enableEditingForAnnotation(tableView.getSelectionModel().getSelectedIndex());
                     }
                 }
                 
@@ -225,21 +329,19 @@ public class MainViewController implements Initializable {
                 }
             }
         });
+		
 	}
 	
-	public ObservableList<Annotation> getAnnotations() {
+	public ObservableList<Annotation> getAnnotations(String filePath) {
 		annotations = FXCollections.observableArrayList();
 		
-		anAnnotatedVideo = VideoAnnotationsDSLFactory.eINSTANCE.createAnnotatedVideo();		
+		anAnnotatedVideo = VideoAnnotationsDSLFactory.eINSTANCE.createAnnotatedVideo();
 		
-        // The name of the file to open.
-        String fileName = "data.txt";
-
         // This will reference one line at a time
         String line = null;
         
         try {
-			new FileOutputStream("data.txt", true).close();
+			new FileOutputStream(filePath, true).close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -247,25 +349,29 @@ public class MainViewController implements Initializable {
 
         try {
             // FileReader reads text files in the default encoding.
-            FileReader fileReader = new FileReader(fileName);
+            FileReader fileReader = new FileReader(filePath);
 
             // Always wrap FileReader in BufferedReader.
             BufferedReader bufferedReader = new BufferedReader(fileReader);
+            
+            String stringFromFile = new String();
 
             while((line = bufferedReader.readLine()) != null) {
-            	Reader stringReader = new StringReader(line);
-            	anAnnotatedVideo = (AnnotatedVideo) parser.parse(stringReader);
-            	annotations.add(anAnnotatedVideo.getAnnotations().get(0));
+            	stringFromFile = stringFromFile + " " + line;
             }   
-
+            
+            Reader stringReader = new StringReader(stringFromFile);
+        	anAnnotatedVideo = (AnnotatedVideo) parser.parse(stringReader);
+        	annotations = FXCollections.observableArrayList(anAnnotatedVideo.getAnnotations());
+        	
             // Always close files.
             bufferedReader.close();
         }
         catch(FileNotFoundException ex) {
-            System.out.println("Unable to open file '" + fileName + "'");
+            System.out.println("Unable to open file '" + filePath + "'");
         }
         catch(IOException ex) {
-            System.out.println("Error reading file '" + fileName + "'");
+            System.out.println("Error reading file '" + filePath + "'");
         }
 
 		return annotations;
@@ -333,19 +439,9 @@ public class MainViewController implements Initializable {
 		Reader test = new StringReader(testString);
 				
 		try {
-			anAnnotatedVideo = (AnnotatedVideo) parser.parse(test);
-			annotations.add(anAnnotatedVideo.getAnnotations().get(anAnnotatedVideo.getAnnotations().size() - 1));
-			
-			try (FileWriter fw = new FileWriter("data.txt", true) ;
-				    BufferedWriter bw = new BufferedWriter(fw);
-				    PrintWriter out = new PrintWriter(bw))
-				{
-				    out.println(testString);
-				} catch (IOException e) {
-					e.printStackTrace(); //TODO: add exception
-				}
-			
-			System.out.println(anAnnotatedVideo.getAnnotations());
+			Annotation aNewAnnotation = ((AnnotatedVideo) parser.parse(test)).getAnnotations().get(0);
+			anAnnotatedVideo.getAnnotations().add(aNewAnnotation);
+			annotations.add(aNewAnnotation);
 			
 			// Clearing the view
 			tableView.refresh();
@@ -435,6 +531,7 @@ public class MainViewController implements Initializable {
 		return time;
 	}
 	
+	
 	public void showContentDialog() {
     	final Stage dialog = new Stage();
         VBox dialogVbox = new VBox(20);
@@ -447,10 +544,10 @@ public class MainViewController implements Initializable {
         dialog.show();
 	}
 
+	
 	/**
 	 * A method that removes the Annotation from the data file.
 	 * @param anAnnotationToRemove An Annotation to be removed from the data file.
-	 * @throws IOException
 	 */
 	public void removeAnnotationFromDataFile(String anAnnotationToRemove) {
 		File inputFile = new File("data.txt");
@@ -496,5 +593,40 @@ public class MainViewController implements Initializable {
 				anAnnotation.getScope().getScope() + "," + anAnnotation.getFocus().getFocus() + ",\"" + anAnnotation.getContent() + "\"," + 
 				anAnnotation.getTarget() + ")";
 	}
+	
+	/**
+	 * A method to save all the annotations to the file loaded.
+	 */
+	public void saveAnnotationsToFile() {
+		String annotationsString = "";
+		
+		for (Annotation anAnnotation : annotations) {
+			
+			annotationsString += getStringDSL(anAnnotation) + "\n";
+		}
+		
+		try (FileWriter fw = new FileWriter(dataFile.getAbsolutePath()) ;
+			    BufferedWriter bw = new BufferedWriter(fw);
+			    PrintWriter out = new PrintWriter(bw))
+			{
+			    out.print(annotationsString);
+			} catch (IOException e) {
+				e.printStackTrace(); //TODO: add exception
+			}
+	}
+	
+	/**
+	 * A method that allows selected Annotation to be edited.
+	 * @param index The index of the Annotation to be edited.
+	 */
+	public void enableEditingForAnnotation(int index) {
+	
+		fromTime.setText(convertSecToTime(annotations.get(index).getFromTime().getSec()));
+		toTime.setText(convertSecToTime(annotations.get(index).getToTime().getSec()));
+		textField.setText("annotate(" + annotations.get(index).getId() + "," + annotations.get(index).getSender() + "," + annotations.get(index).getType().getType() + "," + 
+				annotations.get(index).getScope().getScope() + "," + annotations.get(index).getFocus().getFocus() + ",\"" + annotations.get(index).getContent() + "\"," + 
+				annotations.get(index).getTarget() + ")");
+	}
+
 	
 }

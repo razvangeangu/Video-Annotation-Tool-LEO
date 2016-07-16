@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainViewController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainViewController">
    <top>
       <VBox BorderPane.alignment="CENTER">
          <children>
@@ -16,10 +16,21 @@
               <menus>
                 <Menu mnemonicParsing="false" text="File">
                   <items>
-                        <MenuItem fx:id="openItem" mnemonicParsing="false" text="Open video.." />
-                    <MenuItem mnemonicParsing="false" text="Close" />
+                        <MenuItem fx:id="openItem" mnemonicParsing="false" text="Open video" />
+                      <MenuItem fx:id="loadAnnotationMenuItem" mnemonicParsing="false" text="Import annotations..." />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="saveAnnotationsMenuItem" mnemonicParsing="false" text="Save" />
                   </items>
                 </Menu>
+                  <Menu mnemonicParsing="false" text="Edit">
+                     <items>
+                        <MenuItem fx:id="cutMenuItem" mnemonicParsing="false" text="Cut" />
+                        <MenuItem fx:id="copyMenuItem" mnemonicParsing="false" text="Copy" />
+                        <MenuItem fx:id="pasteMenuItem" mnemonicParsing="false" text="Paste" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <CheckMenuItem fx:id="editAnnotationCheckMenuItem" mnemonicParsing="false" text="Edit annotations" />
+                     </items>
+                  </Menu>
                 <Menu mnemonicParsing="false" text="Help">
                   <items>
                     <MenuItem mnemonicParsing="false" text="About" />
@@ -68,12 +79,12 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <MediaView fx:id="mediaView" fitHeight="300.0" fitWidth="300.0" />
+                  <MediaView fx:id="mediaView" fitHeight="250.0" fitWidth="460.0" />
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+          <AnchorPane maxHeight="50.0" minHeight="50.0" minWidth="160.0" SplitPane.resizableWithParent="false">
                <children>
-                  <HBox alignment="BOTTOM_CENTER" layoutX="14.0" layoutY="16.0">
+                  <HBox alignment="BOTTOM_CENTER" layoutX="14.0" layoutY="11.0">
                      <children>
                         <Button fx:id="playPauseButton" mnemonicParsing="false" onAction="#playPause" text="Play">
                            <HBox.margin>
