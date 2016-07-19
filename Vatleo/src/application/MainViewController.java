@@ -100,6 +100,7 @@ public class MainViewController implements Initializable {
 	private XtextParser parser;
 	private ObservableList<Annotation> annotations;
 	private AnnotatedVideo anAnnotatedVideo;
+	private boolean toTimeFocused, fromTimeFocused;
 		
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -159,11 +160,38 @@ public class MainViewController implements Initializable {
 				
 				if (timeSlider.isPressed()) {
 					mediaPlayer.seek(mediaPlayer.getMedia().getDuration().multiply(timeSlider.getValue() / 100));
+					timeStamp.setText(convertSecToTime((int)mediaPlayer.getCurrentTime().toSeconds()));
+
+					if (toTimeFocused == true) {
+						toTime.setText(timeStamp.getText());
+					} else if (fromTimeFocused == true) {
+						fromTime.setText(timeStamp.getText());
+					}
 				}
 			}
 		});
 		
-		// TODO: add demoVideo listener to see if there is another video playing or not - disable everything
+		fromTime.focusedProperty().addListener(new InvalidationListener() {
+
+			@Override
+			public void invalidated(Observable observable) {
+				fromTimeFocused = true;
+				toTimeFocused = false;
+			}
+		});
+		
+		toTime.focusedProperty().addListener(new InvalidationListener() {
+
+			@Override
+			public void invalidated(Observable observable) {
+				fromTimeFocused = false;
+				toTimeFocused = true;
+			}
+			
+		});
+		
+		fromTimeFocused = false;
+		toTimeFocused = false;
 	}
 
 	private void generateMenuItems() {
@@ -207,7 +235,7 @@ public class MainViewController implements Initializable {
 			@Override
 			public void handle(ActionEvent event) {
 				mediaPlayer.pause();
-				FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Annotation video files (*.mp4)", "*.mp4");
+				FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Annotation video files (*.txt)", "*.txt");
 	            fileChooser.getExtensionFilters().add(extFilter);
 				File file = fileChooser.showOpenDialog(null);
 				
@@ -400,8 +428,7 @@ public class MainViewController implements Initializable {
 
 		return annotations;
 	}
-	
-	
+
 	/**
 	 * A method that acts upon the play/pause button.
 	 * @param event
@@ -449,10 +476,6 @@ public class MainViewController implements Initializable {
 		Platform.runLater(new Runnable() {
 			public void run() {
 				timeStamp.setText(convertSecToTime(currentTimeInSeconds));
-				
-				if (!fromTime.getText().equals("")) {
-					toTime.setText(timeStamp.getText());
-				}
 			}
 		});
 	}
@@ -489,7 +512,7 @@ public class MainViewController implements Initializable {
 			ex.printStackTrace(pw);
 			String exceptionText = sw.toString();
 
-			Label label = new Label("The exception stacktrace was:");
+			Label label = new Label("The syntax errors are:");
 
 			TextArea textArea = new TextArea(exceptionText);
 			textArea.setEditable(false);
@@ -574,6 +597,10 @@ public class MainViewController implements Initializable {
 				updateTimeLabel();
 			}
 		});
+		
+		fromTime.clear();
+		toTime.clear();
+		textField.clear();
 	}
 	
 	

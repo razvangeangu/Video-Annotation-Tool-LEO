@@ -3,13 +3,11 @@ package application;
 
 import java.io.Reader;
 
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.parser.IParseResult;
 import org.eclipse.xtext.parser.IParser;
 import org.eclipse.xtext.parser.ParseException;
-import org.eclipse.xtext.resource.XtextResourceSet;
 
 import com.google.inject.Injector;
 
@@ -30,17 +28,6 @@ public class XtextParser {
         parser = injector.getInstance(IParser.class);
         injector.injectMembers(this);
     }
-    
-    private void addDependency() {
-    	// do this only once per application
-    	Injector injector = new VideoAnnotationsDSLStandaloneSetup().createInjectorAndDoEMFRegistration();
-
-    	// obtain a resourceset from the injector
-    	XtextResourceSet resourceSet = injector.getInstance(XtextResourceSet.class);
-
-    	// load a resource by URI, in this case from the file system
-    	Resource resource = resourceSet.getResource(URI.createFileURI("./mymodel.mydsl"), true);
-    }
  
     /**
      * Parses data provided by an input reader using Xtext and returns the root node of the resulting object tree.
@@ -52,7 +39,14 @@ public class XtextParser {
         IParseResult result = parser.parse(reader);
         
         if (result.hasSyntaxErrors()) {
-            throw new ParseException("Provided input contains syntax errors.");
+        	String errorsString = "";
+        	
+        	for (INode error : result.getSyntaxErrors()) {
+        		System.out.println(error.getSyntaxErrorMessage() + "\n");
+        		errorsString += "\n" + error.getSyntaxErrorMessage();
+        	}
+        	
+            throw new ParseException("Provided input contains syntax errors.\n" + errorsString);
         }
         
         return result.getRootASTElement();
