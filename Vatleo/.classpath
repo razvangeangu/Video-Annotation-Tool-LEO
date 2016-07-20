@@ -132,6 +132,6 @@
 			<accessrule ignoreifbetter="true" kind="nonaccessible" pattern="**/*"/>
 		</accessrules>
 	</classpathentry>
-	<classpathentry combineaccessrules="false" kind="src" path="/kcl.ac.uk.xtext.videoannotationsdsl"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/kcl.ac.uk.xtext.VideoAnnotationsDSL"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
