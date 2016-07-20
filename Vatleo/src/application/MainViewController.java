@@ -734,7 +734,6 @@ public class MainViewController implements Initializable {
 			}
 	}
 	
-	
 	/**
 	 * A method that allows selected Annotation to be edited.
 	 * @param index The index of the Annotation to be edited.
@@ -747,7 +746,6 @@ public class MainViewController implements Initializable {
 				annotations.get(index).getScope().getScope() + "," + annotations.get(index).getFocus().getFocus() + ",\"" + annotations.get(index).getContent() + "\"," + 
 				annotations.get(index).getTarget() + ")");
 	}
-
 	
 	/**
 	 * A method that seeks the player to the start time of an annotation.
@@ -758,13 +756,14 @@ public class MainViewController implements Initializable {
 		mediaPlayer.seek(new Duration(annotations.get(index).getFromTime().getSec() * 1000));
 	}
 
-	
+	/**
+	 * A method that generates demo objects for a new annotation file.
+	 */
 	public void generateDemoObjectsForAnnotations() {
 		
 		annotations = FXCollections.observableArrayList();
 		anAnnotatedVideo = VideoAnnotationsDSLFactory.eINSTANCE.createAnnotatedVideo();
 		tableView.setItems(annotations);
 	}
-	
-	
+
 }
