@@ -1,0 +1,34 @@
+grammar kcl.ac.uk.xtext.VideoAnnotationsDSL with org.eclipse.xtext.common.Terminals
+
+generate videoAnnotationsDSL "http://www.ac.kcl/uk/xtext/VideoAnnotationsDSL"
+
+AnnotatedVideo:
+	annotations+=Annotation*;
+	
+Annotation:
+	'from' fromTime=Time 'to' toTime=Time 
+	'annotate' '('
+                id=ID ',' 
+	            sender=Sender ',' 
+	            type=Move ',' 
+	            scope=Scope ','
+	            focus=Focus ',' 
+	            content=STRING ',' 
+	            target=[Annotation]
+	         ')'
+;
+	
+Sender: 
+	INT+;
+	
+Move: 
+	type=('propose' | 'question' | 'challenge' | 'justify' | 'withdraw' | 'accept' | 'reject' | 'commit' | 'uncommit');
+	
+Scope: 
+	scope=('feature' | 'rating' | 'criteria' | 'topic');
+	
+Focus: 
+	focus=('R' | 'S' | 'G' | 'V' | '↵');
+	
+Time: 
+	sec=INT;

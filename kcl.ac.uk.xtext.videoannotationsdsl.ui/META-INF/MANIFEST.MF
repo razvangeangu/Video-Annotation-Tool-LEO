@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: kcl.ac.uk.xtext.videoannotationsdsl.ui
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: kcl.ac.uk.xtext.videoannotationsdsl.ui; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: kcl.ac.uk.xtext.videoannotationsdsl,
+ kcl.ac.uk.xtext.videoannotationsdsl.ide,
+ org.eclipse.xtext.ui,
+ org.eclipse.xtext.ui.shared,
+ org.eclipse.xtext.ui.codetemplates.ui,
+ org.eclipse.ui.editors;bundle-version="3.5.0",
+ org.eclipse.ui.ide;bundle-version="3.5.0",
+ org.eclipse.ui,
+ org.eclipse.compare,
+ org.eclipse.xtext.builder,
+ org.eclipse.xtend.lib;resolution:=optional,
+ org.eclipse.xtext.xbase.lib
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: kcl.ac.uk.xtext.ui.quickfix,
+ kcl.ac.uk.xtext.ui.contentassist,
+ kcl.ac.uk.xtext.videoannotationsdsl.ui.internal
+Bundle-Activator: kcl.ac.uk.xtext.videoannotationsdsl.ui.internal.VideoannotationsdslActivator
