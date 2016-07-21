@@ -3,9 +3,11 @@
  */
 package kcl.ac.uk.xtext.scoping;
 
-import kcl.ac.uk.xtext.videoAnnotationsDSL.AnnotatedVideo
+import kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation
+import kcl.ac.uk.xtext.videoAnnotationsDSL.VideoAnnotationsDSLPackage
+import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
-import org.eclipse.xtext.scoping.IScope
+import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.scoping.Scopes
 
 /**
@@ -16,16 +18,12 @@ import org.eclipse.xtext.scoping.Scopes
  */
 class VideoAnnotationsDSLScopeProvider extends AbstractVideoAnnotationsDSLScopeProvider {
 
-//	def IScope scope_Farewell_greeting(AnnotatedVideo annotatedVideo, EReference eReference) {
-//		Scopes::scopeFor((annotatedVideo.eContainer as AnnotatedVideo).annotations)
-//	}
-//	
-//	def scope_target_annotation(Annotation context, EReference reference) {
-//		System.out.println(context.id);
-//		return IScope::NULLSCOPE
-//	}
-
-	def IScope scope_Service_extras(AnnotatedVideo context, EReference ref) {
-		return Scopes.scopeFor(context.annotations)
+	override getScope(EObject context, EReference reference) {
+		if (context instanceof Annotation && reference == VideoAnnotationsDSLPackage.Literals.ANNOTATION__TARGET) {
+			val rootElement = EcoreUtil2.getRootContainer(context)
+			val candidates = EcoreUtil2.getAllContentsOfType(rootElement, Annotation)
+			return Scopes.scopeFor(candidates)
+		}
+		return super.getScope(context, reference);
 	}
 }
