@@ -114,13 +114,13 @@ public interface VideoAnnotationsDSLPackage extends EPackage
   int ANNOTATION__TO_TIME = 1;
 
   /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ANNOTATION__ID = 2;
+  int ANNOTATION__NAME = 2;
 
   /**
    * The feature id for the '<em><b>Sender</b></em>' attribute.
@@ -352,15 +352,15 @@ public interface VideoAnnotationsDSLPackage extends EPackage
   EReference getAnnotation_ToTime();
 
   /**
-   * Returns the meta object for the attribute '{@link kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation#getId <em>Id</em>}'.
+   * Returns the meta object for the attribute '{@link kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Id</em>'.
-   * @see kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation#getId()
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation#getName()
    * @see #getAnnotation()
    * @generated
    */
-  EAttribute getAnnotation_Id();
+  EAttribute getAnnotation_Name();
 
   /**
    * Returns the meta object for the attribute '{@link kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation#getSender <em>Sender</em>}'.
@@ -580,12 +580,12 @@ public interface VideoAnnotationsDSLPackage extends EPackage
     EReference ANNOTATION__TO_TIME = eINSTANCE.getAnnotation_ToTime();
 
     /**
-     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ANNOTATION__ID = eINSTANCE.getAnnotation_Id();
+    EAttribute ANNOTATION__NAME = eINSTANCE.getAnnotation_Name();
 
     /**
      * The meta object literal for the '<em><b>Sender</b></em>' attribute feature.

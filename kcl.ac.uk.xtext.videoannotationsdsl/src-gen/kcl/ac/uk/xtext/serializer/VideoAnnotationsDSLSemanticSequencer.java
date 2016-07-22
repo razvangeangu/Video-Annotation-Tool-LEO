@@ -80,47 +80,17 @@ public class VideoAnnotationsDSLSemanticSequencer extends AbstractDelegatingSema
 	 *     (
 	 *         fromTime=Time 
 	 *         toTime=Time 
-	 *         id=ID 
+	 *         name=ID 
 	 *         sender=Sender 
 	 *         type=Move 
 	 *         scope=Scope 
 	 *         focus=Focus 
 	 *         content=STRING 
-	 *         target=[Annotation|ID]
+	 *         target=[Annotation|ID]?
 	 *     )
 	 */
 	protected void sequence_Annotation(ISerializationContext context, Annotation semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, VideoAnnotationsDSLPackage.Literals.ANNOTATION__FROM_TIME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, VideoAnnotationsDSLPackage.Literals.ANNOTATION__FROM_TIME));
-			if (transientValues.isValueTransient(semanticObject, VideoAnnotationsDSLPackage.Literals.ANNOTATION__TO_TIME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, VideoAnnotationsDSLPackage.Literals.ANNOTATION__TO_TIME));
-			if (transientValues.isValueTransient(semanticObject, VideoAnnotationsDSLPackage.Literals.ANNOTATION__ID) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, VideoAnnotationsDSLPackage.Literals.ANNOTATION__ID));
-			if (transientValues.isValueTransient(semanticObject, VideoAnnotationsDSLPackage.Literals.ANNOTATION__SENDER) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, VideoAnnotationsDSLPackage.Literals.ANNOTATION__SENDER));
-			if (transientValues.isValueTransient(semanticObject, VideoAnnotationsDSLPackage.Literals.ANNOTATION__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, VideoAnnotationsDSLPackage.Literals.ANNOTATION__TYPE));
-			if (transientValues.isValueTransient(semanticObject, VideoAnnotationsDSLPackage.Literals.ANNOTATION__SCOPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, VideoAnnotationsDSLPackage.Literals.ANNOTATION__SCOPE));
-			if (transientValues.isValueTransient(semanticObject, VideoAnnotationsDSLPackage.Literals.ANNOTATION__FOCUS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, VideoAnnotationsDSLPackage.Literals.ANNOTATION__FOCUS));
-			if (transientValues.isValueTransient(semanticObject, VideoAnnotationsDSLPackage.Literals.ANNOTATION__CONTENT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, VideoAnnotationsDSLPackage.Literals.ANNOTATION__CONTENT));
-			if (transientValues.isValueTransient(semanticObject, VideoAnnotationsDSLPackage.Literals.ANNOTATION__TARGET) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, VideoAnnotationsDSLPackage.Literals.ANNOTATION__TARGET));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAnnotationAccess().getFromTimeTimeParserRuleCall_1_0(), semanticObject.getFromTime());
-		feeder.accept(grammarAccess.getAnnotationAccess().getToTimeTimeParserRuleCall_3_0(), semanticObject.getToTime());
-		feeder.accept(grammarAccess.getAnnotationAccess().getIdIDTerminalRuleCall_6_0(), semanticObject.getId());
-		feeder.accept(grammarAccess.getAnnotationAccess().getSenderSenderParserRuleCall_8_0(), semanticObject.getSender());
-		feeder.accept(grammarAccess.getAnnotationAccess().getTypeMoveParserRuleCall_10_0(), semanticObject.getType());
-		feeder.accept(grammarAccess.getAnnotationAccess().getScopeScopeParserRuleCall_12_0(), semanticObject.getScope());
-		feeder.accept(grammarAccess.getAnnotationAccess().getFocusFocusParserRuleCall_14_0(), semanticObject.getFocus());
-		feeder.accept(grammarAccess.getAnnotationAccess().getContentSTRINGTerminalRuleCall_16_0(), semanticObject.getContent());
-		feeder.accept(grammarAccess.getAnnotationAccess().getTargetAnnotationIDTerminalRuleCall_18_0_1(), semanticObject.getTarget());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

@@ -26,4 +26,5 @@ class VideoAnnotationsDSLScopeProvider extends AbstractVideoAnnotationsDSLScopeP
 		}
 		return super.getScope(context, reference);
 	}
+	
 }

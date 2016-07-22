@@ -8,13 +8,13 @@ AnnotatedVideo:
 Annotation:
 	'from' fromTime=Time 'to' toTime=Time 
 	'annotate' '('
-                id=ID ',' 
+                name=ID ',' 
 	            sender=Sender ',' 
 	            type=Move ',' 
 	            scope=Scope ','
 	            focus=Focus ',' 
-	            content=STRING ',' 
-	            target=[Annotation]
+	            content=STRING (',' 
+	            target=[Annotation])?
 	         ')'
 ;
 	

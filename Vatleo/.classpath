@@ -133,5 +133,14 @@
 		</accessrules>
 	</classpathentry>
 	<classpathentry combineaccessrules="false" kind="src" path="/kcl.ac.uk.xtext.VideoAnnotationsDSL"/>
+	<classpathentry kind="lib" path="/Users/razvan-gabrielgeangu/.p2/pool/plugins/org.eclipse.xtext.util_2.10.0.v201605250459.jar" sourcepath="/Users/razvan-gabrielgeangu/.p2/pool/plugins/org.eclipse.xtext.util.source_2.10.0.v201605250459.jar">
+		<accessrules>
+			<accessrule kind="accessible" pattern="org/eclipse/xtext/util/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/xtext/util/concurrent/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/xtext/util/formallang/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/xtext/util/internal/*"/>
+			<accessrule ignoreifbetter="true" kind="nonaccessible" pattern="**/*"/>
+		</accessrules>
+	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

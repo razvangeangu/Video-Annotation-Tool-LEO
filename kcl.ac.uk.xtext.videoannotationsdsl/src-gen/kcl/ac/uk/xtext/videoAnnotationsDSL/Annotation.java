@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation#getFromTime <em>From Time</em>}</li>
  *   <li>{@link kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation#getToTime <em>To Time</em>}</li>
- *   <li>{@link kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation#getId <em>Id</em>}</li>
+ *   <li>{@link kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation#getName <em>Name</em>}</li>
  *   <li>{@link kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation#getSender <em>Sender</em>}</li>
  *   <li>{@link kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation#getType <em>Type</em>}</li>
  *   <li>{@link kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation#getScope <em>Scope</em>}</li>
@@ -84,30 +84,30 @@ public interface Annotation extends EObject
   void setToTime(Time value);
 
   /**
-   * Returns the value of the '<em><b>Id</b></em>' attribute.
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Id</em>' attribute isn't clear,
+   * If the meaning of the '<em>Name</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Id</em>' attribute.
-   * @see #setId(String)
-   * @see kcl.ac.uk.xtext.videoAnnotationsDSL.VideoAnnotationsDSLPackage#getAnnotation_Id()
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see kcl.ac.uk.xtext.videoAnnotationsDSL.VideoAnnotationsDSLPackage#getAnnotation_Name()
    * @model
    * @generated
    */
-  String getId();
+  String getName();
 
   /**
-   * Sets the value of the '{@link kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation#getId <em>Id</em>}' attribute.
+   * Sets the value of the '{@link kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Id</em>' attribute.
-   * @see #getId()
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
    * @generated
    */
-  void setId(String value);
+  void setName(String value);
 
   /**
    * Returns the value of the '<em><b>Sender</b></em>' attribute.
