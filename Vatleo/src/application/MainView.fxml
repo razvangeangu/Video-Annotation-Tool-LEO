@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.control.*?>
@@ -8,7 +9,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainViewController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainViewController">
    <top>
       <VBox BorderPane.alignment="CENTER">
          <children>
@@ -92,9 +93,19 @@
                <children>
                   <HBox alignment="CENTER" fillHeight="false" layoutX="14.0" layoutY="11.0" prefHeight="50.0" prefWidth="454.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Button fx:id="playPauseButton" mnemonicParsing="false" onAction="#playPause" text="Play">
+                        <Button fx:id="backwardButton" mnemonicParsing="false" text="&lt;&lt;">
                            <HBox.margin>
-                              <Insets left="10.0" right="20.0" />
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="playPauseButton" mnemonicParsing="false" onAction="#playPause" text="&gt;">
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="forwardButton" mnemonicParsing="false" text="&gt;&gt;">
+                           <HBox.margin>
+                              <Insets right="10.0" />
                            </HBox.margin>
                         </Button>
                         <Slider fx:id="timeSlider" prefHeight="20.0" prefWidth="300.0" snapToTicks="true" HBox.hgrow="ALWAYS">
@@ -104,7 +115,7 @@
                         </Slider>
                         <Label fx:id="timeStamp" text="00:00">
                            <HBox.margin>
-                              <Insets left="15.0" right="10.0" />
+                              <Insets left="10.0" right="10.0" />
                            </HBox.margin>
                         </Label>
                      </children>

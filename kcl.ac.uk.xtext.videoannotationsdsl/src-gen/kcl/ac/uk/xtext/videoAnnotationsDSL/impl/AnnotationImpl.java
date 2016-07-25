@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link kcl.ac.uk.xtext.videoAnnotationsDSL.impl.AnnotationImpl#getFromTime <em>From Time</em>}</li>
  *   <li>{@link kcl.ac.uk.xtext.videoAnnotationsDSL.impl.AnnotationImpl#getToTime <em>To Time</em>}</li>
- *   <li>{@link kcl.ac.uk.xtext.videoAnnotationsDSL.impl.AnnotationImpl#getId <em>Id</em>}</li>
+ *   <li>{@link kcl.ac.uk.xtext.videoAnnotationsDSL.impl.AnnotationImpl#getName <em>Name</em>}</li>
  *   <li>{@link kcl.ac.uk.xtext.videoAnnotationsDSL.impl.AnnotationImpl#getSender <em>Sender</em>}</li>
  *   <li>{@link kcl.ac.uk.xtext.videoAnnotationsDSL.impl.AnnotationImpl#getType <em>Type</em>}</li>
  *   <li>{@link kcl.ac.uk.xtext.videoAnnotationsDSL.impl.AnnotationImpl#getScope <em>Scope</em>}</li>
@@ -63,24 +63,24 @@ public class AnnotationImpl extends MinimalEObjectImpl.Container implements Anno
   protected Time toTime;
 
   /**
-   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getId()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String ID_EDEFAULT = null;
+  protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getId()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected String id = ID_EDEFAULT;
+  protected String name = NAME_EDEFAULT;
 
   /**
    * The default value of the '{@link #getSender() <em>Sender</em>}' attribute.
@@ -284,9 +284,9 @@ public class AnnotationImpl extends MinimalEObjectImpl.Container implements Anno
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getId()
+  public String getName()
   {
-    return id;
+    return name;
   }
 
   /**
@@ -294,12 +294,12 @@ public class AnnotationImpl extends MinimalEObjectImpl.Container implements Anno
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setId(String newId)
+  public void setName(String newName)
   {
-    String oldId = id;
-    id = newId;
+    String oldName = name;
+    name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, VideoAnnotationsDSLPackage.ANNOTATION__ID, oldId, id));
+      eNotify(new ENotificationImpl(this, Notification.SET, VideoAnnotationsDSLPackage.ANNOTATION__NAME, oldName, name));
   }
 
   /**
@@ -573,8 +573,8 @@ public class AnnotationImpl extends MinimalEObjectImpl.Container implements Anno
         return getFromTime();
       case VideoAnnotationsDSLPackage.ANNOTATION__TO_TIME:
         return getToTime();
-      case VideoAnnotationsDSLPackage.ANNOTATION__ID:
-        return getId();
+      case VideoAnnotationsDSLPackage.ANNOTATION__NAME:
+        return getName();
       case VideoAnnotationsDSLPackage.ANNOTATION__SENDER:
         return getSender();
       case VideoAnnotationsDSLPackage.ANNOTATION__TYPE:
@@ -608,8 +608,8 @@ public class AnnotationImpl extends MinimalEObjectImpl.Container implements Anno
       case VideoAnnotationsDSLPackage.ANNOTATION__TO_TIME:
         setToTime((Time)newValue);
         return;
-      case VideoAnnotationsDSLPackage.ANNOTATION__ID:
-        setId((String)newValue);
+      case VideoAnnotationsDSLPackage.ANNOTATION__NAME:
+        setName((String)newValue);
         return;
       case VideoAnnotationsDSLPackage.ANNOTATION__SENDER:
         setSender((String)newValue);
@@ -649,8 +649,8 @@ public class AnnotationImpl extends MinimalEObjectImpl.Container implements Anno
       case VideoAnnotationsDSLPackage.ANNOTATION__TO_TIME:
         setToTime((Time)null);
         return;
-      case VideoAnnotationsDSLPackage.ANNOTATION__ID:
-        setId(ID_EDEFAULT);
+      case VideoAnnotationsDSLPackage.ANNOTATION__NAME:
+        setName(NAME_EDEFAULT);
         return;
       case VideoAnnotationsDSLPackage.ANNOTATION__SENDER:
         setSender(SENDER_EDEFAULT);
@@ -688,8 +688,8 @@ public class AnnotationImpl extends MinimalEObjectImpl.Container implements Anno
         return fromTime != null;
       case VideoAnnotationsDSLPackage.ANNOTATION__TO_TIME:
         return toTime != null;
-      case VideoAnnotationsDSLPackage.ANNOTATION__ID:
-        return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+      case VideoAnnotationsDSLPackage.ANNOTATION__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case VideoAnnotationsDSLPackage.ANNOTATION__SENDER:
         return SENDER_EDEFAULT == null ? sender != null : !SENDER_EDEFAULT.equals(sender);
       case VideoAnnotationsDSLPackage.ANNOTATION__TYPE:
@@ -717,8 +717,8 @@ public class AnnotationImpl extends MinimalEObjectImpl.Container implements Anno
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (id: ");
-    result.append(id);
+    result.append(" (name: ");
+    result.append(name);
     result.append(", sender: ");
     result.append(sender);
     result.append(", content: ");

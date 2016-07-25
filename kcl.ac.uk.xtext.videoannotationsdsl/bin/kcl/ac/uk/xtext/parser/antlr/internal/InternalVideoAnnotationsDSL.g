@@ -168,9 +168,9 @@ ruleAnnotation returns [EObject current=null]
 		}
 		(
 			(
-				lv_id_6_0=RULE_ID
+				lv_name_6_0=RULE_ID
 				{
-					newLeafNode(lv_id_6_0, grammarAccess.getAnnotationAccess().getIdIDTerminalRuleCall_6_0());
+					newLeafNode(lv_name_6_0, grammarAccess.getAnnotationAccess().getNameIDTerminalRuleCall_6_0());
 				}
 				{
 					if ($current==null) {
@@ -178,8 +178,8 @@ ruleAnnotation returns [EObject current=null]
 					}
 					setWithLastConsumed(
 						$current,
-						"id",
-						lv_id_6_0,
+						"name",
+						lv_name_6_0,
 						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
@@ -298,26 +298,28 @@ ruleAnnotation returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_17=','
-		{
-			newLeafNode(otherlv_17, grammarAccess.getAnnotationAccess().getCommaKeyword_17());
-		}
 		(
+			otherlv_17=','
+			{
+				newLeafNode(otherlv_17, grammarAccess.getAnnotationAccess().getCommaKeyword_17_0());
+			}
 			(
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getAnnotationRule());
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getAnnotationRule());
+						}
 					}
-				}
-				otherlv_18=RULE_ID
-				{
-					newLeafNode(otherlv_18, grammarAccess.getAnnotationAccess().getTargetAnnotationCrossReference_18_0());
-				}
+					otherlv_18=RULE_ID
+					{
+						newLeafNode(otherlv_18, grammarAccess.getAnnotationAccess().getTargetAnnotationCrossReference_17_1_0());
+					}
+				)
 			)
-		)
+		)?
 		otherlv_19=')'
 		{
-			newLeafNode(otherlv_19, grammarAccess.getAnnotationAccess().getRightParenthesisKeyword_19());
+			newLeafNode(otherlv_19, grammarAccess.getAnnotationAccess().getRightParenthesisKeyword_18());
 		}
 	)
 ;

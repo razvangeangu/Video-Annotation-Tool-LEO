@@ -12,7 +12,7 @@
     <genClasses ecoreClass="VideoAnnotationsDSL.ecore#//Annotation">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VideoAnnotationsDSL.ecore#//Annotation/fromTime"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VideoAnnotationsDSL.ecore#//Annotation/toTime"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VideoAnnotationsDSL.ecore#//Annotation/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VideoAnnotationsDSL.ecore#//Annotation/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VideoAnnotationsDSL.ecore#//Annotation/sender"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VideoAnnotationsDSL.ecore#//Annotation/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VideoAnnotationsDSL.ecore#//Annotation/scope"/>

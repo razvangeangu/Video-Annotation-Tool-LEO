@@ -187,7 +187,7 @@ public class VideoAnnotationsDSLPackageImpl extends EPackageImpl implements Vide
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAnnotation_Id()
+  public EAttribute getAnnotation_Name()
   {
     return (EAttribute)annotationEClass.getEStructuralFeatures().get(2);
   }
@@ -368,7 +368,7 @@ public class VideoAnnotationsDSLPackageImpl extends EPackageImpl implements Vide
     annotationEClass = createEClass(ANNOTATION);
     createEReference(annotationEClass, ANNOTATION__FROM_TIME);
     createEReference(annotationEClass, ANNOTATION__TO_TIME);
-    createEAttribute(annotationEClass, ANNOTATION__ID);
+    createEAttribute(annotationEClass, ANNOTATION__NAME);
     createEAttribute(annotationEClass, ANNOTATION__SENDER);
     createEReference(annotationEClass, ANNOTATION__TYPE);
     createEReference(annotationEClass, ANNOTATION__SCOPE);
@@ -426,7 +426,7 @@ public class VideoAnnotationsDSLPackageImpl extends EPackageImpl implements Vide
     initEClass(annotationEClass, Annotation.class, "Annotation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAnnotation_FromTime(), this.getTime(), null, "fromTime", null, 0, 1, Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAnnotation_ToTime(), this.getTime(), null, "toTime", null, 0, 1, Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getAnnotation_Id(), ecorePackage.getEString(), "id", null, 0, 1, Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAnnotation_Name(), ecorePackage.getEString(), "name", null, 0, 1, Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAnnotation_Sender(), ecorePackage.getEString(), "sender", null, 0, 1, Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAnnotation_Type(), this.getMove(), null, "type", null, 0, 1, Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAnnotation_Scope(), this.getScope(), null, "scope", null, 0, 1, Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
