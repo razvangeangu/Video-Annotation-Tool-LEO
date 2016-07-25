@@ -3,6 +3,11 @@
  */
 package kcl.ac.uk.xtext.validation
 
+import kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation
+import kcl.ac.uk.xtext.videoAnnotationsDSL.Move
+import kcl.ac.uk.xtext.videoAnnotationsDSL.VideoAnnotationsDSLPackage
+import org.eclipse.xtext.validation.Check
+
 /**
  * This class contains custom validation rules. 
  *
@@ -10,14 +15,27 @@ package kcl.ac.uk.xtext.validation
  */
 class VideoAnnotationsDSLValidator extends AbstractVideoAnnotationsDSLValidator {
 	
-//	public static val INVALID_NAME = 'invalidName'
-//
-//	@Check
-//	def checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.name.charAt(0))) {
-//			warning('Name should start with a capital', 
-//					VideoAnnotationsDSLPackage.Literals.GREETING__NAME,
-//					INVALID_NAME)
-//		}
-//	}
+	public static val INVALID_NAME = 'invalidName'
+	public static val INVALID_MOVE = 'invalidMove'
+
+	@Check
+	def checkAnnotationStartsWithLetterA(Annotation annotation) {
+		if (!'a'.equals(annotation.name.charAt(0))) {
+			warning('Name should start with letter \'a\' followed by a number', 
+					VideoAnnotationsDSLPackage.Literals.ANNOTATION__NAME,
+					INVALID_NAME)
+		}
+	}
+	
+	@Check
+	def checkAnnotationMoveIsValid(Move move) {
+		if ((!move.type.equals("propose")) || (!move.type.equals("question")) || (!move.type.equals("challenge")) || 
+				(!move.type.equals("justify")) || (!move.type.equals("withdraw")) || (!move.type.equals("accept")) || 
+					(!move.equals("reject")) || (!move.type.equals("commit")) || (!move.type.equals("uncommit")))
+			{
+				error('Move type is not valid!\n
+						Valid types: \"propose, question, challenge, justify, withdraw, accept, reject, commit, uncommit\"',
+						VideoAnnotationsDSLPackage.Literals.MOVE__TYPE, INVALID_MOVE)
+			}
+	}
 }
