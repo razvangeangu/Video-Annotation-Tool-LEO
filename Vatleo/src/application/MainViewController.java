@@ -69,11 +69,13 @@ import kcl.ac.uk.xtext.videoAnnotationsDSL.VideoAnnotationsDSLFactory;
 public class MainViewController implements Initializable {
 
 	@FXML private MediaView mediaView;
-	@FXML private Button playPauseButton;
 	@FXML private Slider timeSlider;
 	@FXML private Label timeStamp;
-	@FXML private TextField textField;
+	@FXML private Button playPauseButton;
 	@FXML private Button addAnnotationButton;
+	@FXML private Button backwardButton;
+	@FXML private Button forwardButton;
+	@FXML private TextField textField;
 	@FXML private TextField fromTime;
 	@FXML private TextField toTime;
 	@FXML private MenuItem openItem;
@@ -95,6 +97,7 @@ public class MainViewController implements Initializable {
 	private Media demoMedia;
 	private FileChooser fileChooser;
 	private File dataFile;
+	
 	private VATParser parser;
 	private ObservableList<Annotation> annotations;
 	private AnnotatedVideo anAnnotatedVideo;
@@ -142,6 +145,8 @@ public class MainViewController implements Initializable {
 		loadAnnotationMenuItem.setDisable(true);
 		saveAsMenuItem.setDisable(true);
 		viewAnnotationCheckMenuItem.setDisable(true);
+		backwardButton.setDisable(true);
+		forwardButton.setDisable(true);
 
 		// Preserve the ratio of the video
 		DoubleProperty width = mediaView.fitWidthProperty();
@@ -185,6 +190,16 @@ public class MainViewController implements Initializable {
 			public void invalidated(Observable observable) {
 				fromTimeFocused = false;
 				toTimeFocused = true;
+			}
+			
+		});
+		
+		textField.focusedProperty().addListener(new InvalidationListener() {
+
+			@Override
+			public void invalidated(Observable observable) {
+				fromTimeFocused = false;
+				toTimeFocused = false;
 			}
 			
 		});
@@ -321,7 +336,7 @@ public class MainViewController implements Initializable {
 
 			@Override
 			public void handle(ActionEvent event) {
-				removeAnnotationFromDataFile(getStringDSL(tableView.getSelectionModel().getSelectedItem()));
+				annotationsDSL = annotationsDSL.replace(getStringDSL(tableView.getSelectionModel().getSelectedItem()), "");
 				annotations.remove(tableView.getSelectionModel().getSelectedIndex());
 			}
         });
@@ -438,16 +453,16 @@ public class MainViewController implements Initializable {
 			if (mediaPlayer.getCurrentTime().greaterThanOrEqualTo(mediaPlayer.getTotalDuration())) {
 				mediaPlayer.seek(mediaPlayer.getStartTime());
 				mediaPlayer.play();
-				playPauseButton.setText("Pause");
+				playPauseButton.setText("||");
 			} else {
 				mediaPlayer.pause();
-				playPauseButton.setText("Play");
+				playPauseButton.setText(">");
 			}
 		}
 		
 		if (status == Status.PAUSED || status == Status.STOPPED || status == Status.HALTED || status == Status.READY) {
 			mediaPlayer.play();
-			playPauseButton.setText("Pause");
+			playPauseButton.setText("||");
 		}
 	}
 	
@@ -482,32 +497,45 @@ public class MainViewController implements Initializable {
 	 * A method that creates an annotation and adds it to the tree view.
 	 */
 	public void addAnnotation() {
-		String testString = "\nfrom " + convertTimeToSec(fromTime.getText()) + " to " + convertTimeToSec(toTime.getText()) + " " + textField.getText();
+		String testString = "from " + convertTimeToSec(fromTime.getText()) + " to " + convertTimeToSec(toTime.getText()) + " " + textField.getText() + " ";
 				
 		try {
-			anAnnotatedVideo = (AnnotatedVideo) parser.parse(annotationsDSL + testString);
+			anAnnotatedVideo = (AnnotatedVideo) parser.parse(annotationsDSL += testString);
 			annotations = FXCollections.observableArrayList(anAnnotatedVideo.getAnnotations());
 			tableView.setItems(annotations);
-//			annotations.clear();
-			
 			
 			// Clearing the view
 			tableView.refresh();
 			textField.clear();
 			fromTime.clear();
 			toTime.clear();
+			
+			if (annotations.size() < 2 && dataFile == null) {
+				Alert alert = new Alert(AlertType.CONFIRMATION);
+				alert.setTitle("Alert");
+				alert.setHeaderText("Annotations are not linked to any file.");
+				alert.setContentText("Would you like to save the annotations to a file?");
+
+				ButtonType buttonTypeOK = new ButtonType("Yes", ButtonData.OK_DONE);
+				ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonData.CANCEL_CLOSE);
+
+				alert.getButtonTypes().setAll(buttonTypeOK, buttonTypeCancel);
+
+				Optional<ButtonType> result = alert.showAndWait();
+				if (result.get() == buttonTypeOK){
+					showSaveAsDialog();
+				}
+			}
 		} catch (ParseException e) {
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("Exception Dialog");
 			alert.setHeaderText("Provided input contains syntax errors.");
 			alert.setContentText("Try to edit the input to match the DSL.");
 
-			Exception ex = new ParseException("Provided input contains syntax errors.");
-
 			// Create expandable Exception.
 			StringWriter sw = new StringWriter();
 			PrintWriter pw = new PrintWriter(sw);
-			ex.printStackTrace(pw);
+			e.printStackTrace(pw);
 			String exceptionText = sw.toString();
 
 			Label label = new Label("The syntax errors are:");
@@ -530,24 +558,6 @@ public class MainViewController implements Initializable {
 			alert.getDialogPane().setExpandableContent(expContent);
 
 			alert.showAndWait();
-		}
-		
-		if (annotations.size() < 2 && dataFile == null) {
-			Alert alert = new Alert(AlertType.CONFIRMATION);
-			alert.setTitle("Alert");
-			alert.setHeaderText("Annotations are not linked to any file.");
-			alert.setContentText("Would you like to save the annotations to a file?");
-
-			ButtonType buttonTypeOK = new ButtonType("Yes", ButtonData.OK_DONE);
-			ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonData.CANCEL_CLOSE);
-
-			alert.getButtonTypes().setAll(buttonTypeOK, buttonTypeCancel);
-
-			Optional<ButtonType> result = alert.showAndWait();
-			if (result.get() == buttonTypeOK){
-				showSaveAsDialog();
-			}
-			
 		}
 	}
 	
@@ -586,7 +596,7 @@ public class MainViewController implements Initializable {
 		mediaPlayer.seek(mediaPlayer.getMedia().getDuration().multiply(0 / 100));
 		timeSlider.setValue(0);
 		timeStamp.setText("00:00");
-		playPauseButton.setText("Play");
+		playPauseButton.setText(">");
 		
 		// Controlling the view to update the time slider and the time label.
 		mediaPlayer.currentTimeProperty().addListener(new InvalidationListener() {
@@ -609,7 +619,7 @@ public class MainViewController implements Initializable {
 		
 		fromTime.setText(timeStamp.getText());
 		mediaPlayer.pause();
-		playPauseButton.setText("Play");
+		playPauseButton.setText(">");
 	}
 	
 	
@@ -769,6 +779,7 @@ public class MainViewController implements Initializable {
 	 */
 	public void generateDemoObjectsForAnnotations() {
 		
+		annotationsDSL = "";
 		annotations = FXCollections.observableArrayList();
 		anAnnotatedVideo = VideoAnnotationsDSLFactory.eINSTANCE.createAnnotatedVideo();
 		tableView.setItems(annotations);

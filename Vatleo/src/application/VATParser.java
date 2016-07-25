@@ -36,7 +36,7 @@ public class VATParser {
 			r.load(model, rs.getLoadOptions());
 			if (r.getErrors().isEmpty()) {
 				return r.getContents().get(0);
-			} else throw new ParseException("Provided input contains syntax errors.\n" + r.getErrors());
+			} else throw new ParseException("Provided input contains syntax errors.\n");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
