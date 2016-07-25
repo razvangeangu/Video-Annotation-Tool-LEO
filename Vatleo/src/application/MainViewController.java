@@ -31,6 +31,8 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -77,16 +79,12 @@ public class MainViewController implements Initializable {
 	@FXML private Button addAnnotationButton;
 	@FXML private Button backwardButton;
 	@FXML private Button forwardButton;
-	@FXML private TextField textField;
 	@FXML private TextField fromTime;
 	@FXML private TextField toTime;
 	@FXML private TextField timeStamp;
 	@FXML private MenuItem openItem;
 	@FXML private MenuItem loadAnnotationMenuItem;
 	@FXML private MenuItem saveAnnotationsMenuItem;
-	@FXML private MenuItem cutMenuItem;
-	@FXML private MenuItem copyMenuItem;
-	@FXML private MenuItem pasteMenuItem;
 	@FXML private MenuItem saveAsMenuItem;
 	@FXML private CheckMenuItem editAnnotationCheckMenuItem;
 	@FXML private CheckMenuItem	viewAnnotationCheckMenuItem;
@@ -94,7 +92,9 @@ public class MainViewController implements Initializable {
 	@FXML private TableColumn<Annotation, String> labelColumn;
 	@FXML private TableColumn<Annotation, String> fromTimeColumn;
 	@FXML private TableColumn<Annotation, String> toTimeColumn;	
+	@FXML private VBox bottomVBox;
 	
+	private AutoCompleteTextField textField;
 	private MediaPlayer mediaPlayer;
 	private Media media;
 	private Media demoMedia;
@@ -112,6 +112,8 @@ public class MainViewController implements Initializable {
 		
 		setupDSL();
 		
+		generateTextField();
+		
 		generateMediaPlayer();
 		
 		generateMenuItems();
@@ -124,6 +126,17 @@ public class MainViewController implements Initializable {
 	private void setupDSL() {
 		
 		parser = new VATParser();
+	}
+	
+	@SuppressWarnings("static-access")
+	private void generateTextField() {
+		textField = new AutoCompleteTextField();
+		textField.setPrefWidth(680);
+		textField.setPrefHeight(60);
+		textField.setPromptText("a1, sender, type, scope, focus, \"content\", target");
+		textField.setAlignment(Pos.CENTER);
+		bottomVBox.getChildren().add(0, textField);
+		bottomVBox.setMargin(textField, new Insets(10, 10, 10, 10));
 	}
 
 	private void generateMediaPlayer() {
@@ -142,9 +155,6 @@ public class MainViewController implements Initializable {
 		tableView.setDisable(true);
 		editAnnotationCheckMenuItem.setDisable(true);
 		saveAnnotationsMenuItem.setDisable(true);
-		cutMenuItem.setDisable(true);
-		copyMenuItem.setDisable(true);
-		pasteMenuItem.setDisable(true);
 		loadAnnotationMenuItem.setDisable(true);
 		saveAsMenuItem.setDisable(true);
 		viewAnnotationCheckMenuItem.setDisable(true);
