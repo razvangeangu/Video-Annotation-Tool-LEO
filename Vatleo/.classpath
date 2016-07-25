@@ -142,5 +142,8 @@
 			<accessrule ignoreifbetter="true" kind="nonaccessible" pattern="**/*"/>
 		</accessrules>
 	</classpathentry>
+	<classpathentry kind="lib" path="src/libraries/controlsfx-8.40.11.jar"/>
+	<classpathentry kind="lib" path="src/libraries/controlsfx-samples-8.40.11.jar"/>
+	<classpathentry kind="lib" path="src/libraries/fxsampler-1.0.9.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

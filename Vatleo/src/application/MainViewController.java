@@ -23,6 +23,7 @@ import javafx.beans.Observable;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.ReadOnlyObjectWrapper;
+import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -47,6 +48,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
@@ -70,7 +73,6 @@ public class MainViewController implements Initializable {
 
 	@FXML private MediaView mediaView;
 	@FXML private Slider timeSlider;
-	@FXML private Label timeStamp;
 	@FXML private Button playPauseButton;
 	@FXML private Button addAnnotationButton;
 	@FXML private Button backwardButton;
@@ -78,6 +80,7 @@ public class MainViewController implements Initializable {
 	@FXML private TextField textField;
 	@FXML private TextField fromTime;
 	@FXML private TextField toTime;
+	@FXML private TextField timeStamp;
 	@FXML private MenuItem openItem;
 	@FXML private MenuItem loadAnnotationMenuItem;
 	@FXML private MenuItem saveAnnotationsMenuItem;
@@ -147,6 +150,7 @@ public class MainViewController implements Initializable {
 		viewAnnotationCheckMenuItem.setDisable(true);
 		backwardButton.setDisable(true);
 		forwardButton.setDisable(true);
+		timeStamp.setDisable(true);
 
 		// Preserve the ratio of the video
 		DoubleProperty width = mediaView.fitWidthProperty();
@@ -158,7 +162,6 @@ public class MainViewController implements Initializable {
 		
 		// Adding the possibility to seek the media player.
 		timeSlider.valueProperty().addListener(new InvalidationListener() {
-
 			@Override
 			public void invalidated(Observable observable) {
 				
@@ -204,6 +207,52 @@ public class MainViewController implements Initializable {
 			
 		});
 		
+		backwardButton.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				mediaPlayer.seek(mediaPlayer.getCurrentTime().add(new Duration(-1000)));
+			}
+			
+		});
+		
+		forwardButton.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent event) {
+				mediaPlayer.seek(mediaPlayer.getCurrentTime().add(new Duration(1000)));
+			}
+			
+		});
+		
+		timeStamp.setStyle("-fx-background-color: transparent; -fx-background-insets: 0; -fx-background-radius: 0; -fx-padding: 0;");
+		timeStamp.textProperty().addListener(new ChangeListener<String>() {
+	        @Override
+	        public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+	            if (!newValue.matches("\\d*:\\d*")) {
+	            	timeStamp.setText(newValue.replaceAll("[^\\d:]", ""));
+	            }
+	            if (!newValue.contains(":")) {
+	            	timeStamp.setText(newValue.concat(":"));
+	            }
+	        }
+	    });
+		timeStamp.setOnKeyPressed(new EventHandler<KeyEvent>() {
+	        @Override
+	        public void handle(KeyEvent ke) {
+	            if (ke.getCode().equals(KeyCode.ENTER)) {
+	            	String newValue = timeStamp.getText();
+	                if (newValue.matches("\\d*:\\d*")) {
+	                	if (convertTimeToSec(newValue) < mediaPlayer.getMedia().getDuration().toSeconds()) {
+	                		mediaPlayer.seek(new Duration(convertTimeToSec(newValue) * 1000));
+	                		timeSlider.setValue(mediaPlayer.getCurrentTime().toMillis() / mediaPlayer.getTotalDuration().toMillis() * 100);
+	                	} else {
+	                		showErrorDialog("Error", "Duration incorrect!", "The duration should be in format of \"00:00\" and less than the maximum duration of the video (" + convertSecToTime((int)media.getDuration().toSeconds()) + ").", null);
+	                	}
+	                }
+	            }
+	        }
+	    });
+		
 		fromTimeFocused = false;
 		toTimeFocused = false;
 	}
@@ -237,6 +286,9 @@ public class MainViewController implements Initializable {
 						tableView.setDisable(false);
 						loadAnnotationMenuItem.setDisable(false);
 						saveAsMenuItem.setDisable(false);
+						backwardButton.setDisable(false);
+						forwardButton.setDisable(false);
+						timeStamp.setDisable(false);
 					} catch (MalformedURLException e1) {
 						e1.printStackTrace();
 					}
@@ -497,67 +549,45 @@ public class MainViewController implements Initializable {
 	 * A method that creates an annotation and adds it to the tree view.
 	 */
 	public void addAnnotation() {
-		String testString = "from " + convertTimeToSec(fromTime.getText()) + " to " + convertTimeToSec(toTime.getText()) + " " + textField.getText() + " ";
+		if (fromTime.getText().isEmpty() || toTime.getText().isEmpty() || textField.getText().isEmpty()) {
+			showErrorDialog("Error!", "Fields cannot be empty!", "An annotation must have a time to begin, a time to end and a content in the specified format.", null);
+		} else {
+			String testString = "from " + convertTimeToSec(fromTime.getText()) + " to " + convertTimeToSec(toTime.getText()) + " annotate(" + textField.getText() + ") ";
+			
+			try {
+				anAnnotatedVideo = (AnnotatedVideo) parser.parse(annotationsDSL += testString);
+				annotations = FXCollections.observableArrayList(anAnnotatedVideo.getAnnotations());
+				tableView.setItems(annotations);
 				
-		try {
-			anAnnotatedVideo = (AnnotatedVideo) parser.parse(annotationsDSL += testString);
-			annotations = FXCollections.observableArrayList(anAnnotatedVideo.getAnnotations());
-			tableView.setItems(annotations);
-			
-			// Clearing the view
-			tableView.refresh();
-			textField.clear();
-			fromTime.clear();
-			toTime.clear();
-			
-			if (annotations.size() < 2 && dataFile == null) {
-				Alert alert = new Alert(AlertType.CONFIRMATION);
-				alert.setTitle("Alert");
-				alert.setHeaderText("Annotations are not linked to any file.");
-				alert.setContentText("Would you like to save the annotations to a file?");
+				// Clearing the view
+				tableView.refresh();
+				textField.clear();
+				fromTime.clear();
+				toTime.clear();
+				
+				if (annotations.size() < 2 && dataFile == null) {
+					editAnnotationCheckMenuItem.setDisable(false);
+					viewAnnotationCheckMenuItem.setDisable(false);
+					
+					Alert alert = new Alert(AlertType.CONFIRMATION);
+					alert.setTitle("Alert");
+					alert.setHeaderText("Annotations are not linked to any file.");
+					alert.setContentText("Would you like to save the annotations to a file?");
 
-				ButtonType buttonTypeOK = new ButtonType("Yes", ButtonData.OK_DONE);
-				ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonData.CANCEL_CLOSE);
+					ButtonType buttonTypeOK = new ButtonType("Yes", ButtonData.OK_DONE);
+					ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonData.CANCEL_CLOSE);
 
-				alert.getButtonTypes().setAll(buttonTypeOK, buttonTypeCancel);
+					alert.getButtonTypes().setAll(buttonTypeOK, buttonTypeCancel);
 
-				Optional<ButtonType> result = alert.showAndWait();
-				if (result.get() == buttonTypeOK){
-					showSaveAsDialog();
+					Optional<ButtonType> result = alert.showAndWait();
+					if (result.get() == buttonTypeOK){
+						showSaveAsDialog();
+					}
 				}
+			} catch (ParseException e) {
+				annotationsDSL = annotationsDSL.replace(testString, "");
+				showErrorDialog("Exception Dialog", "Provided input contains syntax errors.", "Try to edit the input to match the DSL.", e.getMessage());
 			}
-		} catch (ParseException e) {
-			Alert alert = new Alert(AlertType.ERROR);
-			alert.setTitle("Exception Dialog");
-			alert.setHeaderText("Provided input contains syntax errors.");
-			alert.setContentText("Try to edit the input to match the DSL.");
-
-			// Create expandable Exception.
-			StringWriter sw = new StringWriter();
-			PrintWriter pw = new PrintWriter(sw);
-			e.printStackTrace(pw);
-			String exceptionText = sw.toString();
-
-			Label label = new Label("The syntax errors are:");
-
-			TextArea textArea = new TextArea(exceptionText);
-			textArea.setEditable(false);
-			textArea.setWrapText(true);
-
-			textArea.setMaxWidth(Double.MAX_VALUE);
-			textArea.setMaxHeight(Double.MAX_VALUE);
-			GridPane.setVgrow(textArea, Priority.ALWAYS);
-			GridPane.setHgrow(textArea, Priority.ALWAYS);
-
-			GridPane expContent = new GridPane();
-			expContent.setMaxWidth(Double.MAX_VALUE);
-			expContent.add(label, 0, 0);
-			expContent.add(textArea, 0, 1);
-
-			// Set expandable Exception into the dialog pane.
-			alert.getDialogPane().setExpandableContent(expContent);
-
-			alert.showAndWait();
 		}
 	}
 	
@@ -756,12 +786,12 @@ public class MainViewController implements Initializable {
 		fromTime.setText(convertSecToTime(annotations.get(index).getFromTime().getSec()));
 		toTime.setText(convertSecToTime(annotations.get(index).getToTime().getSec()));
 		if (annotations.get(index).getTarget() != null) {
-			textField.setText("annotate(" + annotations.get(index).getName() + "," + annotations.get(index).getSender() + "," + annotations.get(index).getType().getType() + "," + 
+			textField.setText(annotations.get(index).getName() + "," + annotations.get(index).getSender() + "," + annotations.get(index).getType().getType() + "," + 
 				annotations.get(index).getScope().getScope() + "," + annotations.get(index).getFocus().getFocus() + ",\"" + annotations.get(index).getContent() + "\"," + 
-				annotations.get(index).getTarget().getName() + ")");
+				annotations.get(index).getTarget().getName());
 		} else {
-			textField.setText("annotate(" + annotations.get(index).getName() + "," + annotations.get(index).getSender() + "," + annotations.get(index).getType().getType() + "," + 
-					annotations.get(index).getScope().getScope() + "," + annotations.get(index).getFocus().getFocus() + ",\"" + annotations.get(index).getContent() + "\")"); 
+			textField.setText(annotations.get(index).getName() + "," + annotations.get(index).getSender() + "," + annotations.get(index).getType().getType() + "," + 
+					annotations.get(index).getScope().getScope() + "," + annotations.get(index).getFocus().getFocus() + ",\"" + annotations.get(index).getContent() + "\""); 
 		}
 	}
 	
@@ -785,4 +815,38 @@ public class MainViewController implements Initializable {
 		tableView.setItems(annotations);
 	}
 
+	public void showErrorDialog(String title, String header, String content, String details) {
+		Alert alert = new Alert(AlertType.ERROR);
+		alert.setTitle(title);
+		alert.setHeaderText(header);
+		alert.setContentText(content);
+
+		if (details != null) {
+			StringWriter sw = new StringWriter();
+			PrintWriter pw = new PrintWriter(sw);
+			pw.print(details);
+			String exceptionText = sw.toString();
+
+			Label label = new Label("Details:");
+
+			TextArea textArea = new TextArea(exceptionText);
+			textArea.setEditable(false);
+			textArea.setWrapText(true);
+
+			textArea.setMaxWidth(Double.MAX_VALUE);
+			textArea.setMaxHeight(Double.MAX_VALUE);
+			GridPane.setVgrow(textArea, Priority.ALWAYS);
+			GridPane.setHgrow(textArea, Priority.ALWAYS);
+
+			GridPane expContent = new GridPane();
+			expContent.setMaxWidth(Double.MAX_VALUE);
+			expContent.add(label, 0, 0);
+			expContent.add(textArea, 0, 1);
+
+			// Set expandable Exception into the dialog pane.
+			alert.getDialogPane().setExpandableContent(expContent);
+		}
+		
+		alert.showAndWait();
+	}
 }
