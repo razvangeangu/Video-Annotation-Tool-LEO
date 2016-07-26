@@ -599,9 +599,9 @@ ruleFocus returns [EObject current=null]
 					setWithLastConsumed($current, "focus", lv_focus_0_4, null);
 				}
 				    |
-				lv_focus_0_5='\u21B5'
+				lv_focus_0_5='alpha'
 				{
-					newLeafNode(lv_focus_0_5, grammarAccess.getFocusAccess().getFocusDownwardsArrowWithCornerLeftwardsKeyword_0_4());
+					newLeafNode(lv_focus_0_5, grammarAccess.getFocusAccess().getFocusAlphaKeyword_0_4());
 				}
 				{
 					if ($current==null) {

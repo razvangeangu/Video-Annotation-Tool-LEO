@@ -284,16 +284,16 @@ public class VideoAnnotationsDSLGrammarAccess extends AbstractGrammarElementFind
 		private final Keyword cFocusSKeyword_0_1 = (Keyword)cFocusAlternatives_0.eContents().get(1);
 		private final Keyword cFocusGKeyword_0_2 = (Keyword)cFocusAlternatives_0.eContents().get(2);
 		private final Keyword cFocusVKeyword_0_3 = (Keyword)cFocusAlternatives_0.eContents().get(3);
-		private final Keyword cFocusDownwardsArrowWithCornerLeftwardsKeyword_0_4 = (Keyword)cFocusAlternatives_0.eContents().get(4);
+		private final Keyword cFocusAlphaKeyword_0_4 = (Keyword)cFocusAlternatives_0.eContents().get(4);
 		
 		//Focus:
-		//	focus=('R' | 'S' | 'G' | 'V' | '↵');
+		//	focus=('R' | 'S' | 'G' | 'V' | 'alpha');
 		@Override public ParserRule getRule() { return rule; }
 		
-		//focus=('R' | 'S' | 'G' | 'V' | '↵')
+		//focus=('R' | 'S' | 'G' | 'V' | 'alpha')
 		public Assignment getFocusAssignment() { return cFocusAssignment; }
 		
-		//('R' | 'S' | 'G' | 'V' | '↵')
+		//('R' | 'S' | 'G' | 'V' | 'alpha')
 		public Alternatives getFocusAlternatives_0() { return cFocusAlternatives_0; }
 		
 		//'R'
@@ -308,8 +308,8 @@ public class VideoAnnotationsDSLGrammarAccess extends AbstractGrammarElementFind
 		//'V'
 		public Keyword getFocusVKeyword_0_3() { return cFocusVKeyword_0_3; }
 		
-		//'↵'
-		public Keyword getFocusDownwardsArrowWithCornerLeftwardsKeyword_0_4() { return cFocusDownwardsArrowWithCornerLeftwardsKeyword_0_4; }
+		//'alpha'
+		public Keyword getFocusAlphaKeyword_0_4() { return cFocusAlphaKeyword_0_4; }
 	}
 	public class TimeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "kcl.ac.uk.xtext.VideoAnnotationsDSL.Time");
@@ -441,7 +441,7 @@ public class VideoAnnotationsDSLGrammarAccess extends AbstractGrammarElementFind
 	}
 	
 	//Focus:
-	//	focus=('R' | 'S' | 'G' | 'V' | '↵');
+	//	focus=('R' | 'S' | 'G' | 'V' | 'alpha');
 	public FocusElements getFocusAccess() {
 		return pFocus;
 	}

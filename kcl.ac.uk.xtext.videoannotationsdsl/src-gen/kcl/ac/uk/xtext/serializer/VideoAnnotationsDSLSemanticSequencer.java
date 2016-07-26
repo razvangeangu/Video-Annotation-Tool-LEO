@@ -99,7 +99,7 @@ public class VideoAnnotationsDSLSemanticSequencer extends AbstractDelegatingSema
 	 *     Focus returns Focus
 	 *
 	 * Constraint:
-	 *     (focus='R' | focus='S' | focus='G' | focus='V' | focus='↵')
+	 *     (focus='R' | focus='S' | focus='G' | focus='V' | focus='alpha')
 	 */
 	protected void sequence_Focus(ISerializationContext context, Focus semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

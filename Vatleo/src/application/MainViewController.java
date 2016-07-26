@@ -67,6 +67,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import javafx.util.Duration;
+import kcl.ac.uk.xtext.generator.AnnotationRenderer;
 import kcl.ac.uk.xtext.videoAnnotationsDSL.AnnotatedVideo;
 import kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation;
 import kcl.ac.uk.xtext.videoAnnotationsDSL.VideoAnnotationsDSLFactory;
@@ -753,7 +754,7 @@ public class MainViewController implements Initializable {
 	 * @return A String that represents the DSL of an Annotation.
 	 */
 	public String getStringDSL(Annotation anAnnotation) {
-		if (anAnnotation.getTarget() != null) {
+		/*if (anAnnotation.getTarget() != null) {
 			return "from " + anAnnotation.getFromTime().getSec() + " to " + anAnnotation.getToTime().getSec() + 
 				" annotate(" + anAnnotation.getName() + "," + anAnnotation.getSender() + "," + anAnnotation.getType().getType() + "," + 
 				anAnnotation.getScope().getScope() + "," + anAnnotation.getFocus().getFocus() + ",\"" + anAnnotation.getContent() + "\"," + 
@@ -762,7 +763,8 @@ public class MainViewController implements Initializable {
 			return "from " + anAnnotation.getFromTime().getSec() + " to " + anAnnotation.getToTime().getSec() + 
 					" annotate(" + anAnnotation.getName() + "," + anAnnotation.getSender() + "," + anAnnotation.getType().getType() + "," + 
 					anAnnotation.getScope().getScope() + "," + anAnnotation.getFocus().getFocus() + ",\"" + anAnnotation.getContent() + "\")";
-		}
+		}*/
+		return new AnnotationRenderer().render(anAnnotation).toString();
 	}
 	
 	
