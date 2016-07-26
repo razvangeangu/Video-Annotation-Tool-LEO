@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalVideoAnnotationsDSLParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_ID", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'propose'", "'question'", "'challenge'", "'justify'", "'withdraw'", "'accept'", "'reject'", "'commit'", "'uncommit'", "'feature'", "'rating'", "'criteria'", "'topic'", "'R'", "'S'", "'G'", "'V'", "'\\u21B5'", "'from'", "'to'", "'annotate'", "'('", "','", "')'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_ID", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'propose'", "'question'", "'challenge'", "'justify'", "'withdraw'", "'accept'", "'reject'", "'commit'", "'uncommit'", "'feature'", "'rating'", "'criteria'", "'topic'", "'R'", "'S'", "'G'", "'V'", "'alpha'", "'from'", "'to'", "'annotate'", "'('", "','", "')'"
     };
     public static final int RULE_STRING=6;
     public static final int RULE_SL_COMMENT=8;
@@ -1015,13 +1015,13 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalContentAs
 
 
     // $ANTLR start "rule__Focus__FocusAlternatives_0"
-    // InternalVideoAnnotationsDSL.g:330:1: rule__Focus__FocusAlternatives_0 : ( ( 'R' ) | ( 'S' ) | ( 'G' ) | ( 'V' ) | ( '\\u21B5' ) );
+    // InternalVideoAnnotationsDSL.g:330:1: rule__Focus__FocusAlternatives_0 : ( ( 'R' ) | ( 'S' ) | ( 'G' ) | ( 'V' ) | ( 'alpha' ) );
     public final void rule__Focus__FocusAlternatives_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVideoAnnotationsDSL.g:334:1: ( ( 'R' ) | ( 'S' ) | ( 'G' ) | ( 'V' ) | ( '\\u21B5' ) )
+            // InternalVideoAnnotationsDSL.g:334:1: ( ( 'R' ) | ( 'S' ) | ( 'G' ) | ( 'V' ) | ( 'alpha' ) )
             int alt5=5;
             switch ( input.LA(1) ) {
             case 24:
@@ -1118,14 +1118,14 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalContentAs
                     }
                     break;
                 case 5 :
-                    // InternalVideoAnnotationsDSL.g:359:2: ( '\\u21B5' )
+                    // InternalVideoAnnotationsDSL.g:359:2: ( 'alpha' )
                     {
-                    // InternalVideoAnnotationsDSL.g:359:2: ( '\\u21B5' )
-                    // InternalVideoAnnotationsDSL.g:360:3: '\\u21B5'
+                    // InternalVideoAnnotationsDSL.g:359:2: ( 'alpha' )
+                    // InternalVideoAnnotationsDSL.g:360:3: 'alpha'
                     {
-                     before(grammarAccess.getFocusAccess().getFocusDownwardsArrowWithCornerLeftwardsKeyword_0_4()); 
+                     before(grammarAccess.getFocusAccess().getFocusAlphaKeyword_0_4()); 
                     match(input,28,FOLLOW_2); 
-                     after(grammarAccess.getFocusAccess().getFocusDownwardsArrowWithCornerLeftwardsKeyword_0_4()); 
+                     after(grammarAccess.getFocusAccess().getFocusAlphaKeyword_0_4()); 
 
                     }
 

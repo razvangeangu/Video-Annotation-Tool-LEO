@@ -357,9 +357,9 @@ rule__Focus__FocusAlternatives_0
 	)
 	|
 	(
-		{ before(grammarAccess.getFocusAccess().getFocusDownwardsArrowWithCornerLeftwardsKeyword_0_4()); }
-		'\u21B5'
-		{ after(grammarAccess.getFocusAccess().getFocusDownwardsArrowWithCornerLeftwardsKeyword_0_4()); }
+		{ before(grammarAccess.getFocusAccess().getFocusAlphaKeyword_0_4()); }
+		'alpha'
+		{ after(grammarAccess.getFocusAccess().getFocusAlphaKeyword_0_4()); }
 	)
 ;
 finally {

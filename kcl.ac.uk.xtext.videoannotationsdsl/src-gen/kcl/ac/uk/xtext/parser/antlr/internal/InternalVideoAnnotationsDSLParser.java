@@ -21,7 +21,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'from'", "'to'", "'annotate'", "'('", "','", "')'", "'propose'", "'question'", "'challenge'", "'justify'", "'withdraw'", "'accept'", "'reject'", "'commit'", "'uncommit'", "'feature'", "'rating'", "'criteria'", "'topic'", "'R'", "'S'", "'G'", "'V'", "'\\u21B5'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'from'", "'to'", "'annotate'", "'('", "','", "')'", "'propose'", "'question'", "'challenge'", "'justify'", "'withdraw'", "'accept'", "'reject'", "'commit'", "'uncommit'", "'feature'", "'rating'", "'criteria'", "'topic'", "'R'", "'S'", "'G'", "'V'", "'alpha'"
     };
     public static final int RULE_STRING=5;
     public static final int RULE_SL_COMMENT=8;
@@ -1250,7 +1250,7 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleFocus"
-    // InternalVideoAnnotationsDSL.g:548:1: ruleFocus returns [EObject current=null] : ( ( (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= '\\u21B5' ) ) ) ;
+    // InternalVideoAnnotationsDSL.g:548:1: ruleFocus returns [EObject current=null] : ( ( (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= 'alpha' ) ) ) ;
     public final EObject ruleFocus() throws RecognitionException {
         EObject current = null;
 
@@ -1264,16 +1264,16 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalVideoAnnotationsDSL.g:554:2: ( ( ( (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= '\\u21B5' ) ) ) )
-            // InternalVideoAnnotationsDSL.g:555:2: ( ( (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= '\\u21B5' ) ) )
+            // InternalVideoAnnotationsDSL.g:554:2: ( ( ( (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= 'alpha' ) ) ) )
+            // InternalVideoAnnotationsDSL.g:555:2: ( ( (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= 'alpha' ) ) )
             {
-            // InternalVideoAnnotationsDSL.g:555:2: ( ( (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= '\\u21B5' ) ) )
-            // InternalVideoAnnotationsDSL.g:556:3: ( (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= '\\u21B5' ) )
+            // InternalVideoAnnotationsDSL.g:555:2: ( ( (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= 'alpha' ) ) )
+            // InternalVideoAnnotationsDSL.g:556:3: ( (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= 'alpha' ) )
             {
-            // InternalVideoAnnotationsDSL.g:556:3: ( (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= '\\u21B5' ) )
-            // InternalVideoAnnotationsDSL.g:557:4: (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= '\\u21B5' )
+            // InternalVideoAnnotationsDSL.g:556:3: ( (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= 'alpha' ) )
+            // InternalVideoAnnotationsDSL.g:557:4: (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= 'alpha' )
             {
-            // InternalVideoAnnotationsDSL.g:557:4: (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= '\\u21B5' )
+            // InternalVideoAnnotationsDSL.g:557:4: (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= 'alpha' )
             int alt6=5;
             switch ( input.LA(1) ) {
             case 30:
@@ -1374,11 +1374,11 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 5 :
-                    // InternalVideoAnnotationsDSL.g:602:5: lv_focus_0_5= '\\u21B5'
+                    // InternalVideoAnnotationsDSL.g:602:5: lv_focus_0_5= 'alpha'
                     {
                     lv_focus_0_5=(Token)match(input,34,FOLLOW_2); 
 
-                    					newLeafNode(lv_focus_0_5, grammarAccess.getFocusAccess().getFocusDownwardsArrowWithCornerLeftwardsKeyword_0_4());
+                    					newLeafNode(lv_focus_0_5, grammarAccess.getFocusAccess().getFocusAlphaKeyword_0_4());
                     				
 
                     					if (current==null) {

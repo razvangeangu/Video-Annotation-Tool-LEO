@@ -28,7 +28,7 @@ Scope:
 	scope=('feature' | 'rating' | 'criteria' | 'topic');
 	
 Focus: 
-	focus=('R' | 'S' | 'G' | 'V' | '↵');
+	focus=('R' | 'S' | 'G' | 'V' | 'alpha');
 	
 Time: 
 	sec=INT;

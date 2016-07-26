@@ -5,8 +5,8 @@
 'R'=30
 'S'=31
 'V'=33
-'\u21B5'=34
 'accept'=22
+'alpha'=34
 'annotate'=13
 'challenge'=19
 'commit'=24

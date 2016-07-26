@@ -43,7 +43,7 @@ public class AutoCompleteTextField extends TextField {
 		scopeEntries.addAll(Arrays.asList("feature", "rating", "criteria", "topic"));
 		
 		focusEntries = new TreeSet<>();
-		focusEntries.addAll(Arrays.asList("R", "S", "G", "V"));
+		focusEntries.addAll(Arrays.asList("R", "S", "G", "V", "alpha"));
 		
 		contentEntries = new TreeSet<>();
 		
