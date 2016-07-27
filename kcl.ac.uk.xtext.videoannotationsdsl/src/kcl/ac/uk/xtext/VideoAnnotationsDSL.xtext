@@ -22,13 +22,13 @@ Sender:
 	INT+;
 	
 Move: 
-	type=('propose' | 'question' | 'challenge' | 'justify' | 'withdraw' | 'accept' | 'reject' | 'commit' | 'uncommit');
+	type=('propose' | 'question' | 'challenge' | 'justify' | 'withdraw' | 'accept' | 'reject' | 'commit' | 'uncommit' | 'counter');
 	
 Scope: 
 	scope=('feature' | 'rating' | 'criteria' | 'topic');
 	
 Focus: 
-	focus=('R' | 'S' | 'G' | 'V' | 'alpha');
+	focus=('R' | 'S' | 'G' | 'V' | 'A');
 	
 Time: 
 	sec=INT;

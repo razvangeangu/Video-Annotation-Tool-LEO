@@ -58,6 +58,7 @@ public abstract class AbstractVideoAnnotationsDSLProposalProvider extends Termin
 		// subclasses may override
 		// subclasses may override
 		// subclasses may override
+		// subclasses may override
 	}
 	public void completeScope_Scope(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		// subclasses may override

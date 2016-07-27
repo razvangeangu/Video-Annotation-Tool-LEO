@@ -289,6 +289,12 @@ rule__Move__TypeAlternatives_0
 		'uncommit'
 		{ after(grammarAccess.getMoveAccess().getTypeUncommitKeyword_0_8()); }
 	)
+	|
+	(
+		{ before(grammarAccess.getMoveAccess().getTypeCounterKeyword_0_9()); }
+		'counter'
+		{ after(grammarAccess.getMoveAccess().getTypeCounterKeyword_0_9()); }
+	)
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -357,9 +363,9 @@ rule__Focus__FocusAlternatives_0
 	)
 	|
 	(
-		{ before(grammarAccess.getFocusAccess().getFocusAlphaKeyword_0_4()); }
-		'alpha'
-		{ after(grammarAccess.getFocusAccess().getFocusAlphaKeyword_0_4()); }
+		{ before(grammarAccess.getFocusAccess().getFocusAKeyword_0_4()); }
+		'A'
+		{ after(grammarAccess.getFocusAccess().getFocusAKeyword_0_4()); }
 	)
 ;
 finally {
