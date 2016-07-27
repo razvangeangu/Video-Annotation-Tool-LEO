@@ -466,6 +466,17 @@ ruleMove returns [EObject current=null]
 					}
 					setWithLastConsumed($current, "type", lv_type_0_9, null);
 				}
+				    |
+				lv_type_0_10='counter'
+				{
+					newLeafNode(lv_type_0_10, grammarAccess.getMoveAccess().getTypeCounterKeyword_0_9());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getMoveRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_10, null);
+				}
 			)
 		)
 	)
@@ -599,9 +610,9 @@ ruleFocus returns [EObject current=null]
 					setWithLastConsumed($current, "focus", lv_focus_0_4, null);
 				}
 				    |
-				lv_focus_0_5='alpha'
+				lv_focus_0_5='A'
 				{
-					newLeafNode(lv_focus_0_5, grammarAccess.getFocusAccess().getFocusAlphaKeyword_0_4());
+					newLeafNode(lv_focus_0_5, grammarAccess.getFocusAccess().getFocusAKeyword_0_4());
 				}
 				{
 					if ($current==null) {

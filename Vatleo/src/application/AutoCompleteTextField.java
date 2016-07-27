@@ -37,7 +37,7 @@ public class AutoCompleteTextField extends TextField {
 		senderEntries = new TreeSet<>();
 		
 		typeEntries = new TreeSet<>();
-		typeEntries.addAll(Arrays.asList("propose", "question", "challenge","justify", "withdraw", "accept", "reject", "commit", "uncommit"));
+		typeEntries.addAll(Arrays.asList("propose", "question", "challenge","justify", "withdraw", "accept", "reject", "commit", "uncommit", "counter"));
 		
 		scopeEntries = new TreeSet<>();
 		scopeEntries.addAll(Arrays.asList("feature", "rating", "criteria", "topic"));

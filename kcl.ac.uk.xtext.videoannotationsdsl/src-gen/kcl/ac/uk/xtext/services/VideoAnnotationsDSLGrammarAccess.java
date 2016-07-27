@@ -207,15 +207,19 @@ public class VideoAnnotationsDSLGrammarAccess extends AbstractGrammarElementFind
 		private final Keyword cTypeRejectKeyword_0_6 = (Keyword)cTypeAlternatives_0.eContents().get(6);
 		private final Keyword cTypeCommitKeyword_0_7 = (Keyword)cTypeAlternatives_0.eContents().get(7);
 		private final Keyword cTypeUncommitKeyword_0_8 = (Keyword)cTypeAlternatives_0.eContents().get(8);
+		private final Keyword cTypeCounterKeyword_0_9 = (Keyword)cTypeAlternatives_0.eContents().get(9);
 		
 		//Move:
-		//	type=('propose' | 'question' | 'challenge' | 'justify' | 'withdraw' | 'accept' | 'reject' | 'commit' | 'uncommit');
+		//	type=('propose' | 'question' | 'challenge' | 'justify' | 'withdraw' | 'accept' | 'reject' | 'commit' | 'uncommit' |
+		//	'counter');
 		@Override public ParserRule getRule() { return rule; }
 		
-		//type=('propose' | 'question' | 'challenge' | 'justify' | 'withdraw' | 'accept' | 'reject' | 'commit' | 'uncommit')
+		//type=('propose' | 'question' | 'challenge' | 'justify' | 'withdraw' | 'accept' | 'reject' | 'commit' | 'uncommit' |
+		//'counter')
 		public Assignment getTypeAssignment() { return cTypeAssignment; }
 		
-		//('propose' | 'question' | 'challenge' | 'justify' | 'withdraw' | 'accept' | 'reject' | 'commit' | 'uncommit')
+		//('propose' | 'question' | 'challenge' | 'justify' | 'withdraw' | 'accept' | 'reject' | 'commit' | 'uncommit' |
+		//'counter')
 		public Alternatives getTypeAlternatives_0() { return cTypeAlternatives_0; }
 		
 		//'propose'
@@ -244,6 +248,9 @@ public class VideoAnnotationsDSLGrammarAccess extends AbstractGrammarElementFind
 		
 		//'uncommit'
 		public Keyword getTypeUncommitKeyword_0_8() { return cTypeUncommitKeyword_0_8; }
+		
+		//'counter'
+		public Keyword getTypeCounterKeyword_0_9() { return cTypeCounterKeyword_0_9; }
 	}
 	public class ScopeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "kcl.ac.uk.xtext.VideoAnnotationsDSL.Scope");
@@ -284,16 +291,16 @@ public class VideoAnnotationsDSLGrammarAccess extends AbstractGrammarElementFind
 		private final Keyword cFocusSKeyword_0_1 = (Keyword)cFocusAlternatives_0.eContents().get(1);
 		private final Keyword cFocusGKeyword_0_2 = (Keyword)cFocusAlternatives_0.eContents().get(2);
 		private final Keyword cFocusVKeyword_0_3 = (Keyword)cFocusAlternatives_0.eContents().get(3);
-		private final Keyword cFocusAlphaKeyword_0_4 = (Keyword)cFocusAlternatives_0.eContents().get(4);
+		private final Keyword cFocusAKeyword_0_4 = (Keyword)cFocusAlternatives_0.eContents().get(4);
 		
 		//Focus:
-		//	focus=('R' | 'S' | 'G' | 'V' | 'alpha');
+		//	focus=('R' | 'S' | 'G' | 'V' | 'A');
 		@Override public ParserRule getRule() { return rule; }
 		
-		//focus=('R' | 'S' | 'G' | 'V' | 'alpha')
+		//focus=('R' | 'S' | 'G' | 'V' | 'A')
 		public Assignment getFocusAssignment() { return cFocusAssignment; }
 		
-		//('R' | 'S' | 'G' | 'V' | 'alpha')
+		//('R' | 'S' | 'G' | 'V' | 'A')
 		public Alternatives getFocusAlternatives_0() { return cFocusAlternatives_0; }
 		
 		//'R'
@@ -308,8 +315,8 @@ public class VideoAnnotationsDSLGrammarAccess extends AbstractGrammarElementFind
 		//'V'
 		public Keyword getFocusVKeyword_0_3() { return cFocusVKeyword_0_3; }
 		
-		//'alpha'
-		public Keyword getFocusAlphaKeyword_0_4() { return cFocusAlphaKeyword_0_4; }
+		//'A'
+		public Keyword getFocusAKeyword_0_4() { return cFocusAKeyword_0_4; }
 	}
 	public class TimeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "kcl.ac.uk.xtext.VideoAnnotationsDSL.Time");
@@ -421,7 +428,8 @@ public class VideoAnnotationsDSLGrammarAccess extends AbstractGrammarElementFind
 	}
 	
 	//Move:
-	//	type=('propose' | 'question' | 'challenge' | 'justify' | 'withdraw' | 'accept' | 'reject' | 'commit' | 'uncommit');
+	//	type=('propose' | 'question' | 'challenge' | 'justify' | 'withdraw' | 'accept' | 'reject' | 'commit' | 'uncommit' |
+	//	'counter');
 	public MoveElements getMoveAccess() {
 		return pMove;
 	}
@@ -441,7 +449,7 @@ public class VideoAnnotationsDSLGrammarAccess extends AbstractGrammarElementFind
 	}
 	
 	//Focus:
-	//	focus=('R' | 'S' | 'G' | 'V' | 'alpha');
+	//	focus=('R' | 'S' | 'G' | 'V' | 'A');
 	public FocusElements getFocusAccess() {
 		return pFocus;
 	}
