@@ -305,21 +305,45 @@ ruleAnnotation returns [EObject current=null]
 			}
 			(
 				(
+					lv_contentTarget_18_0=RULE_STRING
+					{
+						newLeafNode(lv_contentTarget_18_0, grammarAccess.getAnnotationAccess().getContentTargetSTRINGTerminalRuleCall_17_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getAnnotationRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"contentTarget",
+							lv_contentTarget_18_0,
+							"org.eclipse.xtext.common.Terminals.STRING");
+					}
+				)
+			)
+		)?
+		(
+			otherlv_19=','
+			{
+				newLeafNode(otherlv_19, grammarAccess.getAnnotationAccess().getCommaKeyword_18_0());
+			}
+			(
+				(
 					{
 						if ($current==null) {
 							$current = createModelElement(grammarAccess.getAnnotationRule());
 						}
 					}
-					otherlv_18=RULE_ID
+					otherlv_20=RULE_ID
 					{
-						newLeafNode(otherlv_18, grammarAccess.getAnnotationAccess().getTargetAnnotationCrossReference_17_1_0());
+						newLeafNode(otherlv_20, grammarAccess.getAnnotationAccess().getTargetAnnotationCrossReference_18_1_0());
 					}
 				)
 			)
 		)?
-		otherlv_19=')'
+		otherlv_21=')'
 		{
-			newLeafNode(otherlv_19, grammarAccess.getAnnotationAccess().getRightParenthesisKeyword_18());
+			newLeafNode(otherlv_21, grammarAccess.getAnnotationAccess().getRightParenthesisKeyword_19());
 		}
 	)
 ;

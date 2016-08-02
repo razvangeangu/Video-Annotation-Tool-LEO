@@ -31,10 +31,12 @@ public class AnnotationRenderer {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("from ");
     Time _fromTime = annotation.getFromTime();
-    _builder.append(_fromTime, "");
+    int _sec = _fromTime.getSec();
+    _builder.append(_sec, "");
     _builder.append(" to ");
     Time _toTime = annotation.getToTime();
-    _builder.append(_toTime, "");
+    int _sec_1 = _toTime.getSec();
+    _builder.append(_sec_1, "");
     _builder.append(" ");
     CharSequence _renderWithoutTimes = this.renderWithoutTimes(annotation);
     _builder.append(_renderWithoutTimes, "");
@@ -52,30 +54,96 @@ public class AnnotationRenderer {
     _builder.append(_sender, "");
     _builder.append(", ");
     Move _type = annotation.getType();
-    _builder.append(_type, "");
+    String _type_1 = _type.getType();
+    _builder.append(_type_1, "");
     _builder.append(", ");
     Scope _scope = annotation.getScope();
-    _builder.append(_scope, "");
+    String _scope_1 = _scope.getScope();
+    _builder.append(_scope_1, "");
     _builder.append(", ");
     Focus _focus = annotation.getFocus();
-    _builder.append(_focus, "");
+    String _focus_1 = _focus.getFocus();
+    _builder.append(_focus_1, "");
     _builder.append(", \"");
     String _content = annotation.getContent();
     _builder.append(_content, "");
     _builder.append("\"");
     CharSequence _xifexpression = null;
-    Annotation _target = annotation.getTarget();
-    boolean _notEquals = (!Objects.equal(_target, null));
+    String _contentTarget = annotation.getContentTarget();
+    boolean _notEquals = (!Objects.equal(_contentTarget, null));
     if (_notEquals) {
       StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append(", ");
-      Annotation _target_1 = annotation.getTarget();
-      String _name_1 = _target_1.getName();
-      _builder_1.append(_name_1, "");
+      _builder_1.append(", \"");
+      String _contentTarget_1 = annotation.getContentTarget();
+      _builder_1.append(_contentTarget_1, "");
+      _builder_1.append("\"");
       _xifexpression = _builder_1;
     }
     _builder.append(_xifexpression, "");
+    CharSequence _xifexpression_1 = null;
+    Annotation _target = annotation.getTarget();
+    boolean _notEquals_1 = (!Objects.equal(_target, null));
+    if (_notEquals_1) {
+      StringConcatenation _builder_2 = new StringConcatenation();
+      _builder_2.append(", ");
+      Annotation _target_1 = annotation.getTarget();
+      String _name_1 = _target_1.getName();
+      _builder_2.append(_name_1, "");
+      _xifexpression_1 = _builder_2;
+    }
+    _builder.append(_xifexpression_1, "");
     _builder.append(")");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence renderWithoutTimeAndWithoutKeyword(final Annotation annotation) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = annotation.getName();
+    _builder.append(_name, "");
+    _builder.append(", ");
+    String _sender = annotation.getSender();
+    _builder.append(_sender, "");
+    _builder.append(", ");
+    Move _type = annotation.getType();
+    String _type_1 = _type.getType();
+    _builder.append(_type_1, "");
+    _builder.append(", ");
+    Scope _scope = annotation.getScope();
+    String _scope_1 = _scope.getScope();
+    _builder.append(_scope_1, "");
+    _builder.append(", ");
+    Focus _focus = annotation.getFocus();
+    String _focus_1 = _focus.getFocus();
+    _builder.append(_focus_1, "");
+    _builder.append(", \"");
+    String _content = annotation.getContent();
+    _builder.append(_content, "");
+    _builder.append("\"");
+    CharSequence _xifexpression = null;
+    String _contentTarget = annotation.getContentTarget();
+    boolean _notEquals = (!Objects.equal(_contentTarget, null));
+    if (_notEquals) {
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append(", \"");
+      String _contentTarget_1 = annotation.getContentTarget();
+      _builder_1.append(_contentTarget_1, "");
+      _builder_1.append("\"");
+      _xifexpression = _builder_1;
+    }
+    _builder.append(_xifexpression, "");
+    CharSequence _xifexpression_1 = null;
+    Annotation _target = annotation.getTarget();
+    boolean _notEquals_1 = (!Objects.equal(_target, null));
+    if (_notEquals_1) {
+      StringConcatenation _builder_2 = new StringConcatenation();
+      _builder_2.append(", ");
+      Annotation _target_1 = annotation.getTarget();
+      String _name_1 = _target_1.getName();
+      _builder_2.append(_name_1, "");
+      _xifexpression_1 = _builder_2;
+    }
+    _builder.append(_xifexpression_1, "");
     _builder.newLineIfNotEmpty();
     return _builder;
   }

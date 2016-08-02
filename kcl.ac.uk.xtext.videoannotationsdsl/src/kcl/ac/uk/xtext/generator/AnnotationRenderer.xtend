@@ -2,8 +2,6 @@ package kcl.ac.uk.xtext.generator
 
 import kcl.ac.uk.xtext.videoAnnotationsDSL.AnnotatedVideo
 import kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation
-import kcl.ac.uk.xtext.videoAnnotationsDSL.VideoAnnotationsDSLPackage
-import kcl.ac.uk.xtext.videoAnnotationsDSL.VideoAnnotationsDSLFactory
 
 /**
  * Pretty-print a given Annotation/AnnotatedVideo so that it can be shown in editors etc.
@@ -16,10 +14,14 @@ class AnnotationRenderer {
 	}
 	
 	def render(Annotation annotation) '''
-	  from «annotation.fromTime» to «annotation.toTime» «annotation.renderWithoutTimes»
+	  from «annotation.fromTime.sec» to «annotation.toTime.sec» «annotation.renderWithoutTimes»
 	'''
 	
 	def renderWithoutTimes (Annotation annotation) '''
-		annotate («annotation.name», «annotation.sender», «annotation.type», «annotation.scope», «annotation.focus», "«annotation.content»"«if (annotation.target != null) {''', «annotation.target.name»'''}»)
+		annotate («annotation.name», «annotation.sender», «annotation.type.type», «annotation.scope.scope», «annotation.focus.focus», "«annotation.content»"«if (annotation.contentTarget != null) {''', "«annotation.contentTarget»"'''}»«if (annotation.target != null) {''', «annotation.target.name»'''}»)
+	'''
+	
+	def renderWithoutTimeAndWithoutKeyword(Annotation annotation) '''
+		«annotation.name», «annotation.sender», «annotation.type.type», «annotation.scope.scope», «annotation.focus.focus», "«annotation.content»"«if (annotation.contentTarget != null) {''', "«annotation.contentTarget»"'''}»«if (annotation.target != null) {''', «annotation.target.name»'''}»
 	'''
 }

@@ -168,13 +168,22 @@ public interface VideoAnnotationsDSLPackage extends EPackage
   int ANNOTATION__CONTENT = 7;
 
   /**
+   * The feature id for the '<em><b>Content Target</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ANNOTATION__CONTENT_TARGET = 8;
+
+  /**
    * The feature id for the '<em><b>Target</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ANNOTATION__TARGET = 8;
+  int ANNOTATION__TARGET = 9;
 
   /**
    * The number of structural features of the '<em>Annotation</em>' class.
@@ -183,7 +192,7 @@ public interface VideoAnnotationsDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ANNOTATION_FEATURE_COUNT = 9;
+  int ANNOTATION_FEATURE_COUNT = 10;
 
   /**
    * The meta object id for the '{@link kcl.ac.uk.xtext.videoAnnotationsDSL.impl.MoveImpl <em>Move</em>}' class.
@@ -418,6 +427,17 @@ public interface VideoAnnotationsDSLPackage extends EPackage
   EAttribute getAnnotation_Content();
 
   /**
+   * Returns the meta object for the attribute '{@link kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation#getContentTarget <em>Content Target</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Content Target</em>'.
+   * @see kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation#getContentTarget()
+   * @see #getAnnotation()
+   * @generated
+   */
+  EAttribute getAnnotation_ContentTarget();
+
+  /**
    * Returns the meta object for the reference '{@link kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation#getTarget <em>Target</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -626,6 +646,14 @@ public interface VideoAnnotationsDSLPackage extends EPackage
      * @generated
      */
     EAttribute ANNOTATION__CONTENT = eINSTANCE.getAnnotation_Content();
+
+    /**
+     * The meta object literal for the '<em><b>Content Target</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ANNOTATION__CONTENT_TARGET = eINSTANCE.getAnnotation_ContentTarget();
 
     /**
      * The meta object literal for the '<em><b>Target</b></em>' reference feature.

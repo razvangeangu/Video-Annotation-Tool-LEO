@@ -2582,7 +2582,11 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalContentAs
             int LA6_0 = input.LA(1);
 
             if ( (LA6_0==34) ) {
-                alt6=1;
+                int LA6_1 = input.LA(2);
+
+                if ( (LA6_1==RULE_STRING) ) {
+                    alt6=1;
+                }
             }
             switch (alt6) {
                 case 1 :
@@ -2622,17 +2626,22 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalContentAs
 
 
     // $ANTLR start "rule__Annotation__Group__18"
-    // InternalVideoAnnotationsDSL.g:861:1: rule__Annotation__Group__18 : rule__Annotation__Group__18__Impl ;
+    // InternalVideoAnnotationsDSL.g:861:1: rule__Annotation__Group__18 : rule__Annotation__Group__18__Impl rule__Annotation__Group__19 ;
     public final void rule__Annotation__Group__18() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVideoAnnotationsDSL.g:865:1: ( rule__Annotation__Group__18__Impl )
-            // InternalVideoAnnotationsDSL.g:866:2: rule__Annotation__Group__18__Impl
+            // InternalVideoAnnotationsDSL.g:865:1: ( rule__Annotation__Group__18__Impl rule__Annotation__Group__19 )
+            // InternalVideoAnnotationsDSL.g:866:2: rule__Annotation__Group__18__Impl rule__Annotation__Group__19
             {
-            pushFollow(FOLLOW_2);
+            pushFollow(FOLLOW_15);
             rule__Annotation__Group__18__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Annotation__Group__19();
 
             state._fsp--;
 
@@ -2655,21 +2664,42 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalContentAs
 
 
     // $ANTLR start "rule__Annotation__Group__18__Impl"
-    // InternalVideoAnnotationsDSL.g:872:1: rule__Annotation__Group__18__Impl : ( ')' ) ;
+    // InternalVideoAnnotationsDSL.g:873:1: rule__Annotation__Group__18__Impl : ( ( rule__Annotation__Group_18__0 )? ) ;
     public final void rule__Annotation__Group__18__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVideoAnnotationsDSL.g:876:1: ( ( ')' ) )
-            // InternalVideoAnnotationsDSL.g:877:1: ( ')' )
+            // InternalVideoAnnotationsDSL.g:877:1: ( ( ( rule__Annotation__Group_18__0 )? ) )
+            // InternalVideoAnnotationsDSL.g:878:1: ( ( rule__Annotation__Group_18__0 )? )
             {
-            // InternalVideoAnnotationsDSL.g:877:1: ( ')' )
-            // InternalVideoAnnotationsDSL.g:878:2: ')'
+            // InternalVideoAnnotationsDSL.g:878:1: ( ( rule__Annotation__Group_18__0 )? )
+            // InternalVideoAnnotationsDSL.g:879:2: ( rule__Annotation__Group_18__0 )?
             {
-             before(grammarAccess.getAnnotationAccess().getRightParenthesisKeyword_18()); 
-            match(input,35,FOLLOW_2); 
-             after(grammarAccess.getAnnotationAccess().getRightParenthesisKeyword_18()); 
+             before(grammarAccess.getAnnotationAccess().getGroup_18()); 
+            // InternalVideoAnnotationsDSL.g:880:2: ( rule__Annotation__Group_18__0 )?
+            int alt7=2;
+            int LA7_0 = input.LA(1);
+
+            if ( (LA7_0==34) ) {
+                alt7=1;
+            }
+            switch (alt7) {
+                case 1 :
+                    // InternalVideoAnnotationsDSL.g:880:3: rule__Annotation__Group_18__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__Annotation__Group_18__0();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getAnnotationAccess().getGroup_18()); 
 
             }
 
@@ -2691,17 +2721,87 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalContentAs
     // $ANTLR end "rule__Annotation__Group__18__Impl"
 
 
+    // $ANTLR start "rule__Annotation__Group__19"
+    // InternalVideoAnnotationsDSL.g:888:1: rule__Annotation__Group__19 : rule__Annotation__Group__19__Impl ;
+    public final void rule__Annotation__Group__19() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalVideoAnnotationsDSL.g:892:1: ( rule__Annotation__Group__19__Impl )
+            // InternalVideoAnnotationsDSL.g:893:2: rule__Annotation__Group__19__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Annotation__Group__19__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Annotation__Group__19"
+
+
+    // $ANTLR start "rule__Annotation__Group__19__Impl"
+    // InternalVideoAnnotationsDSL.g:899:1: rule__Annotation__Group__19__Impl : ( ')' ) ;
+    public final void rule__Annotation__Group__19__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalVideoAnnotationsDSL.g:903:1: ( ( ')' ) )
+            // InternalVideoAnnotationsDSL.g:904:1: ( ')' )
+            {
+            // InternalVideoAnnotationsDSL.g:904:1: ( ')' )
+            // InternalVideoAnnotationsDSL.g:905:2: ')'
+            {
+             before(grammarAccess.getAnnotationAccess().getRightParenthesisKeyword_19()); 
+            match(input,35,FOLLOW_2); 
+             after(grammarAccess.getAnnotationAccess().getRightParenthesisKeyword_19()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Annotation__Group__19__Impl"
+
+
     // $ANTLR start "rule__Annotation__Group_17__0"
-    // InternalVideoAnnotationsDSL.g:888:1: rule__Annotation__Group_17__0 : rule__Annotation__Group_17__0__Impl rule__Annotation__Group_17__1 ;
+    // InternalVideoAnnotationsDSL.g:915:1: rule__Annotation__Group_17__0 : rule__Annotation__Group_17__0__Impl rule__Annotation__Group_17__1 ;
     public final void rule__Annotation__Group_17__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVideoAnnotationsDSL.g:892:1: ( rule__Annotation__Group_17__0__Impl rule__Annotation__Group_17__1 )
-            // InternalVideoAnnotationsDSL.g:893:2: rule__Annotation__Group_17__0__Impl rule__Annotation__Group_17__1
+            // InternalVideoAnnotationsDSL.g:919:1: ( rule__Annotation__Group_17__0__Impl rule__Annotation__Group_17__1 )
+            // InternalVideoAnnotationsDSL.g:920:2: rule__Annotation__Group_17__0__Impl rule__Annotation__Group_17__1
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_14);
             rule__Annotation__Group_17__0__Impl();
 
             state._fsp--;
@@ -2730,17 +2830,17 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalContentAs
 
 
     // $ANTLR start "rule__Annotation__Group_17__0__Impl"
-    // InternalVideoAnnotationsDSL.g:900:1: rule__Annotation__Group_17__0__Impl : ( ',' ) ;
+    // InternalVideoAnnotationsDSL.g:927:1: rule__Annotation__Group_17__0__Impl : ( ',' ) ;
     public final void rule__Annotation__Group_17__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVideoAnnotationsDSL.g:904:1: ( ( ',' ) )
-            // InternalVideoAnnotationsDSL.g:905:1: ( ',' )
+            // InternalVideoAnnotationsDSL.g:931:1: ( ( ',' ) )
+            // InternalVideoAnnotationsDSL.g:932:1: ( ',' )
             {
-            // InternalVideoAnnotationsDSL.g:905:1: ( ',' )
-            // InternalVideoAnnotationsDSL.g:906:2: ','
+            // InternalVideoAnnotationsDSL.g:932:1: ( ',' )
+            // InternalVideoAnnotationsDSL.g:933:2: ','
             {
              before(grammarAccess.getAnnotationAccess().getCommaKeyword_17_0()); 
             match(input,34,FOLLOW_2); 
@@ -2767,14 +2867,14 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalContentAs
 
 
     // $ANTLR start "rule__Annotation__Group_17__1"
-    // InternalVideoAnnotationsDSL.g:915:1: rule__Annotation__Group_17__1 : rule__Annotation__Group_17__1__Impl ;
+    // InternalVideoAnnotationsDSL.g:942:1: rule__Annotation__Group_17__1 : rule__Annotation__Group_17__1__Impl ;
     public final void rule__Annotation__Group_17__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVideoAnnotationsDSL.g:919:1: ( rule__Annotation__Group_17__1__Impl )
-            // InternalVideoAnnotationsDSL.g:920:2: rule__Annotation__Group_17__1__Impl
+            // InternalVideoAnnotationsDSL.g:946:1: ( rule__Annotation__Group_17__1__Impl )
+            // InternalVideoAnnotationsDSL.g:947:2: rule__Annotation__Group_17__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Annotation__Group_17__1__Impl();
@@ -2800,31 +2900,31 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalContentAs
 
 
     // $ANTLR start "rule__Annotation__Group_17__1__Impl"
-    // InternalVideoAnnotationsDSL.g:926:1: rule__Annotation__Group_17__1__Impl : ( ( rule__Annotation__TargetAssignment_17_1 ) ) ;
+    // InternalVideoAnnotationsDSL.g:953:1: rule__Annotation__Group_17__1__Impl : ( ( rule__Annotation__ContentTargetAssignment_17_1 ) ) ;
     public final void rule__Annotation__Group_17__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVideoAnnotationsDSL.g:930:1: ( ( ( rule__Annotation__TargetAssignment_17_1 ) ) )
-            // InternalVideoAnnotationsDSL.g:931:1: ( ( rule__Annotation__TargetAssignment_17_1 ) )
+            // InternalVideoAnnotationsDSL.g:957:1: ( ( ( rule__Annotation__ContentTargetAssignment_17_1 ) ) )
+            // InternalVideoAnnotationsDSL.g:958:1: ( ( rule__Annotation__ContentTargetAssignment_17_1 ) )
             {
-            // InternalVideoAnnotationsDSL.g:931:1: ( ( rule__Annotation__TargetAssignment_17_1 ) )
-            // InternalVideoAnnotationsDSL.g:932:2: ( rule__Annotation__TargetAssignment_17_1 )
+            // InternalVideoAnnotationsDSL.g:958:1: ( ( rule__Annotation__ContentTargetAssignment_17_1 ) )
+            // InternalVideoAnnotationsDSL.g:959:2: ( rule__Annotation__ContentTargetAssignment_17_1 )
             {
-             before(grammarAccess.getAnnotationAccess().getTargetAssignment_17_1()); 
-            // InternalVideoAnnotationsDSL.g:933:2: ( rule__Annotation__TargetAssignment_17_1 )
-            // InternalVideoAnnotationsDSL.g:933:3: rule__Annotation__TargetAssignment_17_1
+             before(grammarAccess.getAnnotationAccess().getContentTargetAssignment_17_1()); 
+            // InternalVideoAnnotationsDSL.g:960:2: ( rule__Annotation__ContentTargetAssignment_17_1 )
+            // InternalVideoAnnotationsDSL.g:960:3: rule__Annotation__ContentTargetAssignment_17_1
             {
             pushFollow(FOLLOW_2);
-            rule__Annotation__TargetAssignment_17_1();
+            rule__Annotation__ContentTargetAssignment_17_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getAnnotationAccess().getTargetAssignment_17_1()); 
+             after(grammarAccess.getAnnotationAccess().getContentTargetAssignment_17_1()); 
 
             }
 
@@ -2846,18 +2946,173 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalContentAs
     // $ANTLR end "rule__Annotation__Group_17__1__Impl"
 
 
+    // $ANTLR start "rule__Annotation__Group_18__0"
+    // InternalVideoAnnotationsDSL.g:969:1: rule__Annotation__Group_18__0 : rule__Annotation__Group_18__0__Impl rule__Annotation__Group_18__1 ;
+    public final void rule__Annotation__Group_18__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalVideoAnnotationsDSL.g:973:1: ( rule__Annotation__Group_18__0__Impl rule__Annotation__Group_18__1 )
+            // InternalVideoAnnotationsDSL.g:974:2: rule__Annotation__Group_18__0__Impl rule__Annotation__Group_18__1
+            {
+            pushFollow(FOLLOW_9);
+            rule__Annotation__Group_18__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Annotation__Group_18__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Annotation__Group_18__0"
+
+
+    // $ANTLR start "rule__Annotation__Group_18__0__Impl"
+    // InternalVideoAnnotationsDSL.g:981:1: rule__Annotation__Group_18__0__Impl : ( ',' ) ;
+    public final void rule__Annotation__Group_18__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalVideoAnnotationsDSL.g:985:1: ( ( ',' ) )
+            // InternalVideoAnnotationsDSL.g:986:1: ( ',' )
+            {
+            // InternalVideoAnnotationsDSL.g:986:1: ( ',' )
+            // InternalVideoAnnotationsDSL.g:987:2: ','
+            {
+             before(grammarAccess.getAnnotationAccess().getCommaKeyword_18_0()); 
+            match(input,34,FOLLOW_2); 
+             after(grammarAccess.getAnnotationAccess().getCommaKeyword_18_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Annotation__Group_18__0__Impl"
+
+
+    // $ANTLR start "rule__Annotation__Group_18__1"
+    // InternalVideoAnnotationsDSL.g:996:1: rule__Annotation__Group_18__1 : rule__Annotation__Group_18__1__Impl ;
+    public final void rule__Annotation__Group_18__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalVideoAnnotationsDSL.g:1000:1: ( rule__Annotation__Group_18__1__Impl )
+            // InternalVideoAnnotationsDSL.g:1001:2: rule__Annotation__Group_18__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Annotation__Group_18__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Annotation__Group_18__1"
+
+
+    // $ANTLR start "rule__Annotation__Group_18__1__Impl"
+    // InternalVideoAnnotationsDSL.g:1007:1: rule__Annotation__Group_18__1__Impl : ( ( rule__Annotation__TargetAssignment_18_1 ) ) ;
+    public final void rule__Annotation__Group_18__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalVideoAnnotationsDSL.g:1011:1: ( ( ( rule__Annotation__TargetAssignment_18_1 ) ) )
+            // InternalVideoAnnotationsDSL.g:1012:1: ( ( rule__Annotation__TargetAssignment_18_1 ) )
+            {
+            // InternalVideoAnnotationsDSL.g:1012:1: ( ( rule__Annotation__TargetAssignment_18_1 ) )
+            // InternalVideoAnnotationsDSL.g:1013:2: ( rule__Annotation__TargetAssignment_18_1 )
+            {
+             before(grammarAccess.getAnnotationAccess().getTargetAssignment_18_1()); 
+            // InternalVideoAnnotationsDSL.g:1014:2: ( rule__Annotation__TargetAssignment_18_1 )
+            // InternalVideoAnnotationsDSL.g:1014:3: rule__Annotation__TargetAssignment_18_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__Annotation__TargetAssignment_18_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getAnnotationAccess().getTargetAssignment_18_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Annotation__Group_18__1__Impl"
+
+
     // $ANTLR start "rule__AnnotatedVideo__AnnotationsAssignment"
-    // InternalVideoAnnotationsDSL.g:942:1: rule__AnnotatedVideo__AnnotationsAssignment : ( ruleAnnotation ) ;
+    // InternalVideoAnnotationsDSL.g:1023:1: rule__AnnotatedVideo__AnnotationsAssignment : ( ruleAnnotation ) ;
     public final void rule__AnnotatedVideo__AnnotationsAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVideoAnnotationsDSL.g:946:1: ( ( ruleAnnotation ) )
-            // InternalVideoAnnotationsDSL.g:947:2: ( ruleAnnotation )
+            // InternalVideoAnnotationsDSL.g:1027:1: ( ( ruleAnnotation ) )
+            // InternalVideoAnnotationsDSL.g:1028:2: ( ruleAnnotation )
             {
-            // InternalVideoAnnotationsDSL.g:947:2: ( ruleAnnotation )
-            // InternalVideoAnnotationsDSL.g:948:3: ruleAnnotation
+            // InternalVideoAnnotationsDSL.g:1028:2: ( ruleAnnotation )
+            // InternalVideoAnnotationsDSL.g:1029:3: ruleAnnotation
             {
              before(grammarAccess.getAnnotatedVideoAccess().getAnnotationsAnnotationParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
@@ -2888,17 +3143,17 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalContentAs
 
 
     // $ANTLR start "rule__Annotation__FromTimeAssignment_1"
-    // InternalVideoAnnotationsDSL.g:957:1: rule__Annotation__FromTimeAssignment_1 : ( ruleTime ) ;
+    // InternalVideoAnnotationsDSL.g:1038:1: rule__Annotation__FromTimeAssignment_1 : ( ruleTime ) ;
     public final void rule__Annotation__FromTimeAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVideoAnnotationsDSL.g:961:1: ( ( ruleTime ) )
-            // InternalVideoAnnotationsDSL.g:962:2: ( ruleTime )
+            // InternalVideoAnnotationsDSL.g:1042:1: ( ( ruleTime ) )
+            // InternalVideoAnnotationsDSL.g:1043:2: ( ruleTime )
             {
-            // InternalVideoAnnotationsDSL.g:962:2: ( ruleTime )
-            // InternalVideoAnnotationsDSL.g:963:3: ruleTime
+            // InternalVideoAnnotationsDSL.g:1043:2: ( ruleTime )
+            // InternalVideoAnnotationsDSL.g:1044:3: ruleTime
             {
              before(grammarAccess.getAnnotationAccess().getFromTimeTimeParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -2929,17 +3184,17 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalContentAs
 
 
     // $ANTLR start "rule__Annotation__ToTimeAssignment_3"
-    // InternalVideoAnnotationsDSL.g:972:1: rule__Annotation__ToTimeAssignment_3 : ( ruleTime ) ;
+    // InternalVideoAnnotationsDSL.g:1053:1: rule__Annotation__ToTimeAssignment_3 : ( ruleTime ) ;
     public final void rule__Annotation__ToTimeAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVideoAnnotationsDSL.g:976:1: ( ( ruleTime ) )
-            // InternalVideoAnnotationsDSL.g:977:2: ( ruleTime )
+            // InternalVideoAnnotationsDSL.g:1057:1: ( ( ruleTime ) )
+            // InternalVideoAnnotationsDSL.g:1058:2: ( ruleTime )
             {
-            // InternalVideoAnnotationsDSL.g:977:2: ( ruleTime )
-            // InternalVideoAnnotationsDSL.g:978:3: ruleTime
+            // InternalVideoAnnotationsDSL.g:1058:2: ( ruleTime )
+            // InternalVideoAnnotationsDSL.g:1059:3: ruleTime
             {
              before(grammarAccess.getAnnotationAccess().getToTimeTimeParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -2970,17 +3225,17 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalContentAs
 
 
     // $ANTLR start "rule__Annotation__NameAssignment_6"
-    // InternalVideoAnnotationsDSL.g:987:1: rule__Annotation__NameAssignment_6 : ( RULE_ID ) ;
+    // InternalVideoAnnotationsDSL.g:1068:1: rule__Annotation__NameAssignment_6 : ( RULE_ID ) ;
     public final void rule__Annotation__NameAssignment_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVideoAnnotationsDSL.g:991:1: ( ( RULE_ID ) )
-            // InternalVideoAnnotationsDSL.g:992:2: ( RULE_ID )
+            // InternalVideoAnnotationsDSL.g:1072:1: ( ( RULE_ID ) )
+            // InternalVideoAnnotationsDSL.g:1073:2: ( RULE_ID )
             {
-            // InternalVideoAnnotationsDSL.g:992:2: ( RULE_ID )
-            // InternalVideoAnnotationsDSL.g:993:3: RULE_ID
+            // InternalVideoAnnotationsDSL.g:1073:2: ( RULE_ID )
+            // InternalVideoAnnotationsDSL.g:1074:3: RULE_ID
             {
              before(grammarAccess.getAnnotationAccess().getNameIDTerminalRuleCall_6_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -3007,17 +3262,17 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalContentAs
 
 
     // $ANTLR start "rule__Annotation__SenderAssignment_8"
-    // InternalVideoAnnotationsDSL.g:1002:1: rule__Annotation__SenderAssignment_8 : ( ruleSender ) ;
+    // InternalVideoAnnotationsDSL.g:1083:1: rule__Annotation__SenderAssignment_8 : ( ruleSender ) ;
     public final void rule__Annotation__SenderAssignment_8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVideoAnnotationsDSL.g:1006:1: ( ( ruleSender ) )
-            // InternalVideoAnnotationsDSL.g:1007:2: ( ruleSender )
+            // InternalVideoAnnotationsDSL.g:1087:1: ( ( ruleSender ) )
+            // InternalVideoAnnotationsDSL.g:1088:2: ( ruleSender )
             {
-            // InternalVideoAnnotationsDSL.g:1007:2: ( ruleSender )
-            // InternalVideoAnnotationsDSL.g:1008:3: ruleSender
+            // InternalVideoAnnotationsDSL.g:1088:2: ( ruleSender )
+            // InternalVideoAnnotationsDSL.g:1089:3: ruleSender
             {
              before(grammarAccess.getAnnotationAccess().getSenderSenderParserRuleCall_8_0()); 
             pushFollow(FOLLOW_2);
@@ -3048,17 +3303,17 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalContentAs
 
 
     // $ANTLR start "rule__Annotation__TypeAssignment_10"
-    // InternalVideoAnnotationsDSL.g:1017:1: rule__Annotation__TypeAssignment_10 : ( ruleMove ) ;
+    // InternalVideoAnnotationsDSL.g:1098:1: rule__Annotation__TypeAssignment_10 : ( ruleMove ) ;
     public final void rule__Annotation__TypeAssignment_10() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVideoAnnotationsDSL.g:1021:1: ( ( ruleMove ) )
-            // InternalVideoAnnotationsDSL.g:1022:2: ( ruleMove )
+            // InternalVideoAnnotationsDSL.g:1102:1: ( ( ruleMove ) )
+            // InternalVideoAnnotationsDSL.g:1103:2: ( ruleMove )
             {
-            // InternalVideoAnnotationsDSL.g:1022:2: ( ruleMove )
-            // InternalVideoAnnotationsDSL.g:1023:3: ruleMove
+            // InternalVideoAnnotationsDSL.g:1103:2: ( ruleMove )
+            // InternalVideoAnnotationsDSL.g:1104:3: ruleMove
             {
              before(grammarAccess.getAnnotationAccess().getTypeMoveParserRuleCall_10_0()); 
             pushFollow(FOLLOW_2);
@@ -3089,17 +3344,17 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalContentAs
 
 
     // $ANTLR start "rule__Annotation__ScopeAssignment_12"
-    // InternalVideoAnnotationsDSL.g:1032:1: rule__Annotation__ScopeAssignment_12 : ( ruleScope ) ;
+    // InternalVideoAnnotationsDSL.g:1113:1: rule__Annotation__ScopeAssignment_12 : ( ruleScope ) ;
     public final void rule__Annotation__ScopeAssignment_12() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVideoAnnotationsDSL.g:1036:1: ( ( ruleScope ) )
-            // InternalVideoAnnotationsDSL.g:1037:2: ( ruleScope )
+            // InternalVideoAnnotationsDSL.g:1117:1: ( ( ruleScope ) )
+            // InternalVideoAnnotationsDSL.g:1118:2: ( ruleScope )
             {
-            // InternalVideoAnnotationsDSL.g:1037:2: ( ruleScope )
-            // InternalVideoAnnotationsDSL.g:1038:3: ruleScope
+            // InternalVideoAnnotationsDSL.g:1118:2: ( ruleScope )
+            // InternalVideoAnnotationsDSL.g:1119:3: ruleScope
             {
              before(grammarAccess.getAnnotationAccess().getScopeScopeParserRuleCall_12_0()); 
             pushFollow(FOLLOW_2);
@@ -3130,17 +3385,17 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalContentAs
 
 
     // $ANTLR start "rule__Annotation__FocusAssignment_14"
-    // InternalVideoAnnotationsDSL.g:1047:1: rule__Annotation__FocusAssignment_14 : ( ruleFocus ) ;
+    // InternalVideoAnnotationsDSL.g:1128:1: rule__Annotation__FocusAssignment_14 : ( ruleFocus ) ;
     public final void rule__Annotation__FocusAssignment_14() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVideoAnnotationsDSL.g:1051:1: ( ( ruleFocus ) )
-            // InternalVideoAnnotationsDSL.g:1052:2: ( ruleFocus )
+            // InternalVideoAnnotationsDSL.g:1132:1: ( ( ruleFocus ) )
+            // InternalVideoAnnotationsDSL.g:1133:2: ( ruleFocus )
             {
-            // InternalVideoAnnotationsDSL.g:1052:2: ( ruleFocus )
-            // InternalVideoAnnotationsDSL.g:1053:3: ruleFocus
+            // InternalVideoAnnotationsDSL.g:1133:2: ( ruleFocus )
+            // InternalVideoAnnotationsDSL.g:1134:3: ruleFocus
             {
              before(grammarAccess.getAnnotationAccess().getFocusFocusParserRuleCall_14_0()); 
             pushFollow(FOLLOW_2);
@@ -3171,17 +3426,17 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalContentAs
 
 
     // $ANTLR start "rule__Annotation__ContentAssignment_16"
-    // InternalVideoAnnotationsDSL.g:1062:1: rule__Annotation__ContentAssignment_16 : ( RULE_STRING ) ;
+    // InternalVideoAnnotationsDSL.g:1143:1: rule__Annotation__ContentAssignment_16 : ( RULE_STRING ) ;
     public final void rule__Annotation__ContentAssignment_16() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVideoAnnotationsDSL.g:1066:1: ( ( RULE_STRING ) )
-            // InternalVideoAnnotationsDSL.g:1067:2: ( RULE_STRING )
+            // InternalVideoAnnotationsDSL.g:1147:1: ( ( RULE_STRING ) )
+            // InternalVideoAnnotationsDSL.g:1148:2: ( RULE_STRING )
             {
-            // InternalVideoAnnotationsDSL.g:1067:2: ( RULE_STRING )
-            // InternalVideoAnnotationsDSL.g:1068:3: RULE_STRING
+            // InternalVideoAnnotationsDSL.g:1148:2: ( RULE_STRING )
+            // InternalVideoAnnotationsDSL.g:1149:3: RULE_STRING
             {
              before(grammarAccess.getAnnotationAccess().getContentSTRINGTerminalRuleCall_16_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -3207,30 +3462,22 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalContentAs
     // $ANTLR end "rule__Annotation__ContentAssignment_16"
 
 
-    // $ANTLR start "rule__Annotation__TargetAssignment_17_1"
-    // InternalVideoAnnotationsDSL.g:1077:1: rule__Annotation__TargetAssignment_17_1 : ( ( RULE_ID ) ) ;
-    public final void rule__Annotation__TargetAssignment_17_1() throws RecognitionException {
+    // $ANTLR start "rule__Annotation__ContentTargetAssignment_17_1"
+    // InternalVideoAnnotationsDSL.g:1158:1: rule__Annotation__ContentTargetAssignment_17_1 : ( RULE_STRING ) ;
+    public final void rule__Annotation__ContentTargetAssignment_17_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVideoAnnotationsDSL.g:1081:1: ( ( ( RULE_ID ) ) )
-            // InternalVideoAnnotationsDSL.g:1082:2: ( ( RULE_ID ) )
+            // InternalVideoAnnotationsDSL.g:1162:1: ( ( RULE_STRING ) )
+            // InternalVideoAnnotationsDSL.g:1163:2: ( RULE_STRING )
             {
-            // InternalVideoAnnotationsDSL.g:1082:2: ( ( RULE_ID ) )
-            // InternalVideoAnnotationsDSL.g:1083:3: ( RULE_ID )
+            // InternalVideoAnnotationsDSL.g:1163:2: ( RULE_STRING )
+            // InternalVideoAnnotationsDSL.g:1164:3: RULE_STRING
             {
-             before(grammarAccess.getAnnotationAccess().getTargetAnnotationCrossReference_17_1_0()); 
-            // InternalVideoAnnotationsDSL.g:1084:3: ( RULE_ID )
-            // InternalVideoAnnotationsDSL.g:1085:4: RULE_ID
-            {
-             before(grammarAccess.getAnnotationAccess().getTargetAnnotationIDTerminalRuleCall_17_1_0_1()); 
-            match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getAnnotationAccess().getTargetAnnotationIDTerminalRuleCall_17_1_0_1()); 
-
-            }
-
-             after(grammarAccess.getAnnotationAccess().getTargetAnnotationCrossReference_17_1_0()); 
+             before(grammarAccess.getAnnotationAccess().getContentTargetSTRINGTerminalRuleCall_17_1_0()); 
+            match(input,RULE_STRING,FOLLOW_2); 
+             after(grammarAccess.getAnnotationAccess().getContentTargetSTRINGTerminalRuleCall_17_1_0()); 
 
             }
 
@@ -3249,25 +3496,70 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalContentAs
         }
         return ;
     }
-    // $ANTLR end "rule__Annotation__TargetAssignment_17_1"
+    // $ANTLR end "rule__Annotation__ContentTargetAssignment_17_1"
+
+
+    // $ANTLR start "rule__Annotation__TargetAssignment_18_1"
+    // InternalVideoAnnotationsDSL.g:1173:1: rule__Annotation__TargetAssignment_18_1 : ( ( RULE_ID ) ) ;
+    public final void rule__Annotation__TargetAssignment_18_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalVideoAnnotationsDSL.g:1177:1: ( ( ( RULE_ID ) ) )
+            // InternalVideoAnnotationsDSL.g:1178:2: ( ( RULE_ID ) )
+            {
+            // InternalVideoAnnotationsDSL.g:1178:2: ( ( RULE_ID ) )
+            // InternalVideoAnnotationsDSL.g:1179:3: ( RULE_ID )
+            {
+             before(grammarAccess.getAnnotationAccess().getTargetAnnotationCrossReference_18_1_0()); 
+            // InternalVideoAnnotationsDSL.g:1180:3: ( RULE_ID )
+            // InternalVideoAnnotationsDSL.g:1181:4: RULE_ID
+            {
+             before(grammarAccess.getAnnotationAccess().getTargetAnnotationIDTerminalRuleCall_18_1_0_1()); 
+            match(input,RULE_ID,FOLLOW_2); 
+             after(grammarAccess.getAnnotationAccess().getTargetAnnotationIDTerminalRuleCall_18_1_0_1()); 
+
+            }
+
+             after(grammarAccess.getAnnotationAccess().getTargetAnnotationCrossReference_18_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Annotation__TargetAssignment_18_1"
 
 
     // $ANTLR start "rule__Move__TypeAssignment"
-    // InternalVideoAnnotationsDSL.g:1096:1: rule__Move__TypeAssignment : ( ( rule__Move__TypeAlternatives_0 ) ) ;
+    // InternalVideoAnnotationsDSL.g:1192:1: rule__Move__TypeAssignment : ( ( rule__Move__TypeAlternatives_0 ) ) ;
     public final void rule__Move__TypeAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVideoAnnotationsDSL.g:1100:1: ( ( ( rule__Move__TypeAlternatives_0 ) ) )
-            // InternalVideoAnnotationsDSL.g:1101:2: ( ( rule__Move__TypeAlternatives_0 ) )
+            // InternalVideoAnnotationsDSL.g:1196:1: ( ( ( rule__Move__TypeAlternatives_0 ) ) )
+            // InternalVideoAnnotationsDSL.g:1197:2: ( ( rule__Move__TypeAlternatives_0 ) )
             {
-            // InternalVideoAnnotationsDSL.g:1101:2: ( ( rule__Move__TypeAlternatives_0 ) )
-            // InternalVideoAnnotationsDSL.g:1102:3: ( rule__Move__TypeAlternatives_0 )
+            // InternalVideoAnnotationsDSL.g:1197:2: ( ( rule__Move__TypeAlternatives_0 ) )
+            // InternalVideoAnnotationsDSL.g:1198:3: ( rule__Move__TypeAlternatives_0 )
             {
              before(grammarAccess.getMoveAccess().getTypeAlternatives_0()); 
-            // InternalVideoAnnotationsDSL.g:1103:3: ( rule__Move__TypeAlternatives_0 )
-            // InternalVideoAnnotationsDSL.g:1103:4: rule__Move__TypeAlternatives_0
+            // InternalVideoAnnotationsDSL.g:1199:3: ( rule__Move__TypeAlternatives_0 )
+            // InternalVideoAnnotationsDSL.g:1199:4: rule__Move__TypeAlternatives_0
             {
             pushFollow(FOLLOW_2);
             rule__Move__TypeAlternatives_0();
@@ -3300,21 +3592,21 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalContentAs
 
 
     // $ANTLR start "rule__Scope__ScopeAssignment"
-    // InternalVideoAnnotationsDSL.g:1111:1: rule__Scope__ScopeAssignment : ( ( rule__Scope__ScopeAlternatives_0 ) ) ;
+    // InternalVideoAnnotationsDSL.g:1207:1: rule__Scope__ScopeAssignment : ( ( rule__Scope__ScopeAlternatives_0 ) ) ;
     public final void rule__Scope__ScopeAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVideoAnnotationsDSL.g:1115:1: ( ( ( rule__Scope__ScopeAlternatives_0 ) ) )
-            // InternalVideoAnnotationsDSL.g:1116:2: ( ( rule__Scope__ScopeAlternatives_0 ) )
+            // InternalVideoAnnotationsDSL.g:1211:1: ( ( ( rule__Scope__ScopeAlternatives_0 ) ) )
+            // InternalVideoAnnotationsDSL.g:1212:2: ( ( rule__Scope__ScopeAlternatives_0 ) )
             {
-            // InternalVideoAnnotationsDSL.g:1116:2: ( ( rule__Scope__ScopeAlternatives_0 ) )
-            // InternalVideoAnnotationsDSL.g:1117:3: ( rule__Scope__ScopeAlternatives_0 )
+            // InternalVideoAnnotationsDSL.g:1212:2: ( ( rule__Scope__ScopeAlternatives_0 ) )
+            // InternalVideoAnnotationsDSL.g:1213:3: ( rule__Scope__ScopeAlternatives_0 )
             {
              before(grammarAccess.getScopeAccess().getScopeAlternatives_0()); 
-            // InternalVideoAnnotationsDSL.g:1118:3: ( rule__Scope__ScopeAlternatives_0 )
-            // InternalVideoAnnotationsDSL.g:1118:4: rule__Scope__ScopeAlternatives_0
+            // InternalVideoAnnotationsDSL.g:1214:3: ( rule__Scope__ScopeAlternatives_0 )
+            // InternalVideoAnnotationsDSL.g:1214:4: rule__Scope__ScopeAlternatives_0
             {
             pushFollow(FOLLOW_2);
             rule__Scope__ScopeAlternatives_0();
@@ -3347,21 +3639,21 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalContentAs
 
 
     // $ANTLR start "rule__Focus__FocusAssignment"
-    // InternalVideoAnnotationsDSL.g:1126:1: rule__Focus__FocusAssignment : ( ( rule__Focus__FocusAlternatives_0 ) ) ;
+    // InternalVideoAnnotationsDSL.g:1222:1: rule__Focus__FocusAssignment : ( ( rule__Focus__FocusAlternatives_0 ) ) ;
     public final void rule__Focus__FocusAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVideoAnnotationsDSL.g:1130:1: ( ( ( rule__Focus__FocusAlternatives_0 ) ) )
-            // InternalVideoAnnotationsDSL.g:1131:2: ( ( rule__Focus__FocusAlternatives_0 ) )
+            // InternalVideoAnnotationsDSL.g:1226:1: ( ( ( rule__Focus__FocusAlternatives_0 ) ) )
+            // InternalVideoAnnotationsDSL.g:1227:2: ( ( rule__Focus__FocusAlternatives_0 ) )
             {
-            // InternalVideoAnnotationsDSL.g:1131:2: ( ( rule__Focus__FocusAlternatives_0 ) )
-            // InternalVideoAnnotationsDSL.g:1132:3: ( rule__Focus__FocusAlternatives_0 )
+            // InternalVideoAnnotationsDSL.g:1227:2: ( ( rule__Focus__FocusAlternatives_0 ) )
+            // InternalVideoAnnotationsDSL.g:1228:3: ( rule__Focus__FocusAlternatives_0 )
             {
              before(grammarAccess.getFocusAccess().getFocusAlternatives_0()); 
-            // InternalVideoAnnotationsDSL.g:1133:3: ( rule__Focus__FocusAlternatives_0 )
-            // InternalVideoAnnotationsDSL.g:1133:4: rule__Focus__FocusAlternatives_0
+            // InternalVideoAnnotationsDSL.g:1229:3: ( rule__Focus__FocusAlternatives_0 )
+            // InternalVideoAnnotationsDSL.g:1229:4: rule__Focus__FocusAlternatives_0
             {
             pushFollow(FOLLOW_2);
             rule__Focus__FocusAlternatives_0();
@@ -3394,17 +3686,17 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalContentAs
 
 
     // $ANTLR start "rule__Time__SecAssignment"
-    // InternalVideoAnnotationsDSL.g:1141:1: rule__Time__SecAssignment : ( RULE_INT ) ;
+    // InternalVideoAnnotationsDSL.g:1237:1: rule__Time__SecAssignment : ( RULE_INT ) ;
     public final void rule__Time__SecAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVideoAnnotationsDSL.g:1145:1: ( ( RULE_INT ) )
-            // InternalVideoAnnotationsDSL.g:1146:2: ( RULE_INT )
+            // InternalVideoAnnotationsDSL.g:1241:1: ( ( RULE_INT ) )
+            // InternalVideoAnnotationsDSL.g:1242:2: ( RULE_INT )
             {
-            // InternalVideoAnnotationsDSL.g:1146:2: ( RULE_INT )
-            // InternalVideoAnnotationsDSL.g:1147:3: RULE_INT
+            // InternalVideoAnnotationsDSL.g:1242:2: ( RULE_INT )
+            // InternalVideoAnnotationsDSL.g:1243:3: RULE_INT
             {
              before(grammarAccess.getTimeAccess().getSecINTTerminalRuleCall_0()); 
             match(input,RULE_INT,FOLLOW_2); 

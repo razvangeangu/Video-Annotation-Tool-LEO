@@ -247,9 +247,19 @@ public class VideoAnnotationsDSLPackageImpl extends EPackageImpl implements Vide
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getAnnotation_ContentTarget()
+  {
+    return (EAttribute)annotationEClass.getEStructuralFeatures().get(8);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getAnnotation_Target()
   {
-    return (EReference)annotationEClass.getEStructuralFeatures().get(8);
+    return (EReference)annotationEClass.getEStructuralFeatures().get(9);
   }
 
   /**
@@ -374,6 +384,7 @@ public class VideoAnnotationsDSLPackageImpl extends EPackageImpl implements Vide
     createEReference(annotationEClass, ANNOTATION__SCOPE);
     createEReference(annotationEClass, ANNOTATION__FOCUS);
     createEAttribute(annotationEClass, ANNOTATION__CONTENT);
+    createEAttribute(annotationEClass, ANNOTATION__CONTENT_TARGET);
     createEReference(annotationEClass, ANNOTATION__TARGET);
 
     moveEClass = createEClass(MOVE);
@@ -432,6 +443,7 @@ public class VideoAnnotationsDSLPackageImpl extends EPackageImpl implements Vide
     initEReference(getAnnotation_Scope(), this.getScope(), null, "scope", null, 0, 1, Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAnnotation_Focus(), this.getFocus(), null, "focus", null, 0, 1, Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAnnotation_Content(), ecorePackage.getEString(), "content", null, 0, 1, Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAnnotation_ContentTarget(), ecorePackage.getEString(), "contentTarget", null, 0, 1, Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAnnotation_Target(), this.getAnnotation(), null, "target", null, 0, 1, Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(moveEClass, Move.class, "Move", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

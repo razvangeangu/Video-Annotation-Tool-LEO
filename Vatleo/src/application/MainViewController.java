@@ -134,7 +134,7 @@ public class MainViewController implements Initializable {
 		textField = new AutoCompleteTextField();
 		textField.setPrefWidth(680);
 		textField.setPrefHeight(60);
-		textField.setPromptText("a1, sender, type, scope, focus, \"content\", target");
+		textField.setPromptText("a1, sender, type, scope, focus, \"content\", \"content-target\", target");
 		textField.setAlignment(Pos.CENTER);
 		bottomVBox.getChildren().add(0, textField);
 		bottomVBox.setMargin(textField, new Insets(10, 10, 10, 10));
@@ -358,7 +358,8 @@ public class MainViewController implements Initializable {
 						@Override
 						public void handle(ActionEvent event) {
 							Annotation annotationToBeRemoved = tableView.getSelectionModel().getSelectedItem();
-							annotationsDSL = annotationsDSL.replace(getStringDSL(annotationToBeRemoved), "");
+							annotationsDSL = annotationsDSL.trim();
+							annotationsDSL = annotationsDSL.replace(getStringDSL(annotationToBeRemoved).trim(), "");
 							addAnnotation();
 						}
 					});
@@ -563,7 +564,7 @@ public class MainViewController implements Initializable {
 		if (fromTime.getText().isEmpty() || toTime.getText().isEmpty() || textField.getText().isEmpty()) {
 			showErrorDialog("Error!", "Fields cannot be empty!", "An annotation must have a time to begin, a time to end and a content in the specified format.", null);
 		} else {
-			String testString = "from " + convertTimeToSec(fromTime.getText()) + " to " + convertTimeToSec(toTime.getText()) + " annotate(" + textField.getText() + ") ";
+			String testString = "from " + convertTimeToSec(fromTime.getText()) + " to " + convertTimeToSec(toTime.getText()) + " annotate (" + textField.getText() + ") ";
 			
 			try {
 				anAnnotatedVideo = (AnnotatedVideo) parser.parse(annotationsDSL += testString);
@@ -754,16 +755,7 @@ public class MainViewController implements Initializable {
 	 * @return A String that represents the DSL of an Annotation.
 	 */
 	public String getStringDSL(Annotation anAnnotation) {
-		/*if (anAnnotation.getTarget() != null) {
-			return "from " + anAnnotation.getFromTime().getSec() + " to " + anAnnotation.getToTime().getSec() + 
-				" annotate(" + anAnnotation.getName() + "," + anAnnotation.getSender() + "," + anAnnotation.getType().getType() + "," + 
-				anAnnotation.getScope().getScope() + "," + anAnnotation.getFocus().getFocus() + ",\"" + anAnnotation.getContent() + "\"," + 
-				anAnnotation.getTarget().getName() + ")";
-		} else {
-			return "from " + anAnnotation.getFromTime().getSec() + " to " + anAnnotation.getToTime().getSec() + 
-					" annotate(" + anAnnotation.getName() + "," + anAnnotation.getSender() + "," + anAnnotation.getType().getType() + "," + 
-					anAnnotation.getScope().getScope() + "," + anAnnotation.getFocus().getFocus() + ",\"" + anAnnotation.getContent() + "\")";
-		}*/
+		
 		return new AnnotationRenderer().render(anAnnotation).toString();
 	}
 	
@@ -797,14 +789,7 @@ public class MainViewController implements Initializable {
 	
 		fromTime.setText(convertSecToTime(annotations.get(index).getFromTime().getSec()));
 		toTime.setText(convertSecToTime(annotations.get(index).getToTime().getSec()));
-		if (annotations.get(index).getTarget() != null) {
-			textField.setText(annotations.get(index).getName() + "," + annotations.get(index).getSender() + "," + annotations.get(index).getType().getType() + "," + 
-				annotations.get(index).getScope().getScope() + "," + annotations.get(index).getFocus().getFocus() + ",\"" + annotations.get(index).getContent() + "\"," + 
-				annotations.get(index).getTarget().getName());
-		} else {
-			textField.setText(annotations.get(index).getName() + "," + annotations.get(index).getSender() + "," + annotations.get(index).getType().getType() + "," + 
-					annotations.get(index).getScope().getScope() + "," + annotations.get(index).getFocus().getFocus() + ",\"" + annotations.get(index).getContent() + "\""); 
-		}
+		textField.setText(new AnnotationRenderer().renderWithoutTimeAndWithoutKeyword(annotations.get(index)).toString());
 	}
 	
 	/**
