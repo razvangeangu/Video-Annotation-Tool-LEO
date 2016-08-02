@@ -40,6 +40,7 @@ public class VideoAnnotationsDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFocusAccess().getFocusAlternatives_0(), "rule__Focus__FocusAlternatives_0");
 					put(grammarAccess.getAnnotationAccess().getGroup(), "rule__Annotation__Group__0");
 					put(grammarAccess.getAnnotationAccess().getGroup_17(), "rule__Annotation__Group_17__0");
+					put(grammarAccess.getAnnotationAccess().getGroup_18(), "rule__Annotation__Group_18__0");
 					put(grammarAccess.getAnnotatedVideoAccess().getAnnotationsAssignment(), "rule__AnnotatedVideo__AnnotationsAssignment");
 					put(grammarAccess.getAnnotationAccess().getFromTimeAssignment_1(), "rule__Annotation__FromTimeAssignment_1");
 					put(grammarAccess.getAnnotationAccess().getToTimeAssignment_3(), "rule__Annotation__ToTimeAssignment_3");
@@ -49,7 +50,8 @@ public class VideoAnnotationsDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAnnotationAccess().getScopeAssignment_12(), "rule__Annotation__ScopeAssignment_12");
 					put(grammarAccess.getAnnotationAccess().getFocusAssignment_14(), "rule__Annotation__FocusAssignment_14");
 					put(grammarAccess.getAnnotationAccess().getContentAssignment_16(), "rule__Annotation__ContentAssignment_16");
-					put(grammarAccess.getAnnotationAccess().getTargetAssignment_17_1(), "rule__Annotation__TargetAssignment_17_1");
+					put(grammarAccess.getAnnotationAccess().getContentTargetAssignment_17_1(), "rule__Annotation__ContentTargetAssignment_17_1");
+					put(grammarAccess.getAnnotationAccess().getTargetAssignment_18_1(), "rule__Annotation__TargetAssignment_18_1");
 					put(grammarAccess.getMoveAccess().getTypeAssignment(), "rule__Move__TypeAssignment");
 					put(grammarAccess.getScopeAccess().getScopeAssignment(), "rule__Scope__ScopeAssignment");
 					put(grammarAccess.getFocusAccess().getFocusAssignment(), "rule__Focus__FocusAssignment");

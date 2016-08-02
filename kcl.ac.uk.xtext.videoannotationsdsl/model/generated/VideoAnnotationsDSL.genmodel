@@ -18,6 +18,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VideoAnnotationsDSL.ecore#//Annotation/scope"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VideoAnnotationsDSL.ecore#//Annotation/focus"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VideoAnnotationsDSL.ecore#//Annotation/content"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VideoAnnotationsDSL.ecore#//Annotation/contentTarget"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference VideoAnnotationsDSL.ecore#//Annotation/target"/>
     </genClasses>
     <genClasses ecoreClass="VideoAnnotationsDSL.ecore#//Move">

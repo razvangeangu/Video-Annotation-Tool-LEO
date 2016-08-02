@@ -68,10 +68,14 @@ public class VideoAnnotationsDSLGrammarAccess extends AbstractGrammarElementFind
 		private final RuleCall cContentSTRINGTerminalRuleCall_16_0 = (RuleCall)cContentAssignment_16.eContents().get(0);
 		private final Group cGroup_17 = (Group)cGroup.eContents().get(17);
 		private final Keyword cCommaKeyword_17_0 = (Keyword)cGroup_17.eContents().get(0);
-		private final Assignment cTargetAssignment_17_1 = (Assignment)cGroup_17.eContents().get(1);
-		private final CrossReference cTargetAnnotationCrossReference_17_1_0 = (CrossReference)cTargetAssignment_17_1.eContents().get(0);
-		private final RuleCall cTargetAnnotationIDTerminalRuleCall_17_1_0_1 = (RuleCall)cTargetAnnotationCrossReference_17_1_0.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_18 = (Keyword)cGroup.eContents().get(18);
+		private final Assignment cContentTargetAssignment_17_1 = (Assignment)cGroup_17.eContents().get(1);
+		private final RuleCall cContentTargetSTRINGTerminalRuleCall_17_1_0 = (RuleCall)cContentTargetAssignment_17_1.eContents().get(0);
+		private final Group cGroup_18 = (Group)cGroup.eContents().get(18);
+		private final Keyword cCommaKeyword_18_0 = (Keyword)cGroup_18.eContents().get(0);
+		private final Assignment cTargetAssignment_18_1 = (Assignment)cGroup_18.eContents().get(1);
+		private final CrossReference cTargetAnnotationCrossReference_18_1_0 = (CrossReference)cTargetAssignment_18_1.eContents().get(0);
+		private final RuleCall cTargetAnnotationIDTerminalRuleCall_18_1_0_1 = (RuleCall)cTargetAnnotationCrossReference_18_1_0.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_19 = (Keyword)cGroup.eContents().get(19);
 		
 		//Annotation:
 		//	'from' fromTime=Time 'to' toTime=Time
@@ -82,12 +86,13 @@ public class VideoAnnotationsDSLGrammarAccess extends AbstractGrammarElementFind
 		//	scope=Scope ','
 		//	focus=Focus ','
 		//	content=STRING (','
+		//	contentTarget=STRING)? (','
 		//	target=[Annotation])?
 		//	')';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'from' fromTime=Time 'to' toTime=Time 'annotate' '(' name=ID ',' sender=Sender ',' type=Move ',' scope=Scope ','
-		//focus=Focus ',' content=STRING (',' target=[Annotation])? ')'
+		//focus=Focus ',' content=STRING (',' contentTarget=STRING)? (',' target=[Annotation])? ')'
 		public Group getGroup() { return cGroup; }
 		
 		//'from'
@@ -165,23 +170,35 @@ public class VideoAnnotationsDSLGrammarAccess extends AbstractGrammarElementFind
 		//STRING
 		public RuleCall getContentSTRINGTerminalRuleCall_16_0() { return cContentSTRINGTerminalRuleCall_16_0; }
 		
-		//(',' target=[Annotation])?
+		//(',' contentTarget=STRING)?
 		public Group getGroup_17() { return cGroup_17; }
 		
 		//','
 		public Keyword getCommaKeyword_17_0() { return cCommaKeyword_17_0; }
 		
+		//contentTarget=STRING
+		public Assignment getContentTargetAssignment_17_1() { return cContentTargetAssignment_17_1; }
+		
+		//STRING
+		public RuleCall getContentTargetSTRINGTerminalRuleCall_17_1_0() { return cContentTargetSTRINGTerminalRuleCall_17_1_0; }
+		
+		//(',' target=[Annotation])?
+		public Group getGroup_18() { return cGroup_18; }
+		
+		//','
+		public Keyword getCommaKeyword_18_0() { return cCommaKeyword_18_0; }
+		
 		//target=[Annotation]
-		public Assignment getTargetAssignment_17_1() { return cTargetAssignment_17_1; }
+		public Assignment getTargetAssignment_18_1() { return cTargetAssignment_18_1; }
 		
 		//[Annotation]
-		public CrossReference getTargetAnnotationCrossReference_17_1_0() { return cTargetAnnotationCrossReference_17_1_0; }
+		public CrossReference getTargetAnnotationCrossReference_18_1_0() { return cTargetAnnotationCrossReference_18_1_0; }
 		
 		//ID
-		public RuleCall getTargetAnnotationIDTerminalRuleCall_17_1_0_1() { return cTargetAnnotationIDTerminalRuleCall_17_1_0_1; }
+		public RuleCall getTargetAnnotationIDTerminalRuleCall_18_1_0_1() { return cTargetAnnotationIDTerminalRuleCall_18_1_0_1; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_18() { return cRightParenthesisKeyword_18; }
+		public Keyword getRightParenthesisKeyword_19() { return cRightParenthesisKeyword_19; }
 	}
 	public class SenderElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "kcl.ac.uk.xtext.VideoAnnotationsDSL.Sender");
@@ -407,6 +424,7 @@ public class VideoAnnotationsDSLGrammarAccess extends AbstractGrammarElementFind
 	//	scope=Scope ','
 	//	focus=Focus ','
 	//	content=STRING (','
+	//	contentTarget=STRING)? (','
 	//	target=[Annotation])?
 	//	')';
 	public AnnotationElements getAnnotationAccess() {
