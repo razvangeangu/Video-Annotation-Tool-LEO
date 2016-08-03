@@ -21,8 +21,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation#getType <em>Type</em>}</li>
  *   <li>{@link kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation#getScope <em>Scope</em>}</li>
  *   <li>{@link kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation#getFocus <em>Focus</em>}</li>
+ *   <li>{@link kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation#getContentLabel <em>Content Label</em>}</li>
  *   <li>{@link kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation#getContent <em>Content</em>}</li>
- *   <li>{@link kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation#getContentTarget <em>Content Target</em>}</li>
  *   <li>{@link kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation#getTarget <em>Target</em>}</li>
  * </ul>
  *
@@ -215,6 +215,32 @@ public interface Annotation extends EObject
   void setFocus(Focus value);
 
   /**
+   * Returns the value of the '<em><b>Content Label</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Content Label</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Content Label</em>' attribute.
+   * @see #setContentLabel(String)
+   * @see kcl.ac.uk.xtext.videoAnnotationsDSL.VideoAnnotationsDSLPackage#getAnnotation_ContentLabel()
+   * @model
+   * @generated
+   */
+  String getContentLabel();
+
+  /**
+   * Sets the value of the '{@link kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation#getContentLabel <em>Content Label</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Content Label</em>' attribute.
+   * @see #getContentLabel()
+   * @generated
+   */
+  void setContentLabel(String value);
+
+  /**
    * Returns the value of the '<em><b>Content</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
@@ -239,32 +265,6 @@ public interface Annotation extends EObject
    * @generated
    */
   void setContent(String value);
-
-  /**
-   * Returns the value of the '<em><b>Content Target</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Content Target</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Content Target</em>' attribute.
-   * @see #setContentTarget(String)
-   * @see kcl.ac.uk.xtext.videoAnnotationsDSL.VideoAnnotationsDSLPackage#getAnnotation_ContentTarget()
-   * @model
-   * @generated
-   */
-  String getContentTarget();
-
-  /**
-   * Sets the value of the '{@link kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation#getContentTarget <em>Content Target</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Content Target</em>' attribute.
-   * @see #getContentTarget()
-   * @generated
-   */
-  void setContentTarget(String value);
 
   /**
    * Returns the value of the '<em><b>Target</b></em>' reference.

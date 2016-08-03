@@ -64,12 +64,12 @@ public class VideoAnnotationsDSLGrammarAccess extends AbstractGrammarElementFind
 		private final Assignment cFocusAssignment_14 = (Assignment)cGroup.eContents().get(14);
 		private final RuleCall cFocusFocusParserRuleCall_14_0 = (RuleCall)cFocusAssignment_14.eContents().get(0);
 		private final Keyword cCommaKeyword_15 = (Keyword)cGroup.eContents().get(15);
-		private final Assignment cContentAssignment_16 = (Assignment)cGroup.eContents().get(16);
-		private final RuleCall cContentSTRINGTerminalRuleCall_16_0 = (RuleCall)cContentAssignment_16.eContents().get(0);
-		private final Group cGroup_17 = (Group)cGroup.eContents().get(17);
-		private final Keyword cCommaKeyword_17_0 = (Keyword)cGroup_17.eContents().get(0);
-		private final Assignment cContentTargetAssignment_17_1 = (Assignment)cGroup_17.eContents().get(1);
-		private final RuleCall cContentTargetSTRINGTerminalRuleCall_17_1_0 = (RuleCall)cContentTargetAssignment_17_1.eContents().get(0);
+		private final Group cGroup_16 = (Group)cGroup.eContents().get(16);
+		private final Assignment cContentLabelAssignment_16_0 = (Assignment)cGroup_16.eContents().get(0);
+		private final RuleCall cContentLabelSTRINGTerminalRuleCall_16_0_0 = (RuleCall)cContentLabelAssignment_16_0.eContents().get(0);
+		private final Keyword cCommaKeyword_16_1 = (Keyword)cGroup_16.eContents().get(1);
+		private final Assignment cContentAssignment_17 = (Assignment)cGroup.eContents().get(17);
+		private final RuleCall cContentSTRINGTerminalRuleCall_17_0 = (RuleCall)cContentAssignment_17.eContents().get(0);
 		private final Group cGroup_18 = (Group)cGroup.eContents().get(18);
 		private final Keyword cCommaKeyword_18_0 = (Keyword)cGroup_18.eContents().get(0);
 		private final Assignment cTargetAssignment_18_1 = (Assignment)cGroup_18.eContents().get(1);
@@ -84,15 +84,14 @@ public class VideoAnnotationsDSLGrammarAccess extends AbstractGrammarElementFind
 		//	sender=Sender ','
 		//	type=Move ','
 		//	scope=Scope ','
-		//	focus=Focus ','
+		//	focus=Focus ',' (contentLabel=STRING ',')?
 		//	content=STRING (','
-		//	contentTarget=STRING)? (','
 		//	target=[Annotation])?
 		//	')';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'from' fromTime=Time 'to' toTime=Time 'annotate' '(' name=ID ',' sender=Sender ',' type=Move ',' scope=Scope ','
-		//focus=Focus ',' content=STRING (',' contentTarget=STRING)? (',' target=[Annotation])? ')'
+		//focus=Focus ',' (contentLabel=STRING ',')? content=STRING (',' target=[Annotation])? ')'
 		public Group getGroup() { return cGroup; }
 		
 		//'from'
@@ -164,23 +163,23 @@ public class VideoAnnotationsDSLGrammarAccess extends AbstractGrammarElementFind
 		//','
 		public Keyword getCommaKeyword_15() { return cCommaKeyword_15; }
 		
-		//content=STRING
-		public Assignment getContentAssignment_16() { return cContentAssignment_16; }
+		//(contentLabel=STRING ',')?
+		public Group getGroup_16() { return cGroup_16; }
+		
+		//contentLabel=STRING
+		public Assignment getContentLabelAssignment_16_0() { return cContentLabelAssignment_16_0; }
 		
 		//STRING
-		public RuleCall getContentSTRINGTerminalRuleCall_16_0() { return cContentSTRINGTerminalRuleCall_16_0; }
-		
-		//(',' contentTarget=STRING)?
-		public Group getGroup_17() { return cGroup_17; }
+		public RuleCall getContentLabelSTRINGTerminalRuleCall_16_0_0() { return cContentLabelSTRINGTerminalRuleCall_16_0_0; }
 		
 		//','
-		public Keyword getCommaKeyword_17_0() { return cCommaKeyword_17_0; }
+		public Keyword getCommaKeyword_16_1() { return cCommaKeyword_16_1; }
 		
-		//contentTarget=STRING
-		public Assignment getContentTargetAssignment_17_1() { return cContentTargetAssignment_17_1; }
+		//content=STRING
+		public Assignment getContentAssignment_17() { return cContentAssignment_17; }
 		
 		//STRING
-		public RuleCall getContentTargetSTRINGTerminalRuleCall_17_1_0() { return cContentTargetSTRINGTerminalRuleCall_17_1_0; }
+		public RuleCall getContentSTRINGTerminalRuleCall_17_0() { return cContentSTRINGTerminalRuleCall_17_0; }
 		
 		//(',' target=[Annotation])?
 		public Group getGroup_18() { return cGroup_18; }
@@ -422,9 +421,8 @@ public class VideoAnnotationsDSLGrammarAccess extends AbstractGrammarElementFind
 	//	sender=Sender ','
 	//	type=Move ','
 	//	scope=Scope ','
-	//	focus=Focus ','
+	//	focus=Focus ',' (contentLabel=STRING ',')?
 	//	content=STRING (','
-	//	contentTarget=STRING)? (','
 	//	target=[Annotation])?
 	//	')';
 	public AnnotationElements getAnnotationAccess() {

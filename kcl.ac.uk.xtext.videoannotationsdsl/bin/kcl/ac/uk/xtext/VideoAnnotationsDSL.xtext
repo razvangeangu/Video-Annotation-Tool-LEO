@@ -12,9 +12,9 @@ Annotation:
 	            sender=Sender ',' 
 	            type=Move ',' 
 	            scope=Scope ','
-	            focus=Focus ',' 
+	            focus=Focus ','
+	            (contentLabel=STRING ',')? 
 	            content=STRING (',' 
-	            contentTarget=STRING)? (',' 
 	            target=[Annotation])?
 	         ')'
 ;

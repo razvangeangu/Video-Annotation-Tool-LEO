@@ -64,22 +64,22 @@ public class AnnotationRenderer {
     Focus _focus = annotation.getFocus();
     String _focus_1 = _focus.getFocus();
     _builder.append(_focus_1, "");
-    _builder.append(", \"");
-    String _content = annotation.getContent();
-    _builder.append(_content, "");
-    _builder.append("\"");
     CharSequence _xifexpression = null;
-    String _contentTarget = annotation.getContentTarget();
-    boolean _notEquals = (!Objects.equal(_contentTarget, null));
+    String _contentLabel = annotation.getContentLabel();
+    boolean _notEquals = (!Objects.equal(_contentLabel, null));
     if (_notEquals) {
       StringConcatenation _builder_1 = new StringConcatenation();
       _builder_1.append(", \"");
-      String _contentTarget_1 = annotation.getContentTarget();
-      _builder_1.append(_contentTarget_1, "");
+      String _contentLabel_1 = annotation.getContentLabel();
+      _builder_1.append(_contentLabel_1, "");
       _builder_1.append("\"");
       _xifexpression = _builder_1;
     }
     _builder.append(_xifexpression, "");
+    _builder.append(", \"");
+    String _content = annotation.getContent();
+    _builder.append(_content, "");
+    _builder.append("\"");
     CharSequence _xifexpression_1 = null;
     Annotation _target = annotation.getTarget();
     boolean _notEquals_1 = (!Objects.equal(_target, null));
@@ -116,22 +116,22 @@ public class AnnotationRenderer {
     Focus _focus = annotation.getFocus();
     String _focus_1 = _focus.getFocus();
     _builder.append(_focus_1, "");
-    _builder.append(", \"");
-    String _content = annotation.getContent();
-    _builder.append(_content, "");
-    _builder.append("\"");
     CharSequence _xifexpression = null;
-    String _contentTarget = annotation.getContentTarget();
-    boolean _notEquals = (!Objects.equal(_contentTarget, null));
+    String _contentLabel = annotation.getContentLabel();
+    boolean _notEquals = (!Objects.equal(_contentLabel, null));
     if (_notEquals) {
       StringConcatenation _builder_1 = new StringConcatenation();
       _builder_1.append(", \"");
-      String _contentTarget_1 = annotation.getContentTarget();
-      _builder_1.append(_contentTarget_1, "");
+      String _contentLabel_1 = annotation.getContentLabel();
+      _builder_1.append(_contentLabel_1, "");
       _builder_1.append("\"");
       _xifexpression = _builder_1;
     }
     _builder.append(_xifexpression, "");
+    _builder.append(", \"");
+    String _content = annotation.getContent();
+    _builder.append(_content, "");
+    _builder.append("\"");
     CharSequence _xifexpression_1 = null;
     Annotation _target = annotation.getTarget();
     boolean _notEquals_1 = (!Objects.equal(_target, null));

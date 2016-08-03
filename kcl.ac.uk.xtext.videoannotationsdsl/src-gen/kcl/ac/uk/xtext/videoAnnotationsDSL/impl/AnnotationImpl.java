@@ -34,8 +34,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link kcl.ac.uk.xtext.videoAnnotationsDSL.impl.AnnotationImpl#getType <em>Type</em>}</li>
  *   <li>{@link kcl.ac.uk.xtext.videoAnnotationsDSL.impl.AnnotationImpl#getScope <em>Scope</em>}</li>
  *   <li>{@link kcl.ac.uk.xtext.videoAnnotationsDSL.impl.AnnotationImpl#getFocus <em>Focus</em>}</li>
+ *   <li>{@link kcl.ac.uk.xtext.videoAnnotationsDSL.impl.AnnotationImpl#getContentLabel <em>Content Label</em>}</li>
  *   <li>{@link kcl.ac.uk.xtext.videoAnnotationsDSL.impl.AnnotationImpl#getContent <em>Content</em>}</li>
- *   <li>{@link kcl.ac.uk.xtext.videoAnnotationsDSL.impl.AnnotationImpl#getContentTarget <em>Content Target</em>}</li>
  *   <li>{@link kcl.ac.uk.xtext.videoAnnotationsDSL.impl.AnnotationImpl#getTarget <em>Target</em>}</li>
  * </ul>
  *
@@ -134,6 +134,26 @@ public class AnnotationImpl extends MinimalEObjectImpl.Container implements Anno
   protected Focus focus;
 
   /**
+   * The default value of the '{@link #getContentLabel() <em>Content Label</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getContentLabel()
+   * @generated
+   * @ordered
+   */
+  protected static final String CONTENT_LABEL_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getContentLabel() <em>Content Label</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getContentLabel()
+   * @generated
+   * @ordered
+   */
+  protected String contentLabel = CONTENT_LABEL_EDEFAULT;
+
+  /**
    * The default value of the '{@link #getContent() <em>Content</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -152,26 +172,6 @@ public class AnnotationImpl extends MinimalEObjectImpl.Container implements Anno
    * @ordered
    */
   protected String content = CONTENT_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getContentTarget() <em>Content Target</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getContentTarget()
-   * @generated
-   * @ordered
-   */
-  protected static final String CONTENT_TARGET_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getContentTarget() <em>Content Target</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getContentTarget()
-   * @generated
-   * @ordered
-   */
-  protected String contentTarget = CONTENT_TARGET_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getTarget() <em>Target</em>}' reference.
@@ -495,6 +495,29 @@ public class AnnotationImpl extends MinimalEObjectImpl.Container implements Anno
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getContentLabel()
+  {
+    return contentLabel;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setContentLabel(String newContentLabel)
+  {
+    String oldContentLabel = contentLabel;
+    contentLabel = newContentLabel;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, VideoAnnotationsDSLPackage.ANNOTATION__CONTENT_LABEL, oldContentLabel, contentLabel));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getContent()
   {
     return content;
@@ -511,29 +534,6 @@ public class AnnotationImpl extends MinimalEObjectImpl.Container implements Anno
     content = newContent;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, VideoAnnotationsDSLPackage.ANNOTATION__CONTENT, oldContent, content));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getContentTarget()
-  {
-    return contentTarget;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setContentTarget(String newContentTarget)
-  {
-    String oldContentTarget = contentTarget;
-    contentTarget = newContentTarget;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, VideoAnnotationsDSLPackage.ANNOTATION__CONTENT_TARGET, oldContentTarget, contentTarget));
   }
 
   /**
@@ -627,10 +627,10 @@ public class AnnotationImpl extends MinimalEObjectImpl.Container implements Anno
         return getScope();
       case VideoAnnotationsDSLPackage.ANNOTATION__FOCUS:
         return getFocus();
+      case VideoAnnotationsDSLPackage.ANNOTATION__CONTENT_LABEL:
+        return getContentLabel();
       case VideoAnnotationsDSLPackage.ANNOTATION__CONTENT:
         return getContent();
-      case VideoAnnotationsDSLPackage.ANNOTATION__CONTENT_TARGET:
-        return getContentTarget();
       case VideoAnnotationsDSLPackage.ANNOTATION__TARGET:
         if (resolve) return getTarget();
         return basicGetTarget();
@@ -669,11 +669,11 @@ public class AnnotationImpl extends MinimalEObjectImpl.Container implements Anno
       case VideoAnnotationsDSLPackage.ANNOTATION__FOCUS:
         setFocus((Focus)newValue);
         return;
+      case VideoAnnotationsDSLPackage.ANNOTATION__CONTENT_LABEL:
+        setContentLabel((String)newValue);
+        return;
       case VideoAnnotationsDSLPackage.ANNOTATION__CONTENT:
         setContent((String)newValue);
-        return;
-      case VideoAnnotationsDSLPackage.ANNOTATION__CONTENT_TARGET:
-        setContentTarget((String)newValue);
         return;
       case VideoAnnotationsDSLPackage.ANNOTATION__TARGET:
         setTarget((Annotation)newValue);
@@ -713,11 +713,11 @@ public class AnnotationImpl extends MinimalEObjectImpl.Container implements Anno
       case VideoAnnotationsDSLPackage.ANNOTATION__FOCUS:
         setFocus((Focus)null);
         return;
+      case VideoAnnotationsDSLPackage.ANNOTATION__CONTENT_LABEL:
+        setContentLabel(CONTENT_LABEL_EDEFAULT);
+        return;
       case VideoAnnotationsDSLPackage.ANNOTATION__CONTENT:
         setContent(CONTENT_EDEFAULT);
-        return;
-      case VideoAnnotationsDSLPackage.ANNOTATION__CONTENT_TARGET:
-        setContentTarget(CONTENT_TARGET_EDEFAULT);
         return;
       case VideoAnnotationsDSLPackage.ANNOTATION__TARGET:
         setTarget((Annotation)null);
@@ -750,10 +750,10 @@ public class AnnotationImpl extends MinimalEObjectImpl.Container implements Anno
         return scope != null;
       case VideoAnnotationsDSLPackage.ANNOTATION__FOCUS:
         return focus != null;
+      case VideoAnnotationsDSLPackage.ANNOTATION__CONTENT_LABEL:
+        return CONTENT_LABEL_EDEFAULT == null ? contentLabel != null : !CONTENT_LABEL_EDEFAULT.equals(contentLabel);
       case VideoAnnotationsDSLPackage.ANNOTATION__CONTENT:
         return CONTENT_EDEFAULT == null ? content != null : !CONTENT_EDEFAULT.equals(content);
-      case VideoAnnotationsDSLPackage.ANNOTATION__CONTENT_TARGET:
-        return CONTENT_TARGET_EDEFAULT == null ? contentTarget != null : !CONTENT_TARGET_EDEFAULT.equals(contentTarget);
       case VideoAnnotationsDSLPackage.ANNOTATION__TARGET:
         return target != null;
     }
@@ -775,10 +775,10 @@ public class AnnotationImpl extends MinimalEObjectImpl.Container implements Anno
     result.append(name);
     result.append(", sender: ");
     result.append(sender);
+    result.append(", contentLabel: ");
+    result.append(contentLabel);
     result.append(", content: ");
     result.append(content);
-    result.append(", contentTarget: ");
-    result.append(contentTarget);
     result.append(')');
     return result.toString();
   }
