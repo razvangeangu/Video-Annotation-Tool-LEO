@@ -282,9 +282,33 @@ ruleAnnotation returns [EObject current=null]
 		}
 		(
 			(
-				lv_content_16_0=RULE_STRING
+				(
+					lv_contentLabel_16_0=RULE_STRING
+					{
+						newLeafNode(lv_contentLabel_16_0, grammarAccess.getAnnotationAccess().getContentLabelSTRINGTerminalRuleCall_16_0_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getAnnotationRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"contentLabel",
+							lv_contentLabel_16_0,
+							"org.eclipse.xtext.common.Terminals.STRING");
+					}
+				)
+			)
+			otherlv_17=','
+			{
+				newLeafNode(otherlv_17, grammarAccess.getAnnotationAccess().getCommaKeyword_16_1());
+			}
+		)?
+		(
+			(
+				lv_content_18_0=RULE_STRING
 				{
-					newLeafNode(lv_content_16_0, grammarAccess.getAnnotationAccess().getContentSTRINGTerminalRuleCall_16_0());
+					newLeafNode(lv_content_18_0, grammarAccess.getAnnotationAccess().getContentSTRINGTerminalRuleCall_17_0());
 				}
 				{
 					if ($current==null) {
@@ -293,35 +317,11 @@ ruleAnnotation returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"content",
-						lv_content_16_0,
+						lv_content_18_0,
 						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
 		)
-		(
-			otherlv_17=','
-			{
-				newLeafNode(otherlv_17, grammarAccess.getAnnotationAccess().getCommaKeyword_17_0());
-			}
-			(
-				(
-					lv_contentTarget_18_0=RULE_STRING
-					{
-						newLeafNode(lv_contentTarget_18_0, grammarAccess.getAnnotationAccess().getContentTargetSTRINGTerminalRuleCall_17_1_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getAnnotationRule());
-						}
-						setWithLastConsumed(
-							$current,
-							"contentTarget",
-							lv_contentTarget_18_0,
-							"org.eclipse.xtext.common.Terminals.STRING");
-					}
-				)
-			)
-		)?
 		(
 			otherlv_19=','
 			{

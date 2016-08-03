@@ -85,8 +85,8 @@ public class VideoAnnotationsDSLSemanticSequencer extends AbstractDelegatingSema
 	 *         type=Move 
 	 *         scope=Scope 
 	 *         focus=Focus 
+	 *         contentLabel=STRING? 
 	 *         content=STRING 
-	 *         contentTarget=STRING? 
 	 *         target=[Annotation|ID]?
 	 *     )
 	 */

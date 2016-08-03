@@ -159,22 +159,22 @@ public interface VideoAnnotationsDSLPackage extends EPackage
   int ANNOTATION__FOCUS = 6;
 
   /**
+   * The feature id for the '<em><b>Content Label</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ANNOTATION__CONTENT_LABEL = 7;
+
+  /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ANNOTATION__CONTENT = 7;
-
-  /**
-   * The feature id for the '<em><b>Content Target</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ANNOTATION__CONTENT_TARGET = 8;
+  int ANNOTATION__CONTENT = 8;
 
   /**
    * The feature id for the '<em><b>Target</b></em>' reference.
@@ -416,6 +416,17 @@ public interface VideoAnnotationsDSLPackage extends EPackage
   EReference getAnnotation_Focus();
 
   /**
+   * Returns the meta object for the attribute '{@link kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation#getContentLabel <em>Content Label</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Content Label</em>'.
+   * @see kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation#getContentLabel()
+   * @see #getAnnotation()
+   * @generated
+   */
+  EAttribute getAnnotation_ContentLabel();
+
+  /**
    * Returns the meta object for the attribute '{@link kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation#getContent <em>Content</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -425,17 +436,6 @@ public interface VideoAnnotationsDSLPackage extends EPackage
    * @generated
    */
   EAttribute getAnnotation_Content();
-
-  /**
-   * Returns the meta object for the attribute '{@link kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation#getContentTarget <em>Content Target</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Content Target</em>'.
-   * @see kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation#getContentTarget()
-   * @see #getAnnotation()
-   * @generated
-   */
-  EAttribute getAnnotation_ContentTarget();
 
   /**
    * Returns the meta object for the reference '{@link kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation#getTarget <em>Target</em>}'.
@@ -640,20 +640,20 @@ public interface VideoAnnotationsDSLPackage extends EPackage
     EReference ANNOTATION__FOCUS = eINSTANCE.getAnnotation_Focus();
 
     /**
+     * The meta object literal for the '<em><b>Content Label</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ANNOTATION__CONTENT_LABEL = eINSTANCE.getAnnotation_ContentLabel();
+
+    /**
      * The meta object literal for the '<em><b>Content</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EAttribute ANNOTATION__CONTENT = eINSTANCE.getAnnotation_Content();
-
-    /**
-     * The meta object literal for the '<em><b>Content Target</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ANNOTATION__CONTENT_TARGET = eINSTANCE.getAnnotation_ContentTarget();
 
     /**
      * The meta object literal for the '<em><b>Target</b></em>' reference feature.

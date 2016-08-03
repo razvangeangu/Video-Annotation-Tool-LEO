@@ -252,7 +252,7 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleAnnotation"
-    // InternalVideoAnnotationsDSL.g:107:1: ruleAnnotation returns [EObject current=null] : (otherlv_0= 'from' ( (lv_fromTime_1_0= ruleTime ) ) otherlv_2= 'to' ( (lv_toTime_3_0= ruleTime ) ) otherlv_4= 'annotate' otherlv_5= '(' ( (lv_name_6_0= RULE_ID ) ) otherlv_7= ',' ( (lv_sender_8_0= ruleSender ) ) otherlv_9= ',' ( (lv_type_10_0= ruleMove ) ) otherlv_11= ',' ( (lv_scope_12_0= ruleScope ) ) otherlv_13= ',' ( (lv_focus_14_0= ruleFocus ) ) otherlv_15= ',' ( (lv_content_16_0= RULE_STRING ) ) (otherlv_17= ',' ( (lv_contentTarget_18_0= RULE_STRING ) ) )? (otherlv_19= ',' ( (otherlv_20= RULE_ID ) ) )? otherlv_21= ')' ) ;
+    // InternalVideoAnnotationsDSL.g:107:1: ruleAnnotation returns [EObject current=null] : (otherlv_0= 'from' ( (lv_fromTime_1_0= ruleTime ) ) otherlv_2= 'to' ( (lv_toTime_3_0= ruleTime ) ) otherlv_4= 'annotate' otherlv_5= '(' ( (lv_name_6_0= RULE_ID ) ) otherlv_7= ',' ( (lv_sender_8_0= ruleSender ) ) otherlv_9= ',' ( (lv_type_10_0= ruleMove ) ) otherlv_11= ',' ( (lv_scope_12_0= ruleScope ) ) otherlv_13= ',' ( (lv_focus_14_0= ruleFocus ) ) otherlv_15= ',' ( ( (lv_contentLabel_16_0= RULE_STRING ) ) otherlv_17= ',' )? ( (lv_content_18_0= RULE_STRING ) ) (otherlv_19= ',' ( (otherlv_20= RULE_ID ) ) )? otherlv_21= ')' ) ;
     public final EObject ruleAnnotation() throws RecognitionException {
         EObject current = null;
 
@@ -266,9 +266,9 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
         Token otherlv_11=null;
         Token otherlv_13=null;
         Token otherlv_15=null;
-        Token lv_content_16_0=null;
+        Token lv_contentLabel_16_0=null;
         Token otherlv_17=null;
-        Token lv_contentTarget_18_0=null;
+        Token lv_content_18_0=null;
         Token otherlv_19=null;
         Token otherlv_20=null;
         Token otherlv_21=null;
@@ -289,11 +289,11 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalVideoAnnotationsDSL.g:113:2: ( (otherlv_0= 'from' ( (lv_fromTime_1_0= ruleTime ) ) otherlv_2= 'to' ( (lv_toTime_3_0= ruleTime ) ) otherlv_4= 'annotate' otherlv_5= '(' ( (lv_name_6_0= RULE_ID ) ) otherlv_7= ',' ( (lv_sender_8_0= ruleSender ) ) otherlv_9= ',' ( (lv_type_10_0= ruleMove ) ) otherlv_11= ',' ( (lv_scope_12_0= ruleScope ) ) otherlv_13= ',' ( (lv_focus_14_0= ruleFocus ) ) otherlv_15= ',' ( (lv_content_16_0= RULE_STRING ) ) (otherlv_17= ',' ( (lv_contentTarget_18_0= RULE_STRING ) ) )? (otherlv_19= ',' ( (otherlv_20= RULE_ID ) ) )? otherlv_21= ')' ) )
-            // InternalVideoAnnotationsDSL.g:114:2: (otherlv_0= 'from' ( (lv_fromTime_1_0= ruleTime ) ) otherlv_2= 'to' ( (lv_toTime_3_0= ruleTime ) ) otherlv_4= 'annotate' otherlv_5= '(' ( (lv_name_6_0= RULE_ID ) ) otherlv_7= ',' ( (lv_sender_8_0= ruleSender ) ) otherlv_9= ',' ( (lv_type_10_0= ruleMove ) ) otherlv_11= ',' ( (lv_scope_12_0= ruleScope ) ) otherlv_13= ',' ( (lv_focus_14_0= ruleFocus ) ) otherlv_15= ',' ( (lv_content_16_0= RULE_STRING ) ) (otherlv_17= ',' ( (lv_contentTarget_18_0= RULE_STRING ) ) )? (otherlv_19= ',' ( (otherlv_20= RULE_ID ) ) )? otherlv_21= ')' )
+            // InternalVideoAnnotationsDSL.g:113:2: ( (otherlv_0= 'from' ( (lv_fromTime_1_0= ruleTime ) ) otherlv_2= 'to' ( (lv_toTime_3_0= ruleTime ) ) otherlv_4= 'annotate' otherlv_5= '(' ( (lv_name_6_0= RULE_ID ) ) otherlv_7= ',' ( (lv_sender_8_0= ruleSender ) ) otherlv_9= ',' ( (lv_type_10_0= ruleMove ) ) otherlv_11= ',' ( (lv_scope_12_0= ruleScope ) ) otherlv_13= ',' ( (lv_focus_14_0= ruleFocus ) ) otherlv_15= ',' ( ( (lv_contentLabel_16_0= RULE_STRING ) ) otherlv_17= ',' )? ( (lv_content_18_0= RULE_STRING ) ) (otherlv_19= ',' ( (otherlv_20= RULE_ID ) ) )? otherlv_21= ')' ) )
+            // InternalVideoAnnotationsDSL.g:114:2: (otherlv_0= 'from' ( (lv_fromTime_1_0= ruleTime ) ) otherlv_2= 'to' ( (lv_toTime_3_0= ruleTime ) ) otherlv_4= 'annotate' otherlv_5= '(' ( (lv_name_6_0= RULE_ID ) ) otherlv_7= ',' ( (lv_sender_8_0= ruleSender ) ) otherlv_9= ',' ( (lv_type_10_0= ruleMove ) ) otherlv_11= ',' ( (lv_scope_12_0= ruleScope ) ) otherlv_13= ',' ( (lv_focus_14_0= ruleFocus ) ) otherlv_15= ',' ( ( (lv_contentLabel_16_0= RULE_STRING ) ) otherlv_17= ',' )? ( (lv_content_18_0= RULE_STRING ) ) (otherlv_19= ',' ( (otherlv_20= RULE_ID ) ) )? otherlv_21= ')' )
             {
-            // InternalVideoAnnotationsDSL.g:114:2: (otherlv_0= 'from' ( (lv_fromTime_1_0= ruleTime ) ) otherlv_2= 'to' ( (lv_toTime_3_0= ruleTime ) ) otherlv_4= 'annotate' otherlv_5= '(' ( (lv_name_6_0= RULE_ID ) ) otherlv_7= ',' ( (lv_sender_8_0= ruleSender ) ) otherlv_9= ',' ( (lv_type_10_0= ruleMove ) ) otherlv_11= ',' ( (lv_scope_12_0= ruleScope ) ) otherlv_13= ',' ( (lv_focus_14_0= ruleFocus ) ) otherlv_15= ',' ( (lv_content_16_0= RULE_STRING ) ) (otherlv_17= ',' ( (lv_contentTarget_18_0= RULE_STRING ) ) )? (otherlv_19= ',' ( (otherlv_20= RULE_ID ) ) )? otherlv_21= ')' )
-            // InternalVideoAnnotationsDSL.g:115:3: otherlv_0= 'from' ( (lv_fromTime_1_0= ruleTime ) ) otherlv_2= 'to' ( (lv_toTime_3_0= ruleTime ) ) otherlv_4= 'annotate' otherlv_5= '(' ( (lv_name_6_0= RULE_ID ) ) otherlv_7= ',' ( (lv_sender_8_0= ruleSender ) ) otherlv_9= ',' ( (lv_type_10_0= ruleMove ) ) otherlv_11= ',' ( (lv_scope_12_0= ruleScope ) ) otherlv_13= ',' ( (lv_focus_14_0= ruleFocus ) ) otherlv_15= ',' ( (lv_content_16_0= RULE_STRING ) ) (otherlv_17= ',' ( (lv_contentTarget_18_0= RULE_STRING ) ) )? (otherlv_19= ',' ( (otherlv_20= RULE_ID ) ) )? otherlv_21= ')'
+            // InternalVideoAnnotationsDSL.g:114:2: (otherlv_0= 'from' ( (lv_fromTime_1_0= ruleTime ) ) otherlv_2= 'to' ( (lv_toTime_3_0= ruleTime ) ) otherlv_4= 'annotate' otherlv_5= '(' ( (lv_name_6_0= RULE_ID ) ) otherlv_7= ',' ( (lv_sender_8_0= ruleSender ) ) otherlv_9= ',' ( (lv_type_10_0= ruleMove ) ) otherlv_11= ',' ( (lv_scope_12_0= ruleScope ) ) otherlv_13= ',' ( (lv_focus_14_0= ruleFocus ) ) otherlv_15= ',' ( ( (lv_contentLabel_16_0= RULE_STRING ) ) otherlv_17= ',' )? ( (lv_content_18_0= RULE_STRING ) ) (otherlv_19= ',' ( (otherlv_20= RULE_ID ) ) )? otherlv_21= ')' )
+            // InternalVideoAnnotationsDSL.g:115:3: otherlv_0= 'from' ( (lv_fromTime_1_0= ruleTime ) ) otherlv_2= 'to' ( (lv_toTime_3_0= ruleTime ) ) otherlv_4= 'annotate' otherlv_5= '(' ( (lv_name_6_0= RULE_ID ) ) otherlv_7= ',' ( (lv_sender_8_0= ruleSender ) ) otherlv_9= ',' ( (lv_type_10_0= ruleMove ) ) otherlv_11= ',' ( (lv_scope_12_0= ruleScope ) ) otherlv_13= ',' ( (lv_focus_14_0= ruleFocus ) ) otherlv_15= ',' ( ( (lv_contentLabel_16_0= RULE_STRING ) ) otherlv_17= ',' )? ( (lv_content_18_0= RULE_STRING ) ) (otherlv_19= ',' ( (otherlv_20= RULE_ID ) ) )? otherlv_21= ')'
             {
             otherlv_0=(Token)match(input,11,FOLLOW_4); 
 
@@ -543,60 +543,34 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
 
             			newLeafNode(otherlv_15, grammarAccess.getAnnotationAccess().getCommaKeyword_15());
             		
-            // InternalVideoAnnotationsDSL.g:283:3: ( (lv_content_16_0= RULE_STRING ) )
-            // InternalVideoAnnotationsDSL.g:284:4: (lv_content_16_0= RULE_STRING )
-            {
-            // InternalVideoAnnotationsDSL.g:284:4: (lv_content_16_0= RULE_STRING )
-            // InternalVideoAnnotationsDSL.g:285:5: lv_content_16_0= RULE_STRING
-            {
-            lv_content_16_0=(Token)match(input,RULE_STRING,FOLLOW_14); 
-
-            					newLeafNode(lv_content_16_0, grammarAccess.getAnnotationAccess().getContentSTRINGTerminalRuleCall_16_0());
-            				
-
-            					if (current==null) {
-            						current = createModelElement(grammarAccess.getAnnotationRule());
-            					}
-            					setWithLastConsumed(
-            						current,
-            						"content",
-            						lv_content_16_0,
-            						"org.eclipse.xtext.common.Terminals.STRING");
-            				
-
-            }
-
-
-            }
-
-            // InternalVideoAnnotationsDSL.g:301:3: (otherlv_17= ',' ( (lv_contentTarget_18_0= RULE_STRING ) ) )?
+            // InternalVideoAnnotationsDSL.g:283:3: ( ( (lv_contentLabel_16_0= RULE_STRING ) ) otherlv_17= ',' )?
             int alt2=2;
             int LA2_0 = input.LA(1);
 
-            if ( (LA2_0==15) ) {
+            if ( (LA2_0==RULE_STRING) ) {
                 int LA2_1 = input.LA(2);
 
-                if ( (LA2_1==RULE_STRING) ) {
-                    alt2=1;
+                if ( (LA2_1==15) ) {
+                    int LA2_2 = input.LA(3);
+
+                    if ( (LA2_2==RULE_STRING) ) {
+                        alt2=1;
+                    }
                 }
             }
             switch (alt2) {
                 case 1 :
-                    // InternalVideoAnnotationsDSL.g:302:4: otherlv_17= ',' ( (lv_contentTarget_18_0= RULE_STRING ) )
+                    // InternalVideoAnnotationsDSL.g:284:4: ( (lv_contentLabel_16_0= RULE_STRING ) ) otherlv_17= ','
                     {
-                    otherlv_17=(Token)match(input,15,FOLLOW_13); 
+                    // InternalVideoAnnotationsDSL.g:284:4: ( (lv_contentLabel_16_0= RULE_STRING ) )
+                    // InternalVideoAnnotationsDSL.g:285:5: (lv_contentLabel_16_0= RULE_STRING )
+                    {
+                    // InternalVideoAnnotationsDSL.g:285:5: (lv_contentLabel_16_0= RULE_STRING )
+                    // InternalVideoAnnotationsDSL.g:286:6: lv_contentLabel_16_0= RULE_STRING
+                    {
+                    lv_contentLabel_16_0=(Token)match(input,RULE_STRING,FOLLOW_9); 
 
-                    				newLeafNode(otherlv_17, grammarAccess.getAnnotationAccess().getCommaKeyword_17_0());
-                    			
-                    // InternalVideoAnnotationsDSL.g:306:4: ( (lv_contentTarget_18_0= RULE_STRING ) )
-                    // InternalVideoAnnotationsDSL.g:307:5: (lv_contentTarget_18_0= RULE_STRING )
-                    {
-                    // InternalVideoAnnotationsDSL.g:307:5: (lv_contentTarget_18_0= RULE_STRING )
-                    // InternalVideoAnnotationsDSL.g:308:6: lv_contentTarget_18_0= RULE_STRING
-                    {
-                    lv_contentTarget_18_0=(Token)match(input,RULE_STRING,FOLLOW_14); 
-
-                    						newLeafNode(lv_contentTarget_18_0, grammarAccess.getAnnotationAccess().getContentTargetSTRINGTerminalRuleCall_17_1_0());
+                    						newLeafNode(lv_contentLabel_16_0, grammarAccess.getAnnotationAccess().getContentLabelSTRINGTerminalRuleCall_16_0_0());
                     					
 
                     						if (current==null) {
@@ -604,8 +578,8 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
                     						}
                     						setWithLastConsumed(
                     							current,
-                    							"contentTarget",
-                    							lv_contentTarget_18_0,
+                    							"contentLabel",
+                    							lv_contentLabel_16_0,
                     							"org.eclipse.xtext.common.Terminals.STRING");
                     					
 
@@ -614,9 +588,39 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
 
                     }
 
+                    otherlv_17=(Token)match(input,15,FOLLOW_13); 
+
+                    				newLeafNode(otherlv_17, grammarAccess.getAnnotationAccess().getCommaKeyword_16_1());
+                    			
 
                     }
                     break;
+
+            }
+
+            // InternalVideoAnnotationsDSL.g:307:3: ( (lv_content_18_0= RULE_STRING ) )
+            // InternalVideoAnnotationsDSL.g:308:4: (lv_content_18_0= RULE_STRING )
+            {
+            // InternalVideoAnnotationsDSL.g:308:4: (lv_content_18_0= RULE_STRING )
+            // InternalVideoAnnotationsDSL.g:309:5: lv_content_18_0= RULE_STRING
+            {
+            lv_content_18_0=(Token)match(input,RULE_STRING,FOLLOW_14); 
+
+            					newLeafNode(lv_content_18_0, grammarAccess.getAnnotationAccess().getContentSTRINGTerminalRuleCall_17_0());
+            				
+
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getAnnotationRule());
+            					}
+            					setWithLastConsumed(
+            						current,
+            						"content",
+            						lv_content_18_0,
+            						"org.eclipse.xtext.common.Terminals.STRING");
+            				
+
+            }
+
 
             }
 
