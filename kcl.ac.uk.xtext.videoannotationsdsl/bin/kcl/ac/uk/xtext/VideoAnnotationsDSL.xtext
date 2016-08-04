@@ -16,7 +16,7 @@ Annotation:
 	            (contentLabel=STRING ',')? 
 	            content=STRING (',' 
 	            target=[Annotation])?
-	         ')'
+	         ')' ('#'comment=STRING'#')?
 ;
 	
 Sender: 

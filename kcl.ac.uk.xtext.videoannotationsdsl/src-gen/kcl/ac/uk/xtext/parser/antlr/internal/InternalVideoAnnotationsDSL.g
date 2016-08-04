@@ -345,6 +345,34 @@ ruleAnnotation returns [EObject current=null]
 		{
 			newLeafNode(otherlv_21, grammarAccess.getAnnotationAccess().getRightParenthesisKeyword_19());
 		}
+		(
+			otherlv_22='#'
+			{
+				newLeafNode(otherlv_22, grammarAccess.getAnnotationAccess().getNumberSignKeyword_20_0());
+			}
+			(
+				(
+					lv_comment_23_0=RULE_STRING
+					{
+						newLeafNode(lv_comment_23_0, grammarAccess.getAnnotationAccess().getCommentSTRINGTerminalRuleCall_20_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getAnnotationRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"comment",
+							lv_comment_23_0,
+							"org.eclipse.xtext.common.Terminals.STRING");
+					}
+				)
+			)
+			otherlv_24='#'
+			{
+				newLeafNode(otherlv_24, grammarAccess.getAnnotationAccess().getNumberSignKeyword_20_2());
+			}
+		)?
 	)
 ;
 

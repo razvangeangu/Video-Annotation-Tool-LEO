@@ -18,10 +18,12 @@ class AnnotationRenderer {
 	'''
 	
 	def renderWithoutTimes (Annotation annotation) '''
-		annotate («annotation.name», «annotation.sender», «annotation.type.type», «annotation.scope.scope», «annotation.focus.focus»«if (annotation.contentLabel != null) {''', "«annotation.contentLabel»"'''}», "«annotation.content»"«if (annotation.target != null) {''', «annotation.target.name»'''}»)
+		annotate («annotation.name», «annotation.sender», «annotation.type.type», «annotation.scope.scope», «annotation.focus.focus»«if (annotation.contentLabel != null) {''', "«annotation.contentLabel»"'''}», "«annotation.content»"«if (annotation.target != null) {''', «annotation.target.name»'''}»)«if (annotation.comment != null) {''' #"«annotation.comment»"#'''}»
 	'''
 	
 	def renderWithoutTimeAndWithoutKeyword(Annotation annotation) '''
 		«annotation.name», «annotation.sender», «annotation.type.type», «annotation.scope.scope», «annotation.focus.focus»«if (annotation.contentLabel != null) {''', "«annotation.contentLabel»"'''}», "«annotation.content»"«if (annotation.target != null) {''', «annotation.target.name»'''}»
 	'''
+	
+	def renderWithoutComment (Annotation annotation) '''from «annotation.fromTime.sec» to «annotation.toTime.sec» annotate («annotation.name», «annotation.sender», «annotation.type.type», «annotation.scope.scope», «annotation.focus.focus»«if (annotation.contentLabel != null) {''', "«annotation.contentLabel»"'''}», "«annotation.content»"«if (annotation.target != null) {''', «annotation.target.name»'''}»)'''
 }

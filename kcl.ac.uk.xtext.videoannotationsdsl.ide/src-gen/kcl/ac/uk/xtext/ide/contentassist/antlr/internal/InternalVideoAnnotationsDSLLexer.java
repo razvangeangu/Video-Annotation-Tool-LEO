@@ -26,6 +26,7 @@ public class InternalVideoAnnotationsDSLLexer extends Lexer {
     public static final int T__13=13;
     public static final int T__35=35;
     public static final int T__14=14;
+    public static final int T__36=36;
     public static final int EOF=-1;
     public static final int T__30=30;
     public static final int T__31=31;
@@ -576,15 +577,35 @@ public class InternalVideoAnnotationsDSLLexer extends Lexer {
     }
     // $ANTLR end "T__35"
 
+    // $ANTLR start "T__36"
+    public final void mT__36() throws RecognitionException {
+        try {
+            int _type = T__36;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalVideoAnnotationsDSL.g:36:7: ( '#' )
+            // InternalVideoAnnotationsDSL.g:36:9: '#'
+            {
+            match('#'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__36"
+
     // $ANTLR start "RULE_ID"
     public final void mRULE_ID() throws RecognitionException {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalVideoAnnotationsDSL.g:1252:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalVideoAnnotationsDSL.g:1252:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalVideoAnnotationsDSL.g:1375:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalVideoAnnotationsDSL.g:1375:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalVideoAnnotationsDSL.g:1252:11: ( '^' )?
+            // InternalVideoAnnotationsDSL.g:1375:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -593,7 +614,7 @@ public class InternalVideoAnnotationsDSLLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalVideoAnnotationsDSL.g:1252:11: '^'
+                    // InternalVideoAnnotationsDSL.g:1375:11: '^'
                     {
                     match('^'); 
 
@@ -611,7 +632,7 @@ public class InternalVideoAnnotationsDSLLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalVideoAnnotationsDSL.g:1252:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalVideoAnnotationsDSL.g:1375:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -660,10 +681,10 @@ public class InternalVideoAnnotationsDSLLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalVideoAnnotationsDSL.g:1254:10: ( ( '0' .. '9' )+ )
-            // InternalVideoAnnotationsDSL.g:1254:12: ( '0' .. '9' )+
+            // InternalVideoAnnotationsDSL.g:1377:10: ( ( '0' .. '9' )+ )
+            // InternalVideoAnnotationsDSL.g:1377:12: ( '0' .. '9' )+
             {
-            // InternalVideoAnnotationsDSL.g:1254:12: ( '0' .. '9' )+
+            // InternalVideoAnnotationsDSL.g:1377:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -677,7 +698,7 @@ public class InternalVideoAnnotationsDSLLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalVideoAnnotationsDSL.g:1254:13: '0' .. '9'
+            	    // InternalVideoAnnotationsDSL.g:1377:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -709,10 +730,10 @@ public class InternalVideoAnnotationsDSLLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalVideoAnnotationsDSL.g:1256:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalVideoAnnotationsDSL.g:1256:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalVideoAnnotationsDSL.g:1379:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalVideoAnnotationsDSL.g:1379:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalVideoAnnotationsDSL.g:1256:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalVideoAnnotationsDSL.g:1379:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -730,10 +751,10 @@ public class InternalVideoAnnotationsDSLLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalVideoAnnotationsDSL.g:1256:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalVideoAnnotationsDSL.g:1379:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalVideoAnnotationsDSL.g:1256:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalVideoAnnotationsDSL.g:1379:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -749,7 +770,7 @@ public class InternalVideoAnnotationsDSLLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // InternalVideoAnnotationsDSL.g:1256:21: '\\\\' .
+                    	    // InternalVideoAnnotationsDSL.g:1379:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -757,7 +778,7 @@ public class InternalVideoAnnotationsDSLLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalVideoAnnotationsDSL.g:1256:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalVideoAnnotationsDSL.g:1379:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -782,10 +803,10 @@ public class InternalVideoAnnotationsDSLLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalVideoAnnotationsDSL.g:1256:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalVideoAnnotationsDSL.g:1379:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalVideoAnnotationsDSL.g:1256:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalVideoAnnotationsDSL.g:1379:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -801,7 +822,7 @@ public class InternalVideoAnnotationsDSLLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // InternalVideoAnnotationsDSL.g:1256:54: '\\\\' .
+                    	    // InternalVideoAnnotationsDSL.g:1379:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -809,7 +830,7 @@ public class InternalVideoAnnotationsDSLLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalVideoAnnotationsDSL.g:1256:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalVideoAnnotationsDSL.g:1379:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -852,12 +873,12 @@ public class InternalVideoAnnotationsDSLLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalVideoAnnotationsDSL.g:1258:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalVideoAnnotationsDSL.g:1258:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalVideoAnnotationsDSL.g:1381:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalVideoAnnotationsDSL.g:1381:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalVideoAnnotationsDSL.g:1258:24: ( options {greedy=false; } : . )*
+            // InternalVideoAnnotationsDSL.g:1381:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -882,7 +903,7 @@ public class InternalVideoAnnotationsDSLLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalVideoAnnotationsDSL.g:1258:52: .
+            	    // InternalVideoAnnotationsDSL.g:1381:52: .
             	    {
             	    matchAny(); 
 
@@ -912,12 +933,12 @@ public class InternalVideoAnnotationsDSLLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalVideoAnnotationsDSL.g:1260:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalVideoAnnotationsDSL.g:1260:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalVideoAnnotationsDSL.g:1383:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalVideoAnnotationsDSL.g:1383:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalVideoAnnotationsDSL.g:1260:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalVideoAnnotationsDSL.g:1383:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -930,7 +951,7 @@ public class InternalVideoAnnotationsDSLLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalVideoAnnotationsDSL.g:1260:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalVideoAnnotationsDSL.g:1383:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -950,7 +971,7 @@ public class InternalVideoAnnotationsDSLLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalVideoAnnotationsDSL.g:1260:40: ( ( '\\r' )? '\\n' )?
+            // InternalVideoAnnotationsDSL.g:1383:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -959,9 +980,9 @@ public class InternalVideoAnnotationsDSLLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // InternalVideoAnnotationsDSL.g:1260:41: ( '\\r' )? '\\n'
+                    // InternalVideoAnnotationsDSL.g:1383:41: ( '\\r' )? '\\n'
                     {
-                    // InternalVideoAnnotationsDSL.g:1260:41: ( '\\r' )?
+                    // InternalVideoAnnotationsDSL.g:1383:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -970,7 +991,7 @@ public class InternalVideoAnnotationsDSLLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // InternalVideoAnnotationsDSL.g:1260:41: '\\r'
+                            // InternalVideoAnnotationsDSL.g:1383:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1002,10 +1023,10 @@ public class InternalVideoAnnotationsDSLLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalVideoAnnotationsDSL.g:1262:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalVideoAnnotationsDSL.g:1262:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalVideoAnnotationsDSL.g:1385:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalVideoAnnotationsDSL.g:1385:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalVideoAnnotationsDSL.g:1262:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalVideoAnnotationsDSL.g:1385:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -1059,8 +1080,8 @@ public class InternalVideoAnnotationsDSLLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalVideoAnnotationsDSL.g:1264:16: ( . )
-            // InternalVideoAnnotationsDSL.g:1264:18: .
+            // InternalVideoAnnotationsDSL.g:1387:16: ( . )
+            // InternalVideoAnnotationsDSL.g:1387:18: .
             {
             matchAny(); 
 
@@ -1075,8 +1096,8 @@ public class InternalVideoAnnotationsDSLLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // InternalVideoAnnotationsDSL.g:1:8: ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt12=32;
+        // InternalVideoAnnotationsDSL.g:1:8: ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt12=33;
         alt12 = dfa12.predict(input);
         switch (alt12) {
             case 1 :
@@ -1255,49 +1276,56 @@ public class InternalVideoAnnotationsDSLLexer extends Lexer {
                 }
                 break;
             case 26 :
-                // InternalVideoAnnotationsDSL.g:1:160: RULE_ID
+                // InternalVideoAnnotationsDSL.g:1:160: T__36
+                {
+                mT__36(); 
+
+                }
+                break;
+            case 27 :
+                // InternalVideoAnnotationsDSL.g:1:166: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 27 :
-                // InternalVideoAnnotationsDSL.g:1:168: RULE_INT
+            case 28 :
+                // InternalVideoAnnotationsDSL.g:1:174: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 28 :
-                // InternalVideoAnnotationsDSL.g:1:177: RULE_STRING
+            case 29 :
+                // InternalVideoAnnotationsDSL.g:1:183: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 29 :
-                // InternalVideoAnnotationsDSL.g:1:189: RULE_ML_COMMENT
+            case 30 :
+                // InternalVideoAnnotationsDSL.g:1:195: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 30 :
-                // InternalVideoAnnotationsDSL.g:1:205: RULE_SL_COMMENT
+            case 31 :
+                // InternalVideoAnnotationsDSL.g:1:211: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 31 :
-                // InternalVideoAnnotationsDSL.g:1:221: RULE_WS
+            case 32 :
+                // InternalVideoAnnotationsDSL.g:1:227: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 32 :
-                // InternalVideoAnnotationsDSL.g:1:229: RULE_ANY_OTHER
+            case 33 :
+                // InternalVideoAnnotationsDSL.g:1:235: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -1311,52 +1339,51 @@ public class InternalVideoAnnotationsDSLLexer extends Lexer {
 
     protected DFA12 dfa12 = new DFA12(this);
     static final String DFA12_eotS =
-        "\1\uffff\12\34\1\53\1\54\1\55\1\56\1\57\3\uffff\1\32\2\uffff\3\32\2\uffff\1\34\1\uffff\15\34\1\110\15\uffff\20\34\1\uffff\16\34\1\147\17\34\1\uffff\1\167\3\34\1\173\4\34\1\u0080\1\34\1\u0082\1\u0083\2\34\1\uffff\1\u0086\2\34\1\uffff\1\u0089\1\34\1\u008b\1\34\1\uffff\1\34\2\uffff\1\34\1\u008f\1\uffff\1\u0090\1\34\1\uffff\1\u0092\1\uffff\1\u0093\1\u0094\1\u0095\2\uffff\1\u0096\5\uffff";
+        "\1\uffff\12\35\1\54\1\55\1\56\1\57\1\60\4\uffff\1\33\2\uffff\3\33\2\uffff\1\35\1\uffff\15\35\1\112\16\uffff\20\35\1\uffff\16\35\1\151\17\35\1\uffff\1\171\3\35\1\175\4\35\1\u0082\1\35\1\u0084\1\u0085\2\35\1\uffff\1\u0088\2\35\1\uffff\1\u008b\1\35\1\u008d\1\35\1\uffff\1\35\2\uffff\1\35\1\u0091\1\uffff\1\u0092\1\35\1\uffff\1\u0094\1\uffff\1\u0095\1\u0096\1\u0097\2\uffff\1\u0098\5\uffff";
     static final String DFA12_eofS =
-        "\u0097\uffff";
+        "\u0099\uffff";
     static final String DFA12_minS =
-        "\1\0\1\162\1\165\1\150\1\165\1\151\1\143\1\141\1\156\1\145\1\157\5\60\3\uffff\1\101\2\uffff\2\0\1\52\2\uffff\1\157\1\uffff\1\145\1\141\1\155\1\151\1\163\1\164\1\143\1\156\1\152\1\164\1\143\1\141\1\157\1\60\15\uffff\1\160\1\163\1\154\1\155\1\156\2\164\1\150\1\145\1\157\1\145\1\151\1\157\1\164\1\155\1\151\1\uffff\1\157\1\164\1\154\1\151\1\164\1\145\1\151\1\144\1\160\1\164\1\143\1\156\1\155\1\165\1\60\1\143\1\163\1\151\1\145\1\164\1\145\1\162\1\146\1\162\1\164\1\141\1\164\1\147\1\155\1\162\1\uffff\1\60\1\145\1\157\1\156\1\60\1\162\1\151\1\171\1\141\1\60\1\164\2\60\1\151\1\145\1\uffff\1\60\1\156\1\147\1\uffff\1\60\1\141\1\60\1\167\1\uffff\1\145\2\uffff\1\164\1\60\1\uffff\1\60\1\145\1\uffff\1\60\1\uffff\3\60\2\uffff\1\60\5\uffff";
+        "\1\0\1\162\1\165\1\150\1\165\1\151\1\143\1\141\1\156\1\145\1\157\5\60\4\uffff\1\101\2\uffff\2\0\1\52\2\uffff\1\157\1\uffff\1\145\1\141\1\155\1\151\1\163\1\164\1\143\1\156\1\152\1\164\1\143\1\141\1\157\1\60\16\uffff\1\160\1\163\1\154\1\155\1\156\2\164\1\150\1\145\1\157\1\145\1\151\1\157\1\164\1\155\1\151\1\uffff\1\157\1\164\1\154\1\151\1\164\1\145\1\151\1\144\1\160\1\164\1\143\1\156\1\155\1\165\1\60\1\143\1\163\1\151\1\145\1\164\1\145\1\162\1\146\1\162\1\164\1\141\1\164\1\147\1\155\1\162\1\uffff\1\60\1\145\1\157\1\156\1\60\1\162\1\151\1\171\1\141\1\60\1\164\2\60\1\151\1\145\1\uffff\1\60\1\156\1\147\1\uffff\1\60\1\141\1\60\1\167\1\uffff\1\145\2\uffff\1\164\1\60\1\uffff\1\60\1\145\1\uffff\1\60\1\uffff\3\60\2\uffff\1\60\5\uffff";
     static final String DFA12_maxS =
-        "\1\uffff\1\162\1\165\1\162\1\165\1\151\1\156\1\145\1\156\1\162\1\157\5\172\3\uffff\1\172\2\uffff\2\uffff\1\57\2\uffff\1\157\1\uffff\1\145\1\141\1\165\1\151\1\163\1\164\1\143\1\156\1\152\1\164\1\143\1\141\1\157\1\172\15\uffff\1\160\1\163\1\154\1\155\1\156\2\164\1\150\1\145\1\157\1\145\1\151\1\157\1\164\1\155\1\151\1\uffff\1\157\1\164\1\154\1\151\1\164\1\145\1\151\1\144\1\160\1\164\1\143\1\156\1\155\1\165\1\172\1\143\1\163\1\151\1\145\1\164\1\145\1\162\1\146\1\162\1\164\1\141\1\164\1\147\1\155\1\162\1\uffff\1\172\1\145\1\157\1\156\1\172\1\162\1\151\1\171\1\141\1\172\1\164\2\172\1\151\1\145\1\uffff\1\172\1\156\1\147\1\uffff\1\172\1\141\1\172\1\167\1\uffff\1\145\2\uffff\1\164\1\172\1\uffff\1\172\1\145\1\uffff\1\172\1\uffff\3\172\2\uffff\1\172\5\uffff";
+        "\1\uffff\1\162\1\165\1\162\1\165\1\151\1\156\1\145\1\156\1\162\1\157\5\172\4\uffff\1\172\2\uffff\2\uffff\1\57\2\uffff\1\157\1\uffff\1\145\1\141\1\165\1\151\1\163\1\164\1\143\1\156\1\152\1\164\1\143\1\141\1\157\1\172\16\uffff\1\160\1\163\1\154\1\155\1\156\2\164\1\150\1\145\1\157\1\145\1\151\1\157\1\164\1\155\1\151\1\uffff\1\157\1\164\1\154\1\151\1\164\1\145\1\151\1\144\1\160\1\164\1\143\1\156\1\155\1\165\1\172\1\143\1\163\1\151\1\145\1\164\1\145\1\162\1\146\1\162\1\164\1\141\1\164\1\147\1\155\1\162\1\uffff\1\172\1\145\1\157\1\156\1\172\1\162\1\151\1\171\1\141\1\172\1\164\2\172\1\151\1\145\1\uffff\1\172\1\156\1\147\1\uffff\1\172\1\141\1\172\1\167\1\uffff\1\145\2\uffff\1\164\1\172\1\uffff\1\172\1\145\1\uffff\1\172\1\uffff\3\172\2\uffff\1\172\5\uffff";
     static final String DFA12_acceptS =
-        "\20\uffff\1\27\1\30\1\31\1\uffff\1\32\1\33\3\uffff\1\37\1\40\1\uffff\1\32\16\uffff\1\17\1\20\1\21\1\22\1\23\1\27\1\30\1\31\1\33\1\34\1\35\1\36\1\37\20\uffff\1\25\36\uffff\1\24\17\uffff\1\16\3\uffff\1\10\4\uffff\1\6\1\uffff\1\7\1\14\2\uffff\1\1\2\uffff\1\11\1\uffff\1\4\3\uffff\1\13\1\2\1\uffff\1\15\1\5\1\26\1\12\1\3";
+        "\20\uffff\1\27\1\30\1\31\1\32\1\uffff\1\33\1\34\3\uffff\1\40\1\41\1\uffff\1\33\16\uffff\1\17\1\20\1\21\1\22\1\23\1\27\1\30\1\31\1\32\1\34\1\35\1\36\1\37\1\40\20\uffff\1\25\36\uffff\1\24\17\uffff\1\16\3\uffff\1\10\4\uffff\1\6\1\uffff\1\7\1\14\2\uffff\1\1\2\uffff\1\11\1\uffff\1\4\3\uffff\1\13\1\2\1\uffff\1\15\1\5\1\26\1\12\1\3";
     static final String DFA12_specialS =
-        "\1\2\25\uffff\1\1\1\0\177\uffff}>";
+        "\1\1\26\uffff\1\0\1\2\u0080\uffff}>";
     static final String[] DFA12_transitionS = {
-            "\11\32\2\31\2\32\1\31\22\32\1\31\1\32\1\26\4\32\1\27\1\20\1\22\2\32\1\21\2\32\1\30\12\25\7\32\1\17\5\24\1\15\12\24\1\13\1\14\2\24\1\16\4\24\3\32\1\23\1\24\1\32\1\6\1\24\1\3\2\24\1\11\3\24\1\4\5\24\1\1\1\2\1\7\1\24\1\12\1\10\1\24\1\5\3\24\uff85\32",
-            "\1\33",
-            "\1\35",
-            "\1\36\6\uffff\1\37\2\uffff\1\40",
-            "\1\41",
+            "\11\33\2\32\2\33\1\32\22\33\1\32\1\33\1\27\1\23\3\33\1\30\1\20\1\22\2\33\1\21\2\33\1\31\12\26\7\33\1\17\5\25\1\15\12\25\1\13\1\14\2\25\1\16\4\25\3\33\1\24\1\25\1\33\1\6\1\25\1\3\2\25\1\11\3\25\1\4\5\25\1\1\1\2\1\7\1\25\1\12\1\10\1\25\1\5\3\25\uff85\33",
+            "\1\34",
+            "\1\36",
+            "\1\37\6\uffff\1\40\2\uffff\1\41",
             "\1\42",
-            "\1\43\12\uffff\1\44",
-            "\1\46\3\uffff\1\45",
-            "\1\47",
-            "\1\50\14\uffff\1\51",
-            "\1\52",
-            "\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
-            "\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
-            "\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
-            "\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
-            "\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
+            "\1\43",
+            "\1\44\12\uffff\1\45",
+            "\1\47\3\uffff\1\46",
+            "\1\50",
+            "\1\51\14\uffff\1\52",
+            "\1\53",
+            "\12\35\7\uffff\32\35\4\uffff\1\35\1\uffff\32\35",
+            "\12\35\7\uffff\32\35\4\uffff\1\35\1\uffff\32\35",
+            "\12\35\7\uffff\32\35\4\uffff\1\35\1\uffff\32\35",
+            "\12\35\7\uffff\32\35\4\uffff\1\35\1\uffff\32\35",
+            "\12\35\7\uffff\32\35\4\uffff\1\35\1\uffff\32\35",
             "",
             "",
             "",
-            "\32\34\4\uffff\1\34\1\uffff\32\34",
+            "",
+            "\32\35\4\uffff\1\35\1\uffff\32\35",
             "",
             "",
-            "\0\64",
-            "\0\64",
-            "\1\65\4\uffff\1\66",
+            "\0\66",
+            "\0\66",
+            "\1\67\4\uffff\1\70",
             "",
             "",
-            "\1\70",
-            "",
-            "\1\71",
             "\1\72",
-            "\1\73\7\uffff\1\74",
-            "\1\75",
-            "\1\76",
+            "",
+            "\1\73",
+            "\1\74",
+            "\1\75\7\uffff\1\76",
             "\1\77",
             "\1\100",
             "\1\101",
@@ -1365,7 +1392,9 @@ public class InternalVideoAnnotationsDSLLexer extends Lexer {
             "\1\104",
             "\1\105",
             "\1\106",
-            "\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\17\34\1\107\12\34",
+            "\1\107",
+            "\1\110",
+            "\12\35\7\uffff\32\35\4\uffff\1\35\1\uffff\17\35\1\111\12\35",
             "",
             "",
             "",
@@ -1379,8 +1408,7 @@ public class InternalVideoAnnotationsDSLLexer extends Lexer {
             "",
             "",
             "",
-            "\1\111",
-            "\1\112",
+            "",
             "\1\113",
             "\1\114",
             "\1\115",
@@ -1395,9 +1423,9 @@ public class InternalVideoAnnotationsDSLLexer extends Lexer {
             "\1\126",
             "\1\127",
             "\1\130",
-            "",
             "\1\131",
             "\1\132",
+            "",
             "\1\133",
             "\1\134",
             "\1\135",
@@ -1410,9 +1438,9 @@ public class InternalVideoAnnotationsDSLLexer extends Lexer {
             "\1\144",
             "\1\145",
             "\1\146",
-            "\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
+            "\1\147",
             "\1\150",
-            "\1\151",
+            "\12\35\7\uffff\32\35\4\uffff\1\35\1\uffff\32\35",
             "\1\152",
             "\1\153",
             "\1\154",
@@ -1426,49 +1454,51 @@ public class InternalVideoAnnotationsDSLLexer extends Lexer {
             "\1\164",
             "\1\165",
             "\1\166",
-            "",
-            "\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
+            "\1\167",
             "\1\170",
-            "\1\171",
+            "",
+            "\12\35\7\uffff\32\35\4\uffff\1\35\1\uffff\32\35",
             "\1\172",
-            "\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
+            "\1\173",
             "\1\174",
-            "\1\175",
+            "\12\35\7\uffff\32\35\4\uffff\1\35\1\uffff\32\35",
             "\1\176",
             "\1\177",
-            "\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
+            "\1\u0080",
             "\1\u0081",
-            "\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
-            "\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
-            "\1\u0084",
-            "\1\u0085",
-            "",
-            "\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
+            "\12\35\7\uffff\32\35\4\uffff\1\35\1\uffff\32\35",
+            "\1\u0083",
+            "\12\35\7\uffff\32\35\4\uffff\1\35\1\uffff\32\35",
+            "\12\35\7\uffff\32\35\4\uffff\1\35\1\uffff\32\35",
+            "\1\u0086",
             "\1\u0087",
-            "\1\u0088",
             "",
-            "\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
+            "\12\35\7\uffff\32\35\4\uffff\1\35\1\uffff\32\35",
+            "\1\u0089",
             "\1\u008a",
-            "\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
+            "",
+            "\12\35\7\uffff\32\35\4\uffff\1\35\1\uffff\32\35",
             "\1\u008c",
-            "",
-            "\1\u008d",
-            "",
-            "",
+            "\12\35\7\uffff\32\35\4\uffff\1\35\1\uffff\32\35",
             "\1\u008e",
-            "\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
             "",
-            "\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
-            "\1\u0091",
-            "",
-            "\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
-            "",
-            "\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
-            "\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
-            "\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
+            "\1\u008f",
             "",
             "",
-            "\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
+            "\1\u0090",
+            "\12\35\7\uffff\32\35\4\uffff\1\35\1\uffff\32\35",
+            "",
+            "\12\35\7\uffff\32\35\4\uffff\1\35\1\uffff\32\35",
+            "\1\u0093",
+            "",
+            "\12\35\7\uffff\32\35\4\uffff\1\35\1\uffff\32\35",
+            "",
+            "\12\35\7\uffff\32\35\4\uffff\1\35\1\uffff\32\35",
+            "\12\35\7\uffff\32\35\4\uffff\1\35\1\uffff\32\35",
+            "\12\35\7\uffff\32\35\4\uffff\1\35\1\uffff\32\35",
+            "",
+            "",
+            "\12\35\7\uffff\32\35\4\uffff\1\35\1\uffff\32\35",
             "",
             "",
             "",
@@ -1506,7 +1536,7 @@ public class InternalVideoAnnotationsDSLLexer extends Lexer {
             this.transition = DFA12_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
@@ -1516,23 +1546,13 @@ public class InternalVideoAnnotationsDSLLexer extends Lexer {
                         int LA12_23 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA12_23>='\u0000' && LA12_23<='\uFFFF')) ) {s = 52;}
+                        if ( ((LA12_23>='\u0000' && LA12_23<='\uFFFF')) ) {s = 54;}
 
-                        else s = 26;
+                        else s = 27;
 
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
-                        int LA12_22 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA12_22>='\u0000' && LA12_22<='\uFFFF')) ) {s = 52;}
-
-                        else s = 26;
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
                         int LA12_0 = input.LA(1);
 
                         s = -1;
@@ -1572,21 +1592,33 @@ public class InternalVideoAnnotationsDSLLexer extends Lexer {
 
                         else if ( (LA12_0==')') ) {s = 18;}
 
-                        else if ( (LA12_0=='^') ) {s = 19;}
+                        else if ( (LA12_0=='#') ) {s = 19;}
 
-                        else if ( ((LA12_0>='B' && LA12_0<='F')||(LA12_0>='H' && LA12_0<='Q')||(LA12_0>='T' && LA12_0<='U')||(LA12_0>='W' && LA12_0<='Z')||LA12_0=='_'||LA12_0=='b'||(LA12_0>='d' && LA12_0<='e')||(LA12_0>='g' && LA12_0<='i')||(LA12_0>='k' && LA12_0<='o')||LA12_0=='s'||LA12_0=='v'||(LA12_0>='x' && LA12_0<='z')) ) {s = 20;}
+                        else if ( (LA12_0=='^') ) {s = 20;}
 
-                        else if ( ((LA12_0>='0' && LA12_0<='9')) ) {s = 21;}
+                        else if ( ((LA12_0>='B' && LA12_0<='F')||(LA12_0>='H' && LA12_0<='Q')||(LA12_0>='T' && LA12_0<='U')||(LA12_0>='W' && LA12_0<='Z')||LA12_0=='_'||LA12_0=='b'||(LA12_0>='d' && LA12_0<='e')||(LA12_0>='g' && LA12_0<='i')||(LA12_0>='k' && LA12_0<='o')||LA12_0=='s'||LA12_0=='v'||(LA12_0>='x' && LA12_0<='z')) ) {s = 21;}
 
-                        else if ( (LA12_0=='\"') ) {s = 22;}
+                        else if ( ((LA12_0>='0' && LA12_0<='9')) ) {s = 22;}
 
-                        else if ( (LA12_0=='\'') ) {s = 23;}
+                        else if ( (LA12_0=='\"') ) {s = 23;}
 
-                        else if ( (LA12_0=='/') ) {s = 24;}
+                        else if ( (LA12_0=='\'') ) {s = 24;}
 
-                        else if ( ((LA12_0>='\t' && LA12_0<='\n')||LA12_0=='\r'||LA12_0==' ') ) {s = 25;}
+                        else if ( (LA12_0=='/') ) {s = 25;}
 
-                        else if ( ((LA12_0>='\u0000' && LA12_0<='\b')||(LA12_0>='\u000B' && LA12_0<='\f')||(LA12_0>='\u000E' && LA12_0<='\u001F')||LA12_0=='!'||(LA12_0>='#' && LA12_0<='&')||(LA12_0>='*' && LA12_0<='+')||(LA12_0>='-' && LA12_0<='.')||(LA12_0>=':' && LA12_0<='@')||(LA12_0>='[' && LA12_0<=']')||LA12_0=='`'||(LA12_0>='{' && LA12_0<='\uFFFF')) ) {s = 26;}
+                        else if ( ((LA12_0>='\t' && LA12_0<='\n')||LA12_0=='\r'||LA12_0==' ') ) {s = 26;}
+
+                        else if ( ((LA12_0>='\u0000' && LA12_0<='\b')||(LA12_0>='\u000B' && LA12_0<='\f')||(LA12_0>='\u000E' && LA12_0<='\u001F')||LA12_0=='!'||(LA12_0>='$' && LA12_0<='&')||(LA12_0>='*' && LA12_0<='+')||(LA12_0>='-' && LA12_0<='.')||(LA12_0>=':' && LA12_0<='@')||(LA12_0>='[' && LA12_0<=']')||LA12_0=='`'||(LA12_0>='{' && LA12_0<='\uFFFF')) ) {s = 27;}
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
+                        int LA12_24 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA12_24>='\u0000' && LA12_24<='\uFFFF')) ) {s = 54;}
+
+                        else s = 27;
 
                         if ( s>=0 ) return s;
                         break;

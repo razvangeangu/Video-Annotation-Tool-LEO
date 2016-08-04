@@ -49,6 +49,7 @@ import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -300,6 +301,13 @@ public class MainViewController implements Initializable {
 			@Override
 			public void handle(ActionEvent e) {
 				mediaPlayer.pause();
+				FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("MP4 Videos (*.mp4)", "*.mp4");
+				if (fileChooser.getExtensionFilters().isEmpty()) {
+					fileChooser.getExtensionFilters().add(extFilter);
+				} else {
+					fileChooser.getExtensionFilters().clear();
+					fileChooser.getExtensionFilters().add(extFilter);
+				}
 				File file = fileChooser.showOpenDialog(null);
 				
 				if (file != null) {
@@ -337,7 +345,12 @@ public class MainViewController implements Initializable {
 			public void handle(ActionEvent event) {
 				mediaPlayer.pause();
 				FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Annotations files (*.videoannotationsdsl)", "*.videoannotationsdsl");
-	            fileChooser.getExtensionFilters().add(extFilter);
+				if (fileChooser.getExtensionFilters().isEmpty()) {
+					fileChooser.getExtensionFilters().add(extFilter);
+				} else {
+					fileChooser.getExtensionFilters().clear();
+					fileChooser.getExtensionFilters().add(extFilter);
+				}
 				File file = fileChooser.showOpenDialog(null);
 				
 				if (file != null) {
@@ -410,6 +423,8 @@ public class MainViewController implements Initializable {
 		ContextMenu contextMenu = new ContextMenu();
         MenuItem openItem = new MenuItem("Open");
         MenuItem deleteItem = new MenuItem("Remove");
+        MenuItem commentItem = new MenuItem("Add comment");
+        MenuItem removeCommentItem = new MenuItem("Remove comment");
         
         openItem.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -424,13 +439,49 @@ public class MainViewController implements Initializable {
 
 			@Override
 			public void handle(ActionEvent event) {
-				annotationsDSL = annotationsDSL.replace(getStringDSL(tableView.getSelectionModel().getSelectedItem()), "");
+				annotationsDSL = annotationsDSL.trim().replace(getStringDSL(tableView.getSelectionModel().getSelectedItem()).trim(), "");
 				annotations.remove(tableView.getSelectionModel().getSelectedIndex());
 			}
         });
+        commentItem.setOnAction(new EventHandler<ActionEvent>() {
+        	
+			@Override
+			public void handle(ActionEvent event) {
+				TextInputDialog dialog = new TextInputDialog("");
+				dialog.setTitle("Add comment");
+				dialog.setHeaderText("Comment an annotation");
+				dialog.setContentText("Please enter your comment:");
+
+				Optional<String> result = dialog.showAndWait();
+				if (result.isPresent()){
+					Annotation selectedAnnotation = tableView.getSelectionModel().getSelectedItem();
+					String annotationDSL = getStringDSL(selectedAnnotation);
+					annotationDSL = annotationDSL.trim();
+					annotationsDSL = annotationsDSL.trim();
+					annotationsDSL = annotationsDSL.replace(annotationDSL, new AnnotationRenderer().renderWithoutComment(selectedAnnotation) + " #\"" + result.get() + "\"#");
+					reloadAnnotations();
+				}
+			}
+        });
+        removeCommentItem.setOnAction(new EventHandler<ActionEvent>() {
+
+        	@Override
+			public void handle(ActionEvent event) {
+        		Annotation selectedAnnotation = tableView.getSelectionModel().getSelectedItem();
+				String annotationDSL = getStringDSL(selectedAnnotation);
+				annotationDSL = annotationDSL.trim();
+				annotationsDSL = annotationsDSL.trim();
+				annotationsDSL = annotationsDSL.replace(annotationDSL, new AnnotationRenderer().renderWithoutComment(selectedAnnotation));
+				reloadAnnotations();
+			}
+        });
+        
+        removeCommentItem.setDisable(true);
         
         contextMenu.getItems().add(openItem);
         contextMenu.getItems().add(deleteItem);
+        contextMenu.getItems().add(commentItem);
+        contextMenu.getItems().add(removeCommentItem);
 		
 		// Label Column
 		labelColumn.setMinWidth(75);
@@ -477,13 +528,26 @@ public class MainViewController implements Initializable {
                 
                 if (mouseEvent.getButton().equals(MouseButton.SECONDARY)) {
                     
-                    contextMenu.show(tableView, mouseEvent.getScreenX() , mouseEvent.getScreenY());
+                	if (tableView.getSelectionModel().getSelectedItem().getComment() == null) {
+                		commentItem.setText("Add comment");
+                		removeCommentItem.setDisable(true);
+                    	contextMenu.show(tableView, mouseEvent.getScreenX() , mouseEvent.getScreenY());
+                	} else {
+                		commentItem.setText("Edit comment");
+                		removeCommentItem.setDisable(false);
+                		contextMenu.show(tableView, mouseEvent.getScreenX() , mouseEvent.getScreenY());
+                	}
                 }
             }
         });
 	}
 	
-	
+	/**
+	 * A method to get the annotations from a file into a String and
+	 * then to load them into the XtextParser to create the EObjects.
+	 * @param filePath The file path of the annotations file as a String.
+	 * @return An ObservableList<Annotation>.
+	 */
 	public ObservableList<Annotation> getAnnotations(String filePath) {
 		annotations = FXCollections.observableArrayList();
 		
@@ -554,7 +618,6 @@ public class MainViewController implements Initializable {
 		}
 	}
 	
-	
 	/**
 	 * A method that updates the time slider with the current time of the video.
 	 */
@@ -565,7 +628,6 @@ public class MainViewController implements Initializable {
 			}
 		});
 	}
-	
 	
 	/**
 	 * A method that updates the time label for the video.
@@ -579,7 +641,6 @@ public class MainViewController implements Initializable {
 			}
 		});
 	}
-	
 	
 	/**
 	 * A method that creates an annotation and adds it to the tree view.
@@ -629,6 +690,9 @@ public class MainViewController implements Initializable {
 		}
 	}
 	
+	/**
+	 * A method to show the save as dialog.
+	 */
 	public void showSaveAsDialog() {
         // Set extension filter
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Annotations files (*.videoannotationsdsl)", "*.videoannotationsdsl");
@@ -679,7 +743,6 @@ public class MainViewController implements Initializable {
 		textField.clear();
 	}
 	
-	
 	/**
 	 * A method that controls pauses the video and sets the current time to starting time for the Annotation.
 	 */
@@ -689,7 +752,6 @@ public class MainViewController implements Initializable {
 		mediaPlayer.pause();
 		playPauseButton.setText(">");
 	}
-	
 	
 	/**
 	 * A method to convert the time from seconds to a String time stamp in the format mm:ss.
@@ -706,8 +768,7 @@ public class MainViewController implements Initializable {
 		
 		return time;
 	}
-	
-	
+
 	/**
 	 * A method to convert the time from a time stamp (mm:ss) to seconds.
 	 * @param time The time that needs to be converted from String to int
@@ -724,19 +785,21 @@ public class MainViewController implements Initializable {
 		return sec;
 	}
 	
-	
+	/**
+	 * A method that shows a dialog with information about an annotation found
+	 * in the table view.
+	 */
 	public void showContentDialog() {
     	final Stage dialog = new Stage();
         VBox dialogVbox = new VBox(20);
         int index = tableView.getSelectionModel().getSelectedIndex();
         
         dialog.initModality(Modality.APPLICATION_MODAL);
-        dialogVbox.getChildren().add(new Text(annotations.get(index).getContent()));
+        dialogVbox.getChildren().add(new Text(getStringDSL(annotations.get(index))));
         Scene dialogScene = new Scene(dialogVbox, 300, 200);
         dialog.setScene(dialogScene);
         dialog.show();
 	}
-
 	
 	/**
 	 * A method that removes the Annotation from the data file.
@@ -774,7 +837,6 @@ public class MainViewController implements Initializable {
 		}
 	}
 	
-	
 	/**
 	 * Get a String of the DSL of an Annotation.
 	 * @param anAnnotation An Annotation to be translated into a String in the DSL.
@@ -784,7 +846,6 @@ public class MainViewController implements Initializable {
 		
 		return new AnnotationRenderer().render(anAnnotation).toString();
 	}
-	
 	
 	/**
 	 * A method to save all the annotations to the file loaded.
@@ -838,6 +899,13 @@ public class MainViewController implements Initializable {
 		tableView.setItems(annotations);
 	}
 
+	/**
+	 * A method to show an error dialog.
+	 * @param title The title of the dialog.
+	 * @param header The header of the dialog
+	 * @param content The content of the dialog.
+	 * @param details The details of the dialog.
+	 */
 	public void showErrorDialog(String title, String header, String content, String details) {
 		Alert alert = new Alert(AlertType.ERROR);
 		alert.setTitle(title);
@@ -871,5 +939,16 @@ public class MainViewController implements Initializable {
 		}
 		
 		alert.showAndWait();
+	}
+
+	/**
+	 * A method to reload the annotations (might be used for adding comments or editing annotations).
+	 */
+	public void reloadAnnotations() {
+		
+		anAnnotatedVideo = (AnnotatedVideo) parser.parse(annotationsDSL);
+		annotations = FXCollections.observableArrayList(anAnnotatedVideo.getAnnotations());
+		tableView.setItems(annotations);
+		tableView.refresh();
 	}
 }
