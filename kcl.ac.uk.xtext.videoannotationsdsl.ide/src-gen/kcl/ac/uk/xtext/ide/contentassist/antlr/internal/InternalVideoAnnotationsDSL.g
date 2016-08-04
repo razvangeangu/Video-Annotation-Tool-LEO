@@ -285,15 +285,15 @@ rule__Move__TypeAlternatives_0
 	)
 	|
 	(
-		{ before(grammarAccess.getMoveAccess().getTypeUncommitKeyword_0_8()); }
-		'uncommit'
-		{ after(grammarAccess.getMoveAccess().getTypeUncommitKeyword_0_8()); }
+		{ before(grammarAccess.getMoveAccess().getTypeCounterKeyword_0_8()); }
+		'counter'
+		{ after(grammarAccess.getMoveAccess().getTypeCounterKeyword_0_8()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getMoveAccess().getTypeCounterKeyword_0_9()); }
-		'counter'
-		{ after(grammarAccess.getMoveAccess().getTypeCounterKeyword_0_9()); }
+		{ before(grammarAccess.getMoveAccess().getTypeUncommitKeyword_0_9()); }
+		'uncommit'
+		{ after(grammarAccess.getMoveAccess().getTypeUncommitKeyword_0_9()); }
 	)
 ;
 finally {

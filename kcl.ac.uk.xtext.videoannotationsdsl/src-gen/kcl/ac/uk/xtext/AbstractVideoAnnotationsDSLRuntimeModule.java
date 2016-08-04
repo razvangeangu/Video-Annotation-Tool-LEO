@@ -73,16 +73,6 @@ public abstract class AbstractVideoAnnotationsDSLRuntimeModule extends DefaultRu
 			binder.bind(String.class).annotatedWith(Names.named(Constants.FILE_EXTENSIONS)).toInstance("videoannotationsdsl");
 	}
 	
-	// contributed by org.eclipse.xtext.xtext.generator.grammarAccess.GrammarAccessFragment2
-	public ClassLoader bindClassLoaderToInstance() {
-		return getClass().getClassLoader();
-	}
-	
-	// contributed by org.eclipse.xtext.xtext.generator.grammarAccess.GrammarAccessFragment2
-	public Class<? extends IGrammarAccess> bindIGrammarAccess() {
-		return VideoAnnotationsDSLGrammarAccess.class;
-	}
-	
 	// contributed by org.eclipse.xtext.xtext.generator.serializer.SerializerFragment2
 	public Class<? extends ISemanticSequencer> bindISemanticSequencer() {
 		return VideoAnnotationsDSLSemanticSequencer.class;
@@ -189,6 +179,16 @@ public abstract class AbstractVideoAnnotationsDSLRuntimeModule extends DefaultRu
 	// contributed by org.eclipse.xtext.xtext.generator.generator.GeneratorFragment2
 	public Class<? extends IGenerator2> bindIGenerator2() {
 		return VideoAnnotationsDSLGenerator.class;
+	}
+	
+	// contributed by org.eclipse.xtext.xtext.generator.grammarAccess.GrammarAccessFragment2
+	public ClassLoader bindClassLoaderToInstance() {
+		return getClass().getClassLoader();
+	}
+	
+	// contributed by org.eclipse.xtext.xtext.generator.grammarAccess.GrammarAccessFragment2
+	public Class<? extends IGrammarAccess> bindIGrammarAccess() {
+		return VideoAnnotationsDSLGrammarAccess.class;
 	}
 	
 }

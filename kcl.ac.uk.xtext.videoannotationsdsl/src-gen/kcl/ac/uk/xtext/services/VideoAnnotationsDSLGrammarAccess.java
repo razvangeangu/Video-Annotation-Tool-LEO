@@ -222,20 +222,20 @@ public class VideoAnnotationsDSLGrammarAccess extends AbstractGrammarElementFind
 		private final Keyword cTypeAcceptKeyword_0_5 = (Keyword)cTypeAlternatives_0.eContents().get(5);
 		private final Keyword cTypeRejectKeyword_0_6 = (Keyword)cTypeAlternatives_0.eContents().get(6);
 		private final Keyword cTypeCommitKeyword_0_7 = (Keyword)cTypeAlternatives_0.eContents().get(7);
-		private final Keyword cTypeUncommitKeyword_0_8 = (Keyword)cTypeAlternatives_0.eContents().get(8);
-		private final Keyword cTypeCounterKeyword_0_9 = (Keyword)cTypeAlternatives_0.eContents().get(9);
+		private final Keyword cTypeCounterKeyword_0_8 = (Keyword)cTypeAlternatives_0.eContents().get(8);
+		private final Keyword cTypeUncommitKeyword_0_9 = (Keyword)cTypeAlternatives_0.eContents().get(9);
 		
 		//Move:
-		//	type=('propose' | 'question' | 'challenge' | 'justify' | 'withdraw' | 'accept' | 'reject' | 'commit' | 'uncommit' |
-		//	'counter');
+		//	type=('propose' | 'question' | 'challenge' | 'justify' | 'withdraw' | 'accept' | 'reject' | 'commit' | 'counter' |
+		//	'uncommit');
 		@Override public ParserRule getRule() { return rule; }
 		
-		//type=('propose' | 'question' | 'challenge' | 'justify' | 'withdraw' | 'accept' | 'reject' | 'commit' | 'uncommit' |
-		//'counter')
+		//type=('propose' | 'question' | 'challenge' | 'justify' | 'withdraw' | 'accept' | 'reject' | 'commit' | 'counter' |
+		//'uncommit')
 		public Assignment getTypeAssignment() { return cTypeAssignment; }
 		
-		//('propose' | 'question' | 'challenge' | 'justify' | 'withdraw' | 'accept' | 'reject' | 'commit' | 'uncommit' |
-		//'counter')
+		//('propose' | 'question' | 'challenge' | 'justify' | 'withdraw' | 'accept' | 'reject' | 'commit' | 'counter' |
+		//'uncommit')
 		public Alternatives getTypeAlternatives_0() { return cTypeAlternatives_0; }
 		
 		//'propose'
@@ -262,11 +262,11 @@ public class VideoAnnotationsDSLGrammarAccess extends AbstractGrammarElementFind
 		//'commit'
 		public Keyword getTypeCommitKeyword_0_7() { return cTypeCommitKeyword_0_7; }
 		
-		//'uncommit'
-		public Keyword getTypeUncommitKeyword_0_8() { return cTypeUncommitKeyword_0_8; }
-		
 		//'counter'
-		public Keyword getTypeCounterKeyword_0_9() { return cTypeCounterKeyword_0_9; }
+		public Keyword getTypeCounterKeyword_0_8() { return cTypeCounterKeyword_0_8; }
+		
+		//'uncommit'
+		public Keyword getTypeUncommitKeyword_0_9() { return cTypeUncommitKeyword_0_9; }
 	}
 	public class ScopeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "kcl.ac.uk.xtext.VideoAnnotationsDSL.Scope");
@@ -444,8 +444,8 @@ public class VideoAnnotationsDSLGrammarAccess extends AbstractGrammarElementFind
 	}
 	
 	//Move:
-	//	type=('propose' | 'question' | 'challenge' | 'justify' | 'withdraw' | 'accept' | 'reject' | 'commit' | 'uncommit' |
-	//	'counter');
+	//	type=('propose' | 'question' | 'challenge' | 'justify' | 'withdraw' | 'accept' | 'reject' | 'commit' | 'counter' |
+	//	'uncommit');
 	public MoveElements getMoveAccess() {
 		return pMove;
 	}

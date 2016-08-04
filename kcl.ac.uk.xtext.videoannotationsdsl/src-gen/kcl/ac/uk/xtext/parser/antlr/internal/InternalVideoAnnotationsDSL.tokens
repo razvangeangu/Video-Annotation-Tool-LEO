@@ -10,7 +10,7 @@
 'annotate'=13
 'challenge'=19
 'commit'=24
-'counter'=26
+'counter'=25
 'criteria'=29
 'feature'=27
 'from'=11
@@ -21,7 +21,7 @@
 'reject'=23
 'to'=12
 'topic'=30
-'uncommit'=25
+'uncommit'=26
 'withdraw'=21
 RULE_ANY_OTHER=10
 RULE_ID=4

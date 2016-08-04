@@ -21,7 +21,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'from'", "'to'", "'annotate'", "'('", "','", "')'", "'propose'", "'question'", "'challenge'", "'justify'", "'withdraw'", "'accept'", "'reject'", "'commit'", "'uncommit'", "'counter'", "'feature'", "'rating'", "'criteria'", "'topic'", "'R'", "'S'", "'G'", "'V'", "'A'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'from'", "'to'", "'annotate'", "'('", "','", "')'", "'propose'", "'question'", "'challenge'", "'justify'", "'withdraw'", "'accept'", "'reject'", "'commit'", "'counter'", "'uncommit'", "'feature'", "'rating'", "'criteria'", "'topic'", "'R'", "'S'", "'G'", "'V'", "'A'"
     };
     public static final int RULE_STRING=5;
     public static final int RULE_SL_COMMENT=8;
@@ -834,7 +834,7 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleMove"
-    // InternalVideoAnnotationsDSL.g:385:1: ruleMove returns [EObject current=null] : ( ( (lv_type_0_1= 'propose' | lv_type_0_2= 'question' | lv_type_0_3= 'challenge' | lv_type_0_4= 'justify' | lv_type_0_5= 'withdraw' | lv_type_0_6= 'accept' | lv_type_0_7= 'reject' | lv_type_0_8= 'commit' | lv_type_0_9= 'uncommit' | lv_type_0_10= 'counter' ) ) ) ;
+    // InternalVideoAnnotationsDSL.g:385:1: ruleMove returns [EObject current=null] : ( ( (lv_type_0_1= 'propose' | lv_type_0_2= 'question' | lv_type_0_3= 'challenge' | lv_type_0_4= 'justify' | lv_type_0_5= 'withdraw' | lv_type_0_6= 'accept' | lv_type_0_7= 'reject' | lv_type_0_8= 'commit' | lv_type_0_9= 'counter' | lv_type_0_10= 'uncommit' ) ) ) ;
     public final EObject ruleMove() throws RecognitionException {
         EObject current = null;
 
@@ -853,16 +853,16 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalVideoAnnotationsDSL.g:391:2: ( ( ( (lv_type_0_1= 'propose' | lv_type_0_2= 'question' | lv_type_0_3= 'challenge' | lv_type_0_4= 'justify' | lv_type_0_5= 'withdraw' | lv_type_0_6= 'accept' | lv_type_0_7= 'reject' | lv_type_0_8= 'commit' | lv_type_0_9= 'uncommit' | lv_type_0_10= 'counter' ) ) ) )
-            // InternalVideoAnnotationsDSL.g:392:2: ( ( (lv_type_0_1= 'propose' | lv_type_0_2= 'question' | lv_type_0_3= 'challenge' | lv_type_0_4= 'justify' | lv_type_0_5= 'withdraw' | lv_type_0_6= 'accept' | lv_type_0_7= 'reject' | lv_type_0_8= 'commit' | lv_type_0_9= 'uncommit' | lv_type_0_10= 'counter' ) ) )
+            // InternalVideoAnnotationsDSL.g:391:2: ( ( ( (lv_type_0_1= 'propose' | lv_type_0_2= 'question' | lv_type_0_3= 'challenge' | lv_type_0_4= 'justify' | lv_type_0_5= 'withdraw' | lv_type_0_6= 'accept' | lv_type_0_7= 'reject' | lv_type_0_8= 'commit' | lv_type_0_9= 'counter' | lv_type_0_10= 'uncommit' ) ) ) )
+            // InternalVideoAnnotationsDSL.g:392:2: ( ( (lv_type_0_1= 'propose' | lv_type_0_2= 'question' | lv_type_0_3= 'challenge' | lv_type_0_4= 'justify' | lv_type_0_5= 'withdraw' | lv_type_0_6= 'accept' | lv_type_0_7= 'reject' | lv_type_0_8= 'commit' | lv_type_0_9= 'counter' | lv_type_0_10= 'uncommit' ) ) )
             {
-            // InternalVideoAnnotationsDSL.g:392:2: ( ( (lv_type_0_1= 'propose' | lv_type_0_2= 'question' | lv_type_0_3= 'challenge' | lv_type_0_4= 'justify' | lv_type_0_5= 'withdraw' | lv_type_0_6= 'accept' | lv_type_0_7= 'reject' | lv_type_0_8= 'commit' | lv_type_0_9= 'uncommit' | lv_type_0_10= 'counter' ) ) )
-            // InternalVideoAnnotationsDSL.g:393:3: ( (lv_type_0_1= 'propose' | lv_type_0_2= 'question' | lv_type_0_3= 'challenge' | lv_type_0_4= 'justify' | lv_type_0_5= 'withdraw' | lv_type_0_6= 'accept' | lv_type_0_7= 'reject' | lv_type_0_8= 'commit' | lv_type_0_9= 'uncommit' | lv_type_0_10= 'counter' ) )
+            // InternalVideoAnnotationsDSL.g:392:2: ( ( (lv_type_0_1= 'propose' | lv_type_0_2= 'question' | lv_type_0_3= 'challenge' | lv_type_0_4= 'justify' | lv_type_0_5= 'withdraw' | lv_type_0_6= 'accept' | lv_type_0_7= 'reject' | lv_type_0_8= 'commit' | lv_type_0_9= 'counter' | lv_type_0_10= 'uncommit' ) ) )
+            // InternalVideoAnnotationsDSL.g:393:3: ( (lv_type_0_1= 'propose' | lv_type_0_2= 'question' | lv_type_0_3= 'challenge' | lv_type_0_4= 'justify' | lv_type_0_5= 'withdraw' | lv_type_0_6= 'accept' | lv_type_0_7= 'reject' | lv_type_0_8= 'commit' | lv_type_0_9= 'counter' | lv_type_0_10= 'uncommit' ) )
             {
-            // InternalVideoAnnotationsDSL.g:393:3: ( (lv_type_0_1= 'propose' | lv_type_0_2= 'question' | lv_type_0_3= 'challenge' | lv_type_0_4= 'justify' | lv_type_0_5= 'withdraw' | lv_type_0_6= 'accept' | lv_type_0_7= 'reject' | lv_type_0_8= 'commit' | lv_type_0_9= 'uncommit' | lv_type_0_10= 'counter' ) )
-            // InternalVideoAnnotationsDSL.g:394:4: (lv_type_0_1= 'propose' | lv_type_0_2= 'question' | lv_type_0_3= 'challenge' | lv_type_0_4= 'justify' | lv_type_0_5= 'withdraw' | lv_type_0_6= 'accept' | lv_type_0_7= 'reject' | lv_type_0_8= 'commit' | lv_type_0_9= 'uncommit' | lv_type_0_10= 'counter' )
+            // InternalVideoAnnotationsDSL.g:393:3: ( (lv_type_0_1= 'propose' | lv_type_0_2= 'question' | lv_type_0_3= 'challenge' | lv_type_0_4= 'justify' | lv_type_0_5= 'withdraw' | lv_type_0_6= 'accept' | lv_type_0_7= 'reject' | lv_type_0_8= 'commit' | lv_type_0_9= 'counter' | lv_type_0_10= 'uncommit' ) )
+            // InternalVideoAnnotationsDSL.g:394:4: (lv_type_0_1= 'propose' | lv_type_0_2= 'question' | lv_type_0_3= 'challenge' | lv_type_0_4= 'justify' | lv_type_0_5= 'withdraw' | lv_type_0_6= 'accept' | lv_type_0_7= 'reject' | lv_type_0_8= 'commit' | lv_type_0_9= 'counter' | lv_type_0_10= 'uncommit' )
             {
-            // InternalVideoAnnotationsDSL.g:394:4: (lv_type_0_1= 'propose' | lv_type_0_2= 'question' | lv_type_0_3= 'challenge' | lv_type_0_4= 'justify' | lv_type_0_5= 'withdraw' | lv_type_0_6= 'accept' | lv_type_0_7= 'reject' | lv_type_0_8= 'commit' | lv_type_0_9= 'uncommit' | lv_type_0_10= 'counter' )
+            // InternalVideoAnnotationsDSL.g:394:4: (lv_type_0_1= 'propose' | lv_type_0_2= 'question' | lv_type_0_3= 'challenge' | lv_type_0_4= 'justify' | lv_type_0_5= 'withdraw' | lv_type_0_6= 'accept' | lv_type_0_7= 'reject' | lv_type_0_8= 'commit' | lv_type_0_9= 'counter' | lv_type_0_10= 'uncommit' )
             int alt5=10;
             switch ( input.LA(1) ) {
             case 17:
@@ -1052,11 +1052,11 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 9 :
-                    // InternalVideoAnnotationsDSL.g:483:5: lv_type_0_9= 'uncommit'
+                    // InternalVideoAnnotationsDSL.g:483:5: lv_type_0_9= 'counter'
                     {
                     lv_type_0_9=(Token)match(input,25,FOLLOW_2); 
 
-                    					newLeafNode(lv_type_0_9, grammarAccess.getMoveAccess().getTypeUncommitKeyword_0_8());
+                    					newLeafNode(lv_type_0_9, grammarAccess.getMoveAccess().getTypeCounterKeyword_0_8());
                     				
 
                     					if (current==null) {
@@ -1068,11 +1068,11 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 10 :
-                    // InternalVideoAnnotationsDSL.g:494:5: lv_type_0_10= 'counter'
+                    // InternalVideoAnnotationsDSL.g:494:5: lv_type_0_10= 'uncommit'
                     {
                     lv_type_0_10=(Token)match(input,26,FOLLOW_2); 
 
-                    					newLeafNode(lv_type_0_10, grammarAccess.getMoveAccess().getTypeCounterKeyword_0_9());
+                    					newLeafNode(lv_type_0_10, grammarAccess.getMoveAccess().getTypeUncommitKeyword_0_9());
                     				
 
                     					if (current==null) {

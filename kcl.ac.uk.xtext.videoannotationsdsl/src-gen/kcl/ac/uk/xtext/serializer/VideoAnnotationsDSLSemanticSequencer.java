@@ -121,8 +121,8 @@ public class VideoAnnotationsDSLSemanticSequencer extends AbstractDelegatingSema
 	 *         type='accept' | 
 	 *         type='reject' | 
 	 *         type='commit' | 
-	 *         type='uncommit' | 
-	 *         type='counter'
+	 *         type='counter' | 
+	 *         type='uncommit'
 	 *     )
 	 */
 	protected void sequence_Move(ISerializationContext context, Move semanticObject) {

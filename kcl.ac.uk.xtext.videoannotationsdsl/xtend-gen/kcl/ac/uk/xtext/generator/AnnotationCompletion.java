@@ -1,5 +1,6 @@
 package kcl.ac.uk.xtext.generator;
 
+import com.google.common.base.Objects;
 import java.util.ArrayList;
 import java.util.function.Consumer;
 import kcl.ac.uk.xtext.videoAnnotationsDSL.AnnotatedVideo;
@@ -81,12 +82,16 @@ public class AnnotationCompletion {
     return list;
   }
   
-  public ArrayList<String> getContentTarget(final AnnotatedVideo video) {
+  public ArrayList<String> getContentLabel(final AnnotatedVideo video) {
     final ArrayList<String> list = CollectionLiterals.<String>newArrayList();
     EList<Annotation> _annotations = video.getAnnotations();
     final Consumer<Annotation> _function = (Annotation ann) -> {
       String _contentLabel = ann.getContentLabel();
-      list.add(_contentLabel);
+      boolean _notEquals = (!Objects.equal(_contentLabel, null));
+      if (_notEquals) {
+        String _contentLabel_1 = ann.getContentLabel();
+        list.add(_contentLabel_1);
+      }
     };
     _annotations.forEach(_function);
     return list;
@@ -97,8 +102,12 @@ public class AnnotationCompletion {
     EList<Annotation> _annotations = video.getAnnotations();
     final Consumer<Annotation> _function = (Annotation ann) -> {
       Annotation _target = ann.getTarget();
-      String _name = _target.getName();
-      list.add(_name);
+      boolean _notEquals = (!Objects.equal(_target, null));
+      if (_notEquals) {
+        Annotation _target_1 = ann.getTarget();
+        String _name = _target_1.getName();
+        list.add(_name);
+      }
     };
     _annotations.forEach(_function);
     return list;

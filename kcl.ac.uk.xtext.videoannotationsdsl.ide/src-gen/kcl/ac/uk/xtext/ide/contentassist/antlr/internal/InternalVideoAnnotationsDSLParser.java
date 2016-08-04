@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalVideoAnnotationsDSLParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_ID", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'propose'", "'question'", "'challenge'", "'justify'", "'withdraw'", "'accept'", "'reject'", "'commit'", "'uncommit'", "'counter'", "'feature'", "'rating'", "'criteria'", "'topic'", "'R'", "'S'", "'G'", "'V'", "'A'", "'from'", "'to'", "'annotate'", "'('", "','", "')'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_ID", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'propose'", "'question'", "'challenge'", "'justify'", "'withdraw'", "'accept'", "'reject'", "'commit'", "'counter'", "'uncommit'", "'feature'", "'rating'", "'criteria'", "'topic'", "'R'", "'S'", "'G'", "'V'", "'A'", "'from'", "'to'", "'annotate'", "'('", "','", "')'"
     };
     public static final int RULE_STRING=6;
     public static final int RULE_SL_COMMENT=8;
@@ -686,13 +686,13 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalContentAs
 
 
     // $ANTLR start "rule__Move__TypeAlternatives_0"
-    // InternalVideoAnnotationsDSL.g:234:1: rule__Move__TypeAlternatives_0 : ( ( 'propose' ) | ( 'question' ) | ( 'challenge' ) | ( 'justify' ) | ( 'withdraw' ) | ( 'accept' ) | ( 'reject' ) | ( 'commit' ) | ( 'uncommit' ) | ( 'counter' ) );
+    // InternalVideoAnnotationsDSL.g:234:1: rule__Move__TypeAlternatives_0 : ( ( 'propose' ) | ( 'question' ) | ( 'challenge' ) | ( 'justify' ) | ( 'withdraw' ) | ( 'accept' ) | ( 'reject' ) | ( 'commit' ) | ( 'counter' ) | ( 'uncommit' ) );
     public final void rule__Move__TypeAlternatives_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalVideoAnnotationsDSL.g:238:1: ( ( 'propose' ) | ( 'question' ) | ( 'challenge' ) | ( 'justify' ) | ( 'withdraw' ) | ( 'accept' ) | ( 'reject' ) | ( 'commit' ) | ( 'uncommit' ) | ( 'counter' ) )
+            // InternalVideoAnnotationsDSL.g:238:1: ( ( 'propose' ) | ( 'question' ) | ( 'challenge' ) | ( 'justify' ) | ( 'withdraw' ) | ( 'accept' ) | ( 'reject' ) | ( 'commit' ) | ( 'counter' ) | ( 'uncommit' ) )
             int alt3=10;
             switch ( input.LA(1) ) {
             case 11:
@@ -874,14 +874,14 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalContentAs
                     }
                     break;
                 case 9 :
-                    // InternalVideoAnnotationsDSL.g:287:2: ( 'uncommit' )
+                    // InternalVideoAnnotationsDSL.g:287:2: ( 'counter' )
                     {
-                    // InternalVideoAnnotationsDSL.g:287:2: ( 'uncommit' )
-                    // InternalVideoAnnotationsDSL.g:288:3: 'uncommit'
+                    // InternalVideoAnnotationsDSL.g:287:2: ( 'counter' )
+                    // InternalVideoAnnotationsDSL.g:288:3: 'counter'
                     {
-                     before(grammarAccess.getMoveAccess().getTypeUncommitKeyword_0_8()); 
+                     before(grammarAccess.getMoveAccess().getTypeCounterKeyword_0_8()); 
                     match(input,19,FOLLOW_2); 
-                     after(grammarAccess.getMoveAccess().getTypeUncommitKeyword_0_8()); 
+                     after(grammarAccess.getMoveAccess().getTypeCounterKeyword_0_8()); 
 
                     }
 
@@ -889,14 +889,14 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalContentAs
                     }
                     break;
                 case 10 :
-                    // InternalVideoAnnotationsDSL.g:293:2: ( 'counter' )
+                    // InternalVideoAnnotationsDSL.g:293:2: ( 'uncommit' )
                     {
-                    // InternalVideoAnnotationsDSL.g:293:2: ( 'counter' )
-                    // InternalVideoAnnotationsDSL.g:294:3: 'counter'
+                    // InternalVideoAnnotationsDSL.g:293:2: ( 'uncommit' )
+                    // InternalVideoAnnotationsDSL.g:294:3: 'uncommit'
                     {
-                     before(grammarAccess.getMoveAccess().getTypeCounterKeyword_0_9()); 
+                     before(grammarAccess.getMoveAccess().getTypeUncommitKeyword_0_9()); 
                     match(input,20,FOLLOW_2); 
-                     after(grammarAccess.getMoveAccess().getTypeCounterKeyword_0_9()); 
+                     after(grammarAccess.getMoveAccess().getTypeUncommitKeyword_0_9()); 
 
                     }
 
