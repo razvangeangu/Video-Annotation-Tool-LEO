@@ -1,6 +1,5 @@
 package application;
 
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.SortedSet;
@@ -23,6 +22,7 @@ public class AutoCompleteTextField extends TextField {
 	private SortedSet<String> typeEntries;
 	private SortedSet<String> scopeEntries;
 	private SortedSet<String> focusEntries;
+	private SortedSet<String> contentLabelEntries;
 	private SortedSet<String> contentEntries;
 	private SortedSet<String> targetEntries;
 	private ContextMenu entriesPopup;
@@ -37,13 +37,12 @@ public class AutoCompleteTextField extends TextField {
 		senderEntries = new TreeSet<>();
 		
 		typeEntries = new TreeSet<>();
-		typeEntries.addAll(Arrays.asList("propose", "question", "challenge","justify", "withdraw", "accept", "reject", "commit", "uncommit", "counter"));
 		
 		scopeEntries = new TreeSet<>();
-		scopeEntries.addAll(Arrays.asList("feature", "rating", "criteria", "topic"));
 		
 		focusEntries = new TreeSet<>();
-		focusEntries.addAll(Arrays.asList("R", "S", "G", "V", "alpha"));
+		
+		contentLabelEntries = new TreeSet<>();
 		
 		contentEntries = new TreeSet<>();
 		
@@ -81,10 +80,13 @@ public class AutoCompleteTextField extends TextField {
 							break;
 						}
 						case 5: {
+							entries = contentLabelEntries;
+						}
+						case 6: {
 							entries = contentEntries;
 							break;
 						}
-						case 6: {
+						case 7: {
 							entries = targetEntries;
 							break;
 						}
@@ -121,7 +123,7 @@ public class AutoCompleteTextField extends TextField {
 	private void populatePopup(List<String> searchResult) {
 		List<CustomMenuItem> menuItems = new LinkedList<>();
 		
-		int maxEntries = 15;
+		int maxEntries = 20;
 		int count = Math.min(searchResult.size(), maxEntries);
 		for (int i = 0; i < count; i++) {
 			final String result = searchResult.get(i);
@@ -168,6 +170,10 @@ public class AutoCompleteTextField extends TextField {
 	public SortedSet<String> getSenderEntries() {
 		return senderEntries;
 	}
+	
+	public SortedSet<String> getContentLabelEntries() {
+		return contentLabelEntries;
+	}
 
 	public SortedSet<String> getContentEntries() {
 		return contentEntries;
@@ -176,4 +182,17 @@ public class AutoCompleteTextField extends TextField {
 	public SortedSet<String> getTargetEntries() {
 		return targetEntries;
 	}
+
+	public SortedSet<String> getTypeEntries() {
+		return typeEntries;
+	}
+
+	public SortedSet<String> getScopeEntries() {
+		return scopeEntries;
+	}
+
+	public SortedSet<String> getFocusEntries() {
+		return focusEntries;
+	}
+	
 }

@@ -13,7 +13,7 @@ class AnnotationCompletion {
 	
 	def getSenders(AnnotatedVideo video) {
 		val list = newArrayList
-		
+
 		video.annotations.forEach([ann | list.add(ann.sender)])
 		return list
 	}
@@ -21,8 +21,10 @@ class AnnotationCompletion {
 	def getMoves(AnnotatedVideo video) {
 		val list = newArrayList
 		
+//		println(new VideoAnnotationsDSLParser().grammarAccess.moveRule.alternatives.eContents.toArray)
 		video.annotations.forEach([ann | list.add(ann.type.type)])
-		return list		
+		
+		return list
 	}
 	
 	def getScopes(AnnotatedVideo video) {
@@ -46,17 +48,17 @@ class AnnotationCompletion {
 		return list
 	}
 	
-	def getContentTarget(AnnotatedVideo video) {
+	def getContentLabel(AnnotatedVideo video) {
 		val list = newArrayList
 		
-		video.annotations.forEach([ann | list.add(ann.contentLabel)])
+		video.annotations.forEach([ann | if (ann.contentLabel != null) { list.add(ann.contentLabel) }])
 		return list
 	}
 	
 	def getTarget(AnnotatedVideo video) {
 		val list = newArrayList
 		
-		video.annotations.forEach([ann | list.add(ann.target.name)])
+		video.annotations.forEach([ann | if (ann.target != null) { list.add(ann.target.name) }])
 		return list
 	}
 }

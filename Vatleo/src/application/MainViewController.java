@@ -67,6 +67,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import javafx.util.Duration;
+import kcl.ac.uk.xtext.generator.AnnotationCompletion;
 import kcl.ac.uk.xtext.generator.AnnotationRenderer;
 import kcl.ac.uk.xtext.videoAnnotationsDSL.AnnotatedVideo;
 import kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation;
@@ -113,6 +114,8 @@ public class MainViewController implements Initializable {
 		
 		setupDSL();
 		
+		generateDemoObjectsForAnnotations();
+		
 		generateTextField();
 		
 		generateMediaPlayer();
@@ -120,8 +123,6 @@ public class MainViewController implements Initializable {
 		generateMenuItems();
 		
 		generateTableView();
-		
-		generateDemoObjectsForAnnotations();
 	}
 	
 	private void setupDSL() {
@@ -134,10 +135,33 @@ public class MainViewController implements Initializable {
 		textField = new AutoCompleteTextField();
 		textField.setPrefWidth(680);
 		textField.setPrefHeight(60);
-		textField.setPromptText("a1, sender, type, scope, focus, \"content\", \"content-target\", target");
+		textField.setPromptText("a1, sender, type, scope, focus, \"contentLabel\", \"content\", target");
 		textField.setAlignment(Pos.CENTER);
 		bottomVBox.getChildren().add(0, textField);
 		bottomVBox.setMargin(textField, new Insets(10, 10, 10, 10));
+		
+		updateCodeCompletion();
+	}
+
+	private void updateCodeCompletion() {
+		textField.getIdEntries().clear();
+		textField.getSenderEntries().clear();
+		textField.getTypeEntries().clear();
+		textField.getFocusEntries().clear();
+		textField.getContentEntries().clear();
+		textField.getContentLabelEntries().clear();
+		textField.getScopeEntries().clear();
+		textField.getTargetEntries().clear();
+		
+		AnnotationCompletion suggestions = new AnnotationCompletion();
+		textField.getIdEntries().addAll(suggestions.getIDs(anAnnotatedVideo));
+		textField.getSenderEntries().addAll(suggestions.getSenders(anAnnotatedVideo));
+		textField.getTypeEntries().addAll(suggestions.getMoves(anAnnotatedVideo));
+		textField.getFocusEntries().addAll(suggestions.getFocus(anAnnotatedVideo));
+		textField.getContentEntries().addAll(suggestions.getContent(anAnnotatedVideo));
+		textField.getScopeEntries().addAll(suggestions.getScopes(anAnnotatedVideo));
+		textField.getContentLabelEntries().addAll(suggestions.getContentLabel(anAnnotatedVideo));
+		textField.getTargetEntries().addAll(suggestions.getTarget(anAnnotatedVideo));
 	}
 
 	private void generateMediaPlayer() {
@@ -576,6 +600,8 @@ public class MainViewController implements Initializable {
 				textField.clear();
 				fromTime.clear();
 				toTime.clear();
+				
+				updateCodeCompletion();
 				
 				if (annotations.size() < 2 && dataFile == null) {
 					editAnnotationCheckMenuItem.setDisable(false);

@@ -355,10 +355,10 @@ public class InternalVideoAnnotationsDSLLexer extends Lexer {
         try {
             int _type = T__25;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalVideoAnnotationsDSL.g:25:7: ( 'uncommit' )
-            // InternalVideoAnnotationsDSL.g:25:9: 'uncommit'
+            // InternalVideoAnnotationsDSL.g:25:7: ( 'counter' )
+            // InternalVideoAnnotationsDSL.g:25:9: 'counter'
             {
-            match("uncommit"); 
+            match("counter"); 
 
 
             }
@@ -376,10 +376,10 @@ public class InternalVideoAnnotationsDSLLexer extends Lexer {
         try {
             int _type = T__26;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalVideoAnnotationsDSL.g:26:7: ( 'counter' )
-            // InternalVideoAnnotationsDSL.g:26:9: 'counter'
+            // InternalVideoAnnotationsDSL.g:26:7: ( 'uncommit' )
+            // InternalVideoAnnotationsDSL.g:26:9: 'uncommit'
             {
-            match("counter"); 
+            match("uncommit"); 
 
 
             }
@@ -1319,7 +1319,7 @@ public class InternalVideoAnnotationsDSLLexer extends Lexer {
     static final String DFA12_maxS =
         "\1\uffff\1\162\1\157\1\156\3\uffff\1\162\1\165\1\162\1\165\1\151\1\145\1\156\6\172\2\uffff\2\uffff\1\57\2\uffff\1\157\1\141\1\uffff\1\172\1\156\1\143\3\uffff\1\157\1\145\1\141\1\165\1\151\1\163\1\164\1\152\1\164\1\143\12\uffff\1\155\1\164\1\151\1\uffff\1\157\1\145\1\160\1\163\1\154\1\155\1\156\2\164\1\150\1\145\1\151\1\157\1\172\1\165\1\143\1\164\1\160\1\157\1\164\1\154\1\151\1\164\1\145\1\151\1\144\1\143\1\156\1\155\1\uffff\1\162\1\172\1\141\1\164\1\163\1\151\1\145\1\164\1\145\1\162\1\146\1\162\1\164\1\147\1\155\1\145\1\uffff\1\164\1\172\1\145\1\157\1\156\1\172\1\162\1\151\1\171\1\141\2\172\1\151\1\172\1\145\1\uffff\1\172\1\156\1\147\1\uffff\1\172\1\141\1\172\1\167\2\uffff\1\164\1\uffff\1\172\1\uffff\1\172\1\145\1\uffff\1\172\1\uffff\2\172\2\uffff\1\172\4\uffff";
     static final String DFA12_acceptS =
-        "\4\uffff\1\4\1\5\1\6\15\uffff\1\32\1\33\3\uffff\1\37\1\40\2\uffff\1\32\3\uffff\1\4\1\5\1\6\12\uffff\1\25\1\26\1\27\1\30\1\31\1\33\1\34\1\35\1\36\1\37\3\uffff\1\2\35\uffff\1\1\20\uffff\1\24\17\uffff\1\14\3\uffff\1\16\4\uffff\1\15\1\22\1\uffff\1\21\1\uffff\1\7\2\uffff\1\20\1\uffff\1\12\2\uffff\1\3\1\10\1\uffff\1\23\1\13\1\17\1\11";
+        "\4\uffff\1\4\1\5\1\6\15\uffff\1\32\1\33\3\uffff\1\37\1\40\2\uffff\1\32\3\uffff\1\4\1\5\1\6\12\uffff\1\25\1\26\1\27\1\30\1\31\1\33\1\34\1\35\1\36\1\37\3\uffff\1\2\35\uffff\1\1\20\uffff\1\24\17\uffff\1\14\3\uffff\1\16\4\uffff\1\15\1\22\1\uffff\1\21\1\uffff\1\7\2\uffff\1\17\1\uffff\1\12\2\uffff\1\3\1\10\1\uffff\1\23\1\13\1\20\1\11";
     static final String DFA12_specialS =
         "\1\1\25\uffff\1\2\1\0\177\uffff}>";
     static final String[] DFA12_transitionS = {

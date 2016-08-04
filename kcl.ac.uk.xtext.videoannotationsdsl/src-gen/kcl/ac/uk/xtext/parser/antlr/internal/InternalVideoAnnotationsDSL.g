@@ -480,9 +480,9 @@ ruleMove returns [EObject current=null]
 					setWithLastConsumed($current, "type", lv_type_0_8, null);
 				}
 				    |
-				lv_type_0_9='uncommit'
+				lv_type_0_9='counter'
 				{
-					newLeafNode(lv_type_0_9, grammarAccess.getMoveAccess().getTypeUncommitKeyword_0_8());
+					newLeafNode(lv_type_0_9, grammarAccess.getMoveAccess().getTypeCounterKeyword_0_8());
 				}
 				{
 					if ($current==null) {
@@ -491,9 +491,9 @@ ruleMove returns [EObject current=null]
 					setWithLastConsumed($current, "type", lv_type_0_9, null);
 				}
 				    |
-				lv_type_0_10='counter'
+				lv_type_0_10='uncommit'
 				{
-					newLeafNode(lv_type_0_10, grammarAccess.getMoveAccess().getTypeCounterKeyword_0_9());
+					newLeafNode(lv_type_0_10, grammarAccess.getMoveAccess().getTypeUncommitKeyword_0_9());
 				}
 				{
 					if ($current==null) {

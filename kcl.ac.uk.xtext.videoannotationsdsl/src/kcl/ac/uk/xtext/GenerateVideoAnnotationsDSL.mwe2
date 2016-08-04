@@ -37,6 +37,9 @@ Workflow {
 			validator = {
 				composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
 			}
+			
+			// Java API to access grammar elements (required by several other fragments)
+			fragment = grammarAccess.GrammarAccessFragment2 {}
 		}
 	}
 }
