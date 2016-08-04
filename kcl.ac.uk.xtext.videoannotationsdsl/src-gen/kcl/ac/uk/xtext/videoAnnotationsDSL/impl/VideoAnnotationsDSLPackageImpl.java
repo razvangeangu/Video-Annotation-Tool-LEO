@@ -267,6 +267,16 @@ public class VideoAnnotationsDSLPackageImpl extends EPackageImpl implements Vide
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getAnnotation_Comment()
+  {
+    return (EAttribute)annotationEClass.getEStructuralFeatures().get(10);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getMove()
   {
     return moveEClass;
@@ -386,6 +396,7 @@ public class VideoAnnotationsDSLPackageImpl extends EPackageImpl implements Vide
     createEAttribute(annotationEClass, ANNOTATION__CONTENT_LABEL);
     createEAttribute(annotationEClass, ANNOTATION__CONTENT);
     createEReference(annotationEClass, ANNOTATION__TARGET);
+    createEAttribute(annotationEClass, ANNOTATION__COMMENT);
 
     moveEClass = createEClass(MOVE);
     createEAttribute(moveEClass, MOVE__TYPE);
@@ -445,6 +456,7 @@ public class VideoAnnotationsDSLPackageImpl extends EPackageImpl implements Vide
     initEAttribute(getAnnotation_ContentLabel(), ecorePackage.getEString(), "contentLabel", null, 0, 1, Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAnnotation_Content(), ecorePackage.getEString(), "content", null, 0, 1, Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAnnotation_Target(), this.getAnnotation(), null, "target", null, 0, 1, Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAnnotation_Comment(), ecorePackage.getEString(), "comment", null, 0, 1, Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(moveEClass, Move.class, "Move", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMove_Type(), ecorePackage.getEString(), "type", null, 0, 1, Move.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

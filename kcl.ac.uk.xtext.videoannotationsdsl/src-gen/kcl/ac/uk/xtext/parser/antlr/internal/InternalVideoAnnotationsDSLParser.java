@@ -21,7 +21,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'from'", "'to'", "'annotate'", "'('", "','", "')'", "'propose'", "'question'", "'challenge'", "'justify'", "'withdraw'", "'accept'", "'reject'", "'commit'", "'counter'", "'uncommit'", "'feature'", "'rating'", "'criteria'", "'topic'", "'R'", "'S'", "'G'", "'V'", "'A'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'from'", "'to'", "'annotate'", "'('", "','", "')'", "'#'", "'propose'", "'question'", "'challenge'", "'justify'", "'withdraw'", "'accept'", "'reject'", "'commit'", "'counter'", "'uncommit'", "'feature'", "'rating'", "'criteria'", "'topic'", "'R'", "'S'", "'G'", "'V'", "'A'"
     };
     public static final int RULE_STRING=5;
     public static final int RULE_SL_COMMENT=8;
@@ -37,6 +37,7 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
     public static final int T__13=13;
     public static final int T__35=35;
     public static final int T__14=14;
+    public static final int T__36=36;
     public static final int EOF=-1;
     public static final int T__30=30;
     public static final int T__31=31;
@@ -252,7 +253,7 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleAnnotation"
-    // InternalVideoAnnotationsDSL.g:107:1: ruleAnnotation returns [EObject current=null] : (otherlv_0= 'from' ( (lv_fromTime_1_0= ruleTime ) ) otherlv_2= 'to' ( (lv_toTime_3_0= ruleTime ) ) otherlv_4= 'annotate' otherlv_5= '(' ( (lv_name_6_0= RULE_ID ) ) otherlv_7= ',' ( (lv_sender_8_0= ruleSender ) ) otherlv_9= ',' ( (lv_type_10_0= ruleMove ) ) otherlv_11= ',' ( (lv_scope_12_0= ruleScope ) ) otherlv_13= ',' ( (lv_focus_14_0= ruleFocus ) ) otherlv_15= ',' ( ( (lv_contentLabel_16_0= RULE_STRING ) ) otherlv_17= ',' )? ( (lv_content_18_0= RULE_STRING ) ) (otherlv_19= ',' ( (otherlv_20= RULE_ID ) ) )? otherlv_21= ')' ) ;
+    // InternalVideoAnnotationsDSL.g:107:1: ruleAnnotation returns [EObject current=null] : (otherlv_0= 'from' ( (lv_fromTime_1_0= ruleTime ) ) otherlv_2= 'to' ( (lv_toTime_3_0= ruleTime ) ) otherlv_4= 'annotate' otherlv_5= '(' ( (lv_name_6_0= RULE_ID ) ) otherlv_7= ',' ( (lv_sender_8_0= ruleSender ) ) otherlv_9= ',' ( (lv_type_10_0= ruleMove ) ) otherlv_11= ',' ( (lv_scope_12_0= ruleScope ) ) otherlv_13= ',' ( (lv_focus_14_0= ruleFocus ) ) otherlv_15= ',' ( ( (lv_contentLabel_16_0= RULE_STRING ) ) otherlv_17= ',' )? ( (lv_content_18_0= RULE_STRING ) ) (otherlv_19= ',' ( (otherlv_20= RULE_ID ) ) )? otherlv_21= ')' (otherlv_22= '#' ( (lv_comment_23_0= RULE_STRING ) ) otherlv_24= '#' )? ) ;
     public final EObject ruleAnnotation() throws RecognitionException {
         EObject current = null;
 
@@ -272,6 +273,9 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
         Token otherlv_19=null;
         Token otherlv_20=null;
         Token otherlv_21=null;
+        Token otherlv_22=null;
+        Token lv_comment_23_0=null;
+        Token otherlv_24=null;
         EObject lv_fromTime_1_0 = null;
 
         EObject lv_toTime_3_0 = null;
@@ -289,11 +293,11 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalVideoAnnotationsDSL.g:113:2: ( (otherlv_0= 'from' ( (lv_fromTime_1_0= ruleTime ) ) otherlv_2= 'to' ( (lv_toTime_3_0= ruleTime ) ) otherlv_4= 'annotate' otherlv_5= '(' ( (lv_name_6_0= RULE_ID ) ) otherlv_7= ',' ( (lv_sender_8_0= ruleSender ) ) otherlv_9= ',' ( (lv_type_10_0= ruleMove ) ) otherlv_11= ',' ( (lv_scope_12_0= ruleScope ) ) otherlv_13= ',' ( (lv_focus_14_0= ruleFocus ) ) otherlv_15= ',' ( ( (lv_contentLabel_16_0= RULE_STRING ) ) otherlv_17= ',' )? ( (lv_content_18_0= RULE_STRING ) ) (otherlv_19= ',' ( (otherlv_20= RULE_ID ) ) )? otherlv_21= ')' ) )
-            // InternalVideoAnnotationsDSL.g:114:2: (otherlv_0= 'from' ( (lv_fromTime_1_0= ruleTime ) ) otherlv_2= 'to' ( (lv_toTime_3_0= ruleTime ) ) otherlv_4= 'annotate' otherlv_5= '(' ( (lv_name_6_0= RULE_ID ) ) otherlv_7= ',' ( (lv_sender_8_0= ruleSender ) ) otherlv_9= ',' ( (lv_type_10_0= ruleMove ) ) otherlv_11= ',' ( (lv_scope_12_0= ruleScope ) ) otherlv_13= ',' ( (lv_focus_14_0= ruleFocus ) ) otherlv_15= ',' ( ( (lv_contentLabel_16_0= RULE_STRING ) ) otherlv_17= ',' )? ( (lv_content_18_0= RULE_STRING ) ) (otherlv_19= ',' ( (otherlv_20= RULE_ID ) ) )? otherlv_21= ')' )
+            // InternalVideoAnnotationsDSL.g:113:2: ( (otherlv_0= 'from' ( (lv_fromTime_1_0= ruleTime ) ) otherlv_2= 'to' ( (lv_toTime_3_0= ruleTime ) ) otherlv_4= 'annotate' otherlv_5= '(' ( (lv_name_6_0= RULE_ID ) ) otherlv_7= ',' ( (lv_sender_8_0= ruleSender ) ) otherlv_9= ',' ( (lv_type_10_0= ruleMove ) ) otherlv_11= ',' ( (lv_scope_12_0= ruleScope ) ) otherlv_13= ',' ( (lv_focus_14_0= ruleFocus ) ) otherlv_15= ',' ( ( (lv_contentLabel_16_0= RULE_STRING ) ) otherlv_17= ',' )? ( (lv_content_18_0= RULE_STRING ) ) (otherlv_19= ',' ( (otherlv_20= RULE_ID ) ) )? otherlv_21= ')' (otherlv_22= '#' ( (lv_comment_23_0= RULE_STRING ) ) otherlv_24= '#' )? ) )
+            // InternalVideoAnnotationsDSL.g:114:2: (otherlv_0= 'from' ( (lv_fromTime_1_0= ruleTime ) ) otherlv_2= 'to' ( (lv_toTime_3_0= ruleTime ) ) otherlv_4= 'annotate' otherlv_5= '(' ( (lv_name_6_0= RULE_ID ) ) otherlv_7= ',' ( (lv_sender_8_0= ruleSender ) ) otherlv_9= ',' ( (lv_type_10_0= ruleMove ) ) otherlv_11= ',' ( (lv_scope_12_0= ruleScope ) ) otherlv_13= ',' ( (lv_focus_14_0= ruleFocus ) ) otherlv_15= ',' ( ( (lv_contentLabel_16_0= RULE_STRING ) ) otherlv_17= ',' )? ( (lv_content_18_0= RULE_STRING ) ) (otherlv_19= ',' ( (otherlv_20= RULE_ID ) ) )? otherlv_21= ')' (otherlv_22= '#' ( (lv_comment_23_0= RULE_STRING ) ) otherlv_24= '#' )? )
             {
-            // InternalVideoAnnotationsDSL.g:114:2: (otherlv_0= 'from' ( (lv_fromTime_1_0= ruleTime ) ) otherlv_2= 'to' ( (lv_toTime_3_0= ruleTime ) ) otherlv_4= 'annotate' otherlv_5= '(' ( (lv_name_6_0= RULE_ID ) ) otherlv_7= ',' ( (lv_sender_8_0= ruleSender ) ) otherlv_9= ',' ( (lv_type_10_0= ruleMove ) ) otherlv_11= ',' ( (lv_scope_12_0= ruleScope ) ) otherlv_13= ',' ( (lv_focus_14_0= ruleFocus ) ) otherlv_15= ',' ( ( (lv_contentLabel_16_0= RULE_STRING ) ) otherlv_17= ',' )? ( (lv_content_18_0= RULE_STRING ) ) (otherlv_19= ',' ( (otherlv_20= RULE_ID ) ) )? otherlv_21= ')' )
-            // InternalVideoAnnotationsDSL.g:115:3: otherlv_0= 'from' ( (lv_fromTime_1_0= ruleTime ) ) otherlv_2= 'to' ( (lv_toTime_3_0= ruleTime ) ) otherlv_4= 'annotate' otherlv_5= '(' ( (lv_name_6_0= RULE_ID ) ) otherlv_7= ',' ( (lv_sender_8_0= ruleSender ) ) otherlv_9= ',' ( (lv_type_10_0= ruleMove ) ) otherlv_11= ',' ( (lv_scope_12_0= ruleScope ) ) otherlv_13= ',' ( (lv_focus_14_0= ruleFocus ) ) otherlv_15= ',' ( ( (lv_contentLabel_16_0= RULE_STRING ) ) otherlv_17= ',' )? ( (lv_content_18_0= RULE_STRING ) ) (otherlv_19= ',' ( (otherlv_20= RULE_ID ) ) )? otherlv_21= ')'
+            // InternalVideoAnnotationsDSL.g:114:2: (otherlv_0= 'from' ( (lv_fromTime_1_0= ruleTime ) ) otherlv_2= 'to' ( (lv_toTime_3_0= ruleTime ) ) otherlv_4= 'annotate' otherlv_5= '(' ( (lv_name_6_0= RULE_ID ) ) otherlv_7= ',' ( (lv_sender_8_0= ruleSender ) ) otherlv_9= ',' ( (lv_type_10_0= ruleMove ) ) otherlv_11= ',' ( (lv_scope_12_0= ruleScope ) ) otherlv_13= ',' ( (lv_focus_14_0= ruleFocus ) ) otherlv_15= ',' ( ( (lv_contentLabel_16_0= RULE_STRING ) ) otherlv_17= ',' )? ( (lv_content_18_0= RULE_STRING ) ) (otherlv_19= ',' ( (otherlv_20= RULE_ID ) ) )? otherlv_21= ')' (otherlv_22= '#' ( (lv_comment_23_0= RULE_STRING ) ) otherlv_24= '#' )? )
+            // InternalVideoAnnotationsDSL.g:115:3: otherlv_0= 'from' ( (lv_fromTime_1_0= ruleTime ) ) otherlv_2= 'to' ( (lv_toTime_3_0= ruleTime ) ) otherlv_4= 'annotate' otherlv_5= '(' ( (lv_name_6_0= RULE_ID ) ) otherlv_7= ',' ( (lv_sender_8_0= ruleSender ) ) otherlv_9= ',' ( (lv_type_10_0= ruleMove ) ) otherlv_11= ',' ( (lv_scope_12_0= ruleScope ) ) otherlv_13= ',' ( (lv_focus_14_0= ruleFocus ) ) otherlv_15= ',' ( ( (lv_contentLabel_16_0= RULE_STRING ) ) otherlv_17= ',' )? ( (lv_content_18_0= RULE_STRING ) ) (otherlv_19= ',' ( (otherlv_20= RULE_ID ) ) )? otherlv_21= ')' (otherlv_22= '#' ( (lv_comment_23_0= RULE_STRING ) ) otherlv_24= '#' )?
             {
             otherlv_0=(Token)match(input,11,FOLLOW_4); 
 
@@ -666,10 +670,61 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
 
             }
 
-            otherlv_21=(Token)match(input,16,FOLLOW_2); 
+            otherlv_21=(Token)match(input,16,FOLLOW_16); 
 
             			newLeafNode(otherlv_21, grammarAccess.getAnnotationAccess().getRightParenthesisKeyword_19());
             		
+            // InternalVideoAnnotationsDSL.g:348:3: (otherlv_22= '#' ( (lv_comment_23_0= RULE_STRING ) ) otherlv_24= '#' )?
+            int alt4=2;
+            int LA4_0 = input.LA(1);
+
+            if ( (LA4_0==17) ) {
+                alt4=1;
+            }
+            switch (alt4) {
+                case 1 :
+                    // InternalVideoAnnotationsDSL.g:349:4: otherlv_22= '#' ( (lv_comment_23_0= RULE_STRING ) ) otherlv_24= '#'
+                    {
+                    otherlv_22=(Token)match(input,17,FOLLOW_13); 
+
+                    				newLeafNode(otherlv_22, grammarAccess.getAnnotationAccess().getNumberSignKeyword_20_0());
+                    			
+                    // InternalVideoAnnotationsDSL.g:353:4: ( (lv_comment_23_0= RULE_STRING ) )
+                    // InternalVideoAnnotationsDSL.g:354:5: (lv_comment_23_0= RULE_STRING )
+                    {
+                    // InternalVideoAnnotationsDSL.g:354:5: (lv_comment_23_0= RULE_STRING )
+                    // InternalVideoAnnotationsDSL.g:355:6: lv_comment_23_0= RULE_STRING
+                    {
+                    lv_comment_23_0=(Token)match(input,RULE_STRING,FOLLOW_17); 
+
+                    						newLeafNode(lv_comment_23_0, grammarAccess.getAnnotationAccess().getCommentSTRINGTerminalRuleCall_20_1_0());
+                    					
+
+                    						if (current==null) {
+                    							current = createModelElement(grammarAccess.getAnnotationRule());
+                    						}
+                    						setWithLastConsumed(
+                    							current,
+                    							"comment",
+                    							lv_comment_23_0,
+                    							"org.eclipse.xtext.common.Terminals.STRING");
+                    					
+
+                    }
+
+
+                    }
+
+                    otherlv_24=(Token)match(input,17,FOLLOW_2); 
+
+                    				newLeafNode(otherlv_24, grammarAccess.getAnnotationAccess().getNumberSignKeyword_20_2());
+                    			
+
+                    }
+                    break;
+
+            }
+
 
             }
 
@@ -693,7 +748,7 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleSender"
-    // InternalVideoAnnotationsDSL.g:352:1: entryRuleSender returns [String current=null] : iv_ruleSender= ruleSender EOF ;
+    // InternalVideoAnnotationsDSL.g:380:1: entryRuleSender returns [String current=null] : iv_ruleSender= ruleSender EOF ;
     public final String entryRuleSender() throws RecognitionException {
         String current = null;
 
@@ -701,8 +756,8 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalVideoAnnotationsDSL.g:352:46: (iv_ruleSender= ruleSender EOF )
-            // InternalVideoAnnotationsDSL.g:353:2: iv_ruleSender= ruleSender EOF
+            // InternalVideoAnnotationsDSL.g:380:46: (iv_ruleSender= ruleSender EOF )
+            // InternalVideoAnnotationsDSL.g:381:2: iv_ruleSender= ruleSender EOF
             {
              newCompositeNode(grammarAccess.getSenderRule()); 
             pushFollow(FOLLOW_1);
@@ -729,7 +784,7 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleSender"
-    // InternalVideoAnnotationsDSL.g:359:1: ruleSender returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_INT_0= RULE_INT )+ ;
+    // InternalVideoAnnotationsDSL.g:387:1: ruleSender returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_INT_0= RULE_INT )+ ;
     public final AntlrDatatypeRuleToken ruleSender() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -739,26 +794,26 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalVideoAnnotationsDSL.g:365:2: ( (this_INT_0= RULE_INT )+ )
-            // InternalVideoAnnotationsDSL.g:366:2: (this_INT_0= RULE_INT )+
+            // InternalVideoAnnotationsDSL.g:393:2: ( (this_INT_0= RULE_INT )+ )
+            // InternalVideoAnnotationsDSL.g:394:2: (this_INT_0= RULE_INT )+
             {
-            // InternalVideoAnnotationsDSL.g:366:2: (this_INT_0= RULE_INT )+
-            int cnt4=0;
-            loop4:
+            // InternalVideoAnnotationsDSL.g:394:2: (this_INT_0= RULE_INT )+
+            int cnt5=0;
+            loop5:
             do {
-                int alt4=2;
-                int LA4_0 = input.LA(1);
+                int alt5=2;
+                int LA5_0 = input.LA(1);
 
-                if ( (LA4_0==RULE_INT) ) {
-                    alt4=1;
+                if ( (LA5_0==RULE_INT) ) {
+                    alt5=1;
                 }
 
 
-                switch (alt4) {
+                switch (alt5) {
             	case 1 :
-            	    // InternalVideoAnnotationsDSL.g:367:3: this_INT_0= RULE_INT
+            	    // InternalVideoAnnotationsDSL.g:395:3: this_INT_0= RULE_INT
             	    {
-            	    this_INT_0=(Token)match(input,RULE_INT,FOLLOW_16); 
+            	    this_INT_0=(Token)match(input,RULE_INT,FOLLOW_18); 
 
             	    			current.merge(this_INT_0);
             	    		
@@ -770,12 +825,12 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
             	    break;
 
             	default :
-            	    if ( cnt4 >= 1 ) break loop4;
+            	    if ( cnt5 >= 1 ) break loop5;
                         EarlyExitException eee =
-                            new EarlyExitException(4, input);
+                            new EarlyExitException(5, input);
                         throw eee;
                 }
-                cnt4++;
+                cnt5++;
             } while (true);
 
 
@@ -798,7 +853,7 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleMove"
-    // InternalVideoAnnotationsDSL.g:378:1: entryRuleMove returns [EObject current=null] : iv_ruleMove= ruleMove EOF ;
+    // InternalVideoAnnotationsDSL.g:406:1: entryRuleMove returns [EObject current=null] : iv_ruleMove= ruleMove EOF ;
     public final EObject entryRuleMove() throws RecognitionException {
         EObject current = null;
 
@@ -806,8 +861,8 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalVideoAnnotationsDSL.g:378:45: (iv_ruleMove= ruleMove EOF )
-            // InternalVideoAnnotationsDSL.g:379:2: iv_ruleMove= ruleMove EOF
+            // InternalVideoAnnotationsDSL.g:406:45: (iv_ruleMove= ruleMove EOF )
+            // InternalVideoAnnotationsDSL.g:407:2: iv_ruleMove= ruleMove EOF
             {
              newCompositeNode(grammarAccess.getMoveRule()); 
             pushFollow(FOLLOW_1);
@@ -834,7 +889,7 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleMove"
-    // InternalVideoAnnotationsDSL.g:385:1: ruleMove returns [EObject current=null] : ( ( (lv_type_0_1= 'propose' | lv_type_0_2= 'question' | lv_type_0_3= 'challenge' | lv_type_0_4= 'justify' | lv_type_0_5= 'withdraw' | lv_type_0_6= 'accept' | lv_type_0_7= 'reject' | lv_type_0_8= 'commit' | lv_type_0_9= 'counter' | lv_type_0_10= 'uncommit' ) ) ) ;
+    // InternalVideoAnnotationsDSL.g:413:1: ruleMove returns [EObject current=null] : ( ( (lv_type_0_1= 'propose' | lv_type_0_2= 'question' | lv_type_0_3= 'challenge' | lv_type_0_4= 'justify' | lv_type_0_5= 'withdraw' | lv_type_0_6= 'accept' | lv_type_0_7= 'reject' | lv_type_0_8= 'commit' | lv_type_0_9= 'counter' | lv_type_0_10= 'uncommit' ) ) ) ;
     public final EObject ruleMove() throws RecognitionException {
         EObject current = null;
 
@@ -853,80 +908,80 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalVideoAnnotationsDSL.g:391:2: ( ( ( (lv_type_0_1= 'propose' | lv_type_0_2= 'question' | lv_type_0_3= 'challenge' | lv_type_0_4= 'justify' | lv_type_0_5= 'withdraw' | lv_type_0_6= 'accept' | lv_type_0_7= 'reject' | lv_type_0_8= 'commit' | lv_type_0_9= 'counter' | lv_type_0_10= 'uncommit' ) ) ) )
-            // InternalVideoAnnotationsDSL.g:392:2: ( ( (lv_type_0_1= 'propose' | lv_type_0_2= 'question' | lv_type_0_3= 'challenge' | lv_type_0_4= 'justify' | lv_type_0_5= 'withdraw' | lv_type_0_6= 'accept' | lv_type_0_7= 'reject' | lv_type_0_8= 'commit' | lv_type_0_9= 'counter' | lv_type_0_10= 'uncommit' ) ) )
+            // InternalVideoAnnotationsDSL.g:419:2: ( ( ( (lv_type_0_1= 'propose' | lv_type_0_2= 'question' | lv_type_0_3= 'challenge' | lv_type_0_4= 'justify' | lv_type_0_5= 'withdraw' | lv_type_0_6= 'accept' | lv_type_0_7= 'reject' | lv_type_0_8= 'commit' | lv_type_0_9= 'counter' | lv_type_0_10= 'uncommit' ) ) ) )
+            // InternalVideoAnnotationsDSL.g:420:2: ( ( (lv_type_0_1= 'propose' | lv_type_0_2= 'question' | lv_type_0_3= 'challenge' | lv_type_0_4= 'justify' | lv_type_0_5= 'withdraw' | lv_type_0_6= 'accept' | lv_type_0_7= 'reject' | lv_type_0_8= 'commit' | lv_type_0_9= 'counter' | lv_type_0_10= 'uncommit' ) ) )
             {
-            // InternalVideoAnnotationsDSL.g:392:2: ( ( (lv_type_0_1= 'propose' | lv_type_0_2= 'question' | lv_type_0_3= 'challenge' | lv_type_0_4= 'justify' | lv_type_0_5= 'withdraw' | lv_type_0_6= 'accept' | lv_type_0_7= 'reject' | lv_type_0_8= 'commit' | lv_type_0_9= 'counter' | lv_type_0_10= 'uncommit' ) ) )
-            // InternalVideoAnnotationsDSL.g:393:3: ( (lv_type_0_1= 'propose' | lv_type_0_2= 'question' | lv_type_0_3= 'challenge' | lv_type_0_4= 'justify' | lv_type_0_5= 'withdraw' | lv_type_0_6= 'accept' | lv_type_0_7= 'reject' | lv_type_0_8= 'commit' | lv_type_0_9= 'counter' | lv_type_0_10= 'uncommit' ) )
+            // InternalVideoAnnotationsDSL.g:420:2: ( ( (lv_type_0_1= 'propose' | lv_type_0_2= 'question' | lv_type_0_3= 'challenge' | lv_type_0_4= 'justify' | lv_type_0_5= 'withdraw' | lv_type_0_6= 'accept' | lv_type_0_7= 'reject' | lv_type_0_8= 'commit' | lv_type_0_9= 'counter' | lv_type_0_10= 'uncommit' ) ) )
+            // InternalVideoAnnotationsDSL.g:421:3: ( (lv_type_0_1= 'propose' | lv_type_0_2= 'question' | lv_type_0_3= 'challenge' | lv_type_0_4= 'justify' | lv_type_0_5= 'withdraw' | lv_type_0_6= 'accept' | lv_type_0_7= 'reject' | lv_type_0_8= 'commit' | lv_type_0_9= 'counter' | lv_type_0_10= 'uncommit' ) )
             {
-            // InternalVideoAnnotationsDSL.g:393:3: ( (lv_type_0_1= 'propose' | lv_type_0_2= 'question' | lv_type_0_3= 'challenge' | lv_type_0_4= 'justify' | lv_type_0_5= 'withdraw' | lv_type_0_6= 'accept' | lv_type_0_7= 'reject' | lv_type_0_8= 'commit' | lv_type_0_9= 'counter' | lv_type_0_10= 'uncommit' ) )
-            // InternalVideoAnnotationsDSL.g:394:4: (lv_type_0_1= 'propose' | lv_type_0_2= 'question' | lv_type_0_3= 'challenge' | lv_type_0_4= 'justify' | lv_type_0_5= 'withdraw' | lv_type_0_6= 'accept' | lv_type_0_7= 'reject' | lv_type_0_8= 'commit' | lv_type_0_9= 'counter' | lv_type_0_10= 'uncommit' )
+            // InternalVideoAnnotationsDSL.g:421:3: ( (lv_type_0_1= 'propose' | lv_type_0_2= 'question' | lv_type_0_3= 'challenge' | lv_type_0_4= 'justify' | lv_type_0_5= 'withdraw' | lv_type_0_6= 'accept' | lv_type_0_7= 'reject' | lv_type_0_8= 'commit' | lv_type_0_9= 'counter' | lv_type_0_10= 'uncommit' ) )
+            // InternalVideoAnnotationsDSL.g:422:4: (lv_type_0_1= 'propose' | lv_type_0_2= 'question' | lv_type_0_3= 'challenge' | lv_type_0_4= 'justify' | lv_type_0_5= 'withdraw' | lv_type_0_6= 'accept' | lv_type_0_7= 'reject' | lv_type_0_8= 'commit' | lv_type_0_9= 'counter' | lv_type_0_10= 'uncommit' )
             {
-            // InternalVideoAnnotationsDSL.g:394:4: (lv_type_0_1= 'propose' | lv_type_0_2= 'question' | lv_type_0_3= 'challenge' | lv_type_0_4= 'justify' | lv_type_0_5= 'withdraw' | lv_type_0_6= 'accept' | lv_type_0_7= 'reject' | lv_type_0_8= 'commit' | lv_type_0_9= 'counter' | lv_type_0_10= 'uncommit' )
-            int alt5=10;
+            // InternalVideoAnnotationsDSL.g:422:4: (lv_type_0_1= 'propose' | lv_type_0_2= 'question' | lv_type_0_3= 'challenge' | lv_type_0_4= 'justify' | lv_type_0_5= 'withdraw' | lv_type_0_6= 'accept' | lv_type_0_7= 'reject' | lv_type_0_8= 'commit' | lv_type_0_9= 'counter' | lv_type_0_10= 'uncommit' )
+            int alt6=10;
             switch ( input.LA(1) ) {
-            case 17:
-                {
-                alt5=1;
-                }
-                break;
             case 18:
                 {
-                alt5=2;
+                alt6=1;
                 }
                 break;
             case 19:
                 {
-                alt5=3;
+                alt6=2;
                 }
                 break;
             case 20:
                 {
-                alt5=4;
+                alt6=3;
                 }
                 break;
             case 21:
                 {
-                alt5=5;
+                alt6=4;
                 }
                 break;
             case 22:
                 {
-                alt5=6;
+                alt6=5;
                 }
                 break;
             case 23:
                 {
-                alt5=7;
+                alt6=6;
                 }
                 break;
             case 24:
                 {
-                alt5=8;
+                alt6=7;
                 }
                 break;
             case 25:
                 {
-                alt5=9;
+                alt6=8;
                 }
                 break;
             case 26:
                 {
-                alt5=10;
+                alt6=9;
+                }
+                break;
+            case 27:
+                {
+                alt6=10;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 5, 0, input);
+                    new NoViableAltException("", 6, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt5) {
+            switch (alt6) {
                 case 1 :
-                    // InternalVideoAnnotationsDSL.g:395:5: lv_type_0_1= 'propose'
+                    // InternalVideoAnnotationsDSL.g:423:5: lv_type_0_1= 'propose'
                     {
-                    lv_type_0_1=(Token)match(input,17,FOLLOW_2); 
+                    lv_type_0_1=(Token)match(input,18,FOLLOW_2); 
 
                     					newLeafNode(lv_type_0_1, grammarAccess.getMoveAccess().getTypeProposeKeyword_0_0());
                     				
@@ -940,9 +995,9 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 2 :
-                    // InternalVideoAnnotationsDSL.g:406:5: lv_type_0_2= 'question'
+                    // InternalVideoAnnotationsDSL.g:434:5: lv_type_0_2= 'question'
                     {
-                    lv_type_0_2=(Token)match(input,18,FOLLOW_2); 
+                    lv_type_0_2=(Token)match(input,19,FOLLOW_2); 
 
                     					newLeafNode(lv_type_0_2, grammarAccess.getMoveAccess().getTypeQuestionKeyword_0_1());
                     				
@@ -956,9 +1011,9 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 3 :
-                    // InternalVideoAnnotationsDSL.g:417:5: lv_type_0_3= 'challenge'
+                    // InternalVideoAnnotationsDSL.g:445:5: lv_type_0_3= 'challenge'
                     {
-                    lv_type_0_3=(Token)match(input,19,FOLLOW_2); 
+                    lv_type_0_3=(Token)match(input,20,FOLLOW_2); 
 
                     					newLeafNode(lv_type_0_3, grammarAccess.getMoveAccess().getTypeChallengeKeyword_0_2());
                     				
@@ -972,9 +1027,9 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 4 :
-                    // InternalVideoAnnotationsDSL.g:428:5: lv_type_0_4= 'justify'
+                    // InternalVideoAnnotationsDSL.g:456:5: lv_type_0_4= 'justify'
                     {
-                    lv_type_0_4=(Token)match(input,20,FOLLOW_2); 
+                    lv_type_0_4=(Token)match(input,21,FOLLOW_2); 
 
                     					newLeafNode(lv_type_0_4, grammarAccess.getMoveAccess().getTypeJustifyKeyword_0_3());
                     				
@@ -988,9 +1043,9 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 5 :
-                    // InternalVideoAnnotationsDSL.g:439:5: lv_type_0_5= 'withdraw'
+                    // InternalVideoAnnotationsDSL.g:467:5: lv_type_0_5= 'withdraw'
                     {
-                    lv_type_0_5=(Token)match(input,21,FOLLOW_2); 
+                    lv_type_0_5=(Token)match(input,22,FOLLOW_2); 
 
                     					newLeafNode(lv_type_0_5, grammarAccess.getMoveAccess().getTypeWithdrawKeyword_0_4());
                     				
@@ -1004,9 +1059,9 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 6 :
-                    // InternalVideoAnnotationsDSL.g:450:5: lv_type_0_6= 'accept'
+                    // InternalVideoAnnotationsDSL.g:478:5: lv_type_0_6= 'accept'
                     {
-                    lv_type_0_6=(Token)match(input,22,FOLLOW_2); 
+                    lv_type_0_6=(Token)match(input,23,FOLLOW_2); 
 
                     					newLeafNode(lv_type_0_6, grammarAccess.getMoveAccess().getTypeAcceptKeyword_0_5());
                     				
@@ -1020,9 +1075,9 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 7 :
-                    // InternalVideoAnnotationsDSL.g:461:5: lv_type_0_7= 'reject'
+                    // InternalVideoAnnotationsDSL.g:489:5: lv_type_0_7= 'reject'
                     {
-                    lv_type_0_7=(Token)match(input,23,FOLLOW_2); 
+                    lv_type_0_7=(Token)match(input,24,FOLLOW_2); 
 
                     					newLeafNode(lv_type_0_7, grammarAccess.getMoveAccess().getTypeRejectKeyword_0_6());
                     				
@@ -1036,9 +1091,9 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 8 :
-                    // InternalVideoAnnotationsDSL.g:472:5: lv_type_0_8= 'commit'
+                    // InternalVideoAnnotationsDSL.g:500:5: lv_type_0_8= 'commit'
                     {
-                    lv_type_0_8=(Token)match(input,24,FOLLOW_2); 
+                    lv_type_0_8=(Token)match(input,25,FOLLOW_2); 
 
                     					newLeafNode(lv_type_0_8, grammarAccess.getMoveAccess().getTypeCommitKeyword_0_7());
                     				
@@ -1052,9 +1107,9 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 9 :
-                    // InternalVideoAnnotationsDSL.g:483:5: lv_type_0_9= 'counter'
+                    // InternalVideoAnnotationsDSL.g:511:5: lv_type_0_9= 'counter'
                     {
-                    lv_type_0_9=(Token)match(input,25,FOLLOW_2); 
+                    lv_type_0_9=(Token)match(input,26,FOLLOW_2); 
 
                     					newLeafNode(lv_type_0_9, grammarAccess.getMoveAccess().getTypeCounterKeyword_0_8());
                     				
@@ -1068,9 +1123,9 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 10 :
-                    // InternalVideoAnnotationsDSL.g:494:5: lv_type_0_10= 'uncommit'
+                    // InternalVideoAnnotationsDSL.g:522:5: lv_type_0_10= 'uncommit'
                     {
-                    lv_type_0_10=(Token)match(input,26,FOLLOW_2); 
+                    lv_type_0_10=(Token)match(input,27,FOLLOW_2); 
 
                     					newLeafNode(lv_type_0_10, grammarAccess.getMoveAccess().getTypeUncommitKeyword_0_9());
                     				
@@ -1112,7 +1167,7 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleScope"
-    // InternalVideoAnnotationsDSL.g:510:1: entryRuleScope returns [EObject current=null] : iv_ruleScope= ruleScope EOF ;
+    // InternalVideoAnnotationsDSL.g:538:1: entryRuleScope returns [EObject current=null] : iv_ruleScope= ruleScope EOF ;
     public final EObject entryRuleScope() throws RecognitionException {
         EObject current = null;
 
@@ -1120,8 +1175,8 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalVideoAnnotationsDSL.g:510:46: (iv_ruleScope= ruleScope EOF )
-            // InternalVideoAnnotationsDSL.g:511:2: iv_ruleScope= ruleScope EOF
+            // InternalVideoAnnotationsDSL.g:538:46: (iv_ruleScope= ruleScope EOF )
+            // InternalVideoAnnotationsDSL.g:539:2: iv_ruleScope= ruleScope EOF
             {
              newCompositeNode(grammarAccess.getScopeRule()); 
             pushFollow(FOLLOW_1);
@@ -1148,7 +1203,7 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleScope"
-    // InternalVideoAnnotationsDSL.g:517:1: ruleScope returns [EObject current=null] : ( ( (lv_scope_0_1= 'feature' | lv_scope_0_2= 'rating' | lv_scope_0_3= 'criteria' | lv_scope_0_4= 'topic' ) ) ) ;
+    // InternalVideoAnnotationsDSL.g:545:1: ruleScope returns [EObject current=null] : ( ( (lv_scope_0_1= 'feature' | lv_scope_0_2= 'rating' | lv_scope_0_3= 'criteria' | lv_scope_0_4= 'topic' ) ) ) ;
     public final EObject ruleScope() throws RecognitionException {
         EObject current = null;
 
@@ -1161,50 +1216,50 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalVideoAnnotationsDSL.g:523:2: ( ( ( (lv_scope_0_1= 'feature' | lv_scope_0_2= 'rating' | lv_scope_0_3= 'criteria' | lv_scope_0_4= 'topic' ) ) ) )
-            // InternalVideoAnnotationsDSL.g:524:2: ( ( (lv_scope_0_1= 'feature' | lv_scope_0_2= 'rating' | lv_scope_0_3= 'criteria' | lv_scope_0_4= 'topic' ) ) )
+            // InternalVideoAnnotationsDSL.g:551:2: ( ( ( (lv_scope_0_1= 'feature' | lv_scope_0_2= 'rating' | lv_scope_0_3= 'criteria' | lv_scope_0_4= 'topic' ) ) ) )
+            // InternalVideoAnnotationsDSL.g:552:2: ( ( (lv_scope_0_1= 'feature' | lv_scope_0_2= 'rating' | lv_scope_0_3= 'criteria' | lv_scope_0_4= 'topic' ) ) )
             {
-            // InternalVideoAnnotationsDSL.g:524:2: ( ( (lv_scope_0_1= 'feature' | lv_scope_0_2= 'rating' | lv_scope_0_3= 'criteria' | lv_scope_0_4= 'topic' ) ) )
-            // InternalVideoAnnotationsDSL.g:525:3: ( (lv_scope_0_1= 'feature' | lv_scope_0_2= 'rating' | lv_scope_0_3= 'criteria' | lv_scope_0_4= 'topic' ) )
+            // InternalVideoAnnotationsDSL.g:552:2: ( ( (lv_scope_0_1= 'feature' | lv_scope_0_2= 'rating' | lv_scope_0_3= 'criteria' | lv_scope_0_4= 'topic' ) ) )
+            // InternalVideoAnnotationsDSL.g:553:3: ( (lv_scope_0_1= 'feature' | lv_scope_0_2= 'rating' | lv_scope_0_3= 'criteria' | lv_scope_0_4= 'topic' ) )
             {
-            // InternalVideoAnnotationsDSL.g:525:3: ( (lv_scope_0_1= 'feature' | lv_scope_0_2= 'rating' | lv_scope_0_3= 'criteria' | lv_scope_0_4= 'topic' ) )
-            // InternalVideoAnnotationsDSL.g:526:4: (lv_scope_0_1= 'feature' | lv_scope_0_2= 'rating' | lv_scope_0_3= 'criteria' | lv_scope_0_4= 'topic' )
+            // InternalVideoAnnotationsDSL.g:553:3: ( (lv_scope_0_1= 'feature' | lv_scope_0_2= 'rating' | lv_scope_0_3= 'criteria' | lv_scope_0_4= 'topic' ) )
+            // InternalVideoAnnotationsDSL.g:554:4: (lv_scope_0_1= 'feature' | lv_scope_0_2= 'rating' | lv_scope_0_3= 'criteria' | lv_scope_0_4= 'topic' )
             {
-            // InternalVideoAnnotationsDSL.g:526:4: (lv_scope_0_1= 'feature' | lv_scope_0_2= 'rating' | lv_scope_0_3= 'criteria' | lv_scope_0_4= 'topic' )
-            int alt6=4;
+            // InternalVideoAnnotationsDSL.g:554:4: (lv_scope_0_1= 'feature' | lv_scope_0_2= 'rating' | lv_scope_0_3= 'criteria' | lv_scope_0_4= 'topic' )
+            int alt7=4;
             switch ( input.LA(1) ) {
-            case 27:
-                {
-                alt6=1;
-                }
-                break;
             case 28:
                 {
-                alt6=2;
+                alt7=1;
                 }
                 break;
             case 29:
                 {
-                alt6=3;
+                alt7=2;
                 }
                 break;
             case 30:
                 {
-                alt6=4;
+                alt7=3;
+                }
+                break;
+            case 31:
+                {
+                alt7=4;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 6, 0, input);
+                    new NoViableAltException("", 7, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt6) {
+            switch (alt7) {
                 case 1 :
-                    // InternalVideoAnnotationsDSL.g:527:5: lv_scope_0_1= 'feature'
+                    // InternalVideoAnnotationsDSL.g:555:5: lv_scope_0_1= 'feature'
                     {
-                    lv_scope_0_1=(Token)match(input,27,FOLLOW_2); 
+                    lv_scope_0_1=(Token)match(input,28,FOLLOW_2); 
 
                     					newLeafNode(lv_scope_0_1, grammarAccess.getScopeAccess().getScopeFeatureKeyword_0_0());
                     				
@@ -1218,9 +1273,9 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 2 :
-                    // InternalVideoAnnotationsDSL.g:538:5: lv_scope_0_2= 'rating'
+                    // InternalVideoAnnotationsDSL.g:566:5: lv_scope_0_2= 'rating'
                     {
-                    lv_scope_0_2=(Token)match(input,28,FOLLOW_2); 
+                    lv_scope_0_2=(Token)match(input,29,FOLLOW_2); 
 
                     					newLeafNode(lv_scope_0_2, grammarAccess.getScopeAccess().getScopeRatingKeyword_0_1());
                     				
@@ -1234,9 +1289,9 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 3 :
-                    // InternalVideoAnnotationsDSL.g:549:5: lv_scope_0_3= 'criteria'
+                    // InternalVideoAnnotationsDSL.g:577:5: lv_scope_0_3= 'criteria'
                     {
-                    lv_scope_0_3=(Token)match(input,29,FOLLOW_2); 
+                    lv_scope_0_3=(Token)match(input,30,FOLLOW_2); 
 
                     					newLeafNode(lv_scope_0_3, grammarAccess.getScopeAccess().getScopeCriteriaKeyword_0_2());
                     				
@@ -1250,9 +1305,9 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 4 :
-                    // InternalVideoAnnotationsDSL.g:560:5: lv_scope_0_4= 'topic'
+                    // InternalVideoAnnotationsDSL.g:588:5: lv_scope_0_4= 'topic'
                     {
-                    lv_scope_0_4=(Token)match(input,30,FOLLOW_2); 
+                    lv_scope_0_4=(Token)match(input,31,FOLLOW_2); 
 
                     					newLeafNode(lv_scope_0_4, grammarAccess.getScopeAccess().getScopeTopicKeyword_0_3());
                     				
@@ -1294,7 +1349,7 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleFocus"
-    // InternalVideoAnnotationsDSL.g:576:1: entryRuleFocus returns [EObject current=null] : iv_ruleFocus= ruleFocus EOF ;
+    // InternalVideoAnnotationsDSL.g:604:1: entryRuleFocus returns [EObject current=null] : iv_ruleFocus= ruleFocus EOF ;
     public final EObject entryRuleFocus() throws RecognitionException {
         EObject current = null;
 
@@ -1302,8 +1357,8 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalVideoAnnotationsDSL.g:576:46: (iv_ruleFocus= ruleFocus EOF )
-            // InternalVideoAnnotationsDSL.g:577:2: iv_ruleFocus= ruleFocus EOF
+            // InternalVideoAnnotationsDSL.g:604:46: (iv_ruleFocus= ruleFocus EOF )
+            // InternalVideoAnnotationsDSL.g:605:2: iv_ruleFocus= ruleFocus EOF
             {
              newCompositeNode(grammarAccess.getFocusRule()); 
             pushFollow(FOLLOW_1);
@@ -1330,7 +1385,7 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleFocus"
-    // InternalVideoAnnotationsDSL.g:583:1: ruleFocus returns [EObject current=null] : ( ( (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= 'A' ) ) ) ;
+    // InternalVideoAnnotationsDSL.g:611:1: ruleFocus returns [EObject current=null] : ( ( (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= 'A' ) ) ) ;
     public final EObject ruleFocus() throws RecognitionException {
         EObject current = null;
 
@@ -1344,55 +1399,55 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalVideoAnnotationsDSL.g:589:2: ( ( ( (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= 'A' ) ) ) )
-            // InternalVideoAnnotationsDSL.g:590:2: ( ( (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= 'A' ) ) )
+            // InternalVideoAnnotationsDSL.g:617:2: ( ( ( (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= 'A' ) ) ) )
+            // InternalVideoAnnotationsDSL.g:618:2: ( ( (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= 'A' ) ) )
             {
-            // InternalVideoAnnotationsDSL.g:590:2: ( ( (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= 'A' ) ) )
-            // InternalVideoAnnotationsDSL.g:591:3: ( (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= 'A' ) )
+            // InternalVideoAnnotationsDSL.g:618:2: ( ( (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= 'A' ) ) )
+            // InternalVideoAnnotationsDSL.g:619:3: ( (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= 'A' ) )
             {
-            // InternalVideoAnnotationsDSL.g:591:3: ( (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= 'A' ) )
-            // InternalVideoAnnotationsDSL.g:592:4: (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= 'A' )
+            // InternalVideoAnnotationsDSL.g:619:3: ( (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= 'A' ) )
+            // InternalVideoAnnotationsDSL.g:620:4: (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= 'A' )
             {
-            // InternalVideoAnnotationsDSL.g:592:4: (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= 'A' )
-            int alt7=5;
+            // InternalVideoAnnotationsDSL.g:620:4: (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= 'A' )
+            int alt8=5;
             switch ( input.LA(1) ) {
-            case 31:
-                {
-                alt7=1;
-                }
-                break;
             case 32:
                 {
-                alt7=2;
+                alt8=1;
                 }
                 break;
             case 33:
                 {
-                alt7=3;
+                alt8=2;
                 }
                 break;
             case 34:
                 {
-                alt7=4;
+                alt8=3;
                 }
                 break;
             case 35:
                 {
-                alt7=5;
+                alt8=4;
+                }
+                break;
+            case 36:
+                {
+                alt8=5;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 7, 0, input);
+                    new NoViableAltException("", 8, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt7) {
+            switch (alt8) {
                 case 1 :
-                    // InternalVideoAnnotationsDSL.g:593:5: lv_focus_0_1= 'R'
+                    // InternalVideoAnnotationsDSL.g:621:5: lv_focus_0_1= 'R'
                     {
-                    lv_focus_0_1=(Token)match(input,31,FOLLOW_2); 
+                    lv_focus_0_1=(Token)match(input,32,FOLLOW_2); 
 
                     					newLeafNode(lv_focus_0_1, grammarAccess.getFocusAccess().getFocusRKeyword_0_0());
                     				
@@ -1406,9 +1461,9 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 2 :
-                    // InternalVideoAnnotationsDSL.g:604:5: lv_focus_0_2= 'S'
+                    // InternalVideoAnnotationsDSL.g:632:5: lv_focus_0_2= 'S'
                     {
-                    lv_focus_0_2=(Token)match(input,32,FOLLOW_2); 
+                    lv_focus_0_2=(Token)match(input,33,FOLLOW_2); 
 
                     					newLeafNode(lv_focus_0_2, grammarAccess.getFocusAccess().getFocusSKeyword_0_1());
                     				
@@ -1422,9 +1477,9 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 3 :
-                    // InternalVideoAnnotationsDSL.g:615:5: lv_focus_0_3= 'G'
+                    // InternalVideoAnnotationsDSL.g:643:5: lv_focus_0_3= 'G'
                     {
-                    lv_focus_0_3=(Token)match(input,33,FOLLOW_2); 
+                    lv_focus_0_3=(Token)match(input,34,FOLLOW_2); 
 
                     					newLeafNode(lv_focus_0_3, grammarAccess.getFocusAccess().getFocusGKeyword_0_2());
                     				
@@ -1438,9 +1493,9 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 4 :
-                    // InternalVideoAnnotationsDSL.g:626:5: lv_focus_0_4= 'V'
+                    // InternalVideoAnnotationsDSL.g:654:5: lv_focus_0_4= 'V'
                     {
-                    lv_focus_0_4=(Token)match(input,34,FOLLOW_2); 
+                    lv_focus_0_4=(Token)match(input,35,FOLLOW_2); 
 
                     					newLeafNode(lv_focus_0_4, grammarAccess.getFocusAccess().getFocusVKeyword_0_3());
                     				
@@ -1454,9 +1509,9 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
                     }
                     break;
                 case 5 :
-                    // InternalVideoAnnotationsDSL.g:637:5: lv_focus_0_5= 'A'
+                    // InternalVideoAnnotationsDSL.g:665:5: lv_focus_0_5= 'A'
                     {
-                    lv_focus_0_5=(Token)match(input,35,FOLLOW_2); 
+                    lv_focus_0_5=(Token)match(input,36,FOLLOW_2); 
 
                     					newLeafNode(lv_focus_0_5, grammarAccess.getFocusAccess().getFocusAKeyword_0_4());
                     				
@@ -1498,7 +1553,7 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "entryRuleTime"
-    // InternalVideoAnnotationsDSL.g:653:1: entryRuleTime returns [EObject current=null] : iv_ruleTime= ruleTime EOF ;
+    // InternalVideoAnnotationsDSL.g:681:1: entryRuleTime returns [EObject current=null] : iv_ruleTime= ruleTime EOF ;
     public final EObject entryRuleTime() throws RecognitionException {
         EObject current = null;
 
@@ -1506,8 +1561,8 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
 
 
         try {
-            // InternalVideoAnnotationsDSL.g:653:45: (iv_ruleTime= ruleTime EOF )
-            // InternalVideoAnnotationsDSL.g:654:2: iv_ruleTime= ruleTime EOF
+            // InternalVideoAnnotationsDSL.g:681:45: (iv_ruleTime= ruleTime EOF )
+            // InternalVideoAnnotationsDSL.g:682:2: iv_ruleTime= ruleTime EOF
             {
              newCompositeNode(grammarAccess.getTimeRule()); 
             pushFollow(FOLLOW_1);
@@ -1534,7 +1589,7 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
 
 
     // $ANTLR start "ruleTime"
-    // InternalVideoAnnotationsDSL.g:660:1: ruleTime returns [EObject current=null] : ( (lv_sec_0_0= RULE_INT ) ) ;
+    // InternalVideoAnnotationsDSL.g:688:1: ruleTime returns [EObject current=null] : ( (lv_sec_0_0= RULE_INT ) ) ;
     public final EObject ruleTime() throws RecognitionException {
         EObject current = null;
 
@@ -1544,14 +1599,14 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
         	enterRule();
 
         try {
-            // InternalVideoAnnotationsDSL.g:666:2: ( ( (lv_sec_0_0= RULE_INT ) ) )
-            // InternalVideoAnnotationsDSL.g:667:2: ( (lv_sec_0_0= RULE_INT ) )
+            // InternalVideoAnnotationsDSL.g:694:2: ( ( (lv_sec_0_0= RULE_INT ) ) )
+            // InternalVideoAnnotationsDSL.g:695:2: ( (lv_sec_0_0= RULE_INT ) )
             {
-            // InternalVideoAnnotationsDSL.g:667:2: ( (lv_sec_0_0= RULE_INT ) )
-            // InternalVideoAnnotationsDSL.g:668:3: (lv_sec_0_0= RULE_INT )
+            // InternalVideoAnnotationsDSL.g:695:2: ( (lv_sec_0_0= RULE_INT ) )
+            // InternalVideoAnnotationsDSL.g:696:3: (lv_sec_0_0= RULE_INT )
             {
-            // InternalVideoAnnotationsDSL.g:668:3: (lv_sec_0_0= RULE_INT )
-            // InternalVideoAnnotationsDSL.g:669:4: lv_sec_0_0= RULE_INT
+            // InternalVideoAnnotationsDSL.g:696:3: (lv_sec_0_0= RULE_INT )
+            // InternalVideoAnnotationsDSL.g:697:4: lv_sec_0_0= RULE_INT
             {
             lv_sec_0_0=(Token)match(input,RULE_INT,FOLLOW_2); 
 
@@ -1605,12 +1660,14 @@ public class InternalVideoAnnotationsDSLParser extends AbstractInternalAntlrPars
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000004000L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000007FE0000L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000078000000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000F80000000L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x000000000FFC0000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x00000000F0000000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000001F00000000L});
     public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000018000L});
     public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000000042L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000020002L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000000042L});
 
 }

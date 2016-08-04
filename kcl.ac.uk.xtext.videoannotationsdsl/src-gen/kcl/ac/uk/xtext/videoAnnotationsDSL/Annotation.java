@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation#getContentLabel <em>Content Label</em>}</li>
  *   <li>{@link kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation#getContent <em>Content</em>}</li>
  *   <li>{@link kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation#getTarget <em>Target</em>}</li>
+ *   <li>{@link kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation#getComment <em>Comment</em>}</li>
  * </ul>
  *
  * @see kcl.ac.uk.xtext.videoAnnotationsDSL.VideoAnnotationsDSLPackage#getAnnotation()
@@ -291,5 +292,31 @@ public interface Annotation extends EObject
    * @generated
    */
   void setTarget(Annotation value);
+
+  /**
+   * Returns the value of the '<em><b>Comment</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Comment</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Comment</em>' attribute.
+   * @see #setComment(String)
+   * @see kcl.ac.uk.xtext.videoAnnotationsDSL.VideoAnnotationsDSLPackage#getAnnotation_Comment()
+   * @model
+   * @generated
+   */
+  String getComment();
+
+  /**
+   * Sets the value of the '{@link kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation#getComment <em>Comment</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Comment</em>' attribute.
+   * @see #getComment()
+   * @generated
+   */
+  void setComment(String value);
 
 } // Annotation

@@ -76,6 +76,11 @@ public class VideoAnnotationsDSLGrammarAccess extends AbstractGrammarElementFind
 		private final CrossReference cTargetAnnotationCrossReference_18_1_0 = (CrossReference)cTargetAssignment_18_1.eContents().get(0);
 		private final RuleCall cTargetAnnotationIDTerminalRuleCall_18_1_0_1 = (RuleCall)cTargetAnnotationCrossReference_18_1_0.eContents().get(1);
 		private final Keyword cRightParenthesisKeyword_19 = (Keyword)cGroup.eContents().get(19);
+		private final Group cGroup_20 = (Group)cGroup.eContents().get(20);
+		private final Keyword cNumberSignKeyword_20_0 = (Keyword)cGroup_20.eContents().get(0);
+		private final Assignment cCommentAssignment_20_1 = (Assignment)cGroup_20.eContents().get(1);
+		private final RuleCall cCommentSTRINGTerminalRuleCall_20_1_0 = (RuleCall)cCommentAssignment_20_1.eContents().get(0);
+		private final Keyword cNumberSignKeyword_20_2 = (Keyword)cGroup_20.eContents().get(2);
 		
 		//Annotation:
 		//	'from' fromTime=Time 'to' toTime=Time
@@ -87,11 +92,11 @@ public class VideoAnnotationsDSLGrammarAccess extends AbstractGrammarElementFind
 		//	focus=Focus ',' (contentLabel=STRING ',')?
 		//	content=STRING (','
 		//	target=[Annotation])?
-		//	')';
+		//	')' ('#' comment=STRING '#')?;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'from' fromTime=Time 'to' toTime=Time 'annotate' '(' name=ID ',' sender=Sender ',' type=Move ',' scope=Scope ','
-		//focus=Focus ',' (contentLabel=STRING ',')? content=STRING (',' target=[Annotation])? ')'
+		//focus=Focus ',' (contentLabel=STRING ',')? content=STRING (',' target=[Annotation])? ')' ('#' comment=STRING '#')?
 		public Group getGroup() { return cGroup; }
 		
 		//'from'
@@ -198,6 +203,21 @@ public class VideoAnnotationsDSLGrammarAccess extends AbstractGrammarElementFind
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_19() { return cRightParenthesisKeyword_19; }
+		
+		//('#' comment=STRING '#')?
+		public Group getGroup_20() { return cGroup_20; }
+		
+		//'#'
+		public Keyword getNumberSignKeyword_20_0() { return cNumberSignKeyword_20_0; }
+		
+		//comment=STRING
+		public Assignment getCommentAssignment_20_1() { return cCommentAssignment_20_1; }
+		
+		//STRING
+		public RuleCall getCommentSTRINGTerminalRuleCall_20_1_0() { return cCommentSTRINGTerminalRuleCall_20_1_0; }
+		
+		//'#'
+		public Keyword getNumberSignKeyword_20_2() { return cNumberSignKeyword_20_2; }
 	}
 	public class SenderElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "kcl.ac.uk.xtext.VideoAnnotationsDSL.Sender");
@@ -424,7 +444,7 @@ public class VideoAnnotationsDSLGrammarAccess extends AbstractGrammarElementFind
 	//	focus=Focus ',' (contentLabel=STRING ',')?
 	//	content=STRING (','
 	//	target=[Annotation])?
-	//	')';
+	//	')' ('#' comment=STRING '#')?;
 	public AnnotationElements getAnnotationAccess() {
 		return pAnnotation;
 	}

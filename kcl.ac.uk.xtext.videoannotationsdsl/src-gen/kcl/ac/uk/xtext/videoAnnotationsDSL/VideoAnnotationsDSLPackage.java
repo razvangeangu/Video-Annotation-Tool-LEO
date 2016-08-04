@@ -186,13 +186,22 @@ public interface VideoAnnotationsDSLPackage extends EPackage
   int ANNOTATION__TARGET = 9;
 
   /**
+   * The feature id for the '<em><b>Comment</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ANNOTATION__COMMENT = 10;
+
+  /**
    * The number of structural features of the '<em>Annotation</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ANNOTATION_FEATURE_COUNT = 10;
+  int ANNOTATION_FEATURE_COUNT = 11;
 
   /**
    * The meta object id for the '{@link kcl.ac.uk.xtext.videoAnnotationsDSL.impl.MoveImpl <em>Move</em>}' class.
@@ -449,6 +458,17 @@ public interface VideoAnnotationsDSLPackage extends EPackage
   EReference getAnnotation_Target();
 
   /**
+   * Returns the meta object for the attribute '{@link kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation#getComment <em>Comment</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Comment</em>'.
+   * @see kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation#getComment()
+   * @see #getAnnotation()
+   * @generated
+   */
+  EAttribute getAnnotation_Comment();
+
+  /**
    * Returns the meta object for class '{@link kcl.ac.uk.xtext.videoAnnotationsDSL.Move <em>Move</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -662,6 +682,14 @@ public interface VideoAnnotationsDSLPackage extends EPackage
      * @generated
      */
     EReference ANNOTATION__TARGET = eINSTANCE.getAnnotation_Target();
+
+    /**
+     * The meta object literal for the '<em><b>Comment</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ANNOTATION__COMMENT = eINSTANCE.getAnnotation_Comment();
 
     /**
      * The meta object literal for the '{@link kcl.ac.uk.xtext.videoAnnotationsDSL.impl.MoveImpl <em>Move</em>}' class.

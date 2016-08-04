@@ -37,6 +37,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link kcl.ac.uk.xtext.videoAnnotationsDSL.impl.AnnotationImpl#getContentLabel <em>Content Label</em>}</li>
  *   <li>{@link kcl.ac.uk.xtext.videoAnnotationsDSL.impl.AnnotationImpl#getContent <em>Content</em>}</li>
  *   <li>{@link kcl.ac.uk.xtext.videoAnnotationsDSL.impl.AnnotationImpl#getTarget <em>Target</em>}</li>
+ *   <li>{@link kcl.ac.uk.xtext.videoAnnotationsDSL.impl.AnnotationImpl#getComment <em>Comment</em>}</li>
  * </ul>
  *
  * @generated
@@ -182,6 +183,26 @@ public class AnnotationImpl extends MinimalEObjectImpl.Container implements Anno
    * @ordered
    */
   protected Annotation target;
+
+  /**
+   * The default value of the '{@link #getComment() <em>Comment</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getComment()
+   * @generated
+   * @ordered
+   */
+  protected static final String COMMENT_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getComment() <em>Comment</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getComment()
+   * @generated
+   * @ordered
+   */
+  protected String comment = COMMENT_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -584,6 +605,29 @@ public class AnnotationImpl extends MinimalEObjectImpl.Container implements Anno
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getComment()
+  {
+    return comment;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setComment(String newComment)
+  {
+    String oldComment = comment;
+    comment = newComment;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, VideoAnnotationsDSLPackage.ANNOTATION__COMMENT, oldComment, comment));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -634,6 +678,8 @@ public class AnnotationImpl extends MinimalEObjectImpl.Container implements Anno
       case VideoAnnotationsDSLPackage.ANNOTATION__TARGET:
         if (resolve) return getTarget();
         return basicGetTarget();
+      case VideoAnnotationsDSLPackage.ANNOTATION__COMMENT:
+        return getComment();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -677,6 +723,9 @@ public class AnnotationImpl extends MinimalEObjectImpl.Container implements Anno
         return;
       case VideoAnnotationsDSLPackage.ANNOTATION__TARGET:
         setTarget((Annotation)newValue);
+        return;
+      case VideoAnnotationsDSLPackage.ANNOTATION__COMMENT:
+        setComment((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -722,6 +771,9 @@ public class AnnotationImpl extends MinimalEObjectImpl.Container implements Anno
       case VideoAnnotationsDSLPackage.ANNOTATION__TARGET:
         setTarget((Annotation)null);
         return;
+      case VideoAnnotationsDSLPackage.ANNOTATION__COMMENT:
+        setComment(COMMENT_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -756,6 +808,8 @@ public class AnnotationImpl extends MinimalEObjectImpl.Container implements Anno
         return CONTENT_EDEFAULT == null ? content != null : !CONTENT_EDEFAULT.equals(content);
       case VideoAnnotationsDSLPackage.ANNOTATION__TARGET:
         return target != null;
+      case VideoAnnotationsDSLPackage.ANNOTATION__COMMENT:
+        return COMMENT_EDEFAULT == null ? comment != null : !COMMENT_EDEFAULT.equals(comment);
     }
     return super.eIsSet(featureID);
   }
@@ -779,6 +833,8 @@ public class AnnotationImpl extends MinimalEObjectImpl.Container implements Anno
     result.append(contentLabel);
     result.append(", content: ");
     result.append(content);
+    result.append(", comment: ");
+    result.append(comment);
     result.append(')');
     return result.toString();
   }
