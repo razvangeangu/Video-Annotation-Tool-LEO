@@ -14,7 +14,7 @@ class AnnotationRenderer {
 	}
 	
 	def render(Annotation annotation) '''
-	  from «annotation.fromTime.sec» to «annotation.toTime.sec» «annotation.renderWithoutTimes»
+		from «annotation.fromTime.sec» to «annotation.toTime.sec» «annotation.renderWithoutTimes»
 	'''
 	
 	def renderWithoutTimes (Annotation annotation) '''

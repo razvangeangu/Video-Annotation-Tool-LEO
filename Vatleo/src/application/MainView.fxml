@@ -55,7 +55,7 @@
                         <Insets left="10.0" />
                      </HBox.margin>
                   </TextField>
-                  <Button fx:id="addAnnotationButton" mnemonicParsing="false" onAction="#addAnnotation" text="Add Annotation">
+                  <Button fx:id="addAnnotationButton" mnemonicParsing="false" text="Add Annotation">
                      <HBox.margin>
                         <Insets bottom="7.0" left="10.0" />
                      </HBox.margin>
