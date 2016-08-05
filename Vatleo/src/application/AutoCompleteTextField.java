@@ -80,14 +80,23 @@ public class AutoCompleteTextField extends TextField {
 							break;
 						}
 						case 5: {
-							entries = contentLabelEntries;
-						}
-						case 6: {
-							entries = contentEntries;
+							if (contentLabelEntries.isEmpty()) {
+								entries.clear();
+							} else {
+								entries = contentLabelEntries;
+							}
 							break;
 						}
 						case 7: {
-							entries = targetEntries;
+							if (targetEntries.isEmpty()) {
+								entries.clear();
+							} else {
+								entries = targetEntries;
+							}
+							break;
+						}
+						default: {
+							entries.clear();
 							break;
 						}
 					}
@@ -123,7 +132,7 @@ public class AutoCompleteTextField extends TextField {
 	private void populatePopup(List<String> searchResult) {
 		List<CustomMenuItem> menuItems = new LinkedList<>();
 		
-		int maxEntries = 20;
+		int maxEntries = 15;
 		int count = Math.min(searchResult.size(), maxEntries);
 		for (int i = 0; i < count; i++) {
 			final String result = searchResult.get(i);

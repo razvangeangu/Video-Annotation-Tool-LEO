@@ -90,7 +90,9 @@ public class AnnotationCompletion {
       boolean _notEquals = (!Objects.equal(_contentLabel, null));
       if (_notEquals) {
         String _contentLabel_1 = ann.getContentLabel();
-        list.add(_contentLabel_1);
+        String _plus = ("\"" + _contentLabel_1);
+        String _plus_1 = (_plus + "\"");
+        list.add(_plus_1);
       }
     };
     _annotations.forEach(_function);

@@ -381,6 +381,21 @@ public class MainViewController implements Initializable {
 				showSaveAsDialog();
 			}
 		});
+		
+		addAnnotationButton.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent event) {
+				
+				if (fromTime.getText().isEmpty()) {
+					fromTime.setText(timeStamp.getText());
+				} else if (toTime.getText().isEmpty()) {
+					toTime.setText(timeStamp.getText());
+				} else {
+					addAnnotation();
+				}
+			}
+		});
 
 		editAnnotationCheckMenuItem.setOnAction(new EventHandler<ActionEvent>() {
 			
@@ -396,7 +411,7 @@ public class MainViewController implements Initializable {
 						public void handle(ActionEvent event) {
 							Annotation annotationToBeRemoved = tableView.getSelectionModel().getSelectedItem();
 							annotationsDSL = annotationsDSL.trim();
-							annotationsDSL = annotationsDSL.replace(getStringDSL(annotationToBeRemoved).trim(), "");
+							annotationsDSL = annotationsDSL.replace(getStringDSL(annotationToBeRemoved).replaceAll("\\s*,\\s*", ", ").trim(), "");
 							addAnnotation();
 						}
 					});
@@ -408,7 +423,13 @@ public class MainViewController implements Initializable {
 						@Override
 						public void handle(ActionEvent event) {
 							
-							addAnnotation();
+							if (fromTime.getText().isEmpty()) {
+								fromTime.setText(timeStamp.getText());
+							} else if (toTime.getText().isEmpty()) {
+								toTime.setText(timeStamp.getText());
+							} else {
+								addAnnotation();
+							}
 						}
 					});
 				}
@@ -447,11 +468,11 @@ public class MainViewController implements Initializable {
         	
 			@Override
 			public void handle(ActionEvent event) {
-				TextInputDialog dialog = new TextInputDialog("");
+				TextInputDialog dialog = new TextInputDialog(tableView.getSelectionModel().getSelectedItem().getComment());
 				dialog.setTitle("Add comment");
 				dialog.setHeaderText("Comment an annotation");
 				dialog.setContentText("Please enter your comment:");
-
+				
 				Optional<String> result = dialog.showAndWait();
 				if (result.isPresent()){
 					Annotation selectedAnnotation = tableView.getSelectionModel().getSelectedItem();
@@ -589,6 +610,8 @@ public class MainViewController implements Initializable {
         catch(IOException ex) {
             System.out.println("Error reading file '" + filePath + "'");
         }
+        
+        updateCodeCompletion();
 
 		return annotations;
 	}
@@ -649,7 +672,7 @@ public class MainViewController implements Initializable {
 		if (fromTime.getText().isEmpty() || toTime.getText().isEmpty() || textField.getText().isEmpty()) {
 			showErrorDialog("Error!", "Fields cannot be empty!", "An annotation must have a time to begin, a time to end and a content in the specified format.", null);
 		} else {
-			String testString = "from " + convertTimeToSec(fromTime.getText()) + " to " + convertTimeToSec(toTime.getText()) + " annotate (" + textField.getText() + ") ";
+			String testString = " from " + convertTimeToSec(fromTime.getText()) + " to " + convertTimeToSec(toTime.getText()) + " annotate (" + textField.getText().trim().replaceAll("\\s*,\\s*", ", ") + ") ";
 			
 			try {
 				anAnnotatedVideo = (AnnotatedVideo) parser.parse(annotationsDSL += testString);

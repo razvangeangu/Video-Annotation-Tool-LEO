@@ -51,7 +51,7 @@ class AnnotationCompletion {
 	def getContentLabel(AnnotatedVideo video) {
 		val list = newArrayList
 		
-		video.annotations.forEach([ann | if (ann.contentLabel != null) { list.add(ann.contentLabel) }])
+		video.annotations.forEach([ann | if (ann.contentLabel != null) { list.add("\"" + ann.contentLabel + "\"") }])
 		return list
 	}
 	
