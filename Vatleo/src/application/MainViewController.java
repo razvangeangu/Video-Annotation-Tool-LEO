@@ -56,6 +56,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
@@ -814,13 +815,103 @@ public class MainViewController implements Initializable {
 	 */
 	public void showContentDialog() {
     	final Stage dialog = new Stage();
-        VBox dialogVbox = new VBox(20);
         int index = tableView.getSelectionModel().getSelectedIndex();
         
         dialog.initModality(Modality.APPLICATION_MODAL);
-        dialogVbox.getChildren().add(new Text(getStringDSL(annotations.get(index))));
-        Scene dialogScene = new Scene(dialogVbox, 300, 200);
+        
+        Label idLabel = new Label("ID:");
+        idLabel.setAlignment(Pos.BOTTOM_LEFT);
+        idLabel.setMinWidth(100);
+        Text idText = new Text(annotations.get(index).getName());
+        idText.minWidth(200);
+        idText.maxWidth(200);
+        HBox idPane = new HBox(20, idLabel, idText);
+        idPane.setPadding(new Insets(5));
+        
+        Label senderLabel = new Label("Sender:");
+        senderLabel.setAlignment(Pos.BOTTOM_LEFT);
+        senderLabel.setMinWidth(100);
+        Text senderText = new Text(annotations.get(index).getSender());
+        senderText.minWidth(200);
+        senderText.maxWidth(200);
+        HBox senderPane = new HBox(20, senderLabel, senderText);
+        senderPane.setPadding(new Insets(5));
+        
+        Label typeLabel = new Label("Type:");
+        typeLabel.setAlignment(Pos.BOTTOM_LEFT);
+        typeLabel.setMinWidth(100);
+        Text typeText = new Text(annotations.get(index).getType().getType());
+        typeText.minWidth(200);
+        typeText.maxWidth(200);
+        HBox typePane = new HBox(20, typeLabel, typeText);
+        typePane.setPadding(new Insets(5));
+
+        Label scopeLabel = new Label("Scope:");
+        scopeLabel.setAlignment(Pos.BOTTOM_LEFT);
+        scopeLabel.setMinWidth(100);
+        Text scopeText = new Text(annotations.get(index).getScope().getScope());
+        scopeText.minWidth(200);
+        scopeText.maxWidth(200);
+        HBox scopePane = new HBox(20, scopeLabel, scopeText);
+        scopePane.setPadding(new Insets(5));
+
+        Label focusLabel = new Label("Focus:");
+        focusLabel.setAlignment(Pos.BOTTOM_LEFT);
+        focusLabel.setMinWidth(100);
+        Text focusText = new Text(annotations.get(index).getFocus().getFocus());
+        focusText.minWidth(200);
+        focusText.maxWidth(200);
+        HBox focusPane = new HBox(20, focusLabel, focusText);
+        focusPane.setPadding(new Insets(5));
+        
+        Label contentLLabel = new Label("Content label:");
+        contentLLabel.setAlignment(Pos.BOTTOM_LEFT);
+        contentLLabel.setMinWidth(100);
+        Text contentLabelText = new Text(annotations.get(index).getContentLabel());
+        contentLabelText.minWidth(200);
+        contentLabelText.maxWidth(200);
+        HBox contentLabelPane = new HBox(20, contentLLabel, contentLabelText);
+        contentLabelPane.setPadding(new Insets(5));
+        
+        Label contentLabel = new Label("Content:");
+        contentLabel.setAlignment(Pos.BOTTOM_LEFT);
+        contentLabel.setMinWidth(100);
+        Text contentText = new Text(annotations.get(index).getContent());
+        contentText.minWidth(200);
+        contentText.maxWidth(200);
+        HBox contentPane = new HBox(20, contentLabel, contentText);
+        contentPane.setPadding(new Insets(5));
+        
+        Label targetLabel = new Label("Target:");
+        targetLabel.setAlignment(Pos.BOTTOM_LEFT);
+        targetLabel.setMinWidth(100);
+        Text targetText;
+        if (annotations.get(index).getTarget() != null) {
+        	targetText = new Text(annotations.get(index).getTarget().getName());
+        } else {
+        	targetText = new Text("null");
+        }
+        targetText.minWidth(200);
+        targetText.maxWidth(200);
+        HBox targetPane = new HBox(20, targetLabel, targetText);
+        targetPane.setPadding(new Insets(5));
+        
+        Label commentLabel = new Label("Comment:");
+        commentLabel.setAlignment(Pos.BOTTOM_LEFT);
+        commentLabel.setMinWidth(100);
+        Text commentText = new Text(annotations.get(index).getComment());
+        commentText.minWidth(200);
+        commentText.maxWidth(200);
+        commentText.setWrappingWidth(200);
+        HBox commentPane = new HBox(20, commentLabel, commentText);
+        commentPane.setPadding(new Insets(5));
+        
+        VBox pane = new VBox(5, idPane, senderPane, typePane, scopePane, focusPane, contentLabelPane, contentPane, targetPane, commentPane);
+        
+        Scene dialogScene = new Scene(pane);
         dialog.setScene(dialogScene);
+        dialog.setMinHeight(300);
+        dialog.setMinWidth(350);
         dialog.show();
 	}
 	
