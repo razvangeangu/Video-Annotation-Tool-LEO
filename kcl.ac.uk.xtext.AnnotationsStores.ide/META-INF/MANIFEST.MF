@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: kcl.ac.uk.xtext.AnnotationsStores.ide
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: kcl.ac.uk.xtext.AnnotationsStores.ide; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: kcl.ac.uk.xtext.AnnotationsStores,
+ org.eclipse.xtext.ide,
+ org.eclipse.xtext.xbase.ide
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: kcl.ac.uk.xtext.ide.contentassist.antlr.internal,
+ kcl.ac.uk.xtext.ide.contentassist.antlr
+
