@@ -1,0 +1,67 @@
+grammar kcl.ac.uk.xtext.AnnotationsStores with org.eclipse.xtext.common.Terminals
+
+generate annotationsStores "http://www.ac.kcl/uk/xtext/AnnotationsStores"
+
+AnnotationStores:
+	proposalElements+=ProposalStore*
+	questionElements+=QuestionStore*
+	challengeElements+=ChallengeStore*
+	commitmentElements+=CommitmentStore*
+	argumentElements+=ArgumentStore*
+;
+
+ProposalStore:
+	'proposalElement' '('
+		name=ID ','
+		scope=Scope ','
+		focus=Focus ','
+		content=STRING
+		')'
+;
+
+QuestionStore:
+	'questionElement' '('
+		name=ID ','
+		sender=Sender ','
+		scope=Scope ','
+		focus=Focus ','
+		content=STRING
+		')'
+;
+
+ChallengeStore:
+	'challengeElement' '('
+		name=ID ','
+		sender=Sender (','
+		target=[ProposalStore])?
+		')'
+;
+
+CommitmentStore:
+	'commitmentElement' '('
+		name=ID ','
+		scope=Scope ','
+		focus=Focus ','
+		content=STRING
+		')'
+;
+
+ArgumentStore:
+	'argumentElement' '('
+		name=ID ','
+		scope=Scope ','
+		focus=Focus ','
+		content=STRING (','
+		target=[ArgumentStore])? // TODO: what should be put here? maybe annotations?
+		')'
+;
+
+Scope: 
+	scope=('feature' | 'rating' | 'criteria' | 'topic');
+	
+Focus: 
+	focus=('R' | 'S' | 'G' | 'V' | 'A');
+	
+Sender:
+	INT+
+;

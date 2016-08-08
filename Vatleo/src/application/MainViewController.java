@@ -71,6 +71,7 @@ import javafx.util.Callback;
 import javafx.util.Duration;
 import kcl.ac.uk.xtext.generator.AnnotationCompletion;
 import kcl.ac.uk.xtext.generator.AnnotationRenderer;
+import kcl.ac.uk.xtext.interpreter.Interpreter;
 import kcl.ac.uk.xtext.videoAnnotationsDSL.AnnotatedVideo;
 import kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation;
 import kcl.ac.uk.xtext.videoAnnotationsDSL.VideoAnnotationsDSLFactory;
@@ -83,6 +84,7 @@ public class MainViewController implements Initializable {
 	@FXML private Button addAnnotationButton;
 	@FXML private Button backwardButton;
 	@FXML private Button forwardButton;
+	@FXML private Button interpretButton;
 	@FXML private TextField fromTime;
 	@FXML private TextField toTime;
 	@FXML private TextField timeStamp;
@@ -110,6 +112,7 @@ public class MainViewController implements Initializable {
 	private AnnotatedVideo anAnnotatedVideo;
 	private boolean toTimeFocused, fromTimeFocused;
 	private String annotationsDSL;
+	private Interpreter interpreter;
 		
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -188,6 +191,7 @@ public class MainViewController implements Initializable {
 		backwardButton.setDisable(true);
 		forwardButton.setDisable(true);
 		timeStamp.setDisable(true);
+		interpretButton.setDisable(true);
 
 		// Preserve the ratio of the video
 		DoubleProperty width = mediaView.fitWidthProperty();
@@ -361,6 +365,7 @@ public class MainViewController implements Initializable {
 					saveAnnotationsMenuItem.setDisable(false);
 					editAnnotationCheckMenuItem.setDisable(false);
 					viewAnnotationCheckMenuItem.setDisable(false);
+					interpretButton.setDisable(false);
 				}
 			}
 		});
@@ -435,6 +440,15 @@ public class MainViewController implements Initializable {
 					});
 				}
 			}
+		});
+		
+		interpretButton.setOnAction(new EventHandler<ActionEvent>(){
+
+			@Override
+			public void handle(ActionEvent event) {
+				interpreter.interpret(anAnnotatedVideo);
+			}
+			
 		});
 	}
 
@@ -687,6 +701,10 @@ public class MainViewController implements Initializable {
 				toTime.clear();
 				
 				updateCodeCompletion();
+				
+				if (annotations.size() > 2) {
+					interpretButton.setDisable(false);
+				}
 				
 				if (annotations.size() < 2 && dataFile == null) {
 					editAnnotationCheckMenuItem.setDisable(false);
@@ -1011,6 +1029,7 @@ public class MainViewController implements Initializable {
 		annotations = FXCollections.observableArrayList();
 		anAnnotatedVideo = VideoAnnotationsDSLFactory.eINSTANCE.createAnnotatedVideo();
 		tableView.setItems(annotations);
+		interpreter = new Interpreter();
 	}
 
 	/**

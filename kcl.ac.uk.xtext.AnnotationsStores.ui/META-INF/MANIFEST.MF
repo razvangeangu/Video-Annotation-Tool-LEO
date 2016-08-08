@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: kcl.ac.uk.xtext.AnnotationsStores.ui
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: kcl.ac.uk.xtext.AnnotationsStores.ui; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: kcl.ac.uk.xtext.AnnotationsStores,
+ kcl.ac.uk.xtext.AnnotationsStores.ide,
+ org.eclipse.xtext.ui,
+ org.eclipse.xtext.ui.shared,
+ org.eclipse.xtext.ui.codetemplates.ui,
+ org.eclipse.ui.editors;bundle-version="3.5.0",
+ org.eclipse.ui.ide;bundle-version="3.5.0",
+ org.eclipse.ui,
+ org.eclipse.compare,
+ org.eclipse.xtext.builder,
+ org.eclipse.xtend.lib;resolution:=optional,
+ org.eclipse.xtext.xbase.lib
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: kcl.ac.uk.xtext.ui.quickfix,
+ kcl.ac.uk.xtext.AnnotationsStores.ui.internal,
+ kcl.ac.uk.xtext.ui.contentassist
+Bundle-Activator: kcl.ac.uk.xtext.AnnotationsStores.ui.internal.AnnotationsStoresActivator
