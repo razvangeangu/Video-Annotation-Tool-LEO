@@ -23,7 +23,7 @@ Sender:
 	INT+;
 	
 Move: 
-	type=('propose' | 'question' | 'challenge' | 'justify' | 'withdraw' | 'accept' | 'reject' | 'commit' | 'counter' | 'uncommit');
+	type=('propose' | 'question' | 'challenge' | 'justify' | 'withdraw' | 'accept' | 'reject' | 'commit' | 'counter' | 'uncommit' | 'other');
 	
 Scope: 
 	scope=('feature' | 'rating' | 'criteria' | 'topic');

@@ -529,6 +529,17 @@ ruleMove returns [EObject current=null]
 					}
 					setWithLastConsumed($current, "type", lv_type_0_10, null);
 				}
+				    |
+				lv_type_0_11='other'
+				{
+					newLeafNode(lv_type_0_11, grammarAccess.getMoveAccess().getTypeOtherKeyword_0_10());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getMoveRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_11, null);
+				}
 			)
 		)
 	)

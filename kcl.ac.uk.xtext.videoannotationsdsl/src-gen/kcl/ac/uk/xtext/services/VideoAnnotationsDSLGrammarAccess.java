@@ -244,18 +244,19 @@ public class VideoAnnotationsDSLGrammarAccess extends AbstractGrammarElementFind
 		private final Keyword cTypeCommitKeyword_0_7 = (Keyword)cTypeAlternatives_0.eContents().get(7);
 		private final Keyword cTypeCounterKeyword_0_8 = (Keyword)cTypeAlternatives_0.eContents().get(8);
 		private final Keyword cTypeUncommitKeyword_0_9 = (Keyword)cTypeAlternatives_0.eContents().get(9);
+		private final Keyword cTypeOtherKeyword_0_10 = (Keyword)cTypeAlternatives_0.eContents().get(10);
 		
 		//Move:
 		//	type=('propose' | 'question' | 'challenge' | 'justify' | 'withdraw' | 'accept' | 'reject' | 'commit' | 'counter' |
-		//	'uncommit');
+		//	'uncommit' | 'other');
 		@Override public ParserRule getRule() { return rule; }
 		
 		//type=('propose' | 'question' | 'challenge' | 'justify' | 'withdraw' | 'accept' | 'reject' | 'commit' | 'counter' |
-		//'uncommit')
+		//'uncommit' | 'other')
 		public Assignment getTypeAssignment() { return cTypeAssignment; }
 		
-		//('propose' | 'question' | 'challenge' | 'justify' | 'withdraw' | 'accept' | 'reject' | 'commit' | 'counter' |
-		//'uncommit')
+		//('propose' | 'question' | 'challenge' | 'justify' | 'withdraw' | 'accept' | 'reject' | 'commit' | 'counter' | 'uncommit'
+		//| 'other')
 		public Alternatives getTypeAlternatives_0() { return cTypeAlternatives_0; }
 		
 		//'propose'
@@ -287,6 +288,9 @@ public class VideoAnnotationsDSLGrammarAccess extends AbstractGrammarElementFind
 		
 		//'uncommit'
 		public Keyword getTypeUncommitKeyword_0_9() { return cTypeUncommitKeyword_0_9; }
+		
+		//'other'
+		public Keyword getTypeOtherKeyword_0_10() { return cTypeOtherKeyword_0_10; }
 	}
 	public class ScopeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "kcl.ac.uk.xtext.VideoAnnotationsDSL.Scope");
@@ -465,7 +469,7 @@ public class VideoAnnotationsDSLGrammarAccess extends AbstractGrammarElementFind
 	
 	//Move:
 	//	type=('propose' | 'question' | 'challenge' | 'justify' | 'withdraw' | 'accept' | 'reject' | 'commit' | 'counter' |
-	//	'uncommit');
+	//	'uncommit' | 'other');
 	public MoveElements getMoveAccess() {
 		return pMove;
 	}
