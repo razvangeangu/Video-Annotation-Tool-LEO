@@ -295,6 +295,12 @@ rule__Move__TypeAlternatives_0
 		'uncommit'
 		{ after(grammarAccess.getMoveAccess().getTypeUncommitKeyword_0_9()); }
 	)
+	|
+	(
+		{ before(grammarAccess.getMoveAccess().getTypeOtherKeyword_0_10()); }
+		'other'
+		{ after(grammarAccess.getMoveAccess().getTypeOtherKeyword_0_10()); }
+	)
 ;
 finally {
 	restoreStackSize(stackSize);
