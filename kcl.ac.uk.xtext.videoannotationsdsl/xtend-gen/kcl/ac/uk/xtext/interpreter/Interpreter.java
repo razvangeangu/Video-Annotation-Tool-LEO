@@ -47,8 +47,8 @@ public class Interpreter {
           String _focus_1 = _focus.getFocus();
           String _plus_4 = (_plus_3 + _focus_1);
           String _plus_5 = (_plus_4 + ",\"");
-          String _content = a.getContent();
-          String _plus_6 = (_plus_5 + _content);
+          String _contentLabel = a.getContentLabel();
+          String _plus_6 = (_plus_5 + _contentLabel);
           String _plus_7 = (_plus_6 + "\")");
           AnnotationStores _parse = parser.parse(_plus_7);
           EList<ProposalStore> _proposalElements_2 = _parse.getProposalElements();
@@ -75,8 +75,8 @@ public class Interpreter {
           String _focus_3 = _focus_2.getFocus();
           String _plus_14 = (_plus_13 + _focus_3);
           String _plus_15 = (_plus_14 + ",\"");
-          String _content_1 = a.getContent();
-          String _plus_16 = (_plus_15 + _content_1);
+          String _contentLabel_1 = a.getContentLabel();
+          String _plus_16 = (_plus_15 + _contentLabel_1);
           String _plus_17 = (_plus_16 + "\"");
           String _plus_18 = (_plus_17 + ")");
           AnnotationStores _parse_1 = parser.parse(_plus_18);
@@ -122,8 +122,8 @@ public class Interpreter {
           String _focus_5 = _focus_4.getFocus();
           String _plus_29 = (_plus_28 + _focus_5);
           String _plus_30 = (_plus_29 + ",\"");
-          String _content_2 = a.getContent();
-          String _plus_31 = (_plus_30 + _content_2);
+          String _contentLabel_2 = a.getContentLabel();
+          String _plus_31 = (_plus_30 + _contentLabel_2);
           String _plus_32 = (_plus_31 + "\"");
           String _plus_33 = (_plus_32 + ")");
           AnnotationStores _parse_3 = parser.parse(_plus_33);
@@ -148,8 +148,8 @@ public class Interpreter {
           String _focus_7 = _focus_6.getFocus();
           String _plus_38 = (_plus_37 + _focus_7);
           String _plus_39 = (_plus_38 + ",\"");
-          String _content_3 = a.getContent();
-          String _plus_40 = (_plus_39 + _content_3);
+          String _contentLabel_3 = a.getContentLabel();
+          String _plus_40 = (_plus_39 + _contentLabel_3);
           String _plus_41 = (_plus_40 + "\"");
           String _plus_42 = (_plus_41 + ")");
           AnnotationStores _parse_4 = parser.parse(_plus_42);
@@ -174,8 +174,8 @@ public class Interpreter {
           String _focus_9 = _focus_8.getFocus();
           String _plus_47 = (_plus_46 + _focus_9);
           String _plus_48 = (_plus_47 + ",\"");
-          String _content_4 = a.getContent();
-          String _plus_49 = (_plus_48 + _content_4);
+          String _contentLabel_4 = a.getContentLabel();
+          String _plus_49 = (_plus_48 + _contentLabel_4);
           String _plus_50 = (_plus_49 + "\"");
           String _plus_51 = (_plus_50 + ")");
           AnnotationStores _parse_5 = parser.parse(_plus_51);
