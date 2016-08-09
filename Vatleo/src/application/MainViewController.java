@@ -148,6 +148,9 @@ public class MainViewController implements Initializable {
 		updateCodeCompletion();
 	}
 
+	/**
+	 * Method to get the suggestions for the code completion
+	 */
 	private void updateCodeCompletion() {
 		textField.getIdEntries().clear();
 		textField.getSenderEntries().clear();
