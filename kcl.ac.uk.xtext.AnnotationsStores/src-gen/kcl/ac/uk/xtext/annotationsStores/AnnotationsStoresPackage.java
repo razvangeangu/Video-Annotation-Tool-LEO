@@ -269,7 +269,7 @@ public interface AnnotationsStoresPackage extends EPackage
   int CHALLENGE_STORE__SENDER = 1;
 
   /**
-   * The feature id for the '<em><b>Target</b></em>' reference.
+   * The feature id for the '<em><b>Target</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -388,7 +388,7 @@ public interface AnnotationsStoresPackage extends EPackage
   int ARGUMENT_STORE__CONTENT = 3;
 
   /**
-   * The feature id for the '<em><b>Target</b></em>' reference.
+   * The feature id for the '<em><b>Target</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -679,15 +679,15 @@ public interface AnnotationsStoresPackage extends EPackage
   EAttribute getChallengeStore_Sender();
 
   /**
-   * Returns the meta object for the reference '{@link kcl.ac.uk.xtext.annotationsStores.ChallengeStore#getTarget <em>Target</em>}'.
+   * Returns the meta object for the attribute '{@link kcl.ac.uk.xtext.annotationsStores.ChallengeStore#getTarget <em>Target</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Target</em>'.
+   * @return the meta object for the attribute '<em>Target</em>'.
    * @see kcl.ac.uk.xtext.annotationsStores.ChallengeStore#getTarget()
    * @see #getChallengeStore()
    * @generated
    */
-  EReference getChallengeStore_Target();
+  EAttribute getChallengeStore_Target();
 
   /**
    * Returns the meta object for class '{@link kcl.ac.uk.xtext.annotationsStores.CommitmentStore <em>Commitment Store</em>}'.
@@ -798,15 +798,15 @@ public interface AnnotationsStoresPackage extends EPackage
   EAttribute getArgumentStore_Content();
 
   /**
-   * Returns the meta object for the reference '{@link kcl.ac.uk.xtext.annotationsStores.ArgumentStore#getTarget <em>Target</em>}'.
+   * Returns the meta object for the attribute '{@link kcl.ac.uk.xtext.annotationsStores.ArgumentStore#getTarget <em>Target</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Target</em>'.
+   * @return the meta object for the attribute '<em>Target</em>'.
    * @see kcl.ac.uk.xtext.annotationsStores.ArgumentStore#getTarget()
    * @see #getArgumentStore()
    * @generated
    */
-  EReference getArgumentStore_Target();
+  EAttribute getArgumentStore_Target();
 
   /**
    * Returns the meta object for class '{@link kcl.ac.uk.xtext.annotationsStores.Scope <em>Scope</em>}'.
@@ -1042,12 +1042,12 @@ public interface AnnotationsStoresPackage extends EPackage
     EAttribute CHALLENGE_STORE__SENDER = eINSTANCE.getChallengeStore_Sender();
 
     /**
-     * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Target</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CHALLENGE_STORE__TARGET = eINSTANCE.getChallengeStore_Target();
+    EAttribute CHALLENGE_STORE__TARGET = eINSTANCE.getChallengeStore_Target();
 
     /**
      * The meta object literal for the '{@link kcl.ac.uk.xtext.annotationsStores.impl.CommitmentStoreImpl <em>Commitment Store</em>}' class.
@@ -1134,12 +1134,12 @@ public interface AnnotationsStoresPackage extends EPackage
     EAttribute ARGUMENT_STORE__CONTENT = eINSTANCE.getArgumentStore_Content();
 
     /**
-     * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Target</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ARGUMENT_STORE__TARGET = eINSTANCE.getArgumentStore_Target();
+    EAttribute ARGUMENT_STORE__TARGET = eINSTANCE.getArgumentStore_Target();
 
     /**
      * The meta object literal for the '{@link kcl.ac.uk.xtext.annotationsStores.impl.ScopeImpl <em>Scope</em>}' class.

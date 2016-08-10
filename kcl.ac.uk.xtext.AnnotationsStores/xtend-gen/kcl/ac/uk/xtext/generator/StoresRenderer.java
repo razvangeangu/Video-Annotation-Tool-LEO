@@ -111,9 +111,8 @@ public class StoresRenderer {
     String _sender = element.getSender();
     _builder.append(_sender, "");
     _builder.append(", ");
-    ProposalStore _target = element.getTarget();
-    String _name_1 = _target.getName();
-    _builder.append(_name_1, "");
+    String _target = element.getTarget();
+    _builder.append(_target, "");
     _builder.append(")");
     _builder.newLineIfNotEmpty();
     return _builder;
@@ -157,9 +156,8 @@ public class StoresRenderer {
     String _content = element.getContent();
     _builder.append(_content, "");
     _builder.append(", ");
-    ArgumentStore _target = element.getTarget();
-    String _name_1 = _target.getName();
-    _builder.append(_name_1, "");
+    String _target = element.getTarget();
+    _builder.append(_target, "");
     _builder.append(")");
     _builder.newLineIfNotEmpty();
     return _builder;

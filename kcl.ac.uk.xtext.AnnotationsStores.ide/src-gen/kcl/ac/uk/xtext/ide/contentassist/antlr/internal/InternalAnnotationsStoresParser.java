@@ -6477,29 +6477,21 @@ public class InternalAnnotationsStoresParser extends AbstractInternalContentAssi
 
 
     // $ANTLR start "rule__ChallengeStore__TargetAssignment_5_1"
-    // InternalAnnotationsStores.g:2189:1: rule__ChallengeStore__TargetAssignment_5_1 : ( ( RULE_ID ) ) ;
+    // InternalAnnotationsStores.g:2189:1: rule__ChallengeStore__TargetAssignment_5_1 : ( RULE_ID ) ;
     public final void rule__ChallengeStore__TargetAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsStores.g:2193:1: ( ( ( RULE_ID ) ) )
-            // InternalAnnotationsStores.g:2194:2: ( ( RULE_ID ) )
+            // InternalAnnotationsStores.g:2193:1: ( ( RULE_ID ) )
+            // InternalAnnotationsStores.g:2194:2: ( RULE_ID )
             {
-            // InternalAnnotationsStores.g:2194:2: ( ( RULE_ID ) )
-            // InternalAnnotationsStores.g:2195:3: ( RULE_ID )
+            // InternalAnnotationsStores.g:2194:2: ( RULE_ID )
+            // InternalAnnotationsStores.g:2195:3: RULE_ID
             {
-             before(grammarAccess.getChallengeStoreAccess().getTargetProposalStoreCrossReference_5_1_0()); 
-            // InternalAnnotationsStores.g:2196:3: ( RULE_ID )
-            // InternalAnnotationsStores.g:2197:4: RULE_ID
-            {
-             before(grammarAccess.getChallengeStoreAccess().getTargetProposalStoreIDTerminalRuleCall_5_1_0_1()); 
+             before(grammarAccess.getChallengeStoreAccess().getTargetIDTerminalRuleCall_5_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getChallengeStoreAccess().getTargetProposalStoreIDTerminalRuleCall_5_1_0_1()); 
-
-            }
-
-             after(grammarAccess.getChallengeStoreAccess().getTargetProposalStoreCrossReference_5_1_0()); 
+             after(grammarAccess.getChallengeStoreAccess().getTargetIDTerminalRuleCall_5_1_0()); 
 
             }
 
@@ -6522,17 +6514,17 @@ public class InternalAnnotationsStoresParser extends AbstractInternalContentAssi
 
 
     // $ANTLR start "rule__CommitmentStore__NameAssignment_2"
-    // InternalAnnotationsStores.g:2208:1: rule__CommitmentStore__NameAssignment_2 : ( RULE_ID ) ;
+    // InternalAnnotationsStores.g:2204:1: rule__CommitmentStore__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__CommitmentStore__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsStores.g:2212:1: ( ( RULE_ID ) )
-            // InternalAnnotationsStores.g:2213:2: ( RULE_ID )
+            // InternalAnnotationsStores.g:2208:1: ( ( RULE_ID ) )
+            // InternalAnnotationsStores.g:2209:2: ( RULE_ID )
             {
-            // InternalAnnotationsStores.g:2213:2: ( RULE_ID )
-            // InternalAnnotationsStores.g:2214:3: RULE_ID
+            // InternalAnnotationsStores.g:2209:2: ( RULE_ID )
+            // InternalAnnotationsStores.g:2210:3: RULE_ID
             {
              before(grammarAccess.getCommitmentStoreAccess().getNameIDTerminalRuleCall_2_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -6559,17 +6551,17 @@ public class InternalAnnotationsStoresParser extends AbstractInternalContentAssi
 
 
     // $ANTLR start "rule__CommitmentStore__ScopeAssignment_4"
-    // InternalAnnotationsStores.g:2223:1: rule__CommitmentStore__ScopeAssignment_4 : ( ruleScope ) ;
+    // InternalAnnotationsStores.g:2219:1: rule__CommitmentStore__ScopeAssignment_4 : ( ruleScope ) ;
     public final void rule__CommitmentStore__ScopeAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsStores.g:2227:1: ( ( ruleScope ) )
-            // InternalAnnotationsStores.g:2228:2: ( ruleScope )
+            // InternalAnnotationsStores.g:2223:1: ( ( ruleScope ) )
+            // InternalAnnotationsStores.g:2224:2: ( ruleScope )
             {
-            // InternalAnnotationsStores.g:2228:2: ( ruleScope )
-            // InternalAnnotationsStores.g:2229:3: ruleScope
+            // InternalAnnotationsStores.g:2224:2: ( ruleScope )
+            // InternalAnnotationsStores.g:2225:3: ruleScope
             {
              before(grammarAccess.getCommitmentStoreAccess().getScopeScopeParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -6600,17 +6592,17 @@ public class InternalAnnotationsStoresParser extends AbstractInternalContentAssi
 
 
     // $ANTLR start "rule__CommitmentStore__FocusAssignment_6"
-    // InternalAnnotationsStores.g:2238:1: rule__CommitmentStore__FocusAssignment_6 : ( ruleFocus ) ;
+    // InternalAnnotationsStores.g:2234:1: rule__CommitmentStore__FocusAssignment_6 : ( ruleFocus ) ;
     public final void rule__CommitmentStore__FocusAssignment_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsStores.g:2242:1: ( ( ruleFocus ) )
-            // InternalAnnotationsStores.g:2243:2: ( ruleFocus )
+            // InternalAnnotationsStores.g:2238:1: ( ( ruleFocus ) )
+            // InternalAnnotationsStores.g:2239:2: ( ruleFocus )
             {
-            // InternalAnnotationsStores.g:2243:2: ( ruleFocus )
-            // InternalAnnotationsStores.g:2244:3: ruleFocus
+            // InternalAnnotationsStores.g:2239:2: ( ruleFocus )
+            // InternalAnnotationsStores.g:2240:3: ruleFocus
             {
              before(grammarAccess.getCommitmentStoreAccess().getFocusFocusParserRuleCall_6_0()); 
             pushFollow(FOLLOW_2);
@@ -6641,17 +6633,17 @@ public class InternalAnnotationsStoresParser extends AbstractInternalContentAssi
 
 
     // $ANTLR start "rule__CommitmentStore__ContentAssignment_8"
-    // InternalAnnotationsStores.g:2253:1: rule__CommitmentStore__ContentAssignment_8 : ( RULE_STRING ) ;
+    // InternalAnnotationsStores.g:2249:1: rule__CommitmentStore__ContentAssignment_8 : ( RULE_STRING ) ;
     public final void rule__CommitmentStore__ContentAssignment_8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsStores.g:2257:1: ( ( RULE_STRING ) )
-            // InternalAnnotationsStores.g:2258:2: ( RULE_STRING )
+            // InternalAnnotationsStores.g:2253:1: ( ( RULE_STRING ) )
+            // InternalAnnotationsStores.g:2254:2: ( RULE_STRING )
             {
-            // InternalAnnotationsStores.g:2258:2: ( RULE_STRING )
-            // InternalAnnotationsStores.g:2259:3: RULE_STRING
+            // InternalAnnotationsStores.g:2254:2: ( RULE_STRING )
+            // InternalAnnotationsStores.g:2255:3: RULE_STRING
             {
              before(grammarAccess.getCommitmentStoreAccess().getContentSTRINGTerminalRuleCall_8_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -6678,17 +6670,17 @@ public class InternalAnnotationsStoresParser extends AbstractInternalContentAssi
 
 
     // $ANTLR start "rule__ArgumentStore__NameAssignment_2"
-    // InternalAnnotationsStores.g:2268:1: rule__ArgumentStore__NameAssignment_2 : ( RULE_ID ) ;
+    // InternalAnnotationsStores.g:2264:1: rule__ArgumentStore__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__ArgumentStore__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsStores.g:2272:1: ( ( RULE_ID ) )
-            // InternalAnnotationsStores.g:2273:2: ( RULE_ID )
+            // InternalAnnotationsStores.g:2268:1: ( ( RULE_ID ) )
+            // InternalAnnotationsStores.g:2269:2: ( RULE_ID )
             {
-            // InternalAnnotationsStores.g:2273:2: ( RULE_ID )
-            // InternalAnnotationsStores.g:2274:3: RULE_ID
+            // InternalAnnotationsStores.g:2269:2: ( RULE_ID )
+            // InternalAnnotationsStores.g:2270:3: RULE_ID
             {
              before(grammarAccess.getArgumentStoreAccess().getNameIDTerminalRuleCall_2_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -6715,17 +6707,17 @@ public class InternalAnnotationsStoresParser extends AbstractInternalContentAssi
 
 
     // $ANTLR start "rule__ArgumentStore__ScopeAssignment_4"
-    // InternalAnnotationsStores.g:2283:1: rule__ArgumentStore__ScopeAssignment_4 : ( ruleScope ) ;
+    // InternalAnnotationsStores.g:2279:1: rule__ArgumentStore__ScopeAssignment_4 : ( ruleScope ) ;
     public final void rule__ArgumentStore__ScopeAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsStores.g:2287:1: ( ( ruleScope ) )
-            // InternalAnnotationsStores.g:2288:2: ( ruleScope )
+            // InternalAnnotationsStores.g:2283:1: ( ( ruleScope ) )
+            // InternalAnnotationsStores.g:2284:2: ( ruleScope )
             {
-            // InternalAnnotationsStores.g:2288:2: ( ruleScope )
-            // InternalAnnotationsStores.g:2289:3: ruleScope
+            // InternalAnnotationsStores.g:2284:2: ( ruleScope )
+            // InternalAnnotationsStores.g:2285:3: ruleScope
             {
              before(grammarAccess.getArgumentStoreAccess().getScopeScopeParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -6756,17 +6748,17 @@ public class InternalAnnotationsStoresParser extends AbstractInternalContentAssi
 
 
     // $ANTLR start "rule__ArgumentStore__FocusAssignment_6"
-    // InternalAnnotationsStores.g:2298:1: rule__ArgumentStore__FocusAssignment_6 : ( ruleFocus ) ;
+    // InternalAnnotationsStores.g:2294:1: rule__ArgumentStore__FocusAssignment_6 : ( ruleFocus ) ;
     public final void rule__ArgumentStore__FocusAssignment_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsStores.g:2302:1: ( ( ruleFocus ) )
-            // InternalAnnotationsStores.g:2303:2: ( ruleFocus )
+            // InternalAnnotationsStores.g:2298:1: ( ( ruleFocus ) )
+            // InternalAnnotationsStores.g:2299:2: ( ruleFocus )
             {
-            // InternalAnnotationsStores.g:2303:2: ( ruleFocus )
-            // InternalAnnotationsStores.g:2304:3: ruleFocus
+            // InternalAnnotationsStores.g:2299:2: ( ruleFocus )
+            // InternalAnnotationsStores.g:2300:3: ruleFocus
             {
              before(grammarAccess.getArgumentStoreAccess().getFocusFocusParserRuleCall_6_0()); 
             pushFollow(FOLLOW_2);
@@ -6797,17 +6789,17 @@ public class InternalAnnotationsStoresParser extends AbstractInternalContentAssi
 
 
     // $ANTLR start "rule__ArgumentStore__ContentAssignment_8"
-    // InternalAnnotationsStores.g:2313:1: rule__ArgumentStore__ContentAssignment_8 : ( RULE_STRING ) ;
+    // InternalAnnotationsStores.g:2309:1: rule__ArgumentStore__ContentAssignment_8 : ( RULE_STRING ) ;
     public final void rule__ArgumentStore__ContentAssignment_8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsStores.g:2317:1: ( ( RULE_STRING ) )
-            // InternalAnnotationsStores.g:2318:2: ( RULE_STRING )
+            // InternalAnnotationsStores.g:2313:1: ( ( RULE_STRING ) )
+            // InternalAnnotationsStores.g:2314:2: ( RULE_STRING )
             {
-            // InternalAnnotationsStores.g:2318:2: ( RULE_STRING )
-            // InternalAnnotationsStores.g:2319:3: RULE_STRING
+            // InternalAnnotationsStores.g:2314:2: ( RULE_STRING )
+            // InternalAnnotationsStores.g:2315:3: RULE_STRING
             {
              before(grammarAccess.getArgumentStoreAccess().getContentSTRINGTerminalRuleCall_8_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -6834,29 +6826,21 @@ public class InternalAnnotationsStoresParser extends AbstractInternalContentAssi
 
 
     // $ANTLR start "rule__ArgumentStore__TargetAssignment_9_1"
-    // InternalAnnotationsStores.g:2328:1: rule__ArgumentStore__TargetAssignment_9_1 : ( ( RULE_ID ) ) ;
+    // InternalAnnotationsStores.g:2324:1: rule__ArgumentStore__TargetAssignment_9_1 : ( RULE_ID ) ;
     public final void rule__ArgumentStore__TargetAssignment_9_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsStores.g:2332:1: ( ( ( RULE_ID ) ) )
-            // InternalAnnotationsStores.g:2333:2: ( ( RULE_ID ) )
+            // InternalAnnotationsStores.g:2328:1: ( ( RULE_ID ) )
+            // InternalAnnotationsStores.g:2329:2: ( RULE_ID )
             {
-            // InternalAnnotationsStores.g:2333:2: ( ( RULE_ID ) )
-            // InternalAnnotationsStores.g:2334:3: ( RULE_ID )
+            // InternalAnnotationsStores.g:2329:2: ( RULE_ID )
+            // InternalAnnotationsStores.g:2330:3: RULE_ID
             {
-             before(grammarAccess.getArgumentStoreAccess().getTargetArgumentStoreCrossReference_9_1_0()); 
-            // InternalAnnotationsStores.g:2335:3: ( RULE_ID )
-            // InternalAnnotationsStores.g:2336:4: RULE_ID
-            {
-             before(grammarAccess.getArgumentStoreAccess().getTargetArgumentStoreIDTerminalRuleCall_9_1_0_1()); 
+             before(grammarAccess.getArgumentStoreAccess().getTargetIDTerminalRuleCall_9_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getArgumentStoreAccess().getTargetArgumentStoreIDTerminalRuleCall_9_1_0_1()); 
-
-            }
-
-             after(grammarAccess.getArgumentStoreAccess().getTargetArgumentStoreCrossReference_9_1_0()); 
+             after(grammarAccess.getArgumentStoreAccess().getTargetIDTerminalRuleCall_9_1_0()); 
 
             }
 
@@ -6879,21 +6863,21 @@ public class InternalAnnotationsStoresParser extends AbstractInternalContentAssi
 
 
     // $ANTLR start "rule__Scope__ScopeAssignment"
-    // InternalAnnotationsStores.g:2347:1: rule__Scope__ScopeAssignment : ( ( rule__Scope__ScopeAlternatives_0 ) ) ;
+    // InternalAnnotationsStores.g:2339:1: rule__Scope__ScopeAssignment : ( ( rule__Scope__ScopeAlternatives_0 ) ) ;
     public final void rule__Scope__ScopeAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsStores.g:2351:1: ( ( ( rule__Scope__ScopeAlternatives_0 ) ) )
-            // InternalAnnotationsStores.g:2352:2: ( ( rule__Scope__ScopeAlternatives_0 ) )
+            // InternalAnnotationsStores.g:2343:1: ( ( ( rule__Scope__ScopeAlternatives_0 ) ) )
+            // InternalAnnotationsStores.g:2344:2: ( ( rule__Scope__ScopeAlternatives_0 ) )
             {
-            // InternalAnnotationsStores.g:2352:2: ( ( rule__Scope__ScopeAlternatives_0 ) )
-            // InternalAnnotationsStores.g:2353:3: ( rule__Scope__ScopeAlternatives_0 )
+            // InternalAnnotationsStores.g:2344:2: ( ( rule__Scope__ScopeAlternatives_0 ) )
+            // InternalAnnotationsStores.g:2345:3: ( rule__Scope__ScopeAlternatives_0 )
             {
              before(grammarAccess.getScopeAccess().getScopeAlternatives_0()); 
-            // InternalAnnotationsStores.g:2354:3: ( rule__Scope__ScopeAlternatives_0 )
-            // InternalAnnotationsStores.g:2354:4: rule__Scope__ScopeAlternatives_0
+            // InternalAnnotationsStores.g:2346:3: ( rule__Scope__ScopeAlternatives_0 )
+            // InternalAnnotationsStores.g:2346:4: rule__Scope__ScopeAlternatives_0
             {
             pushFollow(FOLLOW_2);
             rule__Scope__ScopeAlternatives_0();
@@ -6926,21 +6910,21 @@ public class InternalAnnotationsStoresParser extends AbstractInternalContentAssi
 
 
     // $ANTLR start "rule__Focus__FocusAssignment"
-    // InternalAnnotationsStores.g:2362:1: rule__Focus__FocusAssignment : ( ( rule__Focus__FocusAlternatives_0 ) ) ;
+    // InternalAnnotationsStores.g:2354:1: rule__Focus__FocusAssignment : ( ( rule__Focus__FocusAlternatives_0 ) ) ;
     public final void rule__Focus__FocusAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalAnnotationsStores.g:2366:1: ( ( ( rule__Focus__FocusAlternatives_0 ) ) )
-            // InternalAnnotationsStores.g:2367:2: ( ( rule__Focus__FocusAlternatives_0 ) )
+            // InternalAnnotationsStores.g:2358:1: ( ( ( rule__Focus__FocusAlternatives_0 ) ) )
+            // InternalAnnotationsStores.g:2359:2: ( ( rule__Focus__FocusAlternatives_0 ) )
             {
-            // InternalAnnotationsStores.g:2367:2: ( ( rule__Focus__FocusAlternatives_0 ) )
-            // InternalAnnotationsStores.g:2368:3: ( rule__Focus__FocusAlternatives_0 )
+            // InternalAnnotationsStores.g:2359:2: ( ( rule__Focus__FocusAlternatives_0 ) )
+            // InternalAnnotationsStores.g:2360:3: ( rule__Focus__FocusAlternatives_0 )
             {
              before(grammarAccess.getFocusAccess().getFocusAlternatives_0()); 
-            // InternalAnnotationsStores.g:2369:3: ( rule__Focus__FocusAlternatives_0 )
-            // InternalAnnotationsStores.g:2369:4: rule__Focus__FocusAlternatives_0
+            // InternalAnnotationsStores.g:2361:3: ( rule__Focus__FocusAlternatives_0 )
+            // InternalAnnotationsStores.g:2361:4: rule__Focus__FocusAlternatives_0
             {
             pushFollow(FOLLOW_2);
             rule__Focus__FocusAlternatives_0();

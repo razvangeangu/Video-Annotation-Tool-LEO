@@ -102,7 +102,7 @@ public class AnnotationsStoresSemanticSequencer extends AbstractDelegatingSemant
 	 *     ArgumentStore returns ArgumentStore
 	 *
 	 * Constraint:
-	 *     (name=ID scope=Scope focus=Focus content=STRING target=[ArgumentStore|ID]?)
+	 *     (name=ID scope=Scope focus=Focus content=STRING target=ID?)
 	 */
 	protected void sequence_ArgumentStore(ISerializationContext context, ArgumentStore semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -114,7 +114,7 @@ public class AnnotationsStoresSemanticSequencer extends AbstractDelegatingSemant
 	 *     ChallengeStore returns ChallengeStore
 	 *
 	 * Constraint:
-	 *     (name=ID sender=Sender target=[ProposalStore|ID]?)
+	 *     (name=ID sender=Sender target=ID?)
 	 */
 	protected void sequence_ChallengeStore(ISerializationContext context, ChallengeStore semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

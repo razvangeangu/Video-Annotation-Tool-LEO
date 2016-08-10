@@ -79,7 +79,7 @@ public class StoresController implements Initializable {
 				
 				nameColumn.setCellValueFactory(c-> new SimpleStringProperty(((ChallengeStore)c.getValue()).getName()));
 				senderColumn.setCellValueFactory(c-> new SimpleStringProperty(((ChallengeStore)c.getValue()).getSender()));				
-				targetColumn.setCellValueFactory(c-> new SimpleStringProperty(((ChallengeStore)c.getValue()).getTarget().getName()));
+				targetColumn.setCellValueFactory(c-> new SimpleStringProperty(((ChallengeStore)c.getValue()).getTarget()));
 				
 				tableView.getColumns().addAll(nameColumn, senderColumn, targetColumn);
 				break;
@@ -106,7 +106,7 @@ public class StoresController implements Initializable {
 				scopeColumn.setCellValueFactory(c-> new SimpleStringProperty(((ArgumentStore)c.getValue()).getScope().getScope()));
 				focusColumn.setCellValueFactory(c-> new SimpleStringProperty(((ArgumentStore)c.getValue()).getFocus().getFocus()));
 				contentColumn.setCellValueFactory(c-> new SimpleStringProperty(((ArgumentStore)c.getValue()).getContent()));
-				targetColumn.setCellValueFactory(c-> new SimpleStringProperty(((ArgumentStore)c.getValue()).getTarget().getName()));
+				targetColumn.setCellValueFactory(c-> new SimpleStringProperty(((ArgumentStore)c.getValue()).getTarget()));
 				
 				tableView.getColumns().addAll(nameColumn, scopeColumn, focusColumn, contentColumn, targetColumn);
 				break;

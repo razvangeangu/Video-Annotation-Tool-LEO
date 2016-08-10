@@ -119,6 +119,7 @@ public class MainViewController implements Initializable {
 	private String annotationsDSL;
 	private String comment;
 	private Interpreter interpreter;
+	private boolean shouldSave;
 		
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -743,6 +744,7 @@ public class MainViewController implements Initializable {
 				annotations = FXCollections.observableArrayList(anAnnotatedVideo.getAnnotations());
 				tableView.setItems(annotations);
 				comment = null;
+				shouldSave = true;
 				
 				// Clearing the view
 				tableView.refresh();
@@ -1045,6 +1047,7 @@ public class MainViewController implements Initializable {
 			    PrintWriter out = new PrintWriter(bw))
 			{
 			    out.print(annotationsString);
+			    shouldSave = false;
 			} catch (IOException e) {
 				e.printStackTrace(); //TODO: add exception
 			}
@@ -1133,5 +1136,34 @@ public class MainViewController implements Initializable {
 		annotations = FXCollections.observableArrayList(anAnnotatedVideo.getAnnotations());
 		tableView.setItems(annotations);
 		tableView.refresh();
+	}
+
+	/**
+	 * A method to check if the application should close when pressed quit button.
+	 * @return True if the annotations were saved, false otherwise.
+	 */
+	public boolean shutdown() {
+	    if (shouldSave) {
+	    	Alert alert = new Alert(AlertType.CONFIRMATION);
+	    	alert.setTitle("Exit Confirmation");
+	    	alert.setHeaderText("Annotations should be saved before exit");
+	    	alert.setContentText("The application is about to close. Would you like to save the annotations before closing?");
+
+	    	Optional<ButtonType> result = alert.showAndWait();
+	    	
+	    	if (result.get() == ButtonType.OK) {
+	    		if (dataFile != null) {
+		    	    saveAnnotationsToFile();
+		    	    return true;
+	    		} else {
+	    			showSaveAsDialog();
+	    			return true;
+	    		}
+	    	} else {
+	    	    return true;
+	    	}
+	    }
+
+	    return true;
 	}
 }

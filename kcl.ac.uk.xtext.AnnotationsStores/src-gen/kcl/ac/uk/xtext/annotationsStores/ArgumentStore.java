@@ -132,29 +132,29 @@ public interface ArgumentStore extends EObject
   void setContent(String value);
 
   /**
-   * Returns the value of the '<em><b>Target</b></em>' reference.
+   * Returns the value of the '<em><b>Target</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Target</em>' reference isn't clear,
+   * If the meaning of the '<em>Target</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Target</em>' reference.
-   * @see #setTarget(ArgumentStore)
+   * @return the value of the '<em>Target</em>' attribute.
+   * @see #setTarget(String)
    * @see kcl.ac.uk.xtext.annotationsStores.AnnotationsStoresPackage#getArgumentStore_Target()
    * @model
    * @generated
    */
-  ArgumentStore getTarget();
+  String getTarget();
 
   /**
-   * Sets the value of the '{@link kcl.ac.uk.xtext.annotationsStores.ArgumentStore#getTarget <em>Target</em>}' reference.
+   * Sets the value of the '{@link kcl.ac.uk.xtext.annotationsStores.ArgumentStore#getTarget <em>Target</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Target</em>' reference.
+   * @param value the new value of the '<em>Target</em>' attribute.
    * @see #getTarget()
    * @generated
    */
-  void setTarget(ArgumentStore value);
+  void setTarget(String value);
 
 } // ArgumentStore

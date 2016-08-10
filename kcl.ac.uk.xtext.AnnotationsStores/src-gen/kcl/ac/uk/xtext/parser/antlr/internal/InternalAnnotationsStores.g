@@ -503,14 +503,19 @@ ruleChallengeStore returns [EObject current=null]
 			}
 			(
 				(
+					lv_target_6_0=RULE_ID
+					{
+						newLeafNode(lv_target_6_0, grammarAccess.getChallengeStoreAccess().getTargetIDTerminalRuleCall_5_1_0());
+					}
 					{
 						if ($current==null) {
 							$current = createModelElement(grammarAccess.getChallengeStoreRule());
 						}
-					}
-					otherlv_6=RULE_ID
-					{
-						newLeafNode(otherlv_6, grammarAccess.getChallengeStoreAccess().getTargetProposalStoreCrossReference_5_1_0());
+						setWithLastConsumed(
+							$current,
+							"target",
+							lv_target_6_0,
+							"org.eclipse.xtext.common.Terminals.ID");
 					}
 				)
 			)
@@ -756,14 +761,19 @@ ruleArgumentStore returns [EObject current=null]
 			}
 			(
 				(
+					lv_target_10_0=RULE_ID
+					{
+						newLeafNode(lv_target_10_0, grammarAccess.getArgumentStoreAccess().getTargetIDTerminalRuleCall_9_1_0());
+					}
 					{
 						if ($current==null) {
 							$current = createModelElement(grammarAccess.getArgumentStoreRule());
 						}
-					}
-					otherlv_10=RULE_ID
-					{
-						newLeafNode(otherlv_10, grammarAccess.getArgumentStoreAccess().getTargetArgumentStoreCrossReference_9_1_0());
+						setWithLastConsumed(
+							$current,
+							"target",
+							lv_target_10_0,
+							"org.eclipse.xtext.common.Terminals.ID");
 					}
 				)
 			)

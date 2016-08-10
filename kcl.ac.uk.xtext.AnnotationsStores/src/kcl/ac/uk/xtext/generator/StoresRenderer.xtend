@@ -39,7 +39,7 @@ class StoresRenderer {
 	'''
 	
 	def renderChallengeElement(ChallengeStore element) '''
-		challengeElement («element.name», «element.sender», «element.target.name»)
+		challengeElement («element.name», «element.sender», «element.target»)
 	'''
 	
 	def renderCommitmentElement(CommitmentStore element) '''
@@ -47,6 +47,6 @@ class StoresRenderer {
 	'''
 	
 	def renderArgumentElement(ArgumentStore element) '''
-		argumentElement («element.name», «element.scope.scope», «element.focus.focus», «element.content», «element.target.name»)
+		argumentElement («element.name», «element.scope.scope», «element.focus.focus», «element.content», «element.target»)
 	'''
 }

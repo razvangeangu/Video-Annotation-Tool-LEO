@@ -5,12 +5,10 @@ package kcl.ac.uk.xtext.annotationsStores.impl;
 
 import kcl.ac.uk.xtext.annotationsStores.AnnotationsStoresPackage;
 import kcl.ac.uk.xtext.annotationsStores.ChallengeStore;
-import kcl.ac.uk.xtext.annotationsStores.ProposalStore;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -73,14 +71,24 @@ public class ChallengeStoreImpl extends MinimalEObjectImpl.Container implements 
   protected String sender = SENDER_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getTarget() <em>Target</em>}' reference.
+   * The default value of the '{@link #getTarget() <em>Target</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getTarget()
    * @generated
    * @ordered
    */
-  protected ProposalStore target;
+  protected static final String TARGET_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getTarget() <em>Target</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTarget()
+   * @generated
+   * @ordered
+   */
+  protected String target = TARGET_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -154,27 +162,7 @@ public class ChallengeStoreImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public ProposalStore getTarget()
-  {
-    if (target != null && target.eIsProxy())
-    {
-      InternalEObject oldTarget = (InternalEObject)target;
-      target = (ProposalStore)eResolveProxy(oldTarget);
-      if (target != oldTarget)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AnnotationsStoresPackage.CHALLENGE_STORE__TARGET, oldTarget, target));
-      }
-    }
-    return target;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ProposalStore basicGetTarget()
+  public String getTarget()
   {
     return target;
   }
@@ -184,9 +172,9 @@ public class ChallengeStoreImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTarget(ProposalStore newTarget)
+  public void setTarget(String newTarget)
   {
-    ProposalStore oldTarget = target;
+    String oldTarget = target;
     target = newTarget;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, AnnotationsStoresPackage.CHALLENGE_STORE__TARGET, oldTarget, target));
@@ -207,8 +195,7 @@ public class ChallengeStoreImpl extends MinimalEObjectImpl.Container implements 
       case AnnotationsStoresPackage.CHALLENGE_STORE__SENDER:
         return getSender();
       case AnnotationsStoresPackage.CHALLENGE_STORE__TARGET:
-        if (resolve) return getTarget();
-        return basicGetTarget();
+        return getTarget();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -230,7 +217,7 @@ public class ChallengeStoreImpl extends MinimalEObjectImpl.Container implements 
         setSender((String)newValue);
         return;
       case AnnotationsStoresPackage.CHALLENGE_STORE__TARGET:
-        setTarget((ProposalStore)newValue);
+        setTarget((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -253,7 +240,7 @@ public class ChallengeStoreImpl extends MinimalEObjectImpl.Container implements 
         setSender(SENDER_EDEFAULT);
         return;
       case AnnotationsStoresPackage.CHALLENGE_STORE__TARGET:
-        setTarget((ProposalStore)null);
+        setTarget(TARGET_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -274,7 +261,7 @@ public class ChallengeStoreImpl extends MinimalEObjectImpl.Container implements 
       case AnnotationsStoresPackage.CHALLENGE_STORE__SENDER:
         return SENDER_EDEFAULT == null ? sender != null : !SENDER_EDEFAULT.equals(sender);
       case AnnotationsStoresPackage.CHALLENGE_STORE__TARGET:
-        return target != null;
+        return TARGET_EDEFAULT == null ? target != null : !TARGET_EDEFAULT.equals(target);
     }
     return super.eIsSet(featureID);
   }
@@ -294,6 +281,8 @@ public class ChallengeStoreImpl extends MinimalEObjectImpl.Container implements 
     result.append(name);
     result.append(", sender: ");
     result.append(sender);
+    result.append(", target: ");
+    result.append(target);
     result.append(')');
     return result.toString();
   }

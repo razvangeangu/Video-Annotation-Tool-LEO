@@ -353,9 +353,9 @@ public class AnnotationsStoresPackageImpl extends EPackageImpl implements Annota
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getChallengeStore_Target()
+  public EAttribute getChallengeStore_Target()
   {
-    return (EReference)challengeStoreEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)challengeStoreEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -463,9 +463,9 @@ public class AnnotationsStoresPackageImpl extends EPackageImpl implements Annota
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getArgumentStore_Target()
+  public EAttribute getArgumentStore_Target()
   {
-    return (EReference)argumentStoreEClass.getEStructuralFeatures().get(4);
+    return (EAttribute)argumentStoreEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -561,7 +561,7 @@ public class AnnotationsStoresPackageImpl extends EPackageImpl implements Annota
     challengeStoreEClass = createEClass(CHALLENGE_STORE);
     createEAttribute(challengeStoreEClass, CHALLENGE_STORE__NAME);
     createEAttribute(challengeStoreEClass, CHALLENGE_STORE__SENDER);
-    createEReference(challengeStoreEClass, CHALLENGE_STORE__TARGET);
+    createEAttribute(challengeStoreEClass, CHALLENGE_STORE__TARGET);
 
     commitmentStoreEClass = createEClass(COMMITMENT_STORE);
     createEAttribute(commitmentStoreEClass, COMMITMENT_STORE__NAME);
@@ -574,7 +574,7 @@ public class AnnotationsStoresPackageImpl extends EPackageImpl implements Annota
     createEReference(argumentStoreEClass, ARGUMENT_STORE__SCOPE);
     createEReference(argumentStoreEClass, ARGUMENT_STORE__FOCUS);
     createEAttribute(argumentStoreEClass, ARGUMENT_STORE__CONTENT);
-    createEReference(argumentStoreEClass, ARGUMENT_STORE__TARGET);
+    createEAttribute(argumentStoreEClass, ARGUMENT_STORE__TARGET);
 
     scopeEClass = createEClass(SCOPE);
     createEAttribute(scopeEClass, SCOPE__SCOPE);
@@ -637,7 +637,7 @@ public class AnnotationsStoresPackageImpl extends EPackageImpl implements Annota
     initEClass(challengeStoreEClass, ChallengeStore.class, "ChallengeStore", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getChallengeStore_Name(), ecorePackage.getEString(), "name", null, 0, 1, ChallengeStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getChallengeStore_Sender(), ecorePackage.getEString(), "sender", null, 0, 1, ChallengeStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getChallengeStore_Target(), this.getProposalStore(), null, "target", null, 0, 1, ChallengeStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getChallengeStore_Target(), ecorePackage.getEString(), "target", null, 0, 1, ChallengeStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(commitmentStoreEClass, CommitmentStore.class, "CommitmentStore", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getCommitmentStore_Name(), ecorePackage.getEString(), "name", null, 0, 1, CommitmentStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -650,7 +650,7 @@ public class AnnotationsStoresPackageImpl extends EPackageImpl implements Annota
     initEReference(getArgumentStore_Scope(), this.getScope(), null, "scope", null, 0, 1, ArgumentStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getArgumentStore_Focus(), this.getFocus(), null, "focus", null, 0, 1, ArgumentStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getArgumentStore_Content(), ecorePackage.getEString(), "content", null, 0, 1, ArgumentStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getArgumentStore_Target(), this.getArgumentStore(), null, "target", null, 0, 1, ArgumentStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getArgumentStore_Target(), ecorePackage.getEString(), "target", null, 0, 1, ArgumentStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(scopeEClass, Scope.class, "Scope", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getScope_Scope(), ecorePackage.getEString(), "scope", null, 0, 1, Scope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

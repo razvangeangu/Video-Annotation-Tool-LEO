@@ -97,14 +97,24 @@ public class ArgumentStoreImpl extends MinimalEObjectImpl.Container implements A
   protected String content = CONTENT_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getTarget() <em>Target</em>}' reference.
+   * The default value of the '{@link #getTarget() <em>Target</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getTarget()
    * @generated
    * @ordered
    */
-  protected ArgumentStore target;
+  protected static final String TARGET_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getTarget() <em>Target</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTarget()
+   * @generated
+   * @ordered
+   */
+  protected String target = TARGET_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -274,27 +284,7 @@ public class ArgumentStoreImpl extends MinimalEObjectImpl.Container implements A
    * <!-- end-user-doc -->
    * @generated
    */
-  public ArgumentStore getTarget()
-  {
-    if (target != null && target.eIsProxy())
-    {
-      InternalEObject oldTarget = (InternalEObject)target;
-      target = (ArgumentStore)eResolveProxy(oldTarget);
-      if (target != oldTarget)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AnnotationsStoresPackage.ARGUMENT_STORE__TARGET, oldTarget, target));
-      }
-    }
-    return target;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ArgumentStore basicGetTarget()
+  public String getTarget()
   {
     return target;
   }
@@ -304,9 +294,9 @@ public class ArgumentStoreImpl extends MinimalEObjectImpl.Container implements A
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTarget(ArgumentStore newTarget)
+  public void setTarget(String newTarget)
   {
-    ArgumentStore oldTarget = target;
+    String oldTarget = target;
     target = newTarget;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, AnnotationsStoresPackage.ARGUMENT_STORE__TARGET, oldTarget, target));
@@ -349,8 +339,7 @@ public class ArgumentStoreImpl extends MinimalEObjectImpl.Container implements A
       case AnnotationsStoresPackage.ARGUMENT_STORE__CONTENT:
         return getContent();
       case AnnotationsStoresPackage.ARGUMENT_STORE__TARGET:
-        if (resolve) return getTarget();
-        return basicGetTarget();
+        return getTarget();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -378,7 +367,7 @@ public class ArgumentStoreImpl extends MinimalEObjectImpl.Container implements A
         setContent((String)newValue);
         return;
       case AnnotationsStoresPackage.ARGUMENT_STORE__TARGET:
-        setTarget((ArgumentStore)newValue);
+        setTarget((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -407,7 +396,7 @@ public class ArgumentStoreImpl extends MinimalEObjectImpl.Container implements A
         setContent(CONTENT_EDEFAULT);
         return;
       case AnnotationsStoresPackage.ARGUMENT_STORE__TARGET:
-        setTarget((ArgumentStore)null);
+        setTarget(TARGET_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -432,7 +421,7 @@ public class ArgumentStoreImpl extends MinimalEObjectImpl.Container implements A
       case AnnotationsStoresPackage.ARGUMENT_STORE__CONTENT:
         return CONTENT_EDEFAULT == null ? content != null : !CONTENT_EDEFAULT.equals(content);
       case AnnotationsStoresPackage.ARGUMENT_STORE__TARGET:
-        return target != null;
+        return TARGET_EDEFAULT == null ? target != null : !TARGET_EDEFAULT.equals(target);
     }
     return super.eIsSet(featureID);
   }
@@ -452,6 +441,8 @@ public class ArgumentStoreImpl extends MinimalEObjectImpl.Container implements A
     result.append(name);
     result.append(", content: ");
     result.append(content);
+    result.append(", target: ");
+    result.append(target);
     result.append(')');
     return result.toString();
   }
