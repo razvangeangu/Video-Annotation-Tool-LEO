@@ -52,7 +52,7 @@ ArgumentStore:
 		scope=Scope ','
 		focus=Focus ','
 		content=STRING (','
-		target=[ArgumentStore])? // TODO: what should be put here? maybe annotations?
+		target=[ArgumentStore])?
 		')'
 ;
 
