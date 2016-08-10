@@ -405,10 +405,10 @@ public class InternalAnnotationsStoresLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAnnotationsStores.g:2377:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalAnnotationsStores.g:2377:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalAnnotationsStores.g:2369:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalAnnotationsStores.g:2369:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalAnnotationsStores.g:2377:11: ( '^' )?
+            // InternalAnnotationsStores.g:2369:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -417,7 +417,7 @@ public class InternalAnnotationsStoresLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalAnnotationsStores.g:2377:11: '^'
+                    // InternalAnnotationsStores.g:2369:11: '^'
                     {
                     match('^'); 
 
@@ -435,7 +435,7 @@ public class InternalAnnotationsStoresLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalAnnotationsStores.g:2377:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalAnnotationsStores.g:2369:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -484,10 +484,10 @@ public class InternalAnnotationsStoresLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAnnotationsStores.g:2379:10: ( ( '0' .. '9' )+ )
-            // InternalAnnotationsStores.g:2379:12: ( '0' .. '9' )+
+            // InternalAnnotationsStores.g:2371:10: ( ( '0' .. '9' )+ )
+            // InternalAnnotationsStores.g:2371:12: ( '0' .. '9' )+
             {
-            // InternalAnnotationsStores.g:2379:12: ( '0' .. '9' )+
+            // InternalAnnotationsStores.g:2371:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -501,7 +501,7 @@ public class InternalAnnotationsStoresLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalAnnotationsStores.g:2379:13: '0' .. '9'
+            	    // InternalAnnotationsStores.g:2371:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -533,10 +533,10 @@ public class InternalAnnotationsStoresLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAnnotationsStores.g:2381:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalAnnotationsStores.g:2381:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalAnnotationsStores.g:2373:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalAnnotationsStores.g:2373:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalAnnotationsStores.g:2381:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalAnnotationsStores.g:2373:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -554,10 +554,10 @@ public class InternalAnnotationsStoresLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalAnnotationsStores.g:2381:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalAnnotationsStores.g:2373:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalAnnotationsStores.g:2381:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalAnnotationsStores.g:2373:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -573,7 +573,7 @@ public class InternalAnnotationsStoresLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // InternalAnnotationsStores.g:2381:21: '\\\\' .
+                    	    // InternalAnnotationsStores.g:2373:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -581,7 +581,7 @@ public class InternalAnnotationsStoresLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalAnnotationsStores.g:2381:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalAnnotationsStores.g:2373:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -606,10 +606,10 @@ public class InternalAnnotationsStoresLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalAnnotationsStores.g:2381:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalAnnotationsStores.g:2373:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalAnnotationsStores.g:2381:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalAnnotationsStores.g:2373:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -625,7 +625,7 @@ public class InternalAnnotationsStoresLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // InternalAnnotationsStores.g:2381:54: '\\\\' .
+                    	    // InternalAnnotationsStores.g:2373:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -633,7 +633,7 @@ public class InternalAnnotationsStoresLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalAnnotationsStores.g:2381:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalAnnotationsStores.g:2373:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -676,12 +676,12 @@ public class InternalAnnotationsStoresLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAnnotationsStores.g:2383:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalAnnotationsStores.g:2383:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalAnnotationsStores.g:2375:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalAnnotationsStores.g:2375:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalAnnotationsStores.g:2383:24: ( options {greedy=false; } : . )*
+            // InternalAnnotationsStores.g:2375:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -706,7 +706,7 @@ public class InternalAnnotationsStoresLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalAnnotationsStores.g:2383:52: .
+            	    // InternalAnnotationsStores.g:2375:52: .
             	    {
             	    matchAny(); 
 
@@ -736,12 +736,12 @@ public class InternalAnnotationsStoresLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAnnotationsStores.g:2385:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalAnnotationsStores.g:2385:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalAnnotationsStores.g:2377:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalAnnotationsStores.g:2377:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalAnnotationsStores.g:2385:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalAnnotationsStores.g:2377:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -754,7 +754,7 @@ public class InternalAnnotationsStoresLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalAnnotationsStores.g:2385:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalAnnotationsStores.g:2377:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -774,7 +774,7 @@ public class InternalAnnotationsStoresLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalAnnotationsStores.g:2385:40: ( ( '\\r' )? '\\n' )?
+            // InternalAnnotationsStores.g:2377:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -783,9 +783,9 @@ public class InternalAnnotationsStoresLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // InternalAnnotationsStores.g:2385:41: ( '\\r' )? '\\n'
+                    // InternalAnnotationsStores.g:2377:41: ( '\\r' )? '\\n'
                     {
-                    // InternalAnnotationsStores.g:2385:41: ( '\\r' )?
+                    // InternalAnnotationsStores.g:2377:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -794,7 +794,7 @@ public class InternalAnnotationsStoresLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // InternalAnnotationsStores.g:2385:41: '\\r'
+                            // InternalAnnotationsStores.g:2377:41: '\\r'
                             {
                             match('\r'); 
 
@@ -826,10 +826,10 @@ public class InternalAnnotationsStoresLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAnnotationsStores.g:2387:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalAnnotationsStores.g:2387:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalAnnotationsStores.g:2379:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalAnnotationsStores.g:2379:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalAnnotationsStores.g:2387:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalAnnotationsStores.g:2379:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -883,8 +883,8 @@ public class InternalAnnotationsStoresLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAnnotationsStores.g:2389:16: ( . )
-            // InternalAnnotationsStores.g:2389:18: .
+            // InternalAnnotationsStores.g:2381:16: ( . )
+            // InternalAnnotationsStores.g:2381:18: .
             {
             matchAny(); 
 

@@ -33,7 +33,7 @@ ChallengeStore:
 	'challengeElement' '('
 		name=ID ','
 		sender=Sender (','
-		target=[ProposalStore])?
+		target=ID)?
 		')'
 ;
 
@@ -52,7 +52,7 @@ ArgumentStore:
 		scope=Scope ','
 		focus=Focus ','
 		content=STRING (','
-		target=[ArgumentStore])?
+		target=ID)?
 		')'
 ;
 

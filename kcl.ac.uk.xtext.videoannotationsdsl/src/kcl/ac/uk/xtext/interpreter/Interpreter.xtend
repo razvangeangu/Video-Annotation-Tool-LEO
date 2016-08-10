@@ -11,6 +11,7 @@ import kcl.ac.uk.xtext.videoAnnotationsDSL.Annotation
 import org.eclipse.emf.common.util.EList
 
 class Interpreter {
+	
 	/**
 	 * Takes an annotated video and produces a set of stores 
 	 * representing the state of the dialogue participants and 
@@ -27,6 +28,12 @@ class Interpreter {
 		for (a : filteredAnnotations) {
 			if (a.type.type.equals("propose")) {
 				annotationStores.proposalElements.add(parser.parse("proposalElement(" + a.name + "," + a.scope.scope + "," + a.focus.focus + ",\""+ a.contentLabel +"\")").proposalElements.get(0) as ProposalStore)
+				
+				for (q: annotationStores.questionElements) {
+					if (q.name.equals(a.target.name)) {
+						annotationStores.questionElements.remove(q);
+					}
+				}
 			}
 			
 			if (a.type.type.equals("question")) {
@@ -38,7 +45,25 @@ class Interpreter {
 			}
 			
 			if (a.type.type.equals("accept")) {
-				annotationStores.commitmentElements.add(parser.parse("commitmentElement(" + a.name + "," + a.scope.scope + "," + a.focus.focus + ",\"" + a.contentLabel + "\"" + ")").commitmentElements.get(0) as CommitmentStore)
+				if (a.target.type.type.equals("commit")) {
+					annotationStores.commitmentElements.add(parser.parse("commitmentElement(" + a.name + "," + a.scope.scope + "," + a.focus.focus + ",\"" + a.contentLabel + "\"" + ")").commitmentElements.get(0) as CommitmentStore)
+				}
+				
+				if (a.target.type.type.equals("reject")) {
+					for (p: annotationStores.proposalElements) {
+						if (p.name.equals(a.target.name)) {
+							annotationStores.proposalElements.remove(p)
+						}
+					}
+				}
+				
+				if (a.target.type.type.equals("uncommit")) {
+					for (c: annotationStores.commitmentElements) {
+						if (c.name.equals(a.target.name)) {
+							annotationStores.commitmentElements.remove(c)
+						}
+					}
+				}
 			}
 			
 			if (a.type.type.equals("justify")) {
@@ -50,7 +75,17 @@ class Interpreter {
 			}
 			
 			if (a.type.type.equals("withdraw")) {
+				for (q: annotationStores.questionElements) {
+					if (q.name.equals(a.target.name)) {
+						annotationStores.questionElements.remove(q);
+					}
+				}
 				
+				for (ch: annotationStores.challengeElements) {
+					if (ch.name.equals(a.target.name)) {
+						annotationStores.questionElements.remove(ch);
+					}
+				}
 			}
 		}
 		

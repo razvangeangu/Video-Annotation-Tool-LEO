@@ -8,7 +8,6 @@ import com.google.inject.Singleton;
 import java.util.List;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
-import org.eclipse.xtext.CrossReference;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.Group;
@@ -249,19 +248,18 @@ public class AnnotationsStoresGrammarAccess extends AbstractGrammarElementFinder
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cCommaKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cTargetAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final CrossReference cTargetProposalStoreCrossReference_5_1_0 = (CrossReference)cTargetAssignment_5_1.eContents().get(0);
-		private final RuleCall cTargetProposalStoreIDTerminalRuleCall_5_1_0_1 = (RuleCall)cTargetProposalStoreCrossReference_5_1_0.eContents().get(1);
+		private final RuleCall cTargetIDTerminalRuleCall_5_1_0 = (RuleCall)cTargetAssignment_5_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//ChallengeStore:
 		//	'challengeElement' '('
 		//	name=ID ','
 		//	sender=Sender (','
-		//	target=[ProposalStore])?
+		//	target=ID)?
 		//	')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'challengeElement' '(' name=ID ',' sender=Sender (',' target=[ProposalStore])? ')'
+		//'challengeElement' '(' name=ID ',' sender=Sender (',' target=ID)? ')'
 		public Group getGroup() { return cGroup; }
 		
 		//'challengeElement'
@@ -285,20 +283,17 @@ public class AnnotationsStoresGrammarAccess extends AbstractGrammarElementFinder
 		//Sender
 		public RuleCall getSenderSenderParserRuleCall_4_0() { return cSenderSenderParserRuleCall_4_0; }
 		
-		//(',' target=[ProposalStore])?
+		//(',' target=ID)?
 		public Group getGroup_5() { return cGroup_5; }
 		
 		//','
 		public Keyword getCommaKeyword_5_0() { return cCommaKeyword_5_0; }
 		
-		//target=[ProposalStore]
+		//target=ID
 		public Assignment getTargetAssignment_5_1() { return cTargetAssignment_5_1; }
 		
-		//[ProposalStore]
-		public CrossReference getTargetProposalStoreCrossReference_5_1_0() { return cTargetProposalStoreCrossReference_5_1_0; }
-		
 		//ID
-		public RuleCall getTargetProposalStoreIDTerminalRuleCall_5_1_0_1() { return cTargetProposalStoreIDTerminalRuleCall_5_1_0_1; }
+		public RuleCall getTargetIDTerminalRuleCall_5_1_0() { return cTargetIDTerminalRuleCall_5_1_0; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_6() { return cRightParenthesisKeyword_6; }
@@ -394,8 +389,7 @@ public class AnnotationsStoresGrammarAccess extends AbstractGrammarElementFinder
 		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
 		private final Keyword cCommaKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
 		private final Assignment cTargetAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
-		private final CrossReference cTargetArgumentStoreCrossReference_9_1_0 = (CrossReference)cTargetAssignment_9_1.eContents().get(0);
-		private final RuleCall cTargetArgumentStoreIDTerminalRuleCall_9_1_0_1 = (RuleCall)cTargetArgumentStoreCrossReference_9_1_0.eContents().get(1);
+		private final RuleCall cTargetIDTerminalRuleCall_9_1_0 = (RuleCall)cTargetAssignment_9_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		
 		//ArgumentStore:
@@ -404,12 +398,11 @@ public class AnnotationsStoresGrammarAccess extends AbstractGrammarElementFinder
 		//	scope=Scope ','
 		//	focus=Focus ','
 		//	content=STRING (','
-		//	target=[ArgumentStore])? // TODO: what should be put here? maybe annotations?
+		//	target=ID)?
 		//	')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'argumentElement' '(' name=ID ',' scope=Scope ',' focus=Focus ',' content=STRING (',' target=[ArgumentStore])? // TODO: what should be put here? maybe annotations?
-		//')'
+		//'argumentElement' '(' name=ID ',' scope=Scope ',' focus=Focus ',' content=STRING (',' target=ID)? ')'
 		public Group getGroup() { return cGroup; }
 		
 		//'argumentElement'
@@ -451,22 +444,18 @@ public class AnnotationsStoresGrammarAccess extends AbstractGrammarElementFinder
 		//STRING
 		public RuleCall getContentSTRINGTerminalRuleCall_8_0() { return cContentSTRINGTerminalRuleCall_8_0; }
 		
-		//(',' target=[ArgumentStore])?
+		//(',' target=ID)?
 		public Group getGroup_9() { return cGroup_9; }
 		
 		//','
 		public Keyword getCommaKeyword_9_0() { return cCommaKeyword_9_0; }
 		
-		//target=[ArgumentStore]
+		//target=ID
 		public Assignment getTargetAssignment_9_1() { return cTargetAssignment_9_1; }
 		
-		//[ArgumentStore]
-		public CrossReference getTargetArgumentStoreCrossReference_9_1_0() { return cTargetArgumentStoreCrossReference_9_1_0; }
-		
 		//ID
-		public RuleCall getTargetArgumentStoreIDTerminalRuleCall_9_1_0_1() { return cTargetArgumentStoreIDTerminalRuleCall_9_1_0_1; }
+		public RuleCall getTargetIDTerminalRuleCall_9_1_0() { return cTargetIDTerminalRuleCall_9_1_0; }
 		
-		//// TODO: what should be put here? maybe annotations?
 		//')'
 		public Keyword getRightParenthesisKeyword_10() { return cRightParenthesisKeyword_10; }
 	}
@@ -655,7 +644,7 @@ public class AnnotationsStoresGrammarAccess extends AbstractGrammarElementFinder
 	//	'challengeElement' '('
 	//	name=ID ','
 	//	sender=Sender (','
-	//	target=[ProposalStore])?
+	//	target=ID)?
 	//	')';
 	public ChallengeStoreElements getChallengeStoreAccess() {
 		return pChallengeStore;
@@ -686,7 +675,7 @@ public class AnnotationsStoresGrammarAccess extends AbstractGrammarElementFinder
 	//	scope=Scope ','
 	//	focus=Focus ','
 	//	content=STRING (','
-	//	target=[ArgumentStore])? // TODO: what should be put here? maybe annotations?
+	//	target=ID)?
 	//	')';
 	public ArgumentStoreElements getArgumentStoreAccess() {
 		return pArgumentStore;
