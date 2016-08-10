@@ -12,6 +12,8 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -30,9 +32,11 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -40,6 +44,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckMenuItem;
+import javafx.scene.control.ChoiceDialog;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
@@ -112,6 +117,7 @@ public class MainViewController implements Initializable {
 	private AnnotatedVideo anAnnotatedVideo;
 	private boolean toTimeFocused, fromTimeFocused;
 	private String annotationsDSL;
+	private String comment;
 	private Interpreter interpreter;
 		
 	@Override
@@ -419,6 +425,7 @@ public class MainViewController implements Initializable {
 						@Override
 						public void handle(ActionEvent event) {
 							Annotation annotationToBeRemoved = tableView.getSelectionModel().getSelectedItem();
+							comment = annotationToBeRemoved.getComment();
 							annotationsDSL = annotationsDSL.trim();
 							annotationsDSL = annotationsDSL.replace(getStringDSL(annotationToBeRemoved).replaceAll("\\s*,\\s*", ", ").trim(), "");
 							addAnnotation();
@@ -449,9 +456,44 @@ public class MainViewController implements Initializable {
 
 			@Override
 			public void handle(ActionEvent event) {
-				interpreter.interpret(anAnnotatedVideo);
+				
+				if (tableView.getSelectionModel().getSelectedItem() != null) {
+					List<String> choices = new ArrayList<>();
+					choices.add("Proposal store");
+					choices.add("Question store");
+					choices.add("Challenge store");
+					choices.add("Commitment store");
+					choices.add("Argument store");
+
+					ChoiceDialog<String> dialog = new ChoiceDialog<>("Proposal store", choices);
+					dialog.setTitle("Interpret");
+					dialog.setHeaderText("Choose a store to visualise");
+					dialog.setContentText("Choose the store:");
+
+					Optional<String> result = dialog.showAndWait();
+					
+					if (result.isPresent()) {
+						try {
+								FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("StoresView.fxml"));
+							    Parent root = (Parent) fxmlLoader.load();
+							    Stage stage = new Stage();
+							    stage.setTitle(result.get());
+							    stage.initModality(Modality.APPLICATION_MODAL);
+							    stage.setScene(new Scene(root));
+							    
+							    StoresController controller = fxmlLoader.getController();
+							    controller.setAnnotationsStore(interpreter.interpret(anAnnotatedVideo, tableView.getSelectionModel().getSelectedItem()));
+							    controller.setTableViewData(result.get());
+							    
+							    stage.show();
+							} catch (Exception e) {
+								 e.printStackTrace();
+							}
+					} else {
+						showErrorDialog("Alert", "Information needed to continue", "In order to interpret you have to select the last annotation to be considered (by time).", null);
+					}
+				}
 			}
-			
 		});
 	}
 
@@ -692,10 +734,15 @@ public class MainViewController implements Initializable {
 		} else {
 			String testString = " from " + convertTimeToSec(fromTime.getText()) + " to " + convertTimeToSec(toTime.getText()) + " annotate (" + textField.getText().trim().replaceAll("\\s*,\\s*", ", ") + ") ";
 			
+			if (comment != null) {
+				testString += "#\"" + comment + "\"# ";
+			}
+			
 			try {
 				anAnnotatedVideo = (AnnotatedVideo) parser.parse(annotationsDSL += testString);
 				annotations = FXCollections.observableArrayList(anAnnotatedVideo.getAnnotations());
 				tableView.setItems(annotations);
+				comment = null;
 				
 				// Clearing the view
 				tableView.refresh();
@@ -990,7 +1037,7 @@ public class MainViewController implements Initializable {
 		
 		for (Annotation anAnnotation : annotations) {
 			
-			annotationsString += getStringDSL(anAnnotation) + "\n";
+			annotationsString += getStringDSL(anAnnotation);
 		}
 		
 		try (FileWriter fw = new FileWriter(dataFile.getAbsolutePath()) ;

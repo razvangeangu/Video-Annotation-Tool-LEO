@@ -10,5 +10,6 @@
 	<classpathentry kind="lib" path="src/libraries/org.eclipse.emf.mwe.utils_1.3.20.v201605261103.jar"/>
 	<classpathentry kind="lib" path="src/libraries/org.eclipse.xtext_2.10.0.v201605250459.jar"/>
 	<classpathentry kind="lib" path="src/libraries/org.eclipse.xtext.util_2.10.0.v201605250459.jar"/>
+	<classpathentry kind="src" path="/kcl.ac.uk.xtext.AnnotationsStores"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
