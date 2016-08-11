@@ -12,6 +12,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.util.Callback;
@@ -46,18 +47,22 @@ public class StoresController implements Initializable {
 	}
 	
 	public void setViewActions() {
+		if (!hasEffects(tableDescription)) {
+			historyCheckBox.setDisable(true);
+			historyCheckBox.setText("Show history (No changes to be shown)");
+		}
+		
 		historyCheckBox.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-//				if (hasEffects(tableDescription)) {
-					if (historyCheckBox.isSelected()) {
-						getEffects(tableDescription);
-						hightlightEffects();
-						tableView.getColumns().add(effectColumn);
-					} else {
-						tableView.getColumns().remove(effectColumn);
-					}
-//				}
+				if (historyCheckBox.isSelected()) {
+					getEffects(tableDescription);
+					hightlightEffects();
+					tableView.getColumns().add(effectColumn);
+				} else {
+					unhighlightEffects();
+					tableView.getColumns().remove(effectColumn);
+				}
 			}
 		});
 	}
@@ -147,30 +152,46 @@ public class StoresController implements Initializable {
 		setViewActions();
 	}
 	
-	@SuppressWarnings("unchecked")
 	public void hightlightEffects() {
-//	    effectColumn.setCellFactory(column -> {
-//	        return new TableCell<EObject, String>() {
-//	            @Override
-//	            protected void updateItem(String item, boolean empty) {
-//	                super.updateItem(item, empty);
-//
-//	                setText(empty ? "" : getItem().toString());
-//	                setGraphic(null);
-//
-//					TableRow<EObject> currentRow = getTableRow();
-//
-//	                if (!isEmpty()) {
-//	                    if(item != null || empty) {
-//	                    	System.out.println(item);
-//	                        currentRow.setStyle("-fx-background-color:lightcoral");
-//	                    } else {
-//	                        currentRow.setStyle("-fx-background-color:lightgreen");
-//	                    }
-//	                }
-//	            }
-//	        };
-//	    });
+	    effectColumn.setCellFactory(column -> {
+	        return new TableCell<EObject, String>() {
+	            @Override
+	            protected void updateItem(String item, boolean empty) {
+	                super.updateItem(item, empty);
+	                
+	                setText(empty ? "" : getItem().toString());
+
+	                if (item == null || empty) {
+	                    setText(null);
+	                    setStyle("");
+	                } else {
+	                	if (!item.isEmpty() && !item.equals("<no effect>") && getTableRow() != null) {
+	                        getTableRow().setStyle("-fx-background-color:lightcoral");
+	                    } else {
+	                        setStyle("");
+	                    }
+	                }
+	            }
+	        };
+	    });
+	}
+	
+	public void unhighlightEffects() {
+	    effectColumn.setCellFactory(column -> {
+	        return new TableCell<EObject, String>() {
+	            @Override
+	            protected void updateItem(String item, boolean empty) {
+	                super.updateItem(item, empty);
+	                
+	                setText(empty ? "" : getItem().toString());
+
+	                if (item == null || empty) {
+	                    setText(null);
+	                    setStyle("");
+	                }
+	            }
+	        };
+	    });
 	}
 	
 	private void getEffects(String storeName) {
@@ -266,4 +287,51 @@ public class StoresController implements Initializable {
 			}
 		}
 	}
+	
+	public boolean hasEffects(String storeName) {
+		switch (storeName) {
+			case "Proposal store": {
+				for (ProposalStore element: annotationsStore.getProposalElements()) {
+					if (element.getEffect() != null) {
+						return true;
+					}
+				}
+				break;
+			}
+			case "Challenge store": {
+				for (ProposalStore element: annotationsStore.getProposalElements()) {
+					if (element.getEffect() != null) {
+						return true;
+					}
+				}
+				break;
+			}
+			case "Question store": {
+				for (QuestionStore element: annotationsStore.getQuestionElements()) {
+					if (element.getEffect() != null) {
+						return true;
+					}
+				}
+				break;
+			}
+			case "Commitment store": {
+				for (CommitmentStore element: annotationsStore.getCommitmentElements()) {
+					if (element.getEffect() != null) {
+						return true;
+					}
+				}
+				break;
+			}
+			case "Argument store": {
+				for (ArgumentStore element: annotationsStore.getArgumentElements()) {
+					if (element.getEffect() != null) {
+						return true;
+					}
+				}
+				break;
+			}
+		}
+		return false;
+	}
+	
 }
