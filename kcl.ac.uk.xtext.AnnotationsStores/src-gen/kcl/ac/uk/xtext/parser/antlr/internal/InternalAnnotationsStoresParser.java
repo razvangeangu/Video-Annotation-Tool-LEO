@@ -454,7 +454,7 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
 
     // $ANTLR start "ruleProposalStore"
-    // InternalAnnotationsStores.g:185:1: ruleProposalStore returns [EObject current=null] : (otherlv_0= 'proposalElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_scope_4_0= ruleScope ) ) otherlv_5= ',' ( (lv_focus_6_0= ruleFocus ) ) otherlv_7= ',' ( (lv_content_8_0= RULE_STRING ) ) otherlv_9= ')' ) ;
+    // InternalAnnotationsStores.g:185:1: ruleProposalStore returns [EObject current=null] : (otherlv_0= 'proposalElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_scope_4_0= ruleScope ) ) otherlv_5= ',' ( (lv_focus_6_0= ruleFocus ) ) otherlv_7= ',' ( (lv_content_8_0= RULE_STRING ) ) otherlv_9= ')' ( (lv_effect_10_0= ruleEffect ) )? ) ;
     public final EObject ruleProposalStore() throws RecognitionException {
         EObject current = null;
 
@@ -470,16 +470,18 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
         EObject lv_focus_6_0 = null;
 
+        EObject lv_effect_10_0 = null;
+
 
 
         	enterRule();
 
         try {
-            // InternalAnnotationsStores.g:191:2: ( (otherlv_0= 'proposalElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_scope_4_0= ruleScope ) ) otherlv_5= ',' ( (lv_focus_6_0= ruleFocus ) ) otherlv_7= ',' ( (lv_content_8_0= RULE_STRING ) ) otherlv_9= ')' ) )
-            // InternalAnnotationsStores.g:192:2: (otherlv_0= 'proposalElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_scope_4_0= ruleScope ) ) otherlv_5= ',' ( (lv_focus_6_0= ruleFocus ) ) otherlv_7= ',' ( (lv_content_8_0= RULE_STRING ) ) otherlv_9= ')' )
+            // InternalAnnotationsStores.g:191:2: ( (otherlv_0= 'proposalElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_scope_4_0= ruleScope ) ) otherlv_5= ',' ( (lv_focus_6_0= ruleFocus ) ) otherlv_7= ',' ( (lv_content_8_0= RULE_STRING ) ) otherlv_9= ')' ( (lv_effect_10_0= ruleEffect ) )? ) )
+            // InternalAnnotationsStores.g:192:2: (otherlv_0= 'proposalElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_scope_4_0= ruleScope ) ) otherlv_5= ',' ( (lv_focus_6_0= ruleFocus ) ) otherlv_7= ',' ( (lv_content_8_0= RULE_STRING ) ) otherlv_9= ')' ( (lv_effect_10_0= ruleEffect ) )? )
             {
-            // InternalAnnotationsStores.g:192:2: (otherlv_0= 'proposalElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_scope_4_0= ruleScope ) ) otherlv_5= ',' ( (lv_focus_6_0= ruleFocus ) ) otherlv_7= ',' ( (lv_content_8_0= RULE_STRING ) ) otherlv_9= ')' )
-            // InternalAnnotationsStores.g:193:3: otherlv_0= 'proposalElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_scope_4_0= ruleScope ) ) otherlv_5= ',' ( (lv_focus_6_0= ruleFocus ) ) otherlv_7= ',' ( (lv_content_8_0= RULE_STRING ) ) otherlv_9= ')'
+            // InternalAnnotationsStores.g:192:2: (otherlv_0= 'proposalElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_scope_4_0= ruleScope ) ) otherlv_5= ',' ( (lv_focus_6_0= ruleFocus ) ) otherlv_7= ',' ( (lv_content_8_0= RULE_STRING ) ) otherlv_9= ')' ( (lv_effect_10_0= ruleEffect ) )? )
+            // InternalAnnotationsStores.g:193:3: otherlv_0= 'proposalElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_scope_4_0= ruleScope ) ) otherlv_5= ',' ( (lv_focus_6_0= ruleFocus ) ) otherlv_7= ',' ( (lv_content_8_0= RULE_STRING ) ) otherlv_9= ')' ( (lv_effect_10_0= ruleEffect ) )?
             {
             otherlv_0=(Token)match(input,11,FOLLOW_8); 
 
@@ -615,10 +617,52 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
             }
 
-            otherlv_9=(Token)match(input,14,FOLLOW_2); 
+            otherlv_9=(Token)match(input,14,FOLLOW_15); 
 
             			newLeafNode(otherlv_9, grammarAccess.getProposalStoreAccess().getRightParenthesisKeyword_9());
             		
+            // InternalAnnotationsStores.g:291:3: ( (lv_effect_10_0= ruleEffect ) )?
+            int alt6=2;
+            int LA6_0 = input.LA(1);
+
+            if ( (LA6_0==RULE_ID) ) {
+                alt6=1;
+            }
+            switch (alt6) {
+                case 1 :
+                    // InternalAnnotationsStores.g:292:4: (lv_effect_10_0= ruleEffect )
+                    {
+                    // InternalAnnotationsStores.g:292:4: (lv_effect_10_0= ruleEffect )
+                    // InternalAnnotationsStores.g:293:5: lv_effect_10_0= ruleEffect
+                    {
+
+                    					newCompositeNode(grammarAccess.getProposalStoreAccess().getEffectEffectParserRuleCall_10_0());
+                    				
+                    pushFollow(FOLLOW_2);
+                    lv_effect_10_0=ruleEffect();
+
+                    state._fsp--;
+
+
+                    					if (current==null) {
+                    						current = createModelElementForParent(grammarAccess.getProposalStoreRule());
+                    					}
+                    					set(
+                    						current,
+                    						"effect",
+                    						lv_effect_10_0,
+                    						"kcl.ac.uk.xtext.AnnotationsStores.Effect");
+                    					afterParserOrEnumRuleCall();
+                    				
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
 
             }
 
@@ -642,7 +686,7 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
 
     // $ANTLR start "entryRuleQuestionStore"
-    // InternalAnnotationsStores.g:295:1: entryRuleQuestionStore returns [EObject current=null] : iv_ruleQuestionStore= ruleQuestionStore EOF ;
+    // InternalAnnotationsStores.g:314:1: entryRuleQuestionStore returns [EObject current=null] : iv_ruleQuestionStore= ruleQuestionStore EOF ;
     public final EObject entryRuleQuestionStore() throws RecognitionException {
         EObject current = null;
 
@@ -650,8 +694,8 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
 
         try {
-            // InternalAnnotationsStores.g:295:54: (iv_ruleQuestionStore= ruleQuestionStore EOF )
-            // InternalAnnotationsStores.g:296:2: iv_ruleQuestionStore= ruleQuestionStore EOF
+            // InternalAnnotationsStores.g:314:54: (iv_ruleQuestionStore= ruleQuestionStore EOF )
+            // InternalAnnotationsStores.g:315:2: iv_ruleQuestionStore= ruleQuestionStore EOF
             {
              newCompositeNode(grammarAccess.getQuestionStoreRule()); 
             pushFollow(FOLLOW_1);
@@ -678,7 +722,7 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
 
     // $ANTLR start "ruleQuestionStore"
-    // InternalAnnotationsStores.g:302:1: ruleQuestionStore returns [EObject current=null] : (otherlv_0= 'questionElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_sender_4_0= ruleSender ) ) otherlv_5= ',' ( (lv_scope_6_0= ruleScope ) ) otherlv_7= ',' ( (lv_focus_8_0= ruleFocus ) ) otherlv_9= ',' ( (lv_content_10_0= RULE_STRING ) ) otherlv_11= ')' ) ;
+    // InternalAnnotationsStores.g:321:1: ruleQuestionStore returns [EObject current=null] : (otherlv_0= 'questionElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_sender_4_0= ruleSender ) ) otherlv_5= ',' ( (lv_scope_6_0= ruleScope ) ) otherlv_7= ',' ( (lv_focus_8_0= ruleFocus ) ) otherlv_9= ',' ( (lv_content_10_0= RULE_STRING ) ) otherlv_11= ')' ( (lv_effect_12_0= ruleEffect ) )? ) ;
     public final EObject ruleQuestionStore() throws RecognitionException {
         EObject current = null;
 
@@ -697,16 +741,18 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
         EObject lv_focus_8_0 = null;
 
+        EObject lv_effect_12_0 = null;
+
 
 
         	enterRule();
 
         try {
-            // InternalAnnotationsStores.g:308:2: ( (otherlv_0= 'questionElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_sender_4_0= ruleSender ) ) otherlv_5= ',' ( (lv_scope_6_0= ruleScope ) ) otherlv_7= ',' ( (lv_focus_8_0= ruleFocus ) ) otherlv_9= ',' ( (lv_content_10_0= RULE_STRING ) ) otherlv_11= ')' ) )
-            // InternalAnnotationsStores.g:309:2: (otherlv_0= 'questionElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_sender_4_0= ruleSender ) ) otherlv_5= ',' ( (lv_scope_6_0= ruleScope ) ) otherlv_7= ',' ( (lv_focus_8_0= ruleFocus ) ) otherlv_9= ',' ( (lv_content_10_0= RULE_STRING ) ) otherlv_11= ')' )
+            // InternalAnnotationsStores.g:327:2: ( (otherlv_0= 'questionElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_sender_4_0= ruleSender ) ) otherlv_5= ',' ( (lv_scope_6_0= ruleScope ) ) otherlv_7= ',' ( (lv_focus_8_0= ruleFocus ) ) otherlv_9= ',' ( (lv_content_10_0= RULE_STRING ) ) otherlv_11= ')' ( (lv_effect_12_0= ruleEffect ) )? ) )
+            // InternalAnnotationsStores.g:328:2: (otherlv_0= 'questionElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_sender_4_0= ruleSender ) ) otherlv_5= ',' ( (lv_scope_6_0= ruleScope ) ) otherlv_7= ',' ( (lv_focus_8_0= ruleFocus ) ) otherlv_9= ',' ( (lv_content_10_0= RULE_STRING ) ) otherlv_11= ')' ( (lv_effect_12_0= ruleEffect ) )? )
             {
-            // InternalAnnotationsStores.g:309:2: (otherlv_0= 'questionElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_sender_4_0= ruleSender ) ) otherlv_5= ',' ( (lv_scope_6_0= ruleScope ) ) otherlv_7= ',' ( (lv_focus_8_0= ruleFocus ) ) otherlv_9= ',' ( (lv_content_10_0= RULE_STRING ) ) otherlv_11= ')' )
-            // InternalAnnotationsStores.g:310:3: otherlv_0= 'questionElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_sender_4_0= ruleSender ) ) otherlv_5= ',' ( (lv_scope_6_0= ruleScope ) ) otherlv_7= ',' ( (lv_focus_8_0= ruleFocus ) ) otherlv_9= ',' ( (lv_content_10_0= RULE_STRING ) ) otherlv_11= ')'
+            // InternalAnnotationsStores.g:328:2: (otherlv_0= 'questionElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_sender_4_0= ruleSender ) ) otherlv_5= ',' ( (lv_scope_6_0= ruleScope ) ) otherlv_7= ',' ( (lv_focus_8_0= ruleFocus ) ) otherlv_9= ',' ( (lv_content_10_0= RULE_STRING ) ) otherlv_11= ')' ( (lv_effect_12_0= ruleEffect ) )? )
+            // InternalAnnotationsStores.g:329:3: otherlv_0= 'questionElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_sender_4_0= ruleSender ) ) otherlv_5= ',' ( (lv_scope_6_0= ruleScope ) ) otherlv_7= ',' ( (lv_focus_8_0= ruleFocus ) ) otherlv_9= ',' ( (lv_content_10_0= RULE_STRING ) ) otherlv_11= ')' ( (lv_effect_12_0= ruleEffect ) )?
             {
             otherlv_0=(Token)match(input,15,FOLLOW_8); 
 
@@ -716,11 +762,11 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
             			newLeafNode(otherlv_1, grammarAccess.getQuestionStoreAccess().getLeftParenthesisKeyword_1());
             		
-            // InternalAnnotationsStores.g:318:3: ( (lv_name_2_0= RULE_ID ) )
-            // InternalAnnotationsStores.g:319:4: (lv_name_2_0= RULE_ID )
+            // InternalAnnotationsStores.g:337:3: ( (lv_name_2_0= RULE_ID ) )
+            // InternalAnnotationsStores.g:338:4: (lv_name_2_0= RULE_ID )
             {
-            // InternalAnnotationsStores.g:319:4: (lv_name_2_0= RULE_ID )
-            // InternalAnnotationsStores.g:320:5: lv_name_2_0= RULE_ID
+            // InternalAnnotationsStores.g:338:4: (lv_name_2_0= RULE_ID )
+            // InternalAnnotationsStores.g:339:5: lv_name_2_0= RULE_ID
             {
             lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_10); 
 
@@ -742,15 +788,15 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
             }
 
-            otherlv_3=(Token)match(input,13,FOLLOW_15); 
+            otherlv_3=(Token)match(input,13,FOLLOW_16); 
 
             			newLeafNode(otherlv_3, grammarAccess.getQuestionStoreAccess().getCommaKeyword_3());
             		
-            // InternalAnnotationsStores.g:340:3: ( (lv_sender_4_0= ruleSender ) )
-            // InternalAnnotationsStores.g:341:4: (lv_sender_4_0= ruleSender )
+            // InternalAnnotationsStores.g:359:3: ( (lv_sender_4_0= ruleSender ) )
+            // InternalAnnotationsStores.g:360:4: (lv_sender_4_0= ruleSender )
             {
-            // InternalAnnotationsStores.g:341:4: (lv_sender_4_0= ruleSender )
-            // InternalAnnotationsStores.g:342:5: lv_sender_4_0= ruleSender
+            // InternalAnnotationsStores.g:360:4: (lv_sender_4_0= ruleSender )
+            // InternalAnnotationsStores.g:361:5: lv_sender_4_0= ruleSender
             {
 
             					newCompositeNode(grammarAccess.getQuestionStoreAccess().getSenderSenderParserRuleCall_4_0());
@@ -781,11 +827,11 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
             			newLeafNode(otherlv_5, grammarAccess.getQuestionStoreAccess().getCommaKeyword_5());
             		
-            // InternalAnnotationsStores.g:363:3: ( (lv_scope_6_0= ruleScope ) )
-            // InternalAnnotationsStores.g:364:4: (lv_scope_6_0= ruleScope )
+            // InternalAnnotationsStores.g:382:3: ( (lv_scope_6_0= ruleScope ) )
+            // InternalAnnotationsStores.g:383:4: (lv_scope_6_0= ruleScope )
             {
-            // InternalAnnotationsStores.g:364:4: (lv_scope_6_0= ruleScope )
-            // InternalAnnotationsStores.g:365:5: lv_scope_6_0= ruleScope
+            // InternalAnnotationsStores.g:383:4: (lv_scope_6_0= ruleScope )
+            // InternalAnnotationsStores.g:384:5: lv_scope_6_0= ruleScope
             {
 
             					newCompositeNode(grammarAccess.getQuestionStoreAccess().getScopeScopeParserRuleCall_6_0());
@@ -816,11 +862,11 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
             			newLeafNode(otherlv_7, grammarAccess.getQuestionStoreAccess().getCommaKeyword_7());
             		
-            // InternalAnnotationsStores.g:386:3: ( (lv_focus_8_0= ruleFocus ) )
-            // InternalAnnotationsStores.g:387:4: (lv_focus_8_0= ruleFocus )
+            // InternalAnnotationsStores.g:405:3: ( (lv_focus_8_0= ruleFocus ) )
+            // InternalAnnotationsStores.g:406:4: (lv_focus_8_0= ruleFocus )
             {
-            // InternalAnnotationsStores.g:387:4: (lv_focus_8_0= ruleFocus )
-            // InternalAnnotationsStores.g:388:5: lv_focus_8_0= ruleFocus
+            // InternalAnnotationsStores.g:406:4: (lv_focus_8_0= ruleFocus )
+            // InternalAnnotationsStores.g:407:5: lv_focus_8_0= ruleFocus
             {
 
             					newCompositeNode(grammarAccess.getQuestionStoreAccess().getFocusFocusParserRuleCall_8_0());
@@ -851,11 +897,11 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
             			newLeafNode(otherlv_9, grammarAccess.getQuestionStoreAccess().getCommaKeyword_9());
             		
-            // InternalAnnotationsStores.g:409:3: ( (lv_content_10_0= RULE_STRING ) )
-            // InternalAnnotationsStores.g:410:4: (lv_content_10_0= RULE_STRING )
+            // InternalAnnotationsStores.g:428:3: ( (lv_content_10_0= RULE_STRING ) )
+            // InternalAnnotationsStores.g:429:4: (lv_content_10_0= RULE_STRING )
             {
-            // InternalAnnotationsStores.g:410:4: (lv_content_10_0= RULE_STRING )
-            // InternalAnnotationsStores.g:411:5: lv_content_10_0= RULE_STRING
+            // InternalAnnotationsStores.g:429:4: (lv_content_10_0= RULE_STRING )
+            // InternalAnnotationsStores.g:430:5: lv_content_10_0= RULE_STRING
             {
             lv_content_10_0=(Token)match(input,RULE_STRING,FOLLOW_14); 
 
@@ -877,10 +923,52 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
             }
 
-            otherlv_11=(Token)match(input,14,FOLLOW_2); 
+            otherlv_11=(Token)match(input,14,FOLLOW_15); 
 
             			newLeafNode(otherlv_11, grammarAccess.getQuestionStoreAccess().getRightParenthesisKeyword_11());
             		
+            // InternalAnnotationsStores.g:450:3: ( (lv_effect_12_0= ruleEffect ) )?
+            int alt7=2;
+            int LA7_0 = input.LA(1);
+
+            if ( (LA7_0==RULE_ID) ) {
+                alt7=1;
+            }
+            switch (alt7) {
+                case 1 :
+                    // InternalAnnotationsStores.g:451:4: (lv_effect_12_0= ruleEffect )
+                    {
+                    // InternalAnnotationsStores.g:451:4: (lv_effect_12_0= ruleEffect )
+                    // InternalAnnotationsStores.g:452:5: lv_effect_12_0= ruleEffect
+                    {
+
+                    					newCompositeNode(grammarAccess.getQuestionStoreAccess().getEffectEffectParserRuleCall_12_0());
+                    				
+                    pushFollow(FOLLOW_2);
+                    lv_effect_12_0=ruleEffect();
+
+                    state._fsp--;
+
+
+                    					if (current==null) {
+                    						current = createModelElementForParent(grammarAccess.getQuestionStoreRule());
+                    					}
+                    					set(
+                    						current,
+                    						"effect",
+                    						lv_effect_12_0,
+                    						"kcl.ac.uk.xtext.AnnotationsStores.Effect");
+                    					afterParserOrEnumRuleCall();
+                    				
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
 
             }
 
@@ -904,7 +992,7 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
 
     // $ANTLR start "entryRuleChallengeStore"
-    // InternalAnnotationsStores.g:435:1: entryRuleChallengeStore returns [EObject current=null] : iv_ruleChallengeStore= ruleChallengeStore EOF ;
+    // InternalAnnotationsStores.g:473:1: entryRuleChallengeStore returns [EObject current=null] : iv_ruleChallengeStore= ruleChallengeStore EOF ;
     public final EObject entryRuleChallengeStore() throws RecognitionException {
         EObject current = null;
 
@@ -912,8 +1000,8 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
 
         try {
-            // InternalAnnotationsStores.g:435:55: (iv_ruleChallengeStore= ruleChallengeStore EOF )
-            // InternalAnnotationsStores.g:436:2: iv_ruleChallengeStore= ruleChallengeStore EOF
+            // InternalAnnotationsStores.g:473:55: (iv_ruleChallengeStore= ruleChallengeStore EOF )
+            // InternalAnnotationsStores.g:474:2: iv_ruleChallengeStore= ruleChallengeStore EOF
             {
              newCompositeNode(grammarAccess.getChallengeStoreRule()); 
             pushFollow(FOLLOW_1);
@@ -940,7 +1028,7 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
 
     // $ANTLR start "ruleChallengeStore"
-    // InternalAnnotationsStores.g:442:1: ruleChallengeStore returns [EObject current=null] : (otherlv_0= 'challengeElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_sender_4_0= ruleSender ) ) (otherlv_5= ',' ( (lv_target_6_0= RULE_ID ) ) )? otherlv_7= ')' ) ;
+    // InternalAnnotationsStores.g:480:1: ruleChallengeStore returns [EObject current=null] : (otherlv_0= 'challengeElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_sender_4_0= ruleSender ) ) (otherlv_5= ',' ( (lv_target_6_0= RULE_ID ) ) )? otherlv_7= ')' ( (lv_effect_8_0= ruleEffect ) )? ) ;
     public final EObject ruleChallengeStore() throws RecognitionException {
         EObject current = null;
 
@@ -953,16 +1041,18 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
         Token otherlv_7=null;
         AntlrDatatypeRuleToken lv_sender_4_0 = null;
 
+        EObject lv_effect_8_0 = null;
+
 
 
         	enterRule();
 
         try {
-            // InternalAnnotationsStores.g:448:2: ( (otherlv_0= 'challengeElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_sender_4_0= ruleSender ) ) (otherlv_5= ',' ( (lv_target_6_0= RULE_ID ) ) )? otherlv_7= ')' ) )
-            // InternalAnnotationsStores.g:449:2: (otherlv_0= 'challengeElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_sender_4_0= ruleSender ) ) (otherlv_5= ',' ( (lv_target_6_0= RULE_ID ) ) )? otherlv_7= ')' )
+            // InternalAnnotationsStores.g:486:2: ( (otherlv_0= 'challengeElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_sender_4_0= ruleSender ) ) (otherlv_5= ',' ( (lv_target_6_0= RULE_ID ) ) )? otherlv_7= ')' ( (lv_effect_8_0= ruleEffect ) )? ) )
+            // InternalAnnotationsStores.g:487:2: (otherlv_0= 'challengeElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_sender_4_0= ruleSender ) ) (otherlv_5= ',' ( (lv_target_6_0= RULE_ID ) ) )? otherlv_7= ')' ( (lv_effect_8_0= ruleEffect ) )? )
             {
-            // InternalAnnotationsStores.g:449:2: (otherlv_0= 'challengeElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_sender_4_0= ruleSender ) ) (otherlv_5= ',' ( (lv_target_6_0= RULE_ID ) ) )? otherlv_7= ')' )
-            // InternalAnnotationsStores.g:450:3: otherlv_0= 'challengeElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_sender_4_0= ruleSender ) ) (otherlv_5= ',' ( (lv_target_6_0= RULE_ID ) ) )? otherlv_7= ')'
+            // InternalAnnotationsStores.g:487:2: (otherlv_0= 'challengeElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_sender_4_0= ruleSender ) ) (otherlv_5= ',' ( (lv_target_6_0= RULE_ID ) ) )? otherlv_7= ')' ( (lv_effect_8_0= ruleEffect ) )? )
+            // InternalAnnotationsStores.g:488:3: otherlv_0= 'challengeElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_sender_4_0= ruleSender ) ) (otherlv_5= ',' ( (lv_target_6_0= RULE_ID ) ) )? otherlv_7= ')' ( (lv_effect_8_0= ruleEffect ) )?
             {
             otherlv_0=(Token)match(input,16,FOLLOW_8); 
 
@@ -972,11 +1062,11 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
             			newLeafNode(otherlv_1, grammarAccess.getChallengeStoreAccess().getLeftParenthesisKeyword_1());
             		
-            // InternalAnnotationsStores.g:458:3: ( (lv_name_2_0= RULE_ID ) )
-            // InternalAnnotationsStores.g:459:4: (lv_name_2_0= RULE_ID )
+            // InternalAnnotationsStores.g:496:3: ( (lv_name_2_0= RULE_ID ) )
+            // InternalAnnotationsStores.g:497:4: (lv_name_2_0= RULE_ID )
             {
-            // InternalAnnotationsStores.g:459:4: (lv_name_2_0= RULE_ID )
-            // InternalAnnotationsStores.g:460:5: lv_name_2_0= RULE_ID
+            // InternalAnnotationsStores.g:497:4: (lv_name_2_0= RULE_ID )
+            // InternalAnnotationsStores.g:498:5: lv_name_2_0= RULE_ID
             {
             lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_10); 
 
@@ -998,20 +1088,20 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
             }
 
-            otherlv_3=(Token)match(input,13,FOLLOW_15); 
+            otherlv_3=(Token)match(input,13,FOLLOW_16); 
 
             			newLeafNode(otherlv_3, grammarAccess.getChallengeStoreAccess().getCommaKeyword_3());
             		
-            // InternalAnnotationsStores.g:480:3: ( (lv_sender_4_0= ruleSender ) )
-            // InternalAnnotationsStores.g:481:4: (lv_sender_4_0= ruleSender )
+            // InternalAnnotationsStores.g:518:3: ( (lv_sender_4_0= ruleSender ) )
+            // InternalAnnotationsStores.g:519:4: (lv_sender_4_0= ruleSender )
             {
-            // InternalAnnotationsStores.g:481:4: (lv_sender_4_0= ruleSender )
-            // InternalAnnotationsStores.g:482:5: lv_sender_4_0= ruleSender
+            // InternalAnnotationsStores.g:519:4: (lv_sender_4_0= ruleSender )
+            // InternalAnnotationsStores.g:520:5: lv_sender_4_0= ruleSender
             {
 
             					newCompositeNode(grammarAccess.getChallengeStoreAccess().getSenderSenderParserRuleCall_4_0());
             				
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_17);
             lv_sender_4_0=ruleSender();
 
             state._fsp--;
@@ -1033,26 +1123,26 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
             }
 
-            // InternalAnnotationsStores.g:499:3: (otherlv_5= ',' ( (lv_target_6_0= RULE_ID ) ) )?
-            int alt6=2;
-            int LA6_0 = input.LA(1);
+            // InternalAnnotationsStores.g:537:3: (otherlv_5= ',' ( (lv_target_6_0= RULE_ID ) ) )?
+            int alt8=2;
+            int LA8_0 = input.LA(1);
 
-            if ( (LA6_0==13) ) {
-                alt6=1;
+            if ( (LA8_0==13) ) {
+                alt8=1;
             }
-            switch (alt6) {
+            switch (alt8) {
                 case 1 :
-                    // InternalAnnotationsStores.g:500:4: otherlv_5= ',' ( (lv_target_6_0= RULE_ID ) )
+                    // InternalAnnotationsStores.g:538:4: otherlv_5= ',' ( (lv_target_6_0= RULE_ID ) )
                     {
                     otherlv_5=(Token)match(input,13,FOLLOW_9); 
 
                     				newLeafNode(otherlv_5, grammarAccess.getChallengeStoreAccess().getCommaKeyword_5_0());
                     			
-                    // InternalAnnotationsStores.g:504:4: ( (lv_target_6_0= RULE_ID ) )
-                    // InternalAnnotationsStores.g:505:5: (lv_target_6_0= RULE_ID )
+                    // InternalAnnotationsStores.g:542:4: ( (lv_target_6_0= RULE_ID ) )
+                    // InternalAnnotationsStores.g:543:5: (lv_target_6_0= RULE_ID )
                     {
-                    // InternalAnnotationsStores.g:505:5: (lv_target_6_0= RULE_ID )
-                    // InternalAnnotationsStores.g:506:6: lv_target_6_0= RULE_ID
+                    // InternalAnnotationsStores.g:543:5: (lv_target_6_0= RULE_ID )
+                    // InternalAnnotationsStores.g:544:6: lv_target_6_0= RULE_ID
                     {
                     lv_target_6_0=(Token)match(input,RULE_ID,FOLLOW_14); 
 
@@ -1080,10 +1170,52 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
             }
 
-            otherlv_7=(Token)match(input,14,FOLLOW_2); 
+            otherlv_7=(Token)match(input,14,FOLLOW_15); 
 
             			newLeafNode(otherlv_7, grammarAccess.getChallengeStoreAccess().getRightParenthesisKeyword_6());
             		
+            // InternalAnnotationsStores.g:565:3: ( (lv_effect_8_0= ruleEffect ) )?
+            int alt9=2;
+            int LA9_0 = input.LA(1);
+
+            if ( (LA9_0==RULE_ID) ) {
+                alt9=1;
+            }
+            switch (alt9) {
+                case 1 :
+                    // InternalAnnotationsStores.g:566:4: (lv_effect_8_0= ruleEffect )
+                    {
+                    // InternalAnnotationsStores.g:566:4: (lv_effect_8_0= ruleEffect )
+                    // InternalAnnotationsStores.g:567:5: lv_effect_8_0= ruleEffect
+                    {
+
+                    					newCompositeNode(grammarAccess.getChallengeStoreAccess().getEffectEffectParserRuleCall_7_0());
+                    				
+                    pushFollow(FOLLOW_2);
+                    lv_effect_8_0=ruleEffect();
+
+                    state._fsp--;
+
+
+                    					if (current==null) {
+                    						current = createModelElementForParent(grammarAccess.getChallengeStoreRule());
+                    					}
+                    					set(
+                    						current,
+                    						"effect",
+                    						lv_effect_8_0,
+                    						"kcl.ac.uk.xtext.AnnotationsStores.Effect");
+                    					afterParserOrEnumRuleCall();
+                    				
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
 
             }
 
@@ -1107,7 +1239,7 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
 
     // $ANTLR start "entryRuleCommitmentStore"
-    // InternalAnnotationsStores.g:531:1: entryRuleCommitmentStore returns [EObject current=null] : iv_ruleCommitmentStore= ruleCommitmentStore EOF ;
+    // InternalAnnotationsStores.g:588:1: entryRuleCommitmentStore returns [EObject current=null] : iv_ruleCommitmentStore= ruleCommitmentStore EOF ;
     public final EObject entryRuleCommitmentStore() throws RecognitionException {
         EObject current = null;
 
@@ -1115,8 +1247,8 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
 
         try {
-            // InternalAnnotationsStores.g:531:56: (iv_ruleCommitmentStore= ruleCommitmentStore EOF )
-            // InternalAnnotationsStores.g:532:2: iv_ruleCommitmentStore= ruleCommitmentStore EOF
+            // InternalAnnotationsStores.g:588:56: (iv_ruleCommitmentStore= ruleCommitmentStore EOF )
+            // InternalAnnotationsStores.g:589:2: iv_ruleCommitmentStore= ruleCommitmentStore EOF
             {
              newCompositeNode(grammarAccess.getCommitmentStoreRule()); 
             pushFollow(FOLLOW_1);
@@ -1143,7 +1275,7 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
 
     // $ANTLR start "ruleCommitmentStore"
-    // InternalAnnotationsStores.g:538:1: ruleCommitmentStore returns [EObject current=null] : (otherlv_0= 'commitmentElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_scope_4_0= ruleScope ) ) otherlv_5= ',' ( (lv_focus_6_0= ruleFocus ) ) otherlv_7= ',' ( (lv_content_8_0= RULE_STRING ) ) otherlv_9= ')' ) ;
+    // InternalAnnotationsStores.g:595:1: ruleCommitmentStore returns [EObject current=null] : (otherlv_0= 'commitmentElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_scope_4_0= ruleScope ) ) otherlv_5= ',' ( (lv_focus_6_0= ruleFocus ) ) otherlv_7= ',' ( (lv_content_8_0= RULE_STRING ) ) otherlv_9= ')' ( (lv_effect_10_0= ruleEffect ) )? ) ;
     public final EObject ruleCommitmentStore() throws RecognitionException {
         EObject current = null;
 
@@ -1159,16 +1291,18 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
         EObject lv_focus_6_0 = null;
 
+        EObject lv_effect_10_0 = null;
+
 
 
         	enterRule();
 
         try {
-            // InternalAnnotationsStores.g:544:2: ( (otherlv_0= 'commitmentElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_scope_4_0= ruleScope ) ) otherlv_5= ',' ( (lv_focus_6_0= ruleFocus ) ) otherlv_7= ',' ( (lv_content_8_0= RULE_STRING ) ) otherlv_9= ')' ) )
-            // InternalAnnotationsStores.g:545:2: (otherlv_0= 'commitmentElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_scope_4_0= ruleScope ) ) otherlv_5= ',' ( (lv_focus_6_0= ruleFocus ) ) otherlv_7= ',' ( (lv_content_8_0= RULE_STRING ) ) otherlv_9= ')' )
+            // InternalAnnotationsStores.g:601:2: ( (otherlv_0= 'commitmentElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_scope_4_0= ruleScope ) ) otherlv_5= ',' ( (lv_focus_6_0= ruleFocus ) ) otherlv_7= ',' ( (lv_content_8_0= RULE_STRING ) ) otherlv_9= ')' ( (lv_effect_10_0= ruleEffect ) )? ) )
+            // InternalAnnotationsStores.g:602:2: (otherlv_0= 'commitmentElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_scope_4_0= ruleScope ) ) otherlv_5= ',' ( (lv_focus_6_0= ruleFocus ) ) otherlv_7= ',' ( (lv_content_8_0= RULE_STRING ) ) otherlv_9= ')' ( (lv_effect_10_0= ruleEffect ) )? )
             {
-            // InternalAnnotationsStores.g:545:2: (otherlv_0= 'commitmentElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_scope_4_0= ruleScope ) ) otherlv_5= ',' ( (lv_focus_6_0= ruleFocus ) ) otherlv_7= ',' ( (lv_content_8_0= RULE_STRING ) ) otherlv_9= ')' )
-            // InternalAnnotationsStores.g:546:3: otherlv_0= 'commitmentElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_scope_4_0= ruleScope ) ) otherlv_5= ',' ( (lv_focus_6_0= ruleFocus ) ) otherlv_7= ',' ( (lv_content_8_0= RULE_STRING ) ) otherlv_9= ')'
+            // InternalAnnotationsStores.g:602:2: (otherlv_0= 'commitmentElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_scope_4_0= ruleScope ) ) otherlv_5= ',' ( (lv_focus_6_0= ruleFocus ) ) otherlv_7= ',' ( (lv_content_8_0= RULE_STRING ) ) otherlv_9= ')' ( (lv_effect_10_0= ruleEffect ) )? )
+            // InternalAnnotationsStores.g:603:3: otherlv_0= 'commitmentElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_scope_4_0= ruleScope ) ) otherlv_5= ',' ( (lv_focus_6_0= ruleFocus ) ) otherlv_7= ',' ( (lv_content_8_0= RULE_STRING ) ) otherlv_9= ')' ( (lv_effect_10_0= ruleEffect ) )?
             {
             otherlv_0=(Token)match(input,17,FOLLOW_8); 
 
@@ -1178,11 +1312,11 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
             			newLeafNode(otherlv_1, grammarAccess.getCommitmentStoreAccess().getLeftParenthesisKeyword_1());
             		
-            // InternalAnnotationsStores.g:554:3: ( (lv_name_2_0= RULE_ID ) )
-            // InternalAnnotationsStores.g:555:4: (lv_name_2_0= RULE_ID )
+            // InternalAnnotationsStores.g:611:3: ( (lv_name_2_0= RULE_ID ) )
+            // InternalAnnotationsStores.g:612:4: (lv_name_2_0= RULE_ID )
             {
-            // InternalAnnotationsStores.g:555:4: (lv_name_2_0= RULE_ID )
-            // InternalAnnotationsStores.g:556:5: lv_name_2_0= RULE_ID
+            // InternalAnnotationsStores.g:612:4: (lv_name_2_0= RULE_ID )
+            // InternalAnnotationsStores.g:613:5: lv_name_2_0= RULE_ID
             {
             lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_10); 
 
@@ -1208,11 +1342,11 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
             			newLeafNode(otherlv_3, grammarAccess.getCommitmentStoreAccess().getCommaKeyword_3());
             		
-            // InternalAnnotationsStores.g:576:3: ( (lv_scope_4_0= ruleScope ) )
-            // InternalAnnotationsStores.g:577:4: (lv_scope_4_0= ruleScope )
+            // InternalAnnotationsStores.g:633:3: ( (lv_scope_4_0= ruleScope ) )
+            // InternalAnnotationsStores.g:634:4: (lv_scope_4_0= ruleScope )
             {
-            // InternalAnnotationsStores.g:577:4: (lv_scope_4_0= ruleScope )
-            // InternalAnnotationsStores.g:578:5: lv_scope_4_0= ruleScope
+            // InternalAnnotationsStores.g:634:4: (lv_scope_4_0= ruleScope )
+            // InternalAnnotationsStores.g:635:5: lv_scope_4_0= ruleScope
             {
 
             					newCompositeNode(grammarAccess.getCommitmentStoreAccess().getScopeScopeParserRuleCall_4_0());
@@ -1243,11 +1377,11 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
             			newLeafNode(otherlv_5, grammarAccess.getCommitmentStoreAccess().getCommaKeyword_5());
             		
-            // InternalAnnotationsStores.g:599:3: ( (lv_focus_6_0= ruleFocus ) )
-            // InternalAnnotationsStores.g:600:4: (lv_focus_6_0= ruleFocus )
+            // InternalAnnotationsStores.g:656:3: ( (lv_focus_6_0= ruleFocus ) )
+            // InternalAnnotationsStores.g:657:4: (lv_focus_6_0= ruleFocus )
             {
-            // InternalAnnotationsStores.g:600:4: (lv_focus_6_0= ruleFocus )
-            // InternalAnnotationsStores.g:601:5: lv_focus_6_0= ruleFocus
+            // InternalAnnotationsStores.g:657:4: (lv_focus_6_0= ruleFocus )
+            // InternalAnnotationsStores.g:658:5: lv_focus_6_0= ruleFocus
             {
 
             					newCompositeNode(grammarAccess.getCommitmentStoreAccess().getFocusFocusParserRuleCall_6_0());
@@ -1278,11 +1412,11 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
             			newLeafNode(otherlv_7, grammarAccess.getCommitmentStoreAccess().getCommaKeyword_7());
             		
-            // InternalAnnotationsStores.g:622:3: ( (lv_content_8_0= RULE_STRING ) )
-            // InternalAnnotationsStores.g:623:4: (lv_content_8_0= RULE_STRING )
+            // InternalAnnotationsStores.g:679:3: ( (lv_content_8_0= RULE_STRING ) )
+            // InternalAnnotationsStores.g:680:4: (lv_content_8_0= RULE_STRING )
             {
-            // InternalAnnotationsStores.g:623:4: (lv_content_8_0= RULE_STRING )
-            // InternalAnnotationsStores.g:624:5: lv_content_8_0= RULE_STRING
+            // InternalAnnotationsStores.g:680:4: (lv_content_8_0= RULE_STRING )
+            // InternalAnnotationsStores.g:681:5: lv_content_8_0= RULE_STRING
             {
             lv_content_8_0=(Token)match(input,RULE_STRING,FOLLOW_14); 
 
@@ -1304,10 +1438,52 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
             }
 
-            otherlv_9=(Token)match(input,14,FOLLOW_2); 
+            otherlv_9=(Token)match(input,14,FOLLOW_15); 
 
             			newLeafNode(otherlv_9, grammarAccess.getCommitmentStoreAccess().getRightParenthesisKeyword_9());
             		
+            // InternalAnnotationsStores.g:701:3: ( (lv_effect_10_0= ruleEffect ) )?
+            int alt10=2;
+            int LA10_0 = input.LA(1);
+
+            if ( (LA10_0==RULE_ID) ) {
+                alt10=1;
+            }
+            switch (alt10) {
+                case 1 :
+                    // InternalAnnotationsStores.g:702:4: (lv_effect_10_0= ruleEffect )
+                    {
+                    // InternalAnnotationsStores.g:702:4: (lv_effect_10_0= ruleEffect )
+                    // InternalAnnotationsStores.g:703:5: lv_effect_10_0= ruleEffect
+                    {
+
+                    					newCompositeNode(grammarAccess.getCommitmentStoreAccess().getEffectEffectParserRuleCall_10_0());
+                    				
+                    pushFollow(FOLLOW_2);
+                    lv_effect_10_0=ruleEffect();
+
+                    state._fsp--;
+
+
+                    					if (current==null) {
+                    						current = createModelElementForParent(grammarAccess.getCommitmentStoreRule());
+                    					}
+                    					set(
+                    						current,
+                    						"effect",
+                    						lv_effect_10_0,
+                    						"kcl.ac.uk.xtext.AnnotationsStores.Effect");
+                    					afterParserOrEnumRuleCall();
+                    				
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
 
             }
 
@@ -1331,7 +1507,7 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
 
     // $ANTLR start "entryRuleArgumentStore"
-    // InternalAnnotationsStores.g:648:1: entryRuleArgumentStore returns [EObject current=null] : iv_ruleArgumentStore= ruleArgumentStore EOF ;
+    // InternalAnnotationsStores.g:724:1: entryRuleArgumentStore returns [EObject current=null] : iv_ruleArgumentStore= ruleArgumentStore EOF ;
     public final EObject entryRuleArgumentStore() throws RecognitionException {
         EObject current = null;
 
@@ -1339,8 +1515,8 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
 
         try {
-            // InternalAnnotationsStores.g:648:54: (iv_ruleArgumentStore= ruleArgumentStore EOF )
-            // InternalAnnotationsStores.g:649:2: iv_ruleArgumentStore= ruleArgumentStore EOF
+            // InternalAnnotationsStores.g:724:54: (iv_ruleArgumentStore= ruleArgumentStore EOF )
+            // InternalAnnotationsStores.g:725:2: iv_ruleArgumentStore= ruleArgumentStore EOF
             {
              newCompositeNode(grammarAccess.getArgumentStoreRule()); 
             pushFollow(FOLLOW_1);
@@ -1367,7 +1543,7 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
 
     // $ANTLR start "ruleArgumentStore"
-    // InternalAnnotationsStores.g:655:1: ruleArgumentStore returns [EObject current=null] : (otherlv_0= 'argumentElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_scope_4_0= ruleScope ) ) otherlv_5= ',' ( (lv_focus_6_0= ruleFocus ) ) otherlv_7= ',' ( (lv_content_8_0= RULE_STRING ) ) (otherlv_9= ',' ( (lv_target_10_0= RULE_ID ) ) )? otherlv_11= ')' ) ;
+    // InternalAnnotationsStores.g:731:1: ruleArgumentStore returns [EObject current=null] : (otherlv_0= 'argumentElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_scope_4_0= ruleScope ) ) otherlv_5= ',' ( (lv_focus_6_0= ruleFocus ) ) otherlv_7= ',' ( (lv_content_8_0= RULE_STRING ) ) (otherlv_9= ',' ( (lv_target_10_0= RULE_ID ) ) )? otherlv_11= ')' ( (lv_effect_12_0= ruleEffect ) )? ) ;
     public final EObject ruleArgumentStore() throws RecognitionException {
         EObject current = null;
 
@@ -1385,16 +1561,18 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
         EObject lv_focus_6_0 = null;
 
+        EObject lv_effect_12_0 = null;
+
 
 
         	enterRule();
 
         try {
-            // InternalAnnotationsStores.g:661:2: ( (otherlv_0= 'argumentElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_scope_4_0= ruleScope ) ) otherlv_5= ',' ( (lv_focus_6_0= ruleFocus ) ) otherlv_7= ',' ( (lv_content_8_0= RULE_STRING ) ) (otherlv_9= ',' ( (lv_target_10_0= RULE_ID ) ) )? otherlv_11= ')' ) )
-            // InternalAnnotationsStores.g:662:2: (otherlv_0= 'argumentElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_scope_4_0= ruleScope ) ) otherlv_5= ',' ( (lv_focus_6_0= ruleFocus ) ) otherlv_7= ',' ( (lv_content_8_0= RULE_STRING ) ) (otherlv_9= ',' ( (lv_target_10_0= RULE_ID ) ) )? otherlv_11= ')' )
+            // InternalAnnotationsStores.g:737:2: ( (otherlv_0= 'argumentElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_scope_4_0= ruleScope ) ) otherlv_5= ',' ( (lv_focus_6_0= ruleFocus ) ) otherlv_7= ',' ( (lv_content_8_0= RULE_STRING ) ) (otherlv_9= ',' ( (lv_target_10_0= RULE_ID ) ) )? otherlv_11= ')' ( (lv_effect_12_0= ruleEffect ) )? ) )
+            // InternalAnnotationsStores.g:738:2: (otherlv_0= 'argumentElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_scope_4_0= ruleScope ) ) otherlv_5= ',' ( (lv_focus_6_0= ruleFocus ) ) otherlv_7= ',' ( (lv_content_8_0= RULE_STRING ) ) (otherlv_9= ',' ( (lv_target_10_0= RULE_ID ) ) )? otherlv_11= ')' ( (lv_effect_12_0= ruleEffect ) )? )
             {
-            // InternalAnnotationsStores.g:662:2: (otherlv_0= 'argumentElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_scope_4_0= ruleScope ) ) otherlv_5= ',' ( (lv_focus_6_0= ruleFocus ) ) otherlv_7= ',' ( (lv_content_8_0= RULE_STRING ) ) (otherlv_9= ',' ( (lv_target_10_0= RULE_ID ) ) )? otherlv_11= ')' )
-            // InternalAnnotationsStores.g:663:3: otherlv_0= 'argumentElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_scope_4_0= ruleScope ) ) otherlv_5= ',' ( (lv_focus_6_0= ruleFocus ) ) otherlv_7= ',' ( (lv_content_8_0= RULE_STRING ) ) (otherlv_9= ',' ( (lv_target_10_0= RULE_ID ) ) )? otherlv_11= ')'
+            // InternalAnnotationsStores.g:738:2: (otherlv_0= 'argumentElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_scope_4_0= ruleScope ) ) otherlv_5= ',' ( (lv_focus_6_0= ruleFocus ) ) otherlv_7= ',' ( (lv_content_8_0= RULE_STRING ) ) (otherlv_9= ',' ( (lv_target_10_0= RULE_ID ) ) )? otherlv_11= ')' ( (lv_effect_12_0= ruleEffect ) )? )
+            // InternalAnnotationsStores.g:739:3: otherlv_0= 'argumentElement' otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ',' ( (lv_scope_4_0= ruleScope ) ) otherlv_5= ',' ( (lv_focus_6_0= ruleFocus ) ) otherlv_7= ',' ( (lv_content_8_0= RULE_STRING ) ) (otherlv_9= ',' ( (lv_target_10_0= RULE_ID ) ) )? otherlv_11= ')' ( (lv_effect_12_0= ruleEffect ) )?
             {
             otherlv_0=(Token)match(input,18,FOLLOW_8); 
 
@@ -1404,11 +1582,11 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
             			newLeafNode(otherlv_1, grammarAccess.getArgumentStoreAccess().getLeftParenthesisKeyword_1());
             		
-            // InternalAnnotationsStores.g:671:3: ( (lv_name_2_0= RULE_ID ) )
-            // InternalAnnotationsStores.g:672:4: (lv_name_2_0= RULE_ID )
+            // InternalAnnotationsStores.g:747:3: ( (lv_name_2_0= RULE_ID ) )
+            // InternalAnnotationsStores.g:748:4: (lv_name_2_0= RULE_ID )
             {
-            // InternalAnnotationsStores.g:672:4: (lv_name_2_0= RULE_ID )
-            // InternalAnnotationsStores.g:673:5: lv_name_2_0= RULE_ID
+            // InternalAnnotationsStores.g:748:4: (lv_name_2_0= RULE_ID )
+            // InternalAnnotationsStores.g:749:5: lv_name_2_0= RULE_ID
             {
             lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_10); 
 
@@ -1434,11 +1612,11 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
             			newLeafNode(otherlv_3, grammarAccess.getArgumentStoreAccess().getCommaKeyword_3());
             		
-            // InternalAnnotationsStores.g:693:3: ( (lv_scope_4_0= ruleScope ) )
-            // InternalAnnotationsStores.g:694:4: (lv_scope_4_0= ruleScope )
+            // InternalAnnotationsStores.g:769:3: ( (lv_scope_4_0= ruleScope ) )
+            // InternalAnnotationsStores.g:770:4: (lv_scope_4_0= ruleScope )
             {
-            // InternalAnnotationsStores.g:694:4: (lv_scope_4_0= ruleScope )
-            // InternalAnnotationsStores.g:695:5: lv_scope_4_0= ruleScope
+            // InternalAnnotationsStores.g:770:4: (lv_scope_4_0= ruleScope )
+            // InternalAnnotationsStores.g:771:5: lv_scope_4_0= ruleScope
             {
 
             					newCompositeNode(grammarAccess.getArgumentStoreAccess().getScopeScopeParserRuleCall_4_0());
@@ -1469,11 +1647,11 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
             			newLeafNode(otherlv_5, grammarAccess.getArgumentStoreAccess().getCommaKeyword_5());
             		
-            // InternalAnnotationsStores.g:716:3: ( (lv_focus_6_0= ruleFocus ) )
-            // InternalAnnotationsStores.g:717:4: (lv_focus_6_0= ruleFocus )
+            // InternalAnnotationsStores.g:792:3: ( (lv_focus_6_0= ruleFocus ) )
+            // InternalAnnotationsStores.g:793:4: (lv_focus_6_0= ruleFocus )
             {
-            // InternalAnnotationsStores.g:717:4: (lv_focus_6_0= ruleFocus )
-            // InternalAnnotationsStores.g:718:5: lv_focus_6_0= ruleFocus
+            // InternalAnnotationsStores.g:793:4: (lv_focus_6_0= ruleFocus )
+            // InternalAnnotationsStores.g:794:5: lv_focus_6_0= ruleFocus
             {
 
             					newCompositeNode(grammarAccess.getArgumentStoreAccess().getFocusFocusParserRuleCall_6_0());
@@ -1504,13 +1682,13 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
             			newLeafNode(otherlv_7, grammarAccess.getArgumentStoreAccess().getCommaKeyword_7());
             		
-            // InternalAnnotationsStores.g:739:3: ( (lv_content_8_0= RULE_STRING ) )
-            // InternalAnnotationsStores.g:740:4: (lv_content_8_0= RULE_STRING )
+            // InternalAnnotationsStores.g:815:3: ( (lv_content_8_0= RULE_STRING ) )
+            // InternalAnnotationsStores.g:816:4: (lv_content_8_0= RULE_STRING )
             {
-            // InternalAnnotationsStores.g:740:4: (lv_content_8_0= RULE_STRING )
-            // InternalAnnotationsStores.g:741:5: lv_content_8_0= RULE_STRING
+            // InternalAnnotationsStores.g:816:4: (lv_content_8_0= RULE_STRING )
+            // InternalAnnotationsStores.g:817:5: lv_content_8_0= RULE_STRING
             {
-            lv_content_8_0=(Token)match(input,RULE_STRING,FOLLOW_16); 
+            lv_content_8_0=(Token)match(input,RULE_STRING,FOLLOW_17); 
 
             					newLeafNode(lv_content_8_0, grammarAccess.getArgumentStoreAccess().getContentSTRINGTerminalRuleCall_8_0());
             				
@@ -1530,26 +1708,26 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
             }
 
-            // InternalAnnotationsStores.g:757:3: (otherlv_9= ',' ( (lv_target_10_0= RULE_ID ) ) )?
-            int alt7=2;
-            int LA7_0 = input.LA(1);
+            // InternalAnnotationsStores.g:833:3: (otherlv_9= ',' ( (lv_target_10_0= RULE_ID ) ) )?
+            int alt11=2;
+            int LA11_0 = input.LA(1);
 
-            if ( (LA7_0==13) ) {
-                alt7=1;
+            if ( (LA11_0==13) ) {
+                alt11=1;
             }
-            switch (alt7) {
+            switch (alt11) {
                 case 1 :
-                    // InternalAnnotationsStores.g:758:4: otherlv_9= ',' ( (lv_target_10_0= RULE_ID ) )
+                    // InternalAnnotationsStores.g:834:4: otherlv_9= ',' ( (lv_target_10_0= RULE_ID ) )
                     {
                     otherlv_9=(Token)match(input,13,FOLLOW_9); 
 
                     				newLeafNode(otherlv_9, grammarAccess.getArgumentStoreAccess().getCommaKeyword_9_0());
                     			
-                    // InternalAnnotationsStores.g:762:4: ( (lv_target_10_0= RULE_ID ) )
-                    // InternalAnnotationsStores.g:763:5: (lv_target_10_0= RULE_ID )
+                    // InternalAnnotationsStores.g:838:4: ( (lv_target_10_0= RULE_ID ) )
+                    // InternalAnnotationsStores.g:839:5: (lv_target_10_0= RULE_ID )
                     {
-                    // InternalAnnotationsStores.g:763:5: (lv_target_10_0= RULE_ID )
-                    // InternalAnnotationsStores.g:764:6: lv_target_10_0= RULE_ID
+                    // InternalAnnotationsStores.g:839:5: (lv_target_10_0= RULE_ID )
+                    // InternalAnnotationsStores.g:840:6: lv_target_10_0= RULE_ID
                     {
                     lv_target_10_0=(Token)match(input,RULE_ID,FOLLOW_14); 
 
@@ -1577,10 +1755,52 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
             }
 
-            otherlv_11=(Token)match(input,14,FOLLOW_2); 
+            otherlv_11=(Token)match(input,14,FOLLOW_15); 
 
             			newLeafNode(otherlv_11, grammarAccess.getArgumentStoreAccess().getRightParenthesisKeyword_10());
             		
+            // InternalAnnotationsStores.g:861:3: ( (lv_effect_12_0= ruleEffect ) )?
+            int alt12=2;
+            int LA12_0 = input.LA(1);
+
+            if ( (LA12_0==RULE_ID) ) {
+                alt12=1;
+            }
+            switch (alt12) {
+                case 1 :
+                    // InternalAnnotationsStores.g:862:4: (lv_effect_12_0= ruleEffect )
+                    {
+                    // InternalAnnotationsStores.g:862:4: (lv_effect_12_0= ruleEffect )
+                    // InternalAnnotationsStores.g:863:5: lv_effect_12_0= ruleEffect
+                    {
+
+                    					newCompositeNode(grammarAccess.getArgumentStoreAccess().getEffectEffectParserRuleCall_11_0());
+                    				
+                    pushFollow(FOLLOW_2);
+                    lv_effect_12_0=ruleEffect();
+
+                    state._fsp--;
+
+
+                    					if (current==null) {
+                    						current = createModelElementForParent(grammarAccess.getArgumentStoreRule());
+                    					}
+                    					set(
+                    						current,
+                    						"effect",
+                    						lv_effect_12_0,
+                    						"kcl.ac.uk.xtext.AnnotationsStores.Effect");
+                    					afterParserOrEnumRuleCall();
+                    				
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
 
             }
 
@@ -1604,7 +1824,7 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
 
     // $ANTLR start "entryRuleScope"
-    // InternalAnnotationsStores.g:789:1: entryRuleScope returns [EObject current=null] : iv_ruleScope= ruleScope EOF ;
+    // InternalAnnotationsStores.g:884:1: entryRuleScope returns [EObject current=null] : iv_ruleScope= ruleScope EOF ;
     public final EObject entryRuleScope() throws RecognitionException {
         EObject current = null;
 
@@ -1612,8 +1832,8 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
 
         try {
-            // InternalAnnotationsStores.g:789:46: (iv_ruleScope= ruleScope EOF )
-            // InternalAnnotationsStores.g:790:2: iv_ruleScope= ruleScope EOF
+            // InternalAnnotationsStores.g:884:46: (iv_ruleScope= ruleScope EOF )
+            // InternalAnnotationsStores.g:885:2: iv_ruleScope= ruleScope EOF
             {
              newCompositeNode(grammarAccess.getScopeRule()); 
             pushFollow(FOLLOW_1);
@@ -1640,7 +1860,7 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
 
     // $ANTLR start "ruleScope"
-    // InternalAnnotationsStores.g:796:1: ruleScope returns [EObject current=null] : ( ( (lv_scope_0_1= 'feature' | lv_scope_0_2= 'rating' | lv_scope_0_3= 'criteria' | lv_scope_0_4= 'topic' ) ) ) ;
+    // InternalAnnotationsStores.g:891:1: ruleScope returns [EObject current=null] : ( ( (lv_scope_0_1= 'feature' | lv_scope_0_2= 'rating' | lv_scope_0_3= 'criteria' | lv_scope_0_4= 'topic' ) ) ) ;
     public final EObject ruleScope() throws RecognitionException {
         EObject current = null;
 
@@ -1653,48 +1873,48 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
         	enterRule();
 
         try {
-            // InternalAnnotationsStores.g:802:2: ( ( ( (lv_scope_0_1= 'feature' | lv_scope_0_2= 'rating' | lv_scope_0_3= 'criteria' | lv_scope_0_4= 'topic' ) ) ) )
-            // InternalAnnotationsStores.g:803:2: ( ( (lv_scope_0_1= 'feature' | lv_scope_0_2= 'rating' | lv_scope_0_3= 'criteria' | lv_scope_0_4= 'topic' ) ) )
+            // InternalAnnotationsStores.g:897:2: ( ( ( (lv_scope_0_1= 'feature' | lv_scope_0_2= 'rating' | lv_scope_0_3= 'criteria' | lv_scope_0_4= 'topic' ) ) ) )
+            // InternalAnnotationsStores.g:898:2: ( ( (lv_scope_0_1= 'feature' | lv_scope_0_2= 'rating' | lv_scope_0_3= 'criteria' | lv_scope_0_4= 'topic' ) ) )
             {
-            // InternalAnnotationsStores.g:803:2: ( ( (lv_scope_0_1= 'feature' | lv_scope_0_2= 'rating' | lv_scope_0_3= 'criteria' | lv_scope_0_4= 'topic' ) ) )
-            // InternalAnnotationsStores.g:804:3: ( (lv_scope_0_1= 'feature' | lv_scope_0_2= 'rating' | lv_scope_0_3= 'criteria' | lv_scope_0_4= 'topic' ) )
+            // InternalAnnotationsStores.g:898:2: ( ( (lv_scope_0_1= 'feature' | lv_scope_0_2= 'rating' | lv_scope_0_3= 'criteria' | lv_scope_0_4= 'topic' ) ) )
+            // InternalAnnotationsStores.g:899:3: ( (lv_scope_0_1= 'feature' | lv_scope_0_2= 'rating' | lv_scope_0_3= 'criteria' | lv_scope_0_4= 'topic' ) )
             {
-            // InternalAnnotationsStores.g:804:3: ( (lv_scope_0_1= 'feature' | lv_scope_0_2= 'rating' | lv_scope_0_3= 'criteria' | lv_scope_0_4= 'topic' ) )
-            // InternalAnnotationsStores.g:805:4: (lv_scope_0_1= 'feature' | lv_scope_0_2= 'rating' | lv_scope_0_3= 'criteria' | lv_scope_0_4= 'topic' )
+            // InternalAnnotationsStores.g:899:3: ( (lv_scope_0_1= 'feature' | lv_scope_0_2= 'rating' | lv_scope_0_3= 'criteria' | lv_scope_0_4= 'topic' ) )
+            // InternalAnnotationsStores.g:900:4: (lv_scope_0_1= 'feature' | lv_scope_0_2= 'rating' | lv_scope_0_3= 'criteria' | lv_scope_0_4= 'topic' )
             {
-            // InternalAnnotationsStores.g:805:4: (lv_scope_0_1= 'feature' | lv_scope_0_2= 'rating' | lv_scope_0_3= 'criteria' | lv_scope_0_4= 'topic' )
-            int alt8=4;
+            // InternalAnnotationsStores.g:900:4: (lv_scope_0_1= 'feature' | lv_scope_0_2= 'rating' | lv_scope_0_3= 'criteria' | lv_scope_0_4= 'topic' )
+            int alt13=4;
             switch ( input.LA(1) ) {
             case 19:
                 {
-                alt8=1;
+                alt13=1;
                 }
                 break;
             case 20:
                 {
-                alt8=2;
+                alt13=2;
                 }
                 break;
             case 21:
                 {
-                alt8=3;
+                alt13=3;
                 }
                 break;
             case 22:
                 {
-                alt8=4;
+                alt13=4;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 8, 0, input);
+                    new NoViableAltException("", 13, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt8) {
+            switch (alt13) {
                 case 1 :
-                    // InternalAnnotationsStores.g:806:5: lv_scope_0_1= 'feature'
+                    // InternalAnnotationsStores.g:901:5: lv_scope_0_1= 'feature'
                     {
                     lv_scope_0_1=(Token)match(input,19,FOLLOW_2); 
 
@@ -1710,7 +1930,7 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
                     }
                     break;
                 case 2 :
-                    // InternalAnnotationsStores.g:817:5: lv_scope_0_2= 'rating'
+                    // InternalAnnotationsStores.g:912:5: lv_scope_0_2= 'rating'
                     {
                     lv_scope_0_2=(Token)match(input,20,FOLLOW_2); 
 
@@ -1726,7 +1946,7 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
                     }
                     break;
                 case 3 :
-                    // InternalAnnotationsStores.g:828:5: lv_scope_0_3= 'criteria'
+                    // InternalAnnotationsStores.g:923:5: lv_scope_0_3= 'criteria'
                     {
                     lv_scope_0_3=(Token)match(input,21,FOLLOW_2); 
 
@@ -1742,7 +1962,7 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
                     }
                     break;
                 case 4 :
-                    // InternalAnnotationsStores.g:839:5: lv_scope_0_4= 'topic'
+                    // InternalAnnotationsStores.g:934:5: lv_scope_0_4= 'topic'
                     {
                     lv_scope_0_4=(Token)match(input,22,FOLLOW_2); 
 
@@ -1786,7 +2006,7 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
 
     // $ANTLR start "entryRuleFocus"
-    // InternalAnnotationsStores.g:855:1: entryRuleFocus returns [EObject current=null] : iv_ruleFocus= ruleFocus EOF ;
+    // InternalAnnotationsStores.g:950:1: entryRuleFocus returns [EObject current=null] : iv_ruleFocus= ruleFocus EOF ;
     public final EObject entryRuleFocus() throws RecognitionException {
         EObject current = null;
 
@@ -1794,8 +2014,8 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
 
         try {
-            // InternalAnnotationsStores.g:855:46: (iv_ruleFocus= ruleFocus EOF )
-            // InternalAnnotationsStores.g:856:2: iv_ruleFocus= ruleFocus EOF
+            // InternalAnnotationsStores.g:950:46: (iv_ruleFocus= ruleFocus EOF )
+            // InternalAnnotationsStores.g:951:2: iv_ruleFocus= ruleFocus EOF
             {
              newCompositeNode(grammarAccess.getFocusRule()); 
             pushFollow(FOLLOW_1);
@@ -1822,7 +2042,7 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
 
     // $ANTLR start "ruleFocus"
-    // InternalAnnotationsStores.g:862:1: ruleFocus returns [EObject current=null] : ( ( (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= 'A' ) ) ) ;
+    // InternalAnnotationsStores.g:957:1: ruleFocus returns [EObject current=null] : ( ( (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= 'A' ) ) ) ;
     public final EObject ruleFocus() throws RecognitionException {
         EObject current = null;
 
@@ -1836,53 +2056,53 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
         	enterRule();
 
         try {
-            // InternalAnnotationsStores.g:868:2: ( ( ( (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= 'A' ) ) ) )
-            // InternalAnnotationsStores.g:869:2: ( ( (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= 'A' ) ) )
+            // InternalAnnotationsStores.g:963:2: ( ( ( (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= 'A' ) ) ) )
+            // InternalAnnotationsStores.g:964:2: ( ( (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= 'A' ) ) )
             {
-            // InternalAnnotationsStores.g:869:2: ( ( (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= 'A' ) ) )
-            // InternalAnnotationsStores.g:870:3: ( (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= 'A' ) )
+            // InternalAnnotationsStores.g:964:2: ( ( (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= 'A' ) ) )
+            // InternalAnnotationsStores.g:965:3: ( (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= 'A' ) )
             {
-            // InternalAnnotationsStores.g:870:3: ( (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= 'A' ) )
-            // InternalAnnotationsStores.g:871:4: (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= 'A' )
+            // InternalAnnotationsStores.g:965:3: ( (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= 'A' ) )
+            // InternalAnnotationsStores.g:966:4: (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= 'A' )
             {
-            // InternalAnnotationsStores.g:871:4: (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= 'A' )
-            int alt9=5;
+            // InternalAnnotationsStores.g:966:4: (lv_focus_0_1= 'R' | lv_focus_0_2= 'S' | lv_focus_0_3= 'G' | lv_focus_0_4= 'V' | lv_focus_0_5= 'A' )
+            int alt14=5;
             switch ( input.LA(1) ) {
             case 23:
                 {
-                alt9=1;
+                alt14=1;
                 }
                 break;
             case 24:
                 {
-                alt9=2;
+                alt14=2;
                 }
                 break;
             case 25:
                 {
-                alt9=3;
+                alt14=3;
                 }
                 break;
             case 26:
                 {
-                alt9=4;
+                alt14=4;
                 }
                 break;
             case 27:
                 {
-                alt9=5;
+                alt14=5;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 9, 0, input);
+                    new NoViableAltException("", 14, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt9) {
+            switch (alt14) {
                 case 1 :
-                    // InternalAnnotationsStores.g:872:5: lv_focus_0_1= 'R'
+                    // InternalAnnotationsStores.g:967:5: lv_focus_0_1= 'R'
                     {
                     lv_focus_0_1=(Token)match(input,23,FOLLOW_2); 
 
@@ -1898,7 +2118,7 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
                     }
                     break;
                 case 2 :
-                    // InternalAnnotationsStores.g:883:5: lv_focus_0_2= 'S'
+                    // InternalAnnotationsStores.g:978:5: lv_focus_0_2= 'S'
                     {
                     lv_focus_0_2=(Token)match(input,24,FOLLOW_2); 
 
@@ -1914,7 +2134,7 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
                     }
                     break;
                 case 3 :
-                    // InternalAnnotationsStores.g:894:5: lv_focus_0_3= 'G'
+                    // InternalAnnotationsStores.g:989:5: lv_focus_0_3= 'G'
                     {
                     lv_focus_0_3=(Token)match(input,25,FOLLOW_2); 
 
@@ -1930,7 +2150,7 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
                     }
                     break;
                 case 4 :
-                    // InternalAnnotationsStores.g:905:5: lv_focus_0_4= 'V'
+                    // InternalAnnotationsStores.g:1000:5: lv_focus_0_4= 'V'
                     {
                     lv_focus_0_4=(Token)match(input,26,FOLLOW_2); 
 
@@ -1946,7 +2166,7 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
                     }
                     break;
                 case 5 :
-                    // InternalAnnotationsStores.g:916:5: lv_focus_0_5= 'A'
+                    // InternalAnnotationsStores.g:1011:5: lv_focus_0_5= 'A'
                     {
                     lv_focus_0_5=(Token)match(input,27,FOLLOW_2); 
 
@@ -1990,7 +2210,7 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
 
     // $ANTLR start "entryRuleSender"
-    // InternalAnnotationsStores.g:932:1: entryRuleSender returns [String current=null] : iv_ruleSender= ruleSender EOF ;
+    // InternalAnnotationsStores.g:1027:1: entryRuleSender returns [String current=null] : iv_ruleSender= ruleSender EOF ;
     public final String entryRuleSender() throws RecognitionException {
         String current = null;
 
@@ -1998,8 +2218,8 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
 
         try {
-            // InternalAnnotationsStores.g:932:46: (iv_ruleSender= ruleSender EOF )
-            // InternalAnnotationsStores.g:933:2: iv_ruleSender= ruleSender EOF
+            // InternalAnnotationsStores.g:1027:46: (iv_ruleSender= ruleSender EOF )
+            // InternalAnnotationsStores.g:1028:2: iv_ruleSender= ruleSender EOF
             {
              newCompositeNode(grammarAccess.getSenderRule()); 
             pushFollow(FOLLOW_1);
@@ -2026,7 +2246,7 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
 
 
     // $ANTLR start "ruleSender"
-    // InternalAnnotationsStores.g:939:1: ruleSender returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_INT_0= RULE_INT )+ ;
+    // InternalAnnotationsStores.g:1034:1: ruleSender returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_INT_0= RULE_INT )+ ;
     public final AntlrDatatypeRuleToken ruleSender() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -2036,26 +2256,26 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
         	enterRule();
 
         try {
-            // InternalAnnotationsStores.g:945:2: ( (this_INT_0= RULE_INT )+ )
-            // InternalAnnotationsStores.g:946:2: (this_INT_0= RULE_INT )+
+            // InternalAnnotationsStores.g:1040:2: ( (this_INT_0= RULE_INT )+ )
+            // InternalAnnotationsStores.g:1041:2: (this_INT_0= RULE_INT )+
             {
-            // InternalAnnotationsStores.g:946:2: (this_INT_0= RULE_INT )+
-            int cnt10=0;
-            loop10:
+            // InternalAnnotationsStores.g:1041:2: (this_INT_0= RULE_INT )+
+            int cnt15=0;
+            loop15:
             do {
-                int alt10=2;
-                int LA10_0 = input.LA(1);
+                int alt15=2;
+                int LA15_0 = input.LA(1);
 
-                if ( (LA10_0==RULE_INT) ) {
-                    alt10=1;
+                if ( (LA15_0==RULE_INT) ) {
+                    alt15=1;
                 }
 
 
-                switch (alt10) {
+                switch (alt15) {
             	case 1 :
-            	    // InternalAnnotationsStores.g:947:3: this_INT_0= RULE_INT
+            	    // InternalAnnotationsStores.g:1042:3: this_INT_0= RULE_INT
             	    {
-            	    this_INT_0=(Token)match(input,RULE_INT,FOLLOW_17); 
+            	    this_INT_0=(Token)match(input,RULE_INT,FOLLOW_18); 
 
             	    			current.merge(this_INT_0);
             	    		
@@ -2067,12 +2287,12 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
             	    break;
 
             	default :
-            	    if ( cnt10 >= 1 ) break loop10;
+            	    if ( cnt15 >= 1 ) break loop15;
                         EarlyExitException eee =
-                            new EarlyExitException(10, input);
+                            new EarlyExitException(15, input);
                         throw eee;
                 }
-                cnt10++;
+                cnt15++;
             } while (true);
 
 
@@ -2093,6 +2313,101 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
     }
     // $ANTLR end "ruleSender"
 
+
+    // $ANTLR start "entryRuleEffect"
+    // InternalAnnotationsStores.g:1053:1: entryRuleEffect returns [EObject current=null] : iv_ruleEffect= ruleEffect EOF ;
+    public final EObject entryRuleEffect() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleEffect = null;
+
+
+        try {
+            // InternalAnnotationsStores.g:1053:47: (iv_ruleEffect= ruleEffect EOF )
+            // InternalAnnotationsStores.g:1054:2: iv_ruleEffect= ruleEffect EOF
+            {
+             newCompositeNode(grammarAccess.getEffectRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleEffect=ruleEffect();
+
+            state._fsp--;
+
+             current =iv_ruleEffect; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleEffect"
+
+
+    // $ANTLR start "ruleEffect"
+    // InternalAnnotationsStores.g:1060:1: ruleEffect returns [EObject current=null] : ( (lv_affectedBy_0_0= RULE_ID ) ) ;
+    public final EObject ruleEffect() throws RecognitionException {
+        EObject current = null;
+
+        Token lv_affectedBy_0_0=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalAnnotationsStores.g:1066:2: ( ( (lv_affectedBy_0_0= RULE_ID ) ) )
+            // InternalAnnotationsStores.g:1067:2: ( (lv_affectedBy_0_0= RULE_ID ) )
+            {
+            // InternalAnnotationsStores.g:1067:2: ( (lv_affectedBy_0_0= RULE_ID ) )
+            // InternalAnnotationsStores.g:1068:3: (lv_affectedBy_0_0= RULE_ID )
+            {
+            // InternalAnnotationsStores.g:1068:3: (lv_affectedBy_0_0= RULE_ID )
+            // InternalAnnotationsStores.g:1069:4: lv_affectedBy_0_0= RULE_ID
+            {
+            lv_affectedBy_0_0=(Token)match(input,RULE_ID,FOLLOW_2); 
+
+            				newLeafNode(lv_affectedBy_0_0, grammarAccess.getEffectAccess().getAffectedByIDTerminalRuleCall_0());
+            			
+
+            				if (current==null) {
+            					current = createModelElement(grammarAccess.getEffectRule());
+            				}
+            				setWithLastConsumed(
+            					current,
+            					"affectedBy",
+            					lv_affectedBy_0_0,
+            					"org.eclipse.xtext.common.Terminals.ID");
+            			
+
+            }
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleEffect"
+
     // Delegated rules
 
 
@@ -2112,8 +2427,9 @@ public class InternalAnnotationsStoresParser extends AbstractInternalAntlrParser
     public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x000000000F800000L});
     public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000006000L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000000042L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000006000L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000000042L});
 
 }

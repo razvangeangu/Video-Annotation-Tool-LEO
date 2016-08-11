@@ -95,6 +95,8 @@ public class AnnotationsStoresGrammarAccess extends AbstractGrammarElementFinder
 		private final Assignment cContentAssignment_8 = (Assignment)cGroup.eContents().get(8);
 		private final RuleCall cContentSTRINGTerminalRuleCall_8_0 = (RuleCall)cContentAssignment_8.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Assignment cEffectAssignment_10 = (Assignment)cGroup.eContents().get(10);
+		private final RuleCall cEffectEffectParserRuleCall_10_0 = (RuleCall)cEffectAssignment_10.eContents().get(0);
 		
 		//ProposalStore:
 		//	'proposalElement' '('
@@ -102,10 +104,10 @@ public class AnnotationsStoresGrammarAccess extends AbstractGrammarElementFinder
 		//	scope=Scope ','
 		//	focus=Focus ','
 		//	content=STRING
-		//	')';
+		//	')' effect=Effect?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'proposalElement' '(' name=ID ',' scope=Scope ',' focus=Focus ',' content=STRING ')'
+		//'proposalElement' '(' name=ID ',' scope=Scope ',' focus=Focus ',' content=STRING ')' effect=Effect?
 		public Group getGroup() { return cGroup; }
 		
 		//'proposalElement'
@@ -149,6 +151,12 @@ public class AnnotationsStoresGrammarAccess extends AbstractGrammarElementFinder
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_9() { return cRightParenthesisKeyword_9; }
+		
+		//effect=Effect?
+		public Assignment getEffectAssignment_10() { return cEffectAssignment_10; }
+		
+		//Effect
+		public RuleCall getEffectEffectParserRuleCall_10_0() { return cEffectEffectParserRuleCall_10_0; }
 	}
 	public class QuestionStoreElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "kcl.ac.uk.xtext.AnnotationsStores.QuestionStore");
@@ -170,6 +178,8 @@ public class AnnotationsStoresGrammarAccess extends AbstractGrammarElementFinder
 		private final Assignment cContentAssignment_10 = (Assignment)cGroup.eContents().get(10);
 		private final RuleCall cContentSTRINGTerminalRuleCall_10_0 = (RuleCall)cContentAssignment_10.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_11 = (Keyword)cGroup.eContents().get(11);
+		private final Assignment cEffectAssignment_12 = (Assignment)cGroup.eContents().get(12);
+		private final RuleCall cEffectEffectParserRuleCall_12_0 = (RuleCall)cEffectAssignment_12.eContents().get(0);
 		
 		//QuestionStore:
 		//	'questionElement' '('
@@ -178,10 +188,10 @@ public class AnnotationsStoresGrammarAccess extends AbstractGrammarElementFinder
 		//	scope=Scope ','
 		//	focus=Focus ','
 		//	content=STRING
-		//	')';
+		//	')' effect=Effect?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'questionElement' '(' name=ID ',' sender=Sender ',' scope=Scope ',' focus=Focus ',' content=STRING ')'
+		//'questionElement' '(' name=ID ',' sender=Sender ',' scope=Scope ',' focus=Focus ',' content=STRING ')' effect=Effect?
 		public Group getGroup() { return cGroup; }
 		
 		//'questionElement'
@@ -234,6 +244,12 @@ public class AnnotationsStoresGrammarAccess extends AbstractGrammarElementFinder
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_11() { return cRightParenthesisKeyword_11; }
+		
+		//effect=Effect?
+		public Assignment getEffectAssignment_12() { return cEffectAssignment_12; }
+		
+		//Effect
+		public RuleCall getEffectEffectParserRuleCall_12_0() { return cEffectEffectParserRuleCall_12_0; }
 	}
 	public class ChallengeStoreElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "kcl.ac.uk.xtext.AnnotationsStores.ChallengeStore");
@@ -250,16 +266,18 @@ public class AnnotationsStoresGrammarAccess extends AbstractGrammarElementFinder
 		private final Assignment cTargetAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
 		private final RuleCall cTargetIDTerminalRuleCall_5_1_0 = (RuleCall)cTargetAssignment_5_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cEffectAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cEffectEffectParserRuleCall_7_0 = (RuleCall)cEffectAssignment_7.eContents().get(0);
 		
 		//ChallengeStore:
 		//	'challengeElement' '('
 		//	name=ID ','
 		//	sender=Sender (','
 		//	target=ID)?
-		//	')';
+		//	')' effect=Effect?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'challengeElement' '(' name=ID ',' sender=Sender (',' target=ID)? ')'
+		//'challengeElement' '(' name=ID ',' sender=Sender (',' target=ID)? ')' effect=Effect?
 		public Group getGroup() { return cGroup; }
 		
 		//'challengeElement'
@@ -297,6 +315,12 @@ public class AnnotationsStoresGrammarAccess extends AbstractGrammarElementFinder
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_6() { return cRightParenthesisKeyword_6; }
+		
+		//effect=Effect?
+		public Assignment getEffectAssignment_7() { return cEffectAssignment_7; }
+		
+		//Effect
+		public RuleCall getEffectEffectParserRuleCall_7_0() { return cEffectEffectParserRuleCall_7_0; }
 	}
 	public class CommitmentStoreElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "kcl.ac.uk.xtext.AnnotationsStores.CommitmentStore");
@@ -315,6 +339,8 @@ public class AnnotationsStoresGrammarAccess extends AbstractGrammarElementFinder
 		private final Assignment cContentAssignment_8 = (Assignment)cGroup.eContents().get(8);
 		private final RuleCall cContentSTRINGTerminalRuleCall_8_0 = (RuleCall)cContentAssignment_8.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Assignment cEffectAssignment_10 = (Assignment)cGroup.eContents().get(10);
+		private final RuleCall cEffectEffectParserRuleCall_10_0 = (RuleCall)cEffectAssignment_10.eContents().get(0);
 		
 		//CommitmentStore:
 		//	'commitmentElement' '('
@@ -322,10 +348,10 @@ public class AnnotationsStoresGrammarAccess extends AbstractGrammarElementFinder
 		//	scope=Scope ','
 		//	focus=Focus ','
 		//	content=STRING
-		//	')';
+		//	')' effect=Effect?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'commitmentElement' '(' name=ID ',' scope=Scope ',' focus=Focus ',' content=STRING ')'
+		//'commitmentElement' '(' name=ID ',' scope=Scope ',' focus=Focus ',' content=STRING ')' effect=Effect?
 		public Group getGroup() { return cGroup; }
 		
 		//'commitmentElement'
@@ -369,6 +395,12 @@ public class AnnotationsStoresGrammarAccess extends AbstractGrammarElementFinder
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_9() { return cRightParenthesisKeyword_9; }
+		
+		//effect=Effect?
+		public Assignment getEffectAssignment_10() { return cEffectAssignment_10; }
+		
+		//Effect
+		public RuleCall getEffectEffectParserRuleCall_10_0() { return cEffectEffectParserRuleCall_10_0; }
 	}
 	public class ArgumentStoreElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "kcl.ac.uk.xtext.AnnotationsStores.ArgumentStore");
@@ -391,6 +423,8 @@ public class AnnotationsStoresGrammarAccess extends AbstractGrammarElementFinder
 		private final Assignment cTargetAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
 		private final RuleCall cTargetIDTerminalRuleCall_9_1_0 = (RuleCall)cTargetAssignment_9_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Assignment cEffectAssignment_11 = (Assignment)cGroup.eContents().get(11);
+		private final RuleCall cEffectEffectParserRuleCall_11_0 = (RuleCall)cEffectAssignment_11.eContents().get(0);
 		
 		//ArgumentStore:
 		//	'argumentElement' '('
@@ -399,10 +433,10 @@ public class AnnotationsStoresGrammarAccess extends AbstractGrammarElementFinder
 		//	focus=Focus ','
 		//	content=STRING (','
 		//	target=ID)?
-		//	')';
+		//	')' effect=Effect?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'argumentElement' '(' name=ID ',' scope=Scope ',' focus=Focus ',' content=STRING (',' target=ID)? ')'
+		//'argumentElement' '(' name=ID ',' scope=Scope ',' focus=Focus ',' content=STRING (',' target=ID)? ')' effect=Effect?
 		public Group getGroup() { return cGroup; }
 		
 		//'argumentElement'
@@ -458,6 +492,12 @@ public class AnnotationsStoresGrammarAccess extends AbstractGrammarElementFinder
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_10() { return cRightParenthesisKeyword_10; }
+		
+		//effect=Effect?
+		public Assignment getEffectAssignment_11() { return cEffectAssignment_11; }
+		
+		//Effect
+		public RuleCall getEffectEffectParserRuleCall_11_0() { return cEffectEffectParserRuleCall_11_0; }
 	}
 	public class ScopeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "kcl.ac.uk.xtext.AnnotationsStores.Scope");
@@ -536,6 +576,21 @@ public class AnnotationsStoresGrammarAccess extends AbstractGrammarElementFinder
 		//INT+
 		public RuleCall getINTTerminalRuleCall() { return cINTTerminalRuleCall; }
 	}
+	public class EffectElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "kcl.ac.uk.xtext.AnnotationsStores.Effect");
+		private final Assignment cAffectedByAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cAffectedByIDTerminalRuleCall_0 = (RuleCall)cAffectedByAssignment.eContents().get(0);
+		
+		//Effect:
+		//	affectedBy=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//affectedBy=ID
+		public Assignment getAffectedByAssignment() { return cAffectedByAssignment; }
+		
+		//ID
+		public RuleCall getAffectedByIDTerminalRuleCall_0() { return cAffectedByIDTerminalRuleCall_0; }
+	}
 	
 	
 	private final AnnotationStoresElements pAnnotationStores;
@@ -547,6 +602,7 @@ public class AnnotationsStoresGrammarAccess extends AbstractGrammarElementFinder
 	private final ScopeElements pScope;
 	private final FocusElements pFocus;
 	private final SenderElements pSender;
+	private final EffectElements pEffect;
 	
 	private final Grammar grammar;
 	
@@ -566,6 +622,7 @@ public class AnnotationsStoresGrammarAccess extends AbstractGrammarElementFinder
 		this.pScope = new ScopeElements();
 		this.pFocus = new FocusElements();
 		this.pSender = new SenderElements();
+		this.pEffect = new EffectElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -615,7 +672,7 @@ public class AnnotationsStoresGrammarAccess extends AbstractGrammarElementFinder
 	//	scope=Scope ','
 	//	focus=Focus ','
 	//	content=STRING
-	//	')';
+	//	')' effect=Effect?;
 	public ProposalStoreElements getProposalStoreAccess() {
 		return pProposalStore;
 	}
@@ -631,7 +688,7 @@ public class AnnotationsStoresGrammarAccess extends AbstractGrammarElementFinder
 	//	scope=Scope ','
 	//	focus=Focus ','
 	//	content=STRING
-	//	')';
+	//	')' effect=Effect?;
 	public QuestionStoreElements getQuestionStoreAccess() {
 		return pQuestionStore;
 	}
@@ -645,7 +702,7 @@ public class AnnotationsStoresGrammarAccess extends AbstractGrammarElementFinder
 	//	name=ID ','
 	//	sender=Sender (','
 	//	target=ID)?
-	//	')';
+	//	')' effect=Effect?;
 	public ChallengeStoreElements getChallengeStoreAccess() {
 		return pChallengeStore;
 	}
@@ -660,7 +717,7 @@ public class AnnotationsStoresGrammarAccess extends AbstractGrammarElementFinder
 	//	scope=Scope ','
 	//	focus=Focus ','
 	//	content=STRING
-	//	')';
+	//	')' effect=Effect?;
 	public CommitmentStoreElements getCommitmentStoreAccess() {
 		return pCommitmentStore;
 	}
@@ -676,7 +733,7 @@ public class AnnotationsStoresGrammarAccess extends AbstractGrammarElementFinder
 	//	focus=Focus ','
 	//	content=STRING (','
 	//	target=ID)?
-	//	')';
+	//	')' effect=Effect?;
 	public ArgumentStoreElements getArgumentStoreAccess() {
 		return pArgumentStore;
 	}
@@ -713,6 +770,16 @@ public class AnnotationsStoresGrammarAccess extends AbstractGrammarElementFinder
 	
 	public ParserRule getSenderRule() {
 		return getSenderAccess().getRule();
+	}
+	
+	//Effect:
+	//	affectedBy=ID;
+	public EffectElements getEffectAccess() {
+		return pEffect;
+	}
+	
+	public ParserRule getEffectRule() {
+		return getEffectAccess().getRule();
 	}
 	
 	//terminal ID:

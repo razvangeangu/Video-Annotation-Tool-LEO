@@ -43,7 +43,6 @@ public class ASParser {
 			r.load(model, rs.getLoadOptions());
 
 			AnnotationStores result = (AnnotationStores) r.getContents().get(0);
-			System.out.println(result.getProposalElements());
 			diagnostic = Diagnostician.INSTANCE.validate(result);
 
 			if (r.getErrors().isEmpty() && diagnostic.getSeverity() == diagnostic.OK) {

@@ -16,7 +16,7 @@ ProposalStore:
 		scope=Scope ','
 		focus=Focus ','
 		content=STRING
-		')'
+		')' (effect=Effect)?
 ;
 
 QuestionStore:
@@ -26,7 +26,7 @@ QuestionStore:
 		scope=Scope ','
 		focus=Focus ','
 		content=STRING
-		')'
+		')' (effect=Effect)?
 ;
 
 ChallengeStore:
@@ -34,7 +34,7 @@ ChallengeStore:
 		name=ID ','
 		sender=Sender (','
 		target=ID)?
-		')'
+		')' (effect=Effect)?
 ;
 
 CommitmentStore:
@@ -43,7 +43,7 @@ CommitmentStore:
 		scope=Scope ','
 		focus=Focus ','
 		content=STRING
-		')'
+		')' (effect=Effect)?
 ;
 
 ArgumentStore:
@@ -53,7 +53,7 @@ ArgumentStore:
 		focus=Focus ','
 		content=STRING (','
 		target=ID)?
-		')'
+		')' (effect=Effect)?
 ;
 
 Scope: 
@@ -64,4 +64,8 @@ Focus:
 	
 Sender:
 	INT+
+;
+
+Effect:
+	affectedBy=ID
 ;

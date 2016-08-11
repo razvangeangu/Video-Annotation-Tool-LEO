@@ -288,6 +288,25 @@ ruleProposalStore returns [EObject current=null]
 		{
 			newLeafNode(otherlv_9, grammarAccess.getProposalStoreAccess().getRightParenthesisKeyword_9());
 		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getProposalStoreAccess().getEffectEffectParserRuleCall_10_0());
+				}
+				lv_effect_10_0=ruleEffect
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getProposalStoreRule());
+					}
+					set(
+						$current,
+						"effect",
+						lv_effect_10_0,
+						"kcl.ac.uk.xtext.AnnotationsStores.Effect");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
 	)
 ;
 
@@ -428,6 +447,25 @@ ruleQuestionStore returns [EObject current=null]
 		{
 			newLeafNode(otherlv_11, grammarAccess.getQuestionStoreAccess().getRightParenthesisKeyword_11());
 		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getQuestionStoreAccess().getEffectEffectParserRuleCall_12_0());
+				}
+				lv_effect_12_0=ruleEffect
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getQuestionStoreRule());
+					}
+					set(
+						$current,
+						"effect",
+						lv_effect_12_0,
+						"kcl.ac.uk.xtext.AnnotationsStores.Effect");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
 	)
 ;
 
@@ -524,6 +562,25 @@ ruleChallengeStore returns [EObject current=null]
 		{
 			newLeafNode(otherlv_7, grammarAccess.getChallengeStoreAccess().getRightParenthesisKeyword_6());
 		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getChallengeStoreAccess().getEffectEffectParserRuleCall_7_0());
+				}
+				lv_effect_8_0=ruleEffect
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getChallengeStoreRule());
+					}
+					set(
+						$current,
+						"effect",
+						lv_effect_8_0,
+						"kcl.ac.uk.xtext.AnnotationsStores.Effect");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
 	)
 ;
 
@@ -641,6 +698,25 @@ ruleCommitmentStore returns [EObject current=null]
 		{
 			newLeafNode(otherlv_9, grammarAccess.getCommitmentStoreAccess().getRightParenthesisKeyword_9());
 		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getCommitmentStoreAccess().getEffectEffectParserRuleCall_10_0());
+				}
+				lv_effect_10_0=ruleEffect
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getCommitmentStoreRule());
+					}
+					set(
+						$current,
+						"effect",
+						lv_effect_10_0,
+						"kcl.ac.uk.xtext.AnnotationsStores.Effect");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
 	)
 ;
 
@@ -782,6 +858,25 @@ ruleArgumentStore returns [EObject current=null]
 		{
 			newLeafNode(otherlv_11, grammarAccess.getArgumentStoreAccess().getRightParenthesisKeyword_10());
 		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getArgumentStoreAccess().getEffectEffectParserRuleCall_11_0());
+				}
+				lv_effect_12_0=ruleEffect
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getArgumentStoreRule());
+					}
+					set(
+						$current,
+						"effect",
+						lv_effect_12_0,
+						"kcl.ac.uk.xtext.AnnotationsStores.Effect");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
 	)
 ;
 
@@ -952,6 +1047,41 @@ ruleSender returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 			newLeafNode(this_INT_0, grammarAccess.getSenderAccess().getINTTerminalRuleCall());
 		}
 	)+
+;
+
+// Entry rule entryRuleEffect
+entryRuleEffect returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getEffectRule()); }
+	iv_ruleEffect=ruleEffect
+	{ $current=$iv_ruleEffect.current; }
+	EOF;
+
+// Rule Effect
+ruleEffect returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			lv_affectedBy_0_0=RULE_ID
+			{
+				newLeafNode(lv_affectedBy_0_0, grammarAccess.getEffectAccess().getAffectedByIDTerminalRuleCall_0());
+			}
+			{
+				if ($current==null) {
+					$current = createModelElement(grammarAccess.getEffectRule());
+				}
+				setWithLastConsumed(
+					$current,
+					"affectedBy",
+					lv_affectedBy_0_0,
+					"org.eclipse.xtext.common.Terminals.ID");
+			}
+		)
+	)
 ;
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;

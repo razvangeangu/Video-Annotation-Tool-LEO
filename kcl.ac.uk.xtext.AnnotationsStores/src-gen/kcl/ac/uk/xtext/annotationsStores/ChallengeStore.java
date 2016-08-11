@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link kcl.ac.uk.xtext.annotationsStores.ChallengeStore#getName <em>Name</em>}</li>
  *   <li>{@link kcl.ac.uk.xtext.annotationsStores.ChallengeStore#getSender <em>Sender</em>}</li>
  *   <li>{@link kcl.ac.uk.xtext.annotationsStores.ChallengeStore#getTarget <em>Target</em>}</li>
+ *   <li>{@link kcl.ac.uk.xtext.annotationsStores.ChallengeStore#getEffect <em>Effect</em>}</li>
  * </ul>
  *
  * @see kcl.ac.uk.xtext.annotationsStores.AnnotationsStoresPackage#getChallengeStore()
@@ -102,5 +103,31 @@ public interface ChallengeStore extends EObject
    * @generated
    */
   void setTarget(String value);
+
+  /**
+   * Returns the value of the '<em><b>Effect</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Effect</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Effect</em>' containment reference.
+   * @see #setEffect(Effect)
+   * @see kcl.ac.uk.xtext.annotationsStores.AnnotationsStoresPackage#getChallengeStore_Effect()
+   * @model containment="true"
+   * @generated
+   */
+  Effect getEffect();
+
+  /**
+   * Sets the value of the '{@link kcl.ac.uk.xtext.annotationsStores.ChallengeStore#getEffect <em>Effect</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Effect</em>' containment reference.
+   * @see #getEffect()
+   * @generated
+   */
+  void setEffect(Effect value);
 
 } // ChallengeStore

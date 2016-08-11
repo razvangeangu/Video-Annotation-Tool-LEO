@@ -5,10 +5,13 @@ package kcl.ac.uk.xtext.annotationsStores.impl;
 
 import kcl.ac.uk.xtext.annotationsStores.AnnotationsStoresPackage;
 import kcl.ac.uk.xtext.annotationsStores.ChallengeStore;
+import kcl.ac.uk.xtext.annotationsStores.Effect;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -24,6 +27,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link kcl.ac.uk.xtext.annotationsStores.impl.ChallengeStoreImpl#getName <em>Name</em>}</li>
  *   <li>{@link kcl.ac.uk.xtext.annotationsStores.impl.ChallengeStoreImpl#getSender <em>Sender</em>}</li>
  *   <li>{@link kcl.ac.uk.xtext.annotationsStores.impl.ChallengeStoreImpl#getTarget <em>Target</em>}</li>
+ *   <li>{@link kcl.ac.uk.xtext.annotationsStores.impl.ChallengeStoreImpl#getEffect <em>Effect</em>}</li>
  * </ul>
  *
  * @generated
@@ -89,6 +93,16 @@ public class ChallengeStoreImpl extends MinimalEObjectImpl.Container implements 
    * @ordered
    */
   protected String target = TARGET_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getEffect() <em>Effect</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getEffect()
+   * @generated
+   * @ordered
+   */
+  protected Effect effect;
 
   /**
    * <!-- begin-user-doc -->
@@ -185,6 +199,70 @@ public class ChallengeStoreImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
+  public Effect getEffect()
+  {
+    return effect;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetEffect(Effect newEffect, NotificationChain msgs)
+  {
+    Effect oldEffect = effect;
+    effect = newEffect;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AnnotationsStoresPackage.CHALLENGE_STORE__EFFECT, oldEffect, newEffect);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setEffect(Effect newEffect)
+  {
+    if (newEffect != effect)
+    {
+      NotificationChain msgs = null;
+      if (effect != null)
+        msgs = ((InternalEObject)effect).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AnnotationsStoresPackage.CHALLENGE_STORE__EFFECT, null, msgs);
+      if (newEffect != null)
+        msgs = ((InternalEObject)newEffect).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AnnotationsStoresPackage.CHALLENGE_STORE__EFFECT, null, msgs);
+      msgs = basicSetEffect(newEffect, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AnnotationsStoresPackage.CHALLENGE_STORE__EFFECT, newEffect, newEffect));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case AnnotationsStoresPackage.CHALLENGE_STORE__EFFECT:
+        return basicSetEffect(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -196,6 +274,8 @@ public class ChallengeStoreImpl extends MinimalEObjectImpl.Container implements 
         return getSender();
       case AnnotationsStoresPackage.CHALLENGE_STORE__TARGET:
         return getTarget();
+      case AnnotationsStoresPackage.CHALLENGE_STORE__EFFECT:
+        return getEffect();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -218,6 +298,9 @@ public class ChallengeStoreImpl extends MinimalEObjectImpl.Container implements 
         return;
       case AnnotationsStoresPackage.CHALLENGE_STORE__TARGET:
         setTarget((String)newValue);
+        return;
+      case AnnotationsStoresPackage.CHALLENGE_STORE__EFFECT:
+        setEffect((Effect)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -242,6 +325,9 @@ public class ChallengeStoreImpl extends MinimalEObjectImpl.Container implements 
       case AnnotationsStoresPackage.CHALLENGE_STORE__TARGET:
         setTarget(TARGET_EDEFAULT);
         return;
+      case AnnotationsStoresPackage.CHALLENGE_STORE__EFFECT:
+        setEffect((Effect)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -262,6 +348,8 @@ public class ChallengeStoreImpl extends MinimalEObjectImpl.Container implements 
         return SENDER_EDEFAULT == null ? sender != null : !SENDER_EDEFAULT.equals(sender);
       case AnnotationsStoresPackage.CHALLENGE_STORE__TARGET:
         return TARGET_EDEFAULT == null ? target != null : !TARGET_EDEFAULT.equals(target);
+      case AnnotationsStoresPackage.CHALLENGE_STORE__EFFECT:
+        return effect != null;
     }
     return super.eIsSet(featureID);
   }

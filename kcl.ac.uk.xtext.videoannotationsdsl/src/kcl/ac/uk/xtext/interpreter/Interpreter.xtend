@@ -29,9 +29,16 @@ class Interpreter {
 			if (a.type.type.equals("propose")) {
 				annotationStores.proposalElements.add(parser.parse("proposalElement(" + a.name + "," + a.scope.scope + "," + a.focus.focus + ",\""+ a.contentLabel +"\")").proposalElements.get(0) as ProposalStore)
 				
-				for (q: annotationStores.questionElements) {
-					if (q.name.equals(a.target.name)) {
-						annotationStores.questionElements.remove(q);
+				var questionIterator = annotationStores.questionElements.iterator;
+				while (questionIterator.hasNext) {
+				    var q = questionIterator.next;
+					
+					if (a.target != null) {
+						if (q.name.equals(a.target.name)) {
+							//questionIterator.remove;
+							q.effect = AnnotationsStoresFactory.eINSTANCE.createEffect
+							q.effect.affectedBy = a.target.name	
+						}
 					}
 				}
 			}
@@ -50,18 +57,28 @@ class Interpreter {
 				}
 				
 				if (a.target.type.type.equals("reject")) {
-					for (p: annotationStores.proposalElements) {
-						if (p.name.equals(a.target.name)) {
-							annotationStores.proposalElements.remove(p)
-						}
+					var proposalIterator = annotationStores.proposalElements.iterator;
+
+					while (proposalIterator.hasNext) {
+					    var p = proposalIterator.next;
+					
+					    if (a.target != null && p.name.equals(a.target.name))
+//					        proposalIterator.remove;
+							p.effect = AnnotationsStoresFactory.eINSTANCE.createEffect
+					        p.effect.affectedBy = a.target.name
 					}
 				}
 				
 				if (a.target.type.type.equals("uncommit")) {
-					for (c: annotationStores.commitmentElements) {
-						if (c.name.equals(a.target.name)) {
-							annotationStores.commitmentElements.remove(c)
-						}
+					var commitmentIterator = annotationStores.commitmentElements.iterator;
+
+					while (commitmentIterator.hasNext) {
+					    var c = commitmentIterator.next;
+					
+					    if (a.target != null && c.name.equals(a.target.name))
+//					        commitmentIterator.remove;
+							c.effect = AnnotationsStoresFactory.eINSTANCE.createEffect
+					        c.effect.affectedBy = a.target.name
 					}
 				}
 			}
@@ -75,16 +92,24 @@ class Interpreter {
 			}
 			
 			if (a.type.type.equals("withdraw")) {
-				for (q: annotationStores.questionElements) {
-					if (q.name.equals(a.target.name)) {
-						annotationStores.questionElements.remove(q);
-					}
+				var commitmentIterator = annotationStores.commitmentElements.iterator;
+				while (commitmentIterator.hasNext) {
+				    var q = commitmentIterator.next;
+				
+				    if (a.target != null && q.name.equals(a.target.name))
+//				        commitmentIterator.remove;
+						q.effect = AnnotationsStoresFactory.eINSTANCE.createEffect
+				        q.effect.affectedBy = a.target.name
 				}
 				
-				for (ch: annotationStores.challengeElements) {
-					if (ch.name.equals(a.target.name)) {
-						annotationStores.questionElements.remove(ch);
-					}
+				var challengeIterator = annotationStores.challengeElements.iterator;
+				while (challengeIterator.hasNext) {
+				    var ch = challengeIterator.next;
+				
+				    if (a.target != null && ch.name.equals(a.target.name))
+//				        challengeIterator.remove;
+						ch.effect = AnnotationsStoresFactory.eINSTANCE.createEffect
+				        ch.effect.affectedBy = a.target.name
 				}
 			}
 		}

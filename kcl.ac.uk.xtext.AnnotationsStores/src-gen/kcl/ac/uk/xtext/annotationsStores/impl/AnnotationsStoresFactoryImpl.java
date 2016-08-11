@@ -73,6 +73,7 @@ public class AnnotationsStoresFactoryImpl extends EFactoryImpl implements Annota
       case AnnotationsStoresPackage.ARGUMENT_STORE: return createArgumentStore();
       case AnnotationsStoresPackage.SCOPE: return createScope();
       case AnnotationsStoresPackage.FOCUS: return createFocus();
+      case AnnotationsStoresPackage.EFFECT: return createEffect();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -164,6 +165,17 @@ public class AnnotationsStoresFactoryImpl extends EFactoryImpl implements Annota
   {
     FocusImpl focus = new FocusImpl();
     return focus;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Effect createEffect()
+  {
+    EffectImpl effect = new EffectImpl();
+    return effect;
   }
 
   /**

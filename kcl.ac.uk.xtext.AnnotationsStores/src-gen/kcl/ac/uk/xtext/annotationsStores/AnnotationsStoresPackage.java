@@ -168,13 +168,22 @@ public interface AnnotationsStoresPackage extends EPackage
   int PROPOSAL_STORE__CONTENT = 3;
 
   /**
+   * The feature id for the '<em><b>Effect</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROPOSAL_STORE__EFFECT = 4;
+
+  /**
    * The number of structural features of the '<em>Proposal Store</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROPOSAL_STORE_FEATURE_COUNT = 4;
+  int PROPOSAL_STORE_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link kcl.ac.uk.xtext.annotationsStores.impl.QuestionStoreImpl <em>Question Store</em>}' class.
@@ -232,13 +241,22 @@ public interface AnnotationsStoresPackage extends EPackage
   int QUESTION_STORE__CONTENT = 4;
 
   /**
+   * The feature id for the '<em><b>Effect</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int QUESTION_STORE__EFFECT = 5;
+
+  /**
    * The number of structural features of the '<em>Question Store</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int QUESTION_STORE_FEATURE_COUNT = 5;
+  int QUESTION_STORE_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link kcl.ac.uk.xtext.annotationsStores.impl.ChallengeStoreImpl <em>Challenge Store</em>}' class.
@@ -278,13 +296,22 @@ public interface AnnotationsStoresPackage extends EPackage
   int CHALLENGE_STORE__TARGET = 2;
 
   /**
+   * The feature id for the '<em><b>Effect</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHALLENGE_STORE__EFFECT = 3;
+
+  /**
    * The number of structural features of the '<em>Challenge Store</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CHALLENGE_STORE_FEATURE_COUNT = 3;
+  int CHALLENGE_STORE_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link kcl.ac.uk.xtext.annotationsStores.impl.CommitmentStoreImpl <em>Commitment Store</em>}' class.
@@ -333,13 +360,22 @@ public interface AnnotationsStoresPackage extends EPackage
   int COMMITMENT_STORE__CONTENT = 3;
 
   /**
+   * The feature id for the '<em><b>Effect</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMMITMENT_STORE__EFFECT = 4;
+
+  /**
    * The number of structural features of the '<em>Commitment Store</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMMITMENT_STORE_FEATURE_COUNT = 4;
+  int COMMITMENT_STORE_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link kcl.ac.uk.xtext.annotationsStores.impl.ArgumentStoreImpl <em>Argument Store</em>}' class.
@@ -397,13 +433,22 @@ public interface AnnotationsStoresPackage extends EPackage
   int ARGUMENT_STORE__TARGET = 4;
 
   /**
+   * The feature id for the '<em><b>Effect</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARGUMENT_STORE__EFFECT = 5;
+
+  /**
    * The number of structural features of the '<em>Argument Store</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ARGUMENT_STORE_FEATURE_COUNT = 5;
+  int ARGUMENT_STORE_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link kcl.ac.uk.xtext.annotationsStores.impl.ScopeImpl <em>Scope</em>}' class.
@@ -460,6 +505,34 @@ public interface AnnotationsStoresPackage extends EPackage
    * @ordered
    */
   int FOCUS_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link kcl.ac.uk.xtext.annotationsStores.impl.EffectImpl <em>Effect</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see kcl.ac.uk.xtext.annotationsStores.impl.EffectImpl
+   * @see kcl.ac.uk.xtext.annotationsStores.impl.AnnotationsStoresPackageImpl#getEffect()
+   * @generated
+   */
+  int EFFECT = 8;
+
+  /**
+   * The feature id for the '<em><b>Affected By</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EFFECT__AFFECTED_BY = 0;
+
+  /**
+   * The number of structural features of the '<em>Effect</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EFFECT_FEATURE_COUNT = 1;
 
 
   /**
@@ -582,6 +655,17 @@ public interface AnnotationsStoresPackage extends EPackage
   EAttribute getProposalStore_Content();
 
   /**
+   * Returns the meta object for the containment reference '{@link kcl.ac.uk.xtext.annotationsStores.ProposalStore#getEffect <em>Effect</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Effect</em>'.
+   * @see kcl.ac.uk.xtext.annotationsStores.ProposalStore#getEffect()
+   * @see #getProposalStore()
+   * @generated
+   */
+  EReference getProposalStore_Effect();
+
+  /**
    * Returns the meta object for class '{@link kcl.ac.uk.xtext.annotationsStores.QuestionStore <em>Question Store</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -647,6 +731,17 @@ public interface AnnotationsStoresPackage extends EPackage
   EAttribute getQuestionStore_Content();
 
   /**
+   * Returns the meta object for the containment reference '{@link kcl.ac.uk.xtext.annotationsStores.QuestionStore#getEffect <em>Effect</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Effect</em>'.
+   * @see kcl.ac.uk.xtext.annotationsStores.QuestionStore#getEffect()
+   * @see #getQuestionStore()
+   * @generated
+   */
+  EReference getQuestionStore_Effect();
+
+  /**
    * Returns the meta object for class '{@link kcl.ac.uk.xtext.annotationsStores.ChallengeStore <em>Challenge Store</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -688,6 +783,17 @@ public interface AnnotationsStoresPackage extends EPackage
    * @generated
    */
   EAttribute getChallengeStore_Target();
+
+  /**
+   * Returns the meta object for the containment reference '{@link kcl.ac.uk.xtext.annotationsStores.ChallengeStore#getEffect <em>Effect</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Effect</em>'.
+   * @see kcl.ac.uk.xtext.annotationsStores.ChallengeStore#getEffect()
+   * @see #getChallengeStore()
+   * @generated
+   */
+  EReference getChallengeStore_Effect();
 
   /**
    * Returns the meta object for class '{@link kcl.ac.uk.xtext.annotationsStores.CommitmentStore <em>Commitment Store</em>}'.
@@ -742,6 +848,17 @@ public interface AnnotationsStoresPackage extends EPackage
    * @generated
    */
   EAttribute getCommitmentStore_Content();
+
+  /**
+   * Returns the meta object for the containment reference '{@link kcl.ac.uk.xtext.annotationsStores.CommitmentStore#getEffect <em>Effect</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Effect</em>'.
+   * @see kcl.ac.uk.xtext.annotationsStores.CommitmentStore#getEffect()
+   * @see #getCommitmentStore()
+   * @generated
+   */
+  EReference getCommitmentStore_Effect();
 
   /**
    * Returns the meta object for class '{@link kcl.ac.uk.xtext.annotationsStores.ArgumentStore <em>Argument Store</em>}'.
@@ -809,6 +926,17 @@ public interface AnnotationsStoresPackage extends EPackage
   EAttribute getArgumentStore_Target();
 
   /**
+   * Returns the meta object for the containment reference '{@link kcl.ac.uk.xtext.annotationsStores.ArgumentStore#getEffect <em>Effect</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Effect</em>'.
+   * @see kcl.ac.uk.xtext.annotationsStores.ArgumentStore#getEffect()
+   * @see #getArgumentStore()
+   * @generated
+   */
+  EReference getArgumentStore_Effect();
+
+  /**
    * Returns the meta object for class '{@link kcl.ac.uk.xtext.annotationsStores.Scope <em>Scope</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -849,6 +977,27 @@ public interface AnnotationsStoresPackage extends EPackage
    * @generated
    */
   EAttribute getFocus_Focus();
+
+  /**
+   * Returns the meta object for class '{@link kcl.ac.uk.xtext.annotationsStores.Effect <em>Effect</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Effect</em>'.
+   * @see kcl.ac.uk.xtext.annotationsStores.Effect
+   * @generated
+   */
+  EClass getEffect();
+
+  /**
+   * Returns the meta object for the attribute '{@link kcl.ac.uk.xtext.annotationsStores.Effect#getAffectedBy <em>Affected By</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Affected By</em>'.
+   * @see kcl.ac.uk.xtext.annotationsStores.Effect#getAffectedBy()
+   * @see #getEffect()
+   * @generated
+   */
+  EAttribute getEffect_AffectedBy();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -966,6 +1115,14 @@ public interface AnnotationsStoresPackage extends EPackage
     EAttribute PROPOSAL_STORE__CONTENT = eINSTANCE.getProposalStore_Content();
 
     /**
+     * The meta object literal for the '<em><b>Effect</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PROPOSAL_STORE__EFFECT = eINSTANCE.getProposalStore_Effect();
+
+    /**
      * The meta object literal for the '{@link kcl.ac.uk.xtext.annotationsStores.impl.QuestionStoreImpl <em>Question Store</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1016,6 +1173,14 @@ public interface AnnotationsStoresPackage extends EPackage
     EAttribute QUESTION_STORE__CONTENT = eINSTANCE.getQuestionStore_Content();
 
     /**
+     * The meta object literal for the '<em><b>Effect</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference QUESTION_STORE__EFFECT = eINSTANCE.getQuestionStore_Effect();
+
+    /**
      * The meta object literal for the '{@link kcl.ac.uk.xtext.annotationsStores.impl.ChallengeStoreImpl <em>Challenge Store</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1048,6 +1213,14 @@ public interface AnnotationsStoresPackage extends EPackage
      * @generated
      */
     EAttribute CHALLENGE_STORE__TARGET = eINSTANCE.getChallengeStore_Target();
+
+    /**
+     * The meta object literal for the '<em><b>Effect</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CHALLENGE_STORE__EFFECT = eINSTANCE.getChallengeStore_Effect();
 
     /**
      * The meta object literal for the '{@link kcl.ac.uk.xtext.annotationsStores.impl.CommitmentStoreImpl <em>Commitment Store</em>}' class.
@@ -1090,6 +1263,14 @@ public interface AnnotationsStoresPackage extends EPackage
      * @generated
      */
     EAttribute COMMITMENT_STORE__CONTENT = eINSTANCE.getCommitmentStore_Content();
+
+    /**
+     * The meta object literal for the '<em><b>Effect</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMMITMENT_STORE__EFFECT = eINSTANCE.getCommitmentStore_Effect();
 
     /**
      * The meta object literal for the '{@link kcl.ac.uk.xtext.annotationsStores.impl.ArgumentStoreImpl <em>Argument Store</em>}' class.
@@ -1142,6 +1323,14 @@ public interface AnnotationsStoresPackage extends EPackage
     EAttribute ARGUMENT_STORE__TARGET = eINSTANCE.getArgumentStore_Target();
 
     /**
+     * The meta object literal for the '<em><b>Effect</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARGUMENT_STORE__EFFECT = eINSTANCE.getArgumentStore_Effect();
+
+    /**
      * The meta object literal for the '{@link kcl.ac.uk.xtext.annotationsStores.impl.ScopeImpl <em>Scope</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1176,6 +1365,24 @@ public interface AnnotationsStoresPackage extends EPackage
      * @generated
      */
     EAttribute FOCUS__FOCUS = eINSTANCE.getFocus_Focus();
+
+    /**
+     * The meta object literal for the '{@link kcl.ac.uk.xtext.annotationsStores.impl.EffectImpl <em>Effect</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see kcl.ac.uk.xtext.annotationsStores.impl.EffectImpl
+     * @see kcl.ac.uk.xtext.annotationsStores.impl.AnnotationsStoresPackageImpl#getEffect()
+     * @generated
+     */
+    EClass EFFECT = eINSTANCE.getEffect();
+
+    /**
+     * The meta object literal for the '<em><b>Affected By</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EFFECT__AFFECTED_BY = eINSTANCE.getEffect_AffectedBy();
 
   }
 

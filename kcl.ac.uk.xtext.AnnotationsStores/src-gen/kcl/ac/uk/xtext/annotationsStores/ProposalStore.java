@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link kcl.ac.uk.xtext.annotationsStores.ProposalStore#getScope <em>Scope</em>}</li>
  *   <li>{@link kcl.ac.uk.xtext.annotationsStores.ProposalStore#getFocus <em>Focus</em>}</li>
  *   <li>{@link kcl.ac.uk.xtext.annotationsStores.ProposalStore#getContent <em>Content</em>}</li>
+ *   <li>{@link kcl.ac.uk.xtext.annotationsStores.ProposalStore#getEffect <em>Effect</em>}</li>
  * </ul>
  *
  * @see kcl.ac.uk.xtext.annotationsStores.AnnotationsStoresPackage#getProposalStore()
@@ -129,5 +130,31 @@ public interface ProposalStore extends EObject
    * @generated
    */
   void setContent(String value);
+
+  /**
+   * Returns the value of the '<em><b>Effect</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Effect</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Effect</em>' containment reference.
+   * @see #setEffect(Effect)
+   * @see kcl.ac.uk.xtext.annotationsStores.AnnotationsStoresPackage#getProposalStore_Effect()
+   * @model containment="true"
+   * @generated
+   */
+  Effect getEffect();
+
+  /**
+   * Sets the value of the '{@link kcl.ac.uk.xtext.annotationsStores.ProposalStore#getEffect <em>Effect</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Effect</em>' containment reference.
+   * @see #getEffect()
+   * @generated
+   */
+  void setEffect(Effect value);
 
 } // ProposalStore
