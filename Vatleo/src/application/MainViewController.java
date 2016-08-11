@@ -572,7 +572,7 @@ public class MainViewController implements Initializable {
 		// From time column
 		fromTimeColumn.setMinWidth(75);
 		fromTimeColumn.setCellValueFactory(new Callback<CellDataFeatures<Annotation, String>, ObservableValue<String>>() {	
-			@SuppressWarnings({ "unchecked", "rawtypes" }) //TODO: fix the warnings
+			@SuppressWarnings({ "unchecked", "rawtypes" })
 			public ObservableValue<String> call(CellDataFeatures<Annotation, String> p) {
 				return new ReadOnlyObjectWrapper(convertSecToTime(p.getValue().getFromTime().getSec()));
 			}
@@ -581,7 +581,7 @@ public class MainViewController implements Initializable {
 		// To time column
 		toTimeColumn.setMinWidth(75);
 		toTimeColumn.setCellValueFactory(new Callback<CellDataFeatures<Annotation, String>, ObservableValue<String>>() {	
-			@SuppressWarnings({ "unchecked", "rawtypes" }) //TODO: fix the warnings
+			@SuppressWarnings({ "unchecked", "rawtypes" })
 			public ObservableValue<String> call(CellDataFeatures<Annotation, String> p) {
 				return new ReadOnlyObjectWrapper(convertSecToTime(p.getValue().getToTime().getSec()));
 			}
