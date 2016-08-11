@@ -18,6 +18,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AnnotationsStores.ecore#//ProposalStore/scope"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AnnotationsStores.ecore#//ProposalStore/focus"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AnnotationsStores.ecore#//ProposalStore/content"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AnnotationsStores.ecore#//ProposalStore/effect"/>
     </genClasses>
     <genClasses ecoreClass="AnnotationsStores.ecore#//QuestionStore">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AnnotationsStores.ecore#//QuestionStore/name"/>
@@ -25,17 +26,20 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AnnotationsStores.ecore#//QuestionStore/scope"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AnnotationsStores.ecore#//QuestionStore/focus"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AnnotationsStores.ecore#//QuestionStore/content"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AnnotationsStores.ecore#//QuestionStore/effect"/>
     </genClasses>
     <genClasses ecoreClass="AnnotationsStores.ecore#//ChallengeStore">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AnnotationsStores.ecore#//ChallengeStore/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AnnotationsStores.ecore#//ChallengeStore/sender"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AnnotationsStores.ecore#//ChallengeStore/target"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AnnotationsStores.ecore#//ChallengeStore/effect"/>
     </genClasses>
     <genClasses ecoreClass="AnnotationsStores.ecore#//CommitmentStore">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AnnotationsStores.ecore#//CommitmentStore/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AnnotationsStores.ecore#//CommitmentStore/scope"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AnnotationsStores.ecore#//CommitmentStore/focus"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AnnotationsStores.ecore#//CommitmentStore/content"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AnnotationsStores.ecore#//CommitmentStore/effect"/>
     </genClasses>
     <genClasses ecoreClass="AnnotationsStores.ecore#//ArgumentStore">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AnnotationsStores.ecore#//ArgumentStore/name"/>
@@ -43,12 +47,16 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AnnotationsStores.ecore#//ArgumentStore/focus"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AnnotationsStores.ecore#//ArgumentStore/content"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AnnotationsStores.ecore#//ArgumentStore/target"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AnnotationsStores.ecore#//ArgumentStore/effect"/>
     </genClasses>
     <genClasses ecoreClass="AnnotationsStores.ecore#//Scope">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AnnotationsStores.ecore#//Scope/scope"/>
     </genClasses>
     <genClasses ecoreClass="AnnotationsStores.ecore#//Focus">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AnnotationsStores.ecore#//Focus/focus"/>
+    </genClasses>
+    <genClasses ecoreClass="AnnotationsStores.ecore#//Effect">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AnnotationsStores.ecore#//Effect/affectedBy"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

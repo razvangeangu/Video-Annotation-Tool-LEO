@@ -54,25 +54,31 @@ public class AnnotationsStoresParser extends AbstractContentAssistParser {
 					put(grammarAccess.getProposalStoreAccess().getScopeAssignment_4(), "rule__ProposalStore__ScopeAssignment_4");
 					put(grammarAccess.getProposalStoreAccess().getFocusAssignment_6(), "rule__ProposalStore__FocusAssignment_6");
 					put(grammarAccess.getProposalStoreAccess().getContentAssignment_8(), "rule__ProposalStore__ContentAssignment_8");
+					put(grammarAccess.getProposalStoreAccess().getEffectAssignment_10(), "rule__ProposalStore__EffectAssignment_10");
 					put(grammarAccess.getQuestionStoreAccess().getNameAssignment_2(), "rule__QuestionStore__NameAssignment_2");
 					put(grammarAccess.getQuestionStoreAccess().getSenderAssignment_4(), "rule__QuestionStore__SenderAssignment_4");
 					put(grammarAccess.getQuestionStoreAccess().getScopeAssignment_6(), "rule__QuestionStore__ScopeAssignment_6");
 					put(grammarAccess.getQuestionStoreAccess().getFocusAssignment_8(), "rule__QuestionStore__FocusAssignment_8");
 					put(grammarAccess.getQuestionStoreAccess().getContentAssignment_10(), "rule__QuestionStore__ContentAssignment_10");
+					put(grammarAccess.getQuestionStoreAccess().getEffectAssignment_12(), "rule__QuestionStore__EffectAssignment_12");
 					put(grammarAccess.getChallengeStoreAccess().getNameAssignment_2(), "rule__ChallengeStore__NameAssignment_2");
 					put(grammarAccess.getChallengeStoreAccess().getSenderAssignment_4(), "rule__ChallengeStore__SenderAssignment_4");
 					put(grammarAccess.getChallengeStoreAccess().getTargetAssignment_5_1(), "rule__ChallengeStore__TargetAssignment_5_1");
+					put(grammarAccess.getChallengeStoreAccess().getEffectAssignment_7(), "rule__ChallengeStore__EffectAssignment_7");
 					put(grammarAccess.getCommitmentStoreAccess().getNameAssignment_2(), "rule__CommitmentStore__NameAssignment_2");
 					put(grammarAccess.getCommitmentStoreAccess().getScopeAssignment_4(), "rule__CommitmentStore__ScopeAssignment_4");
 					put(grammarAccess.getCommitmentStoreAccess().getFocusAssignment_6(), "rule__CommitmentStore__FocusAssignment_6");
 					put(grammarAccess.getCommitmentStoreAccess().getContentAssignment_8(), "rule__CommitmentStore__ContentAssignment_8");
+					put(grammarAccess.getCommitmentStoreAccess().getEffectAssignment_10(), "rule__CommitmentStore__EffectAssignment_10");
 					put(grammarAccess.getArgumentStoreAccess().getNameAssignment_2(), "rule__ArgumentStore__NameAssignment_2");
 					put(grammarAccess.getArgumentStoreAccess().getScopeAssignment_4(), "rule__ArgumentStore__ScopeAssignment_4");
 					put(grammarAccess.getArgumentStoreAccess().getFocusAssignment_6(), "rule__ArgumentStore__FocusAssignment_6");
 					put(grammarAccess.getArgumentStoreAccess().getContentAssignment_8(), "rule__ArgumentStore__ContentAssignment_8");
 					put(grammarAccess.getArgumentStoreAccess().getTargetAssignment_9_1(), "rule__ArgumentStore__TargetAssignment_9_1");
+					put(grammarAccess.getArgumentStoreAccess().getEffectAssignment_11(), "rule__ArgumentStore__EffectAssignment_11");
 					put(grammarAccess.getScopeAccess().getScopeAssignment(), "rule__Scope__ScopeAssignment");
 					put(grammarAccess.getFocusAccess().getFocusAssignment(), "rule__Focus__FocusAssignment");
+					put(grammarAccess.getEffectAccess().getAffectedByAssignment(), "rule__Effect__AffectedByAssignment");
 				}
 			};
 		}

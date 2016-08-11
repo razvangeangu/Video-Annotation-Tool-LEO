@@ -10,6 +10,7 @@ import kcl.ac.uk.xtext.annotationsStores.AnnotationsStoresPackage;
 import kcl.ac.uk.xtext.annotationsStores.ArgumentStore;
 import kcl.ac.uk.xtext.annotationsStores.ChallengeStore;
 import kcl.ac.uk.xtext.annotationsStores.CommitmentStore;
+import kcl.ac.uk.xtext.annotationsStores.Effect;
 import kcl.ac.uk.xtext.annotationsStores.Focus;
 import kcl.ac.uk.xtext.annotationsStores.ProposalStore;
 import kcl.ac.uk.xtext.annotationsStores.QuestionStore;
@@ -50,6 +51,9 @@ public class AnnotationsStoresSemanticSequencer extends AbstractDelegatingSemant
 				return; 
 			case AnnotationsStoresPackage.COMMITMENT_STORE:
 				sequence_CommitmentStore(context, (CommitmentStore) semanticObject); 
+				return; 
+			case AnnotationsStoresPackage.EFFECT:
+				sequence_Effect(context, (Effect) semanticObject); 
 				return; 
 			case AnnotationsStoresPackage.FOCUS:
 				sequence_Focus(context, (Focus) semanticObject); 
@@ -102,7 +106,14 @@ public class AnnotationsStoresSemanticSequencer extends AbstractDelegatingSemant
 	 *     ArgumentStore returns ArgumentStore
 	 *
 	 * Constraint:
-	 *     (name=ID scope=Scope focus=Focus content=STRING target=ID?)
+	 *     (
+	 *         name=ID 
+	 *         scope=Scope 
+	 *         focus=Focus 
+	 *         content=STRING 
+	 *         target=ID? 
+	 *         effect=Effect?
+	 *     )
 	 */
 	protected void sequence_ArgumentStore(ISerializationContext context, ArgumentStore semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -114,7 +125,7 @@ public class AnnotationsStoresSemanticSequencer extends AbstractDelegatingSemant
 	 *     ChallengeStore returns ChallengeStore
 	 *
 	 * Constraint:
-	 *     (name=ID sender=Sender target=ID?)
+	 *     (name=ID sender=Sender target=ID? effect=Effect?)
 	 */
 	protected void sequence_ChallengeStore(ISerializationContext context, ChallengeStore semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -126,24 +137,27 @@ public class AnnotationsStoresSemanticSequencer extends AbstractDelegatingSemant
 	 *     CommitmentStore returns CommitmentStore
 	 *
 	 * Constraint:
-	 *     (name=ID scope=Scope focus=Focus content=STRING)
+	 *     (name=ID scope=Scope focus=Focus content=STRING effect=Effect?)
 	 */
 	protected void sequence_CommitmentStore(ISerializationContext context, CommitmentStore semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Effect returns Effect
+	 *
+	 * Constraint:
+	 *     affectedBy=ID
+	 */
+	protected void sequence_Effect(ISerializationContext context, Effect semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, AnnotationsStoresPackage.Literals.COMMITMENT_STORE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnotationsStoresPackage.Literals.COMMITMENT_STORE__NAME));
-			if (transientValues.isValueTransient(semanticObject, AnnotationsStoresPackage.Literals.COMMITMENT_STORE__SCOPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnotationsStoresPackage.Literals.COMMITMENT_STORE__SCOPE));
-			if (transientValues.isValueTransient(semanticObject, AnnotationsStoresPackage.Literals.COMMITMENT_STORE__FOCUS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnotationsStoresPackage.Literals.COMMITMENT_STORE__FOCUS));
-			if (transientValues.isValueTransient(semanticObject, AnnotationsStoresPackage.Literals.COMMITMENT_STORE__CONTENT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnotationsStoresPackage.Literals.COMMITMENT_STORE__CONTENT));
+			if (transientValues.isValueTransient(semanticObject, AnnotationsStoresPackage.Literals.EFFECT__AFFECTED_BY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnotationsStoresPackage.Literals.EFFECT__AFFECTED_BY));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getCommitmentStoreAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getCommitmentStoreAccess().getScopeScopeParserRuleCall_4_0(), semanticObject.getScope());
-		feeder.accept(grammarAccess.getCommitmentStoreAccess().getFocusFocusParserRuleCall_6_0(), semanticObject.getFocus());
-		feeder.accept(grammarAccess.getCommitmentStoreAccess().getContentSTRINGTerminalRuleCall_8_0(), semanticObject.getContent());
+		feeder.accept(grammarAccess.getEffectAccess().getAffectedByIDTerminalRuleCall_0(), semanticObject.getAffectedBy());
 		feeder.finish();
 	}
 	
@@ -165,25 +179,10 @@ public class AnnotationsStoresSemanticSequencer extends AbstractDelegatingSemant
 	 *     ProposalStore returns ProposalStore
 	 *
 	 * Constraint:
-	 *     (name=ID scope=Scope focus=Focus content=STRING)
+	 *     (name=ID scope=Scope focus=Focus content=STRING effect=Effect?)
 	 */
 	protected void sequence_ProposalStore(ISerializationContext context, ProposalStore semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, AnnotationsStoresPackage.Literals.PROPOSAL_STORE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnotationsStoresPackage.Literals.PROPOSAL_STORE__NAME));
-			if (transientValues.isValueTransient(semanticObject, AnnotationsStoresPackage.Literals.PROPOSAL_STORE__SCOPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnotationsStoresPackage.Literals.PROPOSAL_STORE__SCOPE));
-			if (transientValues.isValueTransient(semanticObject, AnnotationsStoresPackage.Literals.PROPOSAL_STORE__FOCUS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnotationsStoresPackage.Literals.PROPOSAL_STORE__FOCUS));
-			if (transientValues.isValueTransient(semanticObject, AnnotationsStoresPackage.Literals.PROPOSAL_STORE__CONTENT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnotationsStoresPackage.Literals.PROPOSAL_STORE__CONTENT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getProposalStoreAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getProposalStoreAccess().getScopeScopeParserRuleCall_4_0(), semanticObject.getScope());
-		feeder.accept(grammarAccess.getProposalStoreAccess().getFocusFocusParserRuleCall_6_0(), semanticObject.getFocus());
-		feeder.accept(grammarAccess.getProposalStoreAccess().getContentSTRINGTerminalRuleCall_8_0(), semanticObject.getContent());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -192,28 +191,17 @@ public class AnnotationsStoresSemanticSequencer extends AbstractDelegatingSemant
 	 *     QuestionStore returns QuestionStore
 	 *
 	 * Constraint:
-	 *     (name=ID sender=Sender scope=Scope focus=Focus content=STRING)
+	 *     (
+	 *         name=ID 
+	 *         sender=Sender 
+	 *         scope=Scope 
+	 *         focus=Focus 
+	 *         content=STRING 
+	 *         effect=Effect?
+	 *     )
 	 */
 	protected void sequence_QuestionStore(ISerializationContext context, QuestionStore semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, AnnotationsStoresPackage.Literals.QUESTION_STORE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnotationsStoresPackage.Literals.QUESTION_STORE__NAME));
-			if (transientValues.isValueTransient(semanticObject, AnnotationsStoresPackage.Literals.QUESTION_STORE__SENDER) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnotationsStoresPackage.Literals.QUESTION_STORE__SENDER));
-			if (transientValues.isValueTransient(semanticObject, AnnotationsStoresPackage.Literals.QUESTION_STORE__SCOPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnotationsStoresPackage.Literals.QUESTION_STORE__SCOPE));
-			if (transientValues.isValueTransient(semanticObject, AnnotationsStoresPackage.Literals.QUESTION_STORE__FOCUS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnotationsStoresPackage.Literals.QUESTION_STORE__FOCUS));
-			if (transientValues.isValueTransient(semanticObject, AnnotationsStoresPackage.Literals.QUESTION_STORE__CONTENT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AnnotationsStoresPackage.Literals.QUESTION_STORE__CONTENT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getQuestionStoreAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getQuestionStoreAccess().getSenderSenderParserRuleCall_4_0(), semanticObject.getSender());
-		feeder.accept(grammarAccess.getQuestionStoreAccess().getScopeScopeParserRuleCall_6_0(), semanticObject.getScope());
-		feeder.accept(grammarAccess.getQuestionStoreAccess().getFocusFocusParserRuleCall_8_0(), semanticObject.getFocus());
-		feeder.accept(grammarAccess.getQuestionStoreAccess().getContentSTRINGTerminalRuleCall_10_0(), semanticObject.getContent());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

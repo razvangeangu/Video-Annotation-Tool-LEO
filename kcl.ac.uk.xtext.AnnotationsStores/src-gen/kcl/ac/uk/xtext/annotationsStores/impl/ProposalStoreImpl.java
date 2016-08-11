@@ -4,6 +4,7 @@
 package kcl.ac.uk.xtext.annotationsStores.impl;
 
 import kcl.ac.uk.xtext.annotationsStores.AnnotationsStoresPackage;
+import kcl.ac.uk.xtext.annotationsStores.Effect;
 import kcl.ac.uk.xtext.annotationsStores.Focus;
 import kcl.ac.uk.xtext.annotationsStores.ProposalStore;
 import kcl.ac.uk.xtext.annotationsStores.Scope;
@@ -29,6 +30,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link kcl.ac.uk.xtext.annotationsStores.impl.ProposalStoreImpl#getScope <em>Scope</em>}</li>
  *   <li>{@link kcl.ac.uk.xtext.annotationsStores.impl.ProposalStoreImpl#getFocus <em>Focus</em>}</li>
  *   <li>{@link kcl.ac.uk.xtext.annotationsStores.impl.ProposalStoreImpl#getContent <em>Content</em>}</li>
+ *   <li>{@link kcl.ac.uk.xtext.annotationsStores.impl.ProposalStoreImpl#getEffect <em>Effect</em>}</li>
  * </ul>
  *
  * @generated
@@ -94,6 +96,16 @@ public class ProposalStoreImpl extends MinimalEObjectImpl.Container implements P
    * @ordered
    */
   protected String content = CONTENT_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getEffect() <em>Effect</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getEffect()
+   * @generated
+   * @ordered
+   */
+  protected Effect effect;
 
   /**
    * <!-- begin-user-doc -->
@@ -263,6 +275,54 @@ public class ProposalStoreImpl extends MinimalEObjectImpl.Container implements P
    * <!-- end-user-doc -->
    * @generated
    */
+  public Effect getEffect()
+  {
+    return effect;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetEffect(Effect newEffect, NotificationChain msgs)
+  {
+    Effect oldEffect = effect;
+    effect = newEffect;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AnnotationsStoresPackage.PROPOSAL_STORE__EFFECT, oldEffect, newEffect);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setEffect(Effect newEffect)
+  {
+    if (newEffect != effect)
+    {
+      NotificationChain msgs = null;
+      if (effect != null)
+        msgs = ((InternalEObject)effect).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AnnotationsStoresPackage.PROPOSAL_STORE__EFFECT, null, msgs);
+      if (newEffect != null)
+        msgs = ((InternalEObject)newEffect).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AnnotationsStoresPackage.PROPOSAL_STORE__EFFECT, null, msgs);
+      msgs = basicSetEffect(newEffect, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AnnotationsStoresPackage.PROPOSAL_STORE__EFFECT, newEffect, newEffect));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -272,6 +332,8 @@ public class ProposalStoreImpl extends MinimalEObjectImpl.Container implements P
         return basicSetScope(null, msgs);
       case AnnotationsStoresPackage.PROPOSAL_STORE__FOCUS:
         return basicSetFocus(null, msgs);
+      case AnnotationsStoresPackage.PROPOSAL_STORE__EFFECT:
+        return basicSetEffect(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -294,6 +356,8 @@ public class ProposalStoreImpl extends MinimalEObjectImpl.Container implements P
         return getFocus();
       case AnnotationsStoresPackage.PROPOSAL_STORE__CONTENT:
         return getContent();
+      case AnnotationsStoresPackage.PROPOSAL_STORE__EFFECT:
+        return getEffect();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -319,6 +383,9 @@ public class ProposalStoreImpl extends MinimalEObjectImpl.Container implements P
         return;
       case AnnotationsStoresPackage.PROPOSAL_STORE__CONTENT:
         setContent((String)newValue);
+        return;
+      case AnnotationsStoresPackage.PROPOSAL_STORE__EFFECT:
+        setEffect((Effect)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -346,6 +413,9 @@ public class ProposalStoreImpl extends MinimalEObjectImpl.Container implements P
       case AnnotationsStoresPackage.PROPOSAL_STORE__CONTENT:
         setContent(CONTENT_EDEFAULT);
         return;
+      case AnnotationsStoresPackage.PROPOSAL_STORE__EFFECT:
+        setEffect((Effect)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -368,6 +438,8 @@ public class ProposalStoreImpl extends MinimalEObjectImpl.Container implements P
         return focus != null;
       case AnnotationsStoresPackage.PROPOSAL_STORE__CONTENT:
         return CONTENT_EDEFAULT == null ? content != null : !CONTENT_EDEFAULT.equals(content);
+      case AnnotationsStoresPackage.PROPOSAL_STORE__EFFECT:
+        return effect != null;
     }
     return super.eIsSet(featureID);
   }

@@ -9,6 +9,7 @@ import kcl.ac.uk.xtext.annotationsStores.AnnotationsStoresPackage;
 import kcl.ac.uk.xtext.annotationsStores.ArgumentStore;
 import kcl.ac.uk.xtext.annotationsStores.ChallengeStore;
 import kcl.ac.uk.xtext.annotationsStores.CommitmentStore;
+import kcl.ac.uk.xtext.annotationsStores.Effect;
 import kcl.ac.uk.xtext.annotationsStores.Focus;
 import kcl.ac.uk.xtext.annotationsStores.ProposalStore;
 import kcl.ac.uk.xtext.annotationsStores.QuestionStore;
@@ -84,6 +85,13 @@ public class AnnotationsStoresPackageImpl extends EPackageImpl implements Annota
    * @generated
    */
   private EClass focusEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass effectEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -263,6 +271,16 @@ public class AnnotationsStoresPackageImpl extends EPackageImpl implements Annota
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getProposalStore_Effect()
+  {
+    return (EReference)proposalStoreEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getQuestionStore()
   {
     return questionStoreEClass;
@@ -323,6 +341,16 @@ public class AnnotationsStoresPackageImpl extends EPackageImpl implements Annota
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getQuestionStore_Effect()
+  {
+    return (EReference)questionStoreEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getChallengeStore()
   {
     return challengeStoreEClass;
@@ -356,6 +384,16 @@ public class AnnotationsStoresPackageImpl extends EPackageImpl implements Annota
   public EAttribute getChallengeStore_Target()
   {
     return (EAttribute)challengeStoreEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getChallengeStore_Effect()
+  {
+    return (EReference)challengeStoreEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -406,6 +444,16 @@ public class AnnotationsStoresPackageImpl extends EPackageImpl implements Annota
   public EAttribute getCommitmentStore_Content()
   {
     return (EAttribute)commitmentStoreEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCommitmentStore_Effect()
+  {
+    return (EReference)commitmentStoreEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -473,6 +521,16 @@ public class AnnotationsStoresPackageImpl extends EPackageImpl implements Annota
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getArgumentStore_Effect()
+  {
+    return (EReference)argumentStoreEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getScope()
   {
     return scopeEClass;
@@ -506,6 +564,26 @@ public class AnnotationsStoresPackageImpl extends EPackageImpl implements Annota
   public EAttribute getFocus_Focus()
   {
     return (EAttribute)focusEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getEffect()
+  {
+    return effectEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getEffect_AffectedBy()
+  {
+    return (EAttribute)effectEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -550,6 +628,7 @@ public class AnnotationsStoresPackageImpl extends EPackageImpl implements Annota
     createEReference(proposalStoreEClass, PROPOSAL_STORE__SCOPE);
     createEReference(proposalStoreEClass, PROPOSAL_STORE__FOCUS);
     createEAttribute(proposalStoreEClass, PROPOSAL_STORE__CONTENT);
+    createEReference(proposalStoreEClass, PROPOSAL_STORE__EFFECT);
 
     questionStoreEClass = createEClass(QUESTION_STORE);
     createEAttribute(questionStoreEClass, QUESTION_STORE__NAME);
@@ -557,17 +636,20 @@ public class AnnotationsStoresPackageImpl extends EPackageImpl implements Annota
     createEReference(questionStoreEClass, QUESTION_STORE__SCOPE);
     createEReference(questionStoreEClass, QUESTION_STORE__FOCUS);
     createEAttribute(questionStoreEClass, QUESTION_STORE__CONTENT);
+    createEReference(questionStoreEClass, QUESTION_STORE__EFFECT);
 
     challengeStoreEClass = createEClass(CHALLENGE_STORE);
     createEAttribute(challengeStoreEClass, CHALLENGE_STORE__NAME);
     createEAttribute(challengeStoreEClass, CHALLENGE_STORE__SENDER);
     createEAttribute(challengeStoreEClass, CHALLENGE_STORE__TARGET);
+    createEReference(challengeStoreEClass, CHALLENGE_STORE__EFFECT);
 
     commitmentStoreEClass = createEClass(COMMITMENT_STORE);
     createEAttribute(commitmentStoreEClass, COMMITMENT_STORE__NAME);
     createEReference(commitmentStoreEClass, COMMITMENT_STORE__SCOPE);
     createEReference(commitmentStoreEClass, COMMITMENT_STORE__FOCUS);
     createEAttribute(commitmentStoreEClass, COMMITMENT_STORE__CONTENT);
+    createEReference(commitmentStoreEClass, COMMITMENT_STORE__EFFECT);
 
     argumentStoreEClass = createEClass(ARGUMENT_STORE);
     createEAttribute(argumentStoreEClass, ARGUMENT_STORE__NAME);
@@ -575,12 +657,16 @@ public class AnnotationsStoresPackageImpl extends EPackageImpl implements Annota
     createEReference(argumentStoreEClass, ARGUMENT_STORE__FOCUS);
     createEAttribute(argumentStoreEClass, ARGUMENT_STORE__CONTENT);
     createEAttribute(argumentStoreEClass, ARGUMENT_STORE__TARGET);
+    createEReference(argumentStoreEClass, ARGUMENT_STORE__EFFECT);
 
     scopeEClass = createEClass(SCOPE);
     createEAttribute(scopeEClass, SCOPE__SCOPE);
 
     focusEClass = createEClass(FOCUS);
     createEAttribute(focusEClass, FOCUS__FOCUS);
+
+    effectEClass = createEClass(EFFECT);
+    createEAttribute(effectEClass, EFFECT__AFFECTED_BY);
   }
 
   /**
@@ -626,6 +712,7 @@ public class AnnotationsStoresPackageImpl extends EPackageImpl implements Annota
     initEReference(getProposalStore_Scope(), this.getScope(), null, "scope", null, 0, 1, ProposalStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getProposalStore_Focus(), this.getFocus(), null, "focus", null, 0, 1, ProposalStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getProposalStore_Content(), ecorePackage.getEString(), "content", null, 0, 1, ProposalStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getProposalStore_Effect(), this.getEffect(), null, "effect", null, 0, 1, ProposalStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(questionStoreEClass, QuestionStore.class, "QuestionStore", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getQuestionStore_Name(), ecorePackage.getEString(), "name", null, 0, 1, QuestionStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -633,17 +720,20 @@ public class AnnotationsStoresPackageImpl extends EPackageImpl implements Annota
     initEReference(getQuestionStore_Scope(), this.getScope(), null, "scope", null, 0, 1, QuestionStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getQuestionStore_Focus(), this.getFocus(), null, "focus", null, 0, 1, QuestionStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getQuestionStore_Content(), ecorePackage.getEString(), "content", null, 0, 1, QuestionStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getQuestionStore_Effect(), this.getEffect(), null, "effect", null, 0, 1, QuestionStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(challengeStoreEClass, ChallengeStore.class, "ChallengeStore", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getChallengeStore_Name(), ecorePackage.getEString(), "name", null, 0, 1, ChallengeStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getChallengeStore_Sender(), ecorePackage.getEString(), "sender", null, 0, 1, ChallengeStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getChallengeStore_Target(), ecorePackage.getEString(), "target", null, 0, 1, ChallengeStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getChallengeStore_Effect(), this.getEffect(), null, "effect", null, 0, 1, ChallengeStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(commitmentStoreEClass, CommitmentStore.class, "CommitmentStore", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getCommitmentStore_Name(), ecorePackage.getEString(), "name", null, 0, 1, CommitmentStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCommitmentStore_Scope(), this.getScope(), null, "scope", null, 0, 1, CommitmentStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCommitmentStore_Focus(), this.getFocus(), null, "focus", null, 0, 1, CommitmentStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getCommitmentStore_Content(), ecorePackage.getEString(), "content", null, 0, 1, CommitmentStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCommitmentStore_Effect(), this.getEffect(), null, "effect", null, 0, 1, CommitmentStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(argumentStoreEClass, ArgumentStore.class, "ArgumentStore", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getArgumentStore_Name(), ecorePackage.getEString(), "name", null, 0, 1, ArgumentStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -651,12 +741,16 @@ public class AnnotationsStoresPackageImpl extends EPackageImpl implements Annota
     initEReference(getArgumentStore_Focus(), this.getFocus(), null, "focus", null, 0, 1, ArgumentStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getArgumentStore_Content(), ecorePackage.getEString(), "content", null, 0, 1, ArgumentStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getArgumentStore_Target(), ecorePackage.getEString(), "target", null, 0, 1, ArgumentStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getArgumentStore_Effect(), this.getEffect(), null, "effect", null, 0, 1, ArgumentStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(scopeEClass, Scope.class, "Scope", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getScope_Scope(), ecorePackage.getEString(), "scope", null, 0, 1, Scope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(focusEClass, Focus.class, "Focus", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getFocus_Focus(), ecorePackage.getEString(), "focus", null, 0, 1, Focus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(effectEClass, Effect.class, "Effect", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getEffect_AffectedBy(), ecorePackage.getEString(), "affectedBy", null, 0, 1, Effect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

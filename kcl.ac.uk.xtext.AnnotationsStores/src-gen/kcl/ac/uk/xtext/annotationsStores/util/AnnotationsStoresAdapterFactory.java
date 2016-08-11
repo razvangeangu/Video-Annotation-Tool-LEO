@@ -116,6 +116,11 @@ public class AnnotationsStoresAdapterFactory extends AdapterFactoryImpl
         return createFocusAdapter();
       }
       @Override
+      public Adapter caseEffect(Effect object)
+      {
+        return createEffectAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -253,6 +258,21 @@ public class AnnotationsStoresAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createFocusAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link kcl.ac.uk.xtext.annotationsStores.Effect <em>Effect</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see kcl.ac.uk.xtext.annotationsStores.Effect
+   * @generated
+   */
+  public Adapter createEffectAdapter()
   {
     return null;
   }

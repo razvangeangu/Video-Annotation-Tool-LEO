@@ -129,6 +129,13 @@ public class AnnotationsStoresSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case AnnotationsStoresPackage.EFFECT:
+      {
+        Effect effect = (Effect)theEObject;
+        T result = caseEffect(effect);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -257,6 +264,22 @@ public class AnnotationsStoresSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseFocus(Focus object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Effect</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Effect</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEffect(Effect object)
   {
     return null;
   }
