@@ -31,6 +31,8 @@ public class Main extends Application {
 		        }
 		    });
 			
+			((MainViewController) fxmlLoader.getController()).setHostServices(getHostServices());
+			
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();

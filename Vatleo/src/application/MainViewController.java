@@ -19,6 +19,7 @@ import java.util.ResourceBundle;
 
 import org.eclipse.xtext.parser.ParseException;
 
+import javafx.application.HostServices;
 import javafx.application.Platform;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
@@ -97,6 +98,7 @@ public class MainViewController implements Initializable {
 	@FXML private MenuItem loadAnnotationMenuItem;
 	@FXML private MenuItem saveAnnotationsMenuItem;
 	@FXML private MenuItem saveAsMenuItem;
+	@FXML private MenuItem aboutMenuItem;
 	@FXML private CheckMenuItem editAnnotationCheckMenuItem;
 	@FXML private CheckMenuItem	viewAnnotationCheckMenuItem;
 	@FXML private TableView<Annotation> tableView;
@@ -120,6 +122,7 @@ public class MainViewController implements Initializable {
 	private String comment;
 	private Interpreter interpreter;
 	private boolean shouldSave;
+	private HostServices hostServices;
 		
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -262,6 +265,8 @@ public class MainViewController implements Initializable {
 			@Override
 			public void handle(ActionEvent event) {
 				mediaPlayer.seek(mediaPlayer.getCurrentTime().add(new Duration(-1000)));
+				timeSlider.setValue(mediaPlayer.getCurrentTime().toMillis() / mediaPlayer.getTotalDuration().toMillis() * 100);
+				timeStamp.setText(convertSecToTime((int)mediaPlayer.getCurrentTime().toSeconds()));
 			}
 			
 		});
@@ -270,7 +275,10 @@ public class MainViewController implements Initializable {
 
 			@Override
 			public void handle(ActionEvent event) {
+				
 				mediaPlayer.seek(mediaPlayer.getCurrentTime().add(new Duration(1000)));
+				timeSlider.setValue(mediaPlayer.getCurrentTime().toMillis() / mediaPlayer.getTotalDuration().toMillis() * 100);
+				timeStamp.setText(convertSecToTime((int)mediaPlayer.getCurrentTime().toSeconds()));
 			}
 			
 		});
@@ -294,8 +302,8 @@ public class MainViewController implements Initializable {
 	            	String newValue = timeStamp.getText();
 	                if (newValue.matches("\\d*:\\d*")) {
 	                	if (convertTimeToSec(newValue) < mediaPlayer.getMedia().getDuration().toSeconds()) {
-	                		mediaPlayer.seek(new Duration(convertTimeToSec(newValue) * 1000));
 	                		timeSlider.setValue(mediaPlayer.getCurrentTime().toMillis() / mediaPlayer.getTotalDuration().toMillis() * 100);
+	                		mediaPlayer.seek(new Duration(convertTimeToSec(newValue) * 1000));
 	                	} else {
 	                		showErrorDialog("Error", "Duration incorrect!", "The duration should be in format of \"00:00\" and less than the maximum duration of the video (" + convertSecToTime((int)media.getDuration().toSeconds()) + ").", null);
 	                	}
@@ -436,7 +444,6 @@ public class MainViewController implements Initializable {
 					
 					addAnnotationButton.setText("Add annotation");
 					addAnnotationButton.setOnAction(new EventHandler<ActionEvent>() {
-
 						@Override
 						public void handle(ActionEvent event) {
 							
@@ -449,6 +456,9 @@ public class MainViewController implements Initializable {
 							}
 						}
 					});
+					fromTime.setText("");
+					toTime.setText("");
+					textField.setText("");
 				}
 			}
 		});
@@ -457,7 +467,6 @@ public class MainViewController implements Initializable {
 
 			@Override
 			public void handle(ActionEvent event) {
-				
 				if (tableView.getSelectionModel().getSelectedItem() != null) {
 					List<String> choices = new ArrayList<>();
 					choices.add("Proposal store");
@@ -490,10 +499,17 @@ public class MainViewController implements Initializable {
 							} catch (Exception e) {
 								 e.printStackTrace();
 							}
-					} else {
-						showErrorDialog("Alert", "Information needed to continue", "In order to interpret you have to select the last annotation to be considered (by time).", null);
 					}
+				} else {
+					showErrorDialog("Alert", "Information needed to continue", "In order to interpret you have to select the last annotation to be considered (by time).", null);
 				}
+			}
+		});
+		
+		aboutMenuItem.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				hostServices.showDocument("https://github.kcl.ac.uk/videoAnnotation/Vatleo/blob/master/README.md");
 			}
 		});
 	}
@@ -591,35 +607,37 @@ public class MainViewController implements Initializable {
 		tableView.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                if (mouseEvent.getButton().equals(MouseButton.PRIMARY)) {
-                    if (mouseEvent.getClickCount() == 2) {
-                    	
-                    	showContentDialog();
-                    }
-                    
-                    if (mouseEvent.getClickCount() == 1 && editAnnotationCheckMenuItem.isSelected()) {
-                    	
-                    	enableEditingForAnnotation(tableView.getSelectionModel().getSelectedIndex());
-                    }
-                    
-                    if (mouseEvent.getClickCount() == 1 && viewAnnotationCheckMenuItem.isSelected()) {
-                    	
-                    	seekPlayerToAnnotation(tableView.getSelectionModel().getSelectedIndex());
-                    }
-                }
-                
-                if (mouseEvent.getButton().equals(MouseButton.SECONDARY)) {
-                    
-                	if (tableView.getSelectionModel().getSelectedItem().getComment() == null) {
-                		commentItem.setText("Add comment");
-                		removeCommentItem.setDisable(true);
-                    	contextMenu.show(tableView, mouseEvent.getScreenX() , mouseEvent.getScreenY());
-                	} else {
-                		commentItem.setText("Edit comment");
-                		removeCommentItem.setDisable(false);
-                		contextMenu.show(tableView, mouseEvent.getScreenX() , mouseEvent.getScreenY());
-                	}
-                }
+            	if (!tableView.getItems().isEmpty()) {
+	                if (mouseEvent.getButton().equals(MouseButton.PRIMARY)) {
+	                    if (mouseEvent.getClickCount() == 2) {
+	                    	
+	                    	showContentDialog();
+	                    }
+	                    
+	                    if (mouseEvent.getClickCount() == 1 && editAnnotationCheckMenuItem.isSelected()) {
+	                    	
+	                    	enableEditingForAnnotation(tableView.getSelectionModel().getSelectedIndex());
+	                    }
+	                    
+	                    if (mouseEvent.getClickCount() == 1 && viewAnnotationCheckMenuItem.isSelected()) {
+	                    	
+	                    	seekPlayerToAnnotation(tableView.getSelectionModel().getSelectedIndex());
+	                    }
+	                }
+	                
+	                if (mouseEvent.getButton().equals(MouseButton.SECONDARY)) {
+	                    
+	                	if (tableView.getSelectionModel().getSelectedItem().getComment() == null) {
+	                		commentItem.setText("Add comment");
+	                		removeCommentItem.setDisable(true);
+	                    	contextMenu.show(tableView, mouseEvent.getScreenX() , mouseEvent.getScreenY());
+	                	} else {
+	                		commentItem.setText("Edit comment");
+	                		removeCommentItem.setDisable(false);
+	                		contextMenu.show(tableView, mouseEvent.getScreenX() , mouseEvent.getScreenY());
+	                	}
+	                }
+            	}
             }
         });
 	}
@@ -1071,6 +1089,8 @@ public class MainViewController implements Initializable {
 	public void seekPlayerToAnnotation(int index) {
 		
 		mediaPlayer.seek(new Duration(annotations.get(index).getFromTime().getSec() * 1000));
+		timeSlider.setValue(mediaPlayer.getCurrentTime().toMillis() / mediaPlayer.getTotalDuration().toMillis() * 100);
+		timeStamp.setText(convertSecToTime((int)mediaPlayer.getCurrentTime().toSeconds()));
 	}
 
 	/**
@@ -1165,5 +1185,9 @@ public class MainViewController implements Initializable {
 	    }
 
 	    return true;
+	}
+
+	public void setHostServices(HostServices hostServices) {
+		this.hostServices = hostServices;
 	}
 }

@@ -35,6 +35,7 @@ public class StoresController implements Initializable {
 	private TableColumn<EObject, String> contentColumn;
 	private TableColumn<EObject, String> targetColumn;
 	private TableColumn<EObject, String> effectColumn;
+	
 	private AnnotationStores annotationsStore;
 	private String tableDescription;
 
@@ -42,31 +43,44 @@ public class StoresController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 	}
 
+	/**
+	 * A setter for the annotationsStore.
+	 * @param annotationsStore An annotation store to be set for the local variable.
+	 */
 	public void setAnnotationsStore(AnnotationStores annotationsStore) {
 		this.annotationsStore = annotationsStore;
 	}
 	
+	/**
+	 * A method that checks if the store has effects and sets the
+	 * text and the actions correctly for the history check box.
+	 */
 	public void setViewActions() {
 		if (!hasEffects(tableDescription)) {
 			historyCheckBox.setDisable(true);
 			historyCheckBox.setText("Show history (No changes to be shown)");
-		}
-		
-		historyCheckBox.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				if (historyCheckBox.isSelected()) {
-					getEffects(tableDescription);
-					hightlightEffects();
-					tableView.getColumns().add(effectColumn);
-				} else {
-					unhighlightEffects();
-					tableView.getColumns().remove(effectColumn);
+		} else {
+			historyCheckBox.setOnAction(new EventHandler<ActionEvent>() {
+				@Override
+				public void handle(ActionEvent event) {
+					if (historyCheckBox.isSelected()) {
+						getEffects(tableDescription);
+						hightlightEffects();
+						tableView.getColumns().add(effectColumn);
+					} else {
+						unhighlightEffects();
+						tableView.getColumns().remove(effectColumn);
+					}
 				}
-			}
-		});
+			});
+		}
 	}
 	
+	/**
+	 * A method to get the data from the EObjects to
+	 * the table view based on the store name.
+	 * @param storeName A string that represents the name of the store.
+	 */
 	@SuppressWarnings("unchecked")
 	public void setTableViewData(String storeName) {
 		
@@ -152,6 +166,9 @@ public class StoresController implements Initializable {
 		setViewActions();
 	}
 	
+	/**
+	 * a method to highlight the effects from the table view.
+	 */
 	public void hightlightEffects() {
 	    effectColumn.setCellFactory(column -> {
 	        return new TableCell<EObject, String>() {
@@ -176,6 +193,9 @@ public class StoresController implements Initializable {
 	    });
 	}
 	
+	/**
+	 * A method to unhighlight the effects from the table view.
+	 */
 	public void unhighlightEffects() {
 	    effectColumn.setCellFactory(column -> {
 	        return new TableCell<EObject, String>() {
@@ -194,6 +214,11 @@ public class StoresController implements Initializable {
 	    });
 	}
 	
+	/**
+	 * A method to put the effects from EObjects to the table view.
+	 * @param storeName The name of the store from which to collect
+	 * the effects.
+	 */
 	private void getEffects(String storeName) {
 			switch (storeName) {
 			case "Proposal store": {
@@ -288,6 +313,13 @@ public class StoresController implements Initializable {
 		}
 	}
 	
+	/**
+	 * A method that checks if a store has effects by
+	 * checking the instance and then verifying if there is
+	 * any effect in the list of elements.
+	 * @param storeName A string that represents the name of the store.
+	 * @return True if the store has at least one effect, false otherwise.
+	 */
 	public boolean hasEffects(String storeName) {
 		switch (storeName) {
 			case "Proposal store": {
