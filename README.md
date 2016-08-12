@@ -56,6 +56,12 @@ File format for annotations is *.videoannotationsdsl
 * Clicking on the **interpret button** opens a window to select the store to be viewed.
 * In the **store viewer** *(the window after pressing interpret button)* if there are any *effects* caused by annotations the window will have an *enabled* check box in the right corner which will highlight the *effects* by coloring red the lines that are removed and adding a new column **Affected by** which *specifies the id of the annotation which caused the removal*.
 
+### Annotation syntax
+```
+from fromTime to toTime annotate (ID, Sender, Type, Scope, Focus, "Content-Label", "Content", Target) #"comment"#
+```
+**Where fromTime and toTime are the time in seconds for where the annotation starts and ends.*
+
 ## Built With
 
 * Eclipse
@@ -73,7 +79,7 @@ This is version **1.0.0**.
 
 ## Authors
 
-* **Razvan-Gabriel Geangu** - *Initial work* - [GitHub](https://github.com/RazvanGeangu)
+* **Razvan-Gabriel Geangu** - *King's Undergraduate Research Fellow* - [GitHub](https://github.com/RazvanGeangu)
 
 See also the list of [contributors](https://github.kcl.ac.uk/videoAnnotation/Vatleo/contributors) who participated in this project.
 
