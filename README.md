@@ -4,7 +4,7 @@ This is an application that tries to respond to the needs of the TAFA paper (Tow
 
 Check the research experience report here: [KURF Report](https://www.dropbox.com/s/8v78phod017cbut/Razvan_Geangu_Report_KURF.pdf?dl=0)
 
-![Report Poster](https://photos-3.dropbox.com/t/2/AADrFbkuBm_C0u8YehjoyAPewV2LdKUV8VUQAJ2tR0w-Wg/12/57929798/jpeg/32x32/1/_/1/2/Poster.jpg/EOuF4CwY-soCIAcoBw/OTWsDJQaPQoAnwvVGuwb0_2uAKEcB9Vo0IIA0ynLox0?size=2048x1536&size_mode=3)
+![Report Poster](https://lh3.googleusercontent.com/p1IsI0pBXqZTsDbZ5xmA638Y5sCrnx80baCKq3po-V7Sdlb2KQaDQrr5b7wy-7sGIX_K1bYbuB8k4J8=w2560-h1276)
 
 ## Getting Started
 
