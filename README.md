@@ -2,9 +2,9 @@
 
 This is an application that tries to respond to the needs of the TAFA paper (Towards Agent Dialogue as a Tool for Capturing Software Design Discussions) written by Elizabeth Black, Peter McBurney, and Steffen Zschaler | Department of Informatics, King’s College London.
 
-Check the research experience report here: [KURF Report](https://www.dropbox.com/s/8v78phod017cbut/Razvan_Geangu_Report_KURF.pdf?dl=0)
+Check the research experience report here: [KURF Report](https://drive.google.com/open?id=0B75PkoKKan1Eby1YRm9fVGlYcE0)
 
-![Report Poster](https://lh3.googleusercontent.com/p1IsI0pBXqZTsDbZ5xmA638Y5sCrnx80baCKq3po-V7Sdlb2KQaDQrr5b7wy-7sGIX_K1bYbuB8k4J8=w2560-h1276)
+![Report Poster](https://lh5.googleusercontent.com/x1eR0iPBtGwf7fkwXsxtWAG18RX_SJ95AH_qQipMBHHSzrbZyy8V2x_THVVEw8dtiKzxZCXHkjMx8RY=w2536-h1298)
 
 ## Getting Started
 
